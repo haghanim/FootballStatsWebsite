@@ -1,0 +1,29 @@
+CREATE TABLE player_gk_basic_stats (
+player VARCHAR(255),
+season INT,
+squad VARCHAR(255),
+
+nation VARCHAR(255),
+pos VARCHAR(255),
+comp VARCHAR(255),
+born DECIMAL(10,4),
+
+goals_allowed DECIMAL(10,4),
+goals_allowed_per_90 DECIMAL(10,4),
+SoTA DECIMAL(10,4),
+Saves DECIMAL(10,4),
+save_percentage DECIMAL(10,4),
+wins DECIMAL(10,4),
+draws DECIMAL(10,4),
+losses DECIMAL(10,4),
+clean_sheet DECIMAL(10,4),
+clean_sheet_percentage DECIMAL(10,4),
+penalties_attempted DECIMAL(10,4),
+penalties_allowed DECIMAL(10,4),
+penalties_saved DECIMAL(10,4),
+penalties_missed DECIMAL(10,4),
+penalty_save_percentage DECIMAL(10,4),
+
+PRIMARY KEY (player, season, squad)
+)
+

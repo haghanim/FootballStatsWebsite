@@ -38,6 +38,25 @@ df_uel_3['Player'] = df_uel_3['Player'].apply(lambda x: x.split('\\')[0])
 df_uel_4['Player'] = df_uel_4['Player'].apply(lambda x: x.split('\\')[0])
 df_uel_5['Player'] = df_uel_5['Player'].apply(lambda x: x.split('\\')[0])
 
+# season
+df1['Season'] = 2017
+df2['Season'] = 2018
+df3['Season'] = 2019
+df4['Season'] = 2020
+df5['Season'] = 2021
+
+df_ucl_1['Season'] = 2017
+df_ucl_2['Season'] = 2018
+df_ucl_3['Season'] = 2019
+df_ucl_4['Season'] = 2020
+df_ucl_5['Season'] = 2021
+
+df_uel_1['Season'] = 2017
+df_uel_2['Season'] = 2018
+df_uel_3['Season'] = 2019
+df_uel_4['Season'] = 2020
+df_uel_5['Season'] = 2021
+
 # merge all dfs into master_df 
 dfs = [df1, df2, df3, df4, df5, 
 df_ucl_1, df_ucl_2, df_ucl_3, df_ucl_4, df_ucl_5, 
@@ -51,8 +70,8 @@ drop_cols = ['Rk', 'Age', 'MP', 'Starts', 'Min', '90s', 'Matches']
 master_df.drop(columns=drop_cols, inplace=True)
 
 # rename columns
-master_df.columns = ['Player', 'Nation', 'Pos', 'Squad', 'Comp', 'Born', 'GA', 'GA_per_90', 'SoTA', 'Saves', 'save_percentage', 'wins',
-       'draws', 'losses', 'clean_sheet', 'clean_sheet_percentage', 'penalties_attempted', 'penalties_allowed', 'penalties_saved', 'penalties_missed', 'penalty_save_percentage']
+master_df.columns = ['Player', 'Nation', 'Pos', 'Squad', 'Comp', 'Born', 'goals_allowed', 'goals_allowed_per_90', 'SoTA', 'Saves', 'save_percentage', 'wins',
+       'draws', 'losses', 'clean_sheet', 'clean_sheet_percentage', 'penalties_attempted', 'penalties_allowed', 'penalties_saved', 'penalties_missed', 'penalty_save_percentage',  'season']
 
 print(master_df)
 
