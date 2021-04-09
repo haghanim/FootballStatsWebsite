@@ -23,13 +23,11 @@ team_goals_against_while_playing INT,
 plus_minus_goals_while_playing INT,
 plus_minus_goals_while_playing_per_90 DECIMAL(5, 2),
 net_goals_while_playing_per_90 DECIMAL(5, 2),
-
-***
-Please rename and add these columns below:
-On-Off,onxG,onxGA,xG+/-,xG+/-90,On-Off
-
-***
-
+expected_team_goals_while_playing DECIMAL(5, 2),
+expected_team_goals_against_while_playing DECIMAL(5, 2),
+xg_difference_while_playing DECIMAL(5, 2),
+xg_difference_while_playing_per_90 DECIMAL(5, 2),
+net_xg_difference DECIMAL(5, 2),
 season INT,
 
 PRIMARY KEY (player_name, player_nation, player_birthyear, comp),
