@@ -28,6 +28,24 @@ df_uel_3['Player'] = df_uel_3['Player'].apply(lambda x: x.split('\\')[0])
 df_uel_4['Player'] = df_uel_4['Player'].apply(lambda x: x.split('\\')[0])
 df_uel_5['Player'] = df_uel_5['Player'].apply(lambda x: x.split('\\')[0])
 
+# Add Comp for UCL and Europa
+df_ucl_3['Comp'] = 'UCL'
+df_ucl_4['Comp'] = 'UCL'
+df_ucl_5['Comp'] = 'UCL'
+
+df_uel_3['Comp'] = 'Europa League'
+df_uel_4['Comp'] = 'Europa League'
+df_uel_5['Comp'] = 'Europa League'
+
+# Fix the team name to remove Eur
+df_ucl_3['Squad'] = df_ucl_3['Squad'].apply(lambda team: ' '.join(team.split()[1:]))
+df_ucl_4['Squad'] = df_ucl_4['Squad'].apply(lambda team: ' '.join(team.split()[1:]))
+df_ucl_5['Squad'] = df_ucl_5['Squad'].apply(lambda team: ' '.join(team.split()[1:]))
+
+df_uel_3['Squad'] = df_uel_3['Squad'].apply(lambda team: ' '.join(team.split()[1:]))
+df_uel_4['Squad'] = df_uel_4['Squad'].apply(lambda team: ' '.join(team.split()[1:]))
+df_uel_5['Squad'] = df_uel_5['Squad'].apply(lambda team: ' '.join(team.split()[1:]))
+
 # season
 df2['Season'] = 2018
 df3['Season'] = 2019
@@ -41,6 +59,15 @@ df_ucl_5['Season'] = 2021
 df_uel_3['Season'] = 2019
 df_uel_4['Season'] = 2020
 df_uel_5['Season'] = 2021
+
+# Add Comp for UCL and Europa
+df_ucl_3['Comp'] = 'UCL'
+df_ucl_4['Comp'] = 'UCL'
+df_ucl_5['Comp'] = 'UCL'
+
+df_uel_3['Comp'] = 'Europa League'
+df_uel_4['Comp'] = 'Europa League'
+df_uel_5['Comp'] = 'Europa League'
 
 # merge all dfs into master_df 
 dfs = [df2, df3, df4, df5, 
@@ -61,7 +88,6 @@ master_df.columns = ['Player', 'Nation', 'Pos', 'Squad', 'Comp', 'Born',
        'goal_kicks_long_percentage', 'goal_kick_len', 'crosses_attempted', 'crosses_stopped', 'stop_percentage', 'defensive_actions', 'AvgDist', 'Season']
 
 # Season
-
 
 # export master_df to csv 
 master_df.to_csv(r'/Users/markhaghani/Documents/GitHub/550FinalProject/CSVs/Advanced_Goalkeeper_Stats/gk_advanced_master.csv', index=False)
