@@ -13,21 +13,23 @@ minutes_per_match_played DECIMAL(5, 2),
 ninties_played DECIMAL(5, 2),
 starts INT,
 minutes_per_starts DECIMAL(5, 2),
-completed_matches DECIMAL(5, 2),
-sub_played DECIMAL(5, 2),
+completed_matches IN,
+sub_played IN,
 minues_per_sub INT,
 unused_sub INT,
 points_per_match DECIMAL(5, 2),
 team_goals_scored_while_playing INT,
 team_goals_against_while_playing INT,
-net_goals_while_playing DECIMAL(5, 2),
+plus_minus_goals_while_playing INT,
+plus_minus_goals_while_playing_per_90 DECIMAL(5, 2),
 net_goals_while_playing_per_90 DECIMAL(5, 2),
-***
 
+***
 Please rename and add these columns below:
 On-Off,onxG,onxGA,xG+/-,xG+/-90,On-Off
 
 ***
+
 season INT,
 
 PRIMARY KEY (player_name, player_nation, player_birthyear, comp),
