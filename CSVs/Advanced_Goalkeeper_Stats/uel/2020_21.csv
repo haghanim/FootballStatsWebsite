@@ -1,0 +1,98 @@
+ ,,,,,,,,,,Goals,,,Expected,,,,Launched,,,Passes,,,,Goal Kicks,,,Crosses,,,Sweeper,,,
+Rk,Player,Nation,Pos,Squad,Age,Born,90s,GA,PKA,FK,CK,OG,PSxG,PSxG/SoT,PSxG+/-,/90,Cmp,Att,Cmp%,Att,Thr,Launch%,AvgLen,Att,Launch%,AvgLen,Opp,Stp,Stp%,#OPA,#OPA/90,AvgDist,Matches
+1,Stanislav Agkatsev\Stanislav-Agkatsev,ru RUS,GK,ru Krasnodar,19-086,2002,1.0,1,0,0,0,0,1.8,0.36,+0.8,+0.81,6,9,66.7,19,4,26.3,27.5,6,66.7,44.2,5,0,0.0,2,2.00,13.4,Matches
+2,Igor Akinfeev\Igor-Akinfeev,ru RUS,GK,ru CSKA Moscow,34-362,1986,6.0,8,1,0,1,0,7.5,0.29,-0.5,-0.08,26,82,31.7,100,19,53.0,43.9,47,61.7,48.4,52,3,5.8,1,0.17,11.6,Matches
+3,Rúnar Alex Rúnarsson\Runar-Alex-Runarsson,is ISL,GK,eng Arsenal,26-046,1995,4.0,3,0,0,0,0,2.4,0.35,-0.6,-0.15,17,33,51.5,111,17,20.7,28.6,18,55.6,38.8,18,0,0.0,6,1.50,19.0,Matches
+4,Miguel Ángel Moyá\Miguel-Angel-Moya,es ESP,GK,es Real Sociedad,37-003,1984,1.0,0,0,0,0,0,0.0,0.01,0.0,+0.01,6,10,60.0,32,4,21.9,27.0,3,100.0,63.7,2,0,0.0,0,0.00,15.0,Matches
+5,Sergio Asenjo\Sergio-Asenjo,es ESP,GK,es Villarreal,31-281,1989,1.0,0,0,0,0,0,0.1,0.04,+0.1,+0.08,2,7,28.6,41,5,14.6,25.2,2,50.0,38.5,7,0,0.0,1,1.00,15.4,Matches
+6,Giorgos Athanasiadis\Giorgos-Athanasiadis,gr GRE,GK,gr AEK Athens,27-363,1993,1.0,3,1,0,0,0,2.2,0.53,-0.8,-0.77,9,21,42.9,26,6,61.5,44.8,7,71.4,49.9,6,1,16.7,0,0.00,13.1,Matches
+7,Scott Bain\Scott-Bain,sco SCO,GK,sco Celtic,29-134,1991,3.0,10,0,0,3,0,8.2,0.39,-1.8,-0.61,16,56,28.6,74,13,52.7,41.6,18,94.4,67.2,34,4,11.8,3,1.00,16.2,Matches
+8,Cristian Bălgrădean\Cristian-Balgradean,ro ROU,GK,ro CFR Cluj,33-015,1988,6.0,8,1,0,1,1,7.3,0.30,+0.3,+0.04,37,119,31.1,106,15,70.8,51.2,47,93.6,60.7,80,9,11.3,0,0.00,9.5,Matches
+9,David von Ballmoos\David-von-Ballmoos,ch SUI,GK,ch Young Boys,26-096,1994,8.0,10,0,0,2,0,8.0,0.23,-2.0,-0.28,36,114,31.6,180,39,45.0,40.2,55,60.0,49.4,54,2,3.7,7,1.00,13.0,Matches
+10,Vasilios Barkas\Vasilios-Barkas,gr GRE,GK,sco Celtic,26-310,1994,2.0,7,0,1,0,0,4.5,0.50,-2.5,-1.24,8,24,33.3,30,4,53.3,39.9,12,66.7,41.6,9,0,0.0,2,1.00,19.0,Matches
+11,Oliver Baumann\Oliver-Baumann,de GER,GK,de Hoffenheim,30-307,1990,7.0,6,0,0,1,0,5.7,0.41,-0.3,-0.05,33,73,45.2,221,31,27.1,29.2,34,38.2,37.1,34,2,5.9,9,1.29,17.7,Matches
+12,Filip Bednarek\Filip-Bednarek,pl POL,GK,pl Lech Poznań,28-191,1992,6.0,14,1,0,1,0,12.0,0.37,-2.0,-0.34,26,77,33.8,183,28,30.1,33.1,55,40.0,36.0,56,3,5.4,0,0.00,10.3,Matches
+13,Alireza Beiranvand\Alireza-Beiranvand,ir IRN,GK,be Antwerp,28-196,1992,1.8,4,1,0,0,0,3.3,0.24,-0.7,-0.39,8,35,22.9,66,14,42.4,37.6,13,53.8,44.9,13,1,7.7,1,0.54,14.5,Matches
+14,Walter Benítez\Walter-Benitez,ar ARG,GK,fr Nice,28-017,1993,5.0,15,0,0,5,0,9.8,0.33,-5.2,-1.03,24,53,45.3,143,15,33.6,30.1,37,13.5,22.2,23,0,0.0,2,0.40,14.5,Matches
+15,Justin Bijlow\Justin-Bijlow,nl NED,GK,nl Feyenoord,23-073,1998,3.0,5,3,0,0,1,5.2,0.30,+1.2,+0.39,17,60,28.3,82,16,59.8,43.2,14,78.6,52.1,24,1,4.2,3,1.00,15.2,Matches
+16,Marco Bizot\Marco-Bizot,nl NED,GK,nl AZ Alkmaar,30-026,1991,6.0,5,0,0,1,0,7.8,0.34,+2.8,+0.46,31,121,25.6,185,28,49.7,40.1,45,64.4,47.0,62,4,6.5,4,0.67,13.4,Matches
+17,Arnaud Bodart\Arnaud-Bodart,be BEL,GK,be Standard Liège,23-025,1998,6.0,14,5,0,1,0,12.5,0.31,-1.5,-0.26,26,79,32.9,141,21,41.8,38.2,50,40.0,36.5,36,3,8.3,3,0.50,13.1,Matches
+18,Pietro Boer\Pietro-Boer,it ITA,GK,it Roma,18-328,2002,1.0,3,0,0,0,0,2.1,0.69,-0.9,-0.92,2,4,50.0,27,8,14.8,26.1,3,0.0,10.0,10,0,0.0,1,1.00,14.9,Matches
+19,Sinan Bolat\Sinan-Bolat,tr TUR,GK,be Gent,32-214,1988,2.0,4,0,0,2,0,2.4,0.27,-1.6,-0.80,10,21,47.6,48,10,33.3,31.4,9,55.6,45.9,11,2,18.2,1,0.50,18.1,Matches
+20,Milan Borjan\Milan-Borjan,ca CAN,GK,rs Red Star,33-164,1987,8.0,7,2,0,0,1,8.9,0.21,+2.9,+0.37,71,178,39.9,254,37,55.1,42.8,64,59.4,43.5,75,8,10.7,4,0.50,13.5,Matches
+21,Gustavo Busatto\Gustavo-Busatto,br BRA,GK,bg CSKA Sofia,30-164,1990,6.0,7,1,0,1,0,7.8,0.30,+1.8,+0.36,38,111,34.2,143,12,58.7,47.4,38,71.1,55.9,46,2,4.3,2,0.40,13.0,Matches
+22,Heorhiy Bushchan\Heorhiy-Bushchan,ua UKR,GK,ua Dynamo Kyiv,26-309,1994,4.0,5,0,0,2,0,4.3,0.36,-0.7,-0.17,34,78,43.6,137,25,46.7,39.4,24,58.3,50.0,40,2,5.0,3,0.75,14.7,Matches
+23,Jean Butez\Jean-Butez,fr FRA,GK,be Antwerp,25-301,1995,5.0,3,0,0,0,0,3.3,0.25,+0.3,+0.06,34,100,34.0,160,24,42.5,40.2,39,82.1,57.4,32,5,15.6,2,0.40,14.3,Matches
+24,Yoan Cardinale\Yoan-Cardinale,fr FRA,GK,fr Nice,27-009,1994,1.0,1,0,0,0,0,1.0,0.34,0.0,+0.02,3,3,100.0,24,1,12.5,20.9,4,0.0,21.3,7,0,0.0,2,2.00,30.8,Matches
+25,Colin Coosemans\Colin-Coosemans,be BEL,GK,be Gent,28-245,1992,1.0,2,0,1,0,0,0.5,0.10,-1.5,-1.51,1,4,25.0,28,5,7.1,21.3,12,16.7,24.7,3,0,0.0,3,3.00,35.0,Matches
+26,Daniel\Daniel,br BRA,GK,il Maccabi Tel Aviv,25-351,1995,8.0,10,1,0,1,0,8.8,0.32,-1.2,-0.16,35,103,34.0,192,34,38.5,34.4,54,53.7,43.5,52,3,5.8,1,0.13,11.8,Matches
+27,Ortwin De Wolf\Ortwin-De-Wolf,be BEL,GK,be Antwerp,23-347,1997,1.2,7,3,0,0,0,5.1,0.32,-1.9,-1.61,5,11,45.5,26,7,30.8,31.2,6,50.0,46.5,5,0,0.0,3,2.60,23.5,Matches
+28,Gianluigi Donnarumma\Gianluigi-Donnarumma,it ITA,GK,it Milan,22-039,1999,8.0,12,2,0,2,0,10.7,0.31,-1.3,-0.17,44,68,64.7,228,40,23.2,28.2,47,31.9,32.4,61,6,9.8,4,0.50,13.6,Matches
+29,Aarón Escandell\Aaron-Escandell,es ESP,GK,es Granada,25-190,1995,1.0,0,0,0,0,0,0.6,0.64,+0.6,+0.64,13,23,56.5,26,2,57.7,44.4,9,88.9,59.9,10,1,10.0,2,2.00,20.0,Matches
+30,Fabiano\Fabiano,br BRA,GK,cy AC Omonia,33-035,1988,6.0,12,1,0,1,0,9.1,0.25,-2.9,-0.48,38,126,30.2,108,26,63.0,46.5,70,82.9,59.2,81,9,11.1,1,0.17,10.8,Matches
+31,Guillaume Faivre\Guillaume-Faivre,ch SUI,GK,ch Young Boys,34-044,1987,2.0,5,1,0,0,0,6.8,0.41,+1.8,+0.91,21,34,61.8,68,12,38.2,33.0,14,57.1,44.7,6,1,16.7,0,0.00,12.4,Matches
+32,Paul Gartler\Paul-Gartler,at AUT,GK,at Rapid Wien,24-026,1997,4.0,7,3,0,0,0,5.4,0.21,-1.6,-0.40,18,61,29.5,101,13,41.6,34.1,39,48.7,37.9,37,2,5.4,2,0.50,15.3,Matches
+33,Yevgeni Gorodov\Yevgeni-Gorodov,ru RUS,GK,ru Krasnodar,35-113,1985,1.0,3,0,0,1,0,2.3,0.25,-0.7,-0.73,5,14,35.7,24,5,37.5,31.9,7,71.4,49.7,4,0,0.0,0,0.00,11.5,Matches
+34,Joe Hart\Joe-Hart,eng ENG,GK,eng Tottenham,33-351,1987,5.9,4,0,0,0,0,3.7,0.23,-0.3,-0.06,52,101,51.5,143,29,60.1,43.4,26,57.7,46.9,39,7,17.9,4,0.68,16.1,Matches
+35,Lukáš Hasalík\Lukas-Hasalik,cz CZE,GK,cz Slovan Liberec,19-289,2001,1.0,5,0,0,2,0,2.5,0.23,-2.5,-2.52,13,30,43.3,20,2,90.0,60.7,12,100.0,62.8,15,2,13.3,0,0.00,8.2,Matches
+36,Conor Hazard\Conor-Hazard,nir NIR,GK,sco Celtic,23-031,1998,1.0,2,0,0,0,0,1.3,0.65,-0.7,-0.69,6,16,37.5,16,2,68.8,51.9,5,100.0,66.2,7,0,0.0,0,0.00,15.8,Matches
+37,Milan Heča\Milan-Heca,cz CZE,GK,cz Sparta Prague,30-015,1991,3.0,8,0,0,0,0,4.8,0.28,-3.2,-1.07,32,70,45.7,157,17,35.7,34.9,23,60.9,46.5,14,1,7.1,4,1.33,17.3,Matches
+38,Dean Henderson\Dean-Henderson,eng ENG,GK,eng Manchester Utd,24-024,1997,4.0,1,0,0,1,0,1.8,0.15,+0.8,+0.21,18,45,40.0,99,22,37.4,37.1,23,34.8,35.1,26,3,11.5,4,1.00,13.3,Matches
+39,Lukáš Hrádecký\Lukas-Hradecky,fi FIN,GK,de Leverkusen,31-132,1989,5.0,8,0,0,3,0,6.7,0.34,-1.3,-0.26,33,78,42.3,211,21,34.1,34.6,19,31.6,31.8,21,1,4.8,5,1.00,17.4,Matches
+40,Plamen Iliev\Plamen-Iliev,bg BUL,GK,bg Ludogorets,29-126,1991,5.0,16,1,0,3,1,15.3,0.40,+0.3,+0.05,41,115,35.7,160,33,48.1,38.8,74,51.4,40.1,66,2,3.0,1,0.20,9.8,Matches
+41,Milan Knobloch\Milan-Knobloch,cz CZE,GK,cz Slovan Liberec,28-225,1992,1.0,0,0,0,0,0,0.2,0.16,+0.2,+0.16,5,24,20.8,20,0,95.0,55.7,6,83.3,53.5,9,1,11.1,2,2.00,20.6,Matches
+42,Alexander Kofler\Alexander-Kofler,at AUT,GK,at Wolfsberger AC,34-150,1986,6.0,7,0,0,0,0,4.0,0.17,-3.0,-0.50,37,116,31.9,132,16,60.6,45.1,53,67.9,49.2,55,7,12.7,2,0.33,11.4,Matches
+43,Ondřej Kolář\Ondrej-Kolar,cz CZE,GK,cz Slavia Prague,26-170,1994,9.7,11,0,0,0,0,10.2,0.41,-0.8,-0.09,85,171,49.7,372,35,39.2,37.3,47,53.2,41.6,51,6,11.8,12,1.24,16.8,Matches
+44,Manuel Kuttin\Manuel-Kuttin,at AUT,GK,at Wolfsberger AC,27-109,1993,2.0,7,0,0,0,0,6.9,0.53,-0.1,-0.04,6,21,28.6,57,6,33.3,33.5,16,12.5,20.7,16,1,6.3,2,1.00,15.9,Matches
+45,Helton Leite\Helton-Leite,br BRA,GK,pt Benfica,30-154,1990,4.0,8,0,0,0,0,6.0,0.42,-2.0,-0.49,20,62,32.3,95,18,50.5,40.3,27,51.9,46.8,45,0,0.0,6,1.50,13.9,Matches
+46,Bernd Leno\Bernd-Leno,de GER,GK,eng Arsenal,29-032,1992,6.0,7,1,1,0,0,4.9,0.24,-2.1,-0.34,15,37,40.5,163,32,19.0,25.6,19,31.6,35.4,42,1,2.4,1,0.17,14.5,Matches
+47,Ohad Levita\Ohad-Levita,il ISR,GK,il Be'er Sheva,35-047,1986,5.0,13,0,1,1,2,10.1,0.30,-0.9,-0.17,27,72,37.5,81,19,50.6,39.6,52,59.6,42.9,77,1,1.3,1,0.20,10.6,Matches
+48,Andreas Linde\Andreas-Linde,se SWE,GK,no Molde,27-255,1993,10.0,17,0,0,2,2,14.4,0.25,-0.6,-0.06,58,163,35.6,230,49,44.3,40.2,80,76.3,57.1,125,9,7.2,1,0.10,11.1,Matches
+49,Dominik Livaković\Dominik-Livakovic,hr CRO,GK,hr Dinamo Zagreb,26-086,1995,9.3,5,0,0,0,0,8.6,0.23,+3.6,+0.38,59,211,28.0,216,30,65.7,49.1,80,86.3,61.3,87,5,5.7,2,0.21,13.9,Matches
+50,Hugo Lloris\Hugo-Lloris,fr FRA,GK,eng Tottenham,34-100,1986,4.3,5,1,0,0,0,4.5,0.28,-0.5,-0.11,17,50,34.0,81,17,46.9,37.3,19,63.2,43.2,14,0,0.0,1,0.23,15.5,Matches
+51,Niklas Lomb\Niklas-Lomb,de GER,GK,de Leverkusen,27-251,1993,3.0,6,0,0,2,0,4.6,0.36,-1.4,-0.46,20,53,37.7,136,20,35.3,34.2,16,31.3,31.2,25,4,16.0,1,0.33,13.9,Matches
+52,Pau López\Pau-Lopez,es ESP,GK,it Roma,26-113,1994,9.0,4,1,0,0,1,7.1,0.23,+4.1,+0.46,42,96,43.8,246,54,25.6,30.7,74,44.6,39.9,73,5,6.8,7,0.78,14.8,Matches
+53,Mike Maignan\Mike-Maignan,fr FRA,GK,fr Lille,25-128,1995,8.0,12,2,0,1,0,11.1,0.36,-0.9,-0.11,48,117,41.0,221,36,41.6,38.0,46,54.3,45.3,42,5,11.9,4,0.50,14.2,Matches
+54,Nick Marsman\Nick-Marsman,nl NED,GK,nl Feyenoord,30-186,1990,3.0,3,1,0,0,0,4.5,0.40,+1.5,+0.50,21,63,33.3,80,20,50.0,42.4,26,88.5,64.8,21,1,4.8,7,2.33,16.7,Matches
+55,Matheus\Matheus,br BRA,GK,pt Braga,28-260,1992,6.0,12,0,0,0,0,10.4,0.38,-1.6,-0.27,45,105,42.9,198,32,36.9,36.2,52,61.5,41.8,49,3,6.1,18,3.00,18.9,Matches
+56,Aaron McCarey\Aaron-McCarey,ie IRL,GK,ie Dundalk,29-081,1992,1.0,4,0,0,1,0,2.8,0.27,-1.2,-1.21,13,21,61.9,24,3,62.5,45.7,9,66.7,49.8,7,0,0.0,0,0.00,10.5,Matches
+57,Allan McGregor\Allan-McGregor,sco SCO,GK,sco Rangers,39-064,1982,9.0,15,1,1,0,2,8.4,0.34,-4.6,-0.51,45,111,40.5,227,47,41.0,36.8,73,24.7,29.2,80,6,7.5,11,1.22,16.9,Matches
+58,Jon McLaughlin\Jon-McLaughlin,sco SCO,GK,sco Rangers,33-208,1987,1.0,0,0,0,0,0,0.3,0.13,+0.3,+0.25,6,9,66.7,23,7,30.4,31.7,6,33.3,36.8,13,1,7.7,1,1.00,9.4,Matches
+59,Alex Meret\Alex-Meret,it ITA,GK,it Napoli,24-014,1997,5.0,5,0,0,0,0,4.3,0.30,-0.7,-0.15,11,14,78.6,103,10,11.7,23.3,20,10.0,22.1,25,0,0.0,7,1.40,21.7,Matches
+60,Simon Mignolet\Simon-Mignolet,be BEL,GK,be Club Brugge,33-030,1988,2.0,2,0,0,0,0,1.6,0.39,-0.4,-0.21,12,36,33.3,68,6,47.1,40.3,13,30.8,30.1,9,1,11.1,2,1.00,16.1,Matches
+61,Yvon Mvogo\Yvon-Mvogo,ch SUI,GK,nl PSV Eindhoven,26-303,1994,8.0,14,0,1,0,0,8.7,0.34,-5.3,-0.66,31,99,31.3,183,34,38.3,34.2,48,60.4,46.9,68,3,4.4,3,0.38,14.0,Matches
+62,Ivan Nevistić\Ivan-Nevistic,hr CRO,GK,hr Rijeka,22-248,1998,6.0,12,1,0,0,2,10.8,0.27,+0.8,+0.13,27,101,26.7,103,25,45.6,41.0,76,71.1,52.5,70,1,1.4,3,0.50,10.4,Matches
+63,Filip Nguyen\Filip-Nguyen,cz CZE,GK,cz Slovan Liberec,28-203,1992,4.0,8,1,0,1,0,5.9,0.24,-2.1,-0.53,33,90,36.7,77,12,80.5,55.1,31,90.3,63.5,36,2,5.6,2,0.50,12.1,Matches
+64,Florin Niță\Florin-Nita,ro ROU,GK,cz Sparta Prague,33-276,1987,3.0,4,0,0,0,0,5.9,0.35,+1.9,+0.64,21,59,35.6,121,22,38.8,37.8,21,57.1,44.9,35,1,2.9,0,0.00,10.8,Matches
+65,David Ospina\David-Ospina,co COL,GK,it Napoli,32-217,1988,3.0,2,0,0,1,0,5.2,0.37,+3.2,+1.08,15,35,42.9,102,7,30.4,30.7,7,57.1,39.9,38,1,2.6,0,0.00,11.5,Matches
+66,Alexandros Paschalakis\Alexandros-Paschalakis,gr GRE,GK,gr PAOK,31-251,1989,1.0,0,0,0,0,0,0.1,0.06,+0.1,+0.12,2,13,15.4,22,3,36.4,36.1,7,71.4,53.1,9,0,0.0,3,3.00,18.9,Matches
+67,Philipp Pentke\Philipp-Pentke,de GER,GK,de Hoffenheim,35-339,1985,1.0,1,0,0,0,0,1.5,0.42,+0.5,+0.54,7,13,53.8,38,5,31.6,30.2,3,33.3,30.3,7,0,0.0,2,2.00,19.4,Matches
+68,Raz Rahamim\Raz-Rahamim,il ISR,GK,il Be'er Sheva,24-130,1996,1.0,0,0,0,0,0,0.1,0.14,+0.1,+0.14,8,16,50.0,29,9,37.9,37.0,11,45.5,39.0,6,0,0.0,1,1.00,11.5,Matches
+69,Álex Remiro\Alex-Remiro,es ESP,GK,es Real Sociedad,26-012,1995,7.0,8,0,0,3,0,8.4,0.35,+0.4,+0.06,32,58,55.2,184,19,25.5,30.7,31,35.5,36.5,30,2,6.7,11,1.57,19.5,Matches
+70,Davy Roef\Davy-Roef,be BEL,GK,be Gent,27-058,1994,3.0,9,1,0,1,0,7.5,0.30,-1.5,-0.51,17,45,37.8,78,24,38.5,32.8,23,65.2,48.2,19,0,0.0,3,1.00,13.9,Matches
+71,Gary Rogers\Gary-Rogers,ie IRL,GK,ie Dundalk,39-192,1981,5.0,15,1,0,2,0,12.7,0.36,-2.3,-0.47,37,86,43.0,107,21,56.1,41.3,52,50.0,35.2,54,2,3.7,0,0.00,12.3,Matches
+72,Gerónimo Rulli\Geronimo-Rulli,ar ARG,GK,es Villarreal,28-320,1992,8.0,6,0,1,0,0,4.5,0.28,-1.5,-0.18,62,102,60.8,305,49,24.6,30.8,55,49.1,39.1,74,5,6.8,7,0.88,16.3,Matches
+73,José Sá\Jose-Sa,pt POR,GK,gr Olympiacos,28-078,1993,4.0,7,0,1,3,0,3.8,0.18,-3.2,-0.79,40,102,39.2,134,25,57.5,41.9,32,78.1,53.8,38,2,5.3,6,1.50,16.4,Matches
+74,Tiago Sá\Tiago-Sa,pt POR,GK,pt Braga,26-084,1995,2.0,3,0,0,0,0,2.1,0.42,-0.9,-0.45,20,28,71.4,57,20,31.6,31.3,17,58.8,42.3,13,1,7.7,4,2.00,16.0,Matches
+75,Məhəmmədəliyev Şahruddin Maqomedoviç\Mhmmdliyev-Sahruddin-Maqomedovic,az AZE,GK,az Qarabağ Ağdam,26-297,1994,5.0,10,3,0,1,0,10.3,0.27,+0.3,+0.07,34,69,49.3,170,42,30.6,33.8,30,56.7,43.6,48,4,8.3,6,1.20,17.7,Matches
+76,Mamadou Samassa\Mamadou-Samassa,ml MLI,GK,tr Sivasspor,31-048,1990,6.0,11,1,0,2,0,9.3,0.39,-1.7,-0.29,42,113,37.2,123,22,62.6,47.2,48,75.0,54.8,31,3,9.7,3,0.50,14.7,Matches
+77,Grzegorz Sandomierski\Grzegorz-Sandomierski,pl POL,GK,ro CFR Cluj,31-212,1989,0.0,2,1,0,0,0,1.9,0.98,-0.1,-10.74,0,1,0.0,1,0,100.0,65.0,0,,,0,0,,0,0.00,,Matches
+78,Alexander Schlager\Alexander-Schlager,at AUT,GK,at LASK,25-063,1996,6.0,12,3,1,0,1,10.9,0.52,-0.1,-0.02,47,131,35.9,193,10,58.5,42.2,28,64.3,48.0,31,3,9.7,6,1.00,16.2,Matches
+79,Kasper Schmeichel\Kasper-Schmeichel,dk DEN,GK,eng Leicester City,34-151,1986,6.0,6,0,0,0,0,4.2,0.22,-1.8,-0.30,41,102,40.2,181,27,44.8,39.3,39,53.8,46.3,39,1,2.6,3,0.50,12.5,Matches
+80,Mykyta Shevchenko\Mykyta-Shevchenko,ua UKR,GK,ua Zorya Luhansk,28-069,1993,4.0,9,0,0,1,1,7.6,0.43,-0.4,-0.10,34,72,47.2,140,17,39.3,34.4,32,53.1,43.9,35,3,8.6,0,0.00,9.2,Matches
+81,Rui Silva\Rui-Silva,pt POR,GK,es Granada,27-057,1994,9.0,7,1,0,0,1,8.8,0.26,+2.8,+0.31,85,202,42.1,253,19,57.7,44.5,74,75.7,55.1,69,3,4.3,9,1.00,15.1,Matches
+82,Cican Stankovic\Cican-Stankovic,at AUT,GK,at RB Salzburg,28-152,1992,2.0,4,1,0,0,0,3.0,0.28,-1.0,-0.52,7,16,43.8,35,8,34.3,33.1,9,44.4,42.9,9,1,11.1,0,0.00,15.6,Matches
+83,Maarten Stekelenburg\Maarten-Stekelenburg,nl NED,GK,nl Ajax,38-195,1982,4.0,2,1,0,0,0,2.2,0.21,+0.2,+0.06,28,71,39.4,140,23,42.1,37.5,23,52.2,39.9,31,7,22.6,1,0.25,12.9,Matches
+84,Vladislav Stoyanov\Vladislav-Stoyanov,bg BUL,GK,bg Ludogorets,33-301,1987,1.0,3,0,0,0,0,2.0,0.41,-1.0,-0.95,9,23,39.1,25,2,56.0,41.5,14,64.3,45.8,8,0,0.0,1,1.00,8.7,Matches
+85,Richard Strebinger\Richard-Strebinger,at AUT,GK,at Rapid Wien,28-050,1993,2.0,6,0,0,1,0,5.0,0.35,-1.0,-0.52,6,24,25.0,37,10,48.6,40.4,20,30.0,30.9,25,0,0.0,0,0.00,11.8,Matches
+86,Ciprian Tătărușanu\Ciprian-Tatarusanu,ro ROU,GK,it Milan,35-055,1986,2.0,0,0,0,0,0,1.0,0.26,+1.0,+0.51,8,25,32.0,60,10,31.7,31.2,10,60.0,45.1,21,1,4.8,1,0.50,15.5,Matches
+87,Anatolii Trubin\Anatolii-Trubin,ua UKR,GK,ua Shakhtar,19-247,2001,4.0,5,0,0,1,0,5.4,0.34,+0.4,+0.11,18,59,30.5,140,20,37.1,34.9,28,25.0,32.8,24,1,4.2,6,1.50,17.6,Matches
+88,Panagiotis Tsintotas\Panagiotis-Tsintotas,gr GRE,GK,gr AEK Athens,27-275,1993,5.0,12,1,0,4,0,8.8,0.26,-3.2,-0.64,24,82,29.3,115,29,46.1,38.4,46,63.0,46.1,52,5,9.6,2,0.40,14.7,Matches
+89,Matyáš Vágner\Matyas-Vagner,cz CZE,GK,cz Slavia Prague,18-059,2003,0.3,0,0,0,0,0,0.0,,0.0,0.00,1,3,33.3,5,2,40.0,35.6,1,100.0,66.0,1,1,100.0,0,0.00,17.0,Matches
+90,Nikola Vasilj\Nikola-Vasilj,ba BIH,GK,ua Zorya Luhansk,25-124,1995,2.0,2,0,0,0,0,2.1,0.24,+0.1,+0.06,8,26,30.8,63,6,38.1,34.8,7,28.6,36.1,16,1,6.3,0,0.00,12.5,Matches
+91,Odisseas Vlachodimos\Odisseas-Vlachodimos,gr GRE,GK,pt Benfica,26-344,1994,4.0,5,0,0,0,1,3.8,0.25,-0.2,-0.05,9,29,31.0,78,28,21.8,31.1,29,41.4,40.1,31,3,9.7,8,2.00,17.9,Matches
+92,Danny Ward\Danny-Ward,wal WAL,GK,eng Leicester City,27-287,1993,2.0,1,0,0,0,0,1.1,0.35,+0.1,+0.03,12,27,44.4,37,3,45.9,34.9,16,62.5,46.9,14,0,0.0,1,0.50,13.8,Matches
+93,Alfie Whiteman\Alfie-Whiteman,eng ENG,GK,eng Tottenham,22-185,1998,0.1,0,0,0,0,0,0.0,,0.0,0.00,0,0,,2,1,0.0,24.5,0,,,0,0,,0,0.00,,Matches
+94,Danijel Zagorac\Danijel-Zagorac,hr CRO,GK,hr Dinamo Zagreb,34-057,1987,1.0,0,0,0,0,0,0.0,,0.0,0.00,4,11,36.4,19,3,52.6,41.5,4,25.0,27.5,4,0,0.0,0,0.00,9.2,Matches
+95,Živko Živković\Zivko-Zivkovic,rs SRB,GK,gr PAOK,31-356,1989,5.0,7,2,0,0,0,6.4,0.27,-0.6,-0.13,30,68,44.1,113,23,43.4,37.1,33,57.6,45.1,32,4,12.5,3,0.60,16.7,Matches
+
