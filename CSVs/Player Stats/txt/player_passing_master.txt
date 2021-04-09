@@ -1,4 +1,3 @@
-Player,Nation,Born,Season,Squad,Comp,passes_completed,passes_attempted,pass_comp_pct,tot_dist_traveled_by_comp_passes,progressive_distance,short_passes_comp,short_pass_att,short_pass_comp_pct,med_passes_comp,med_pass_att,med_pass_comp_pct,long_passes_comp,long_pass_att,long_pass_comp_pct,assists,xA,A_minus_xA,assisted_shots,comp_passes_leading_to_final_third,comp_passes_into_18_yd_box,comp_crosses_into_18_yd_box,prog_passes
 Patrick van Aanholt,nl NED,1990.0,2018.0,Crystal Palace,eng Premier League,845.0,1116.0,75.7,15182.0,7109.0,363.0,411.0,88.3,377.0,471.0,80.0,88.0,183.0,48.1,1.0,1.5,-0.5,17.0,58.0,28.0,7.0,101.0
 Rolando Aarons,eng ENG,1995.0,2018.0,Newcastle Utd,eng Premier League,27.0,41.0,65.9,408.0,88.0,17.0,22.0,77.3,8.0,11.0,72.7,1.0,4.0,25.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0
 Rolando Aarons,eng ENG,1995.0,2018.0,Hellas Verona,it Serie A,81.0,115.0,70.4,1095.0,304.0,50.0,63.0,79.4,22.0,34.0,64.7,3.0,8.0,37.5,0.0,0.2,-0.2,3.0,5.0,6.0,1.0,9.0
