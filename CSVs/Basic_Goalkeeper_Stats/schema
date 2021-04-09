@@ -1,29 +1,32 @@
 CREATE TABLE player_gk_basic_stats (
-player VARCHAR(255),
-season INT,
+player_name VARCHAR(255),
+player_nation VARCHAR(255),
+pos VARCHAR(255),
 squad VARCHAR(255),
 
-nation VARCHAR(255),
-pos VARCHAR(255),
 comp VARCHAR(255),
-born DECIMAL(10,4),
+player_birthyear INT,
 
-goals_allowed DECIMAL(10,4),
-goals_allowed_per_90 DECIMAL(10,4),
-SoTA DECIMAL(10,4),
-Saves DECIMAL(10,4),
-save_percentage DECIMAL(10,4),
-wins DECIMAL(10,4),
-draws DECIMAL(10,4),
-losses DECIMAL(10,4),
-clean_sheet DECIMAL(10,4),
-clean_sheet_percentage DECIMAL(10,4),
-penalties_attempted DECIMAL(10,4),
-penalties_allowed DECIMAL(10,4),
-penalties_saved DECIMAL(10,4),
-penalties_missed DECIMAL(10,4),
-penalty_save_percentage DECIMAL(10,4),
+goals_allowed INT,
+goals_allowed_per_90 DECIMAL(5, 2),
+SoTA INT,
+Saves INT,
+save_percentage DECIMAL(5, 2),
+wins INT,
+draws INT,
+losses INT,
+clean_sheet INT,
+clean_sheet_percentage DECIMAL(5, 2),
+penalties_attempted INT,
+penalties_allowed INT,
+penalties_saved INT,
+penalties_missed INT,
+penalty_save_percentage DECIMAL(5, 2),
+season INT,
 
-PRIMARY KEY (player, season, squad)
+PRIMARY KEY (player_name, player_nation, player_birthyear, comp),
+FOREIGN KEY (player_name, player_nation, player_birthyear) REFERENCES Player_GK(name, nationality, year_born),
+FOREIGN KEY (squad) REFERENCES Team(name)
 )
+
 

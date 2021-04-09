@@ -1005,256 +1005,509 @@ Yoel,es ESP,GK,Eibar,es La Liga,1988,1,0.75,1,0,0.0,0.0,1.0,0.0,0,0.0,0.0,0.0,0.
 Robin Zentner,de GER,GK,Mainz 05,de Bundesliga,1994,41,1.58,117,80,68.4,6.0,7.0,13.0,4,15.4,5.0,4.0,0.0,1.0,0.0,2021
 Ron-Robert Zieler,de GER,GK,Köln,de Bundesliga,1989,1,1.76,2,2,100.0,0.0,0.0,0.0,0,,1.0,1.0,0.0,0.0,0.0,2021
 Jeroen Zoet,nl NED,GK,Spezia,it Serie A,1991,11,1.93,25,16,64.0,2.0,1.0,3.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2021
-Igor Akinfeev,ru RUS,GK,ru CSKA Moscow,,1986,11,1.83,40,29,72.5,0.0,3.0,3.0,0,0.0,0.0,0.0,0.0,0.0,,2017
-Miguel Ángel Moyá,es ESP,GK,es Atlético Madrid,,1984,2,2.0,5,3,60.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
-Alphonse Areola,fr FRA,GK,fr Paris S-G,,1993,7,1.17,13,6,53.8,3.0,3.0,0.0,1,16.7,2.0,1.0,1.0,0.0,50.0,2017
-Milan Borjan,ca CAN,GK,bg Ludogorets,,1987,3,3.0,4,1,25.0,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2017
-Claudio Bravo,cl CHI,GK,eng Manchester City,,1983,5,1.39,12,7,58.3,1.0,2.0,1.0,1,25.0,1.0,0.0,1.0,0.0,100.0,2017
-Gianluigi Buffon,it ITA,GK,it Juventus,,1978,7,0.58,27,20,74.1,8.0,3.0,1.0,8,66.7,1.0,0.0,1.0,0.0,100.0,2017
-Roman Bürki,ch SUI,GK,de Dortmund,,1990,10,1.25,27,17,63.0,4.0,1.0,3.0,3,37.5,1.0,0.0,0.0,1.0,,2017
-Ludovic Butelle,fr FRA,GK,be Club Brugge,,1983,14,2.33,45,31,75.6,0.0,0.0,6.0,0,0.0,5.0,3.0,1.0,1.0,25.0,2017
-Willy Caballero,ar ARG,GK,eng Manchester City,,1981,11,2.52,23,12,52.2,2.0,1.0,1.0,0,0.0,1.0,0.0,1.0,0.0,100.0,2017
-Kiko Casilla,es ESP,GK,es Real Madrid,,1986,1,1.0,4,3,75.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
-Iker Casillas,es ESP,GK,pt Porto,,1981,6,0.75,21,15,76.2,3.0,2.0,3.0,3,37.5,1.0,1.0,0.0,0.0,0.0,2017
-Radosław Cierzniak,pl POL,GK,pl Legia Warsaw,,1983,8,8.0,9,1,11.1,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2017
-Jasper Cillessen,nl NED,GK,es Barcelona,,1989,0,0.0,3,3,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2017
-Morgan De Sanctis,it ITA,GK,fr Monaco,,1977,3,3.0,7,4,57.1,0.0,0.0,1.0,0,0.0,1.0,0.0,0.0,1.0,,2017
-Soslan Dzhanayev,ru RUS,GK,ru Rostov,,1987,12,2.0,40,28,72.5,1.0,2.0,3.0,1,16.7,2.0,1.0,1.0,0.0,50.0,2017
-Ederson,br BRA,GK,pt Benfica,,1993,10,1.43,34,24,73.5,3.0,2.0,2.0,3,42.9,3.0,1.0,2.0,0.0,66.7,2017
-Craig Gordon,sco SCO,GK,sco Celtic,,1982,9,1.8,26,17,69.2,0.0,3.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2017
-Ben Hamer,eng ENG,GK,eng Leicester City,,1987,5,5.0,8,3,50.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2017
-Bernd Leno,de GER,GK,de Leverkusen,,1992,8,1.14,24,16,75.0,1.0,5.0,1.0,3,42.9,2.0,2.0,0.0,0.0,0.0,2017
-Dominik Livaković,hr CRO,GK,hr Dinamo Zagreb,,1995,8,2.0,34,26,76.5,0.0,0.0,4.0,0,0.0,0.0,0.0,0.0,0.0,,2017
-Hugo Lloris,fr FRA,GK,eng Tottenham,,1986,6,1.0,26,20,76.9,2.0,1.0,3.0,2,33.3,1.0,0.0,1.0,0.0,100.0,2017
-Anthony Lopes,pt POR,GK,fr Lyon,,1990,3,0.5,20,17,90.0,2.0,2.0,2.0,3,50.0,2.0,1.0,0.0,1.0,0.0,2017
-Arkadiusz Malarz,pl POL,GK,pl Legia Warsaw,,1980,16,3.2,46,30,65.2,1.0,1.0,3.0,1,20.0,0.0,0.0,0.0,0.0,,2017
-Keylor Navas,cr CRC,GK,es Real Madrid,,1986,17,1.38,50,33,74.0,8.0,3.0,1.0,1,8.3,5.0,4.0,0.0,1.0,0.0,2017
-Neto,br BRA,GK,it Juventus,,1989,0,0.0,2,2,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2017
-Manuel Neuer,de GER,GK,de Bayern Munich,,1986,11,1.18,48,37,77.1,6.0,0.0,3.0,2,22.2,2.0,0.0,1.0,1.0,100.0,2017
-Jan Oblak,si SVN,GK,es Atlético Madrid,,1993,7,0.64,48,41,85.4,7.0,2.0,2.0,6,54.5,1.0,0.0,1.0,0.0,100.0,2017
-Robin Olsen,se SWE,GK,dk FC Copenhagen,,1990,2,0.33,16,14,87.5,2.0,3.0,1.0,4,66.7,0.0,0.0,0.0,0.0,,2017
-David Ospina,co COL,GK,eng Arsenal,,1988,16,2.0,40,24,62.5,4.0,2.0,2.0,1,12.5,1.0,1.0,0.0,0.0,0.0,2017
-Ramazan Özcan,at AUT,GK,de Leverkusen,,1984,0,0.0,3,3,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2017
-Remko Pasveer,nl NED,GK,nl PSV Eindhoven,,1983,7,7.0,12,5,50.0,0.0,0.0,1.0,1,100.0,1.0,1.0,0.0,0.0,0.0,2017
-Rui Patrício,pt POR,GK,pt Sporting CP,,1988,8,1.33,19,11,57.9,1.0,0.0,5.0,1,16.7,0.0,0.0,0.0,0.0,,2017
-Pepe Reina,es ESP,GK,it Napoli,,1982,14,1.75,24,10,45.8,3.0,2.0,3.0,1,12.5,1.0,1.0,0.0,0.0,0.0,2017
-Sergio Rico,es ESP,GK,es Sevilla,,1993,6,0.75,26,20,80.8,4.0,2.0,2.0,5,62.5,1.0,1.0,0.0,0.0,0.0,2017
-Artur Rudko,ua UKR,GK,ua Dynamo Kyiv,,1992,4,0.8,19,15,89.5,1.0,2.0,2.0,2,40.0,2.0,2.0,0.0,0.0,0.0,2017
-Kasper Schmeichel,dk DEN,GK,eng Leicester City,,1986,4,0.5,31,27,90.3,4.0,2.0,2.0,5,62.5,3.0,1.0,2.0,0.0,66.7,2017
-Adrian Šemper,hr CRO,GK,hr Dinamo Zagreb,,1998,7,3.5,16,9,56.3,0.0,0.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2017
-Oleksandr Shovkovskiy,ua UKR,GK,ua Dynamo Kyiv,,1975,2,2.0,5,3,60.0,0.0,0.0,1.0,0,0.0,,,,,,2017
-Yann Sommer,ch SUI,GK,de M'Gladbach,,1988,12,2.0,38,26,73.7,1.0,2.0,3.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2017
-Vladislav Stoyanov,bg BUL,GK,bg Ludogorets,,1987,12,2.4,36,24,66.7,0.0,3.0,2.0,1,20.0,0.0,0.0,0.0,0.0,,2017
-Danijel Subašić,hr CRO,GK,fr Monaco,,1984,17,1.55,49,32,67.3,6.0,2.0,3.0,1,9.1,1.0,1.0,0.0,0.0,0.0,2017
-Marc-André ter Stegen,de GER,GK,es Barcelona,,1992,12,1.33,41,29,70.7,5.0,1.0,3.0,4,44.4,1.0,0.0,1.0,0.0,100.0,2017
-Kevin Trapp,de GER,GK,fr Paris S-G,,1990,2,1.0,8,6,100.0,1.0,0.0,1.0,1,50.0,2.0,2.0,0.0,0.0,0.0,2017
-Sven Ulreich,de GER,GK,de Bayern Munich,,1988,1,1.0,4,3,100.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2017
-Tomáš Vaclík,cz CZE,GK,ch Basel,,1989,12,2.0,30,18,63.3,0.0,2.0,4.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2017
-Dorus de Vries,nl NED,GK,sco Celtic,,1980,7,7.0,9,2,22.2,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2017
-Roman Weidenfeller,de GER,GK,de Dortmund,,1980,6,3.0,15,9,60.0,1.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
-Tolga Zengin,tr TUR,GK,tr Beşiktaş,,1983,1,1.0,6,5,83.3,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
-Ron-Robert Zieler,de GER,GK,eng Leicester City,,1989,1,1.0,3,2,66.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
-Jeroen Zoet,nl NED,GK,nl PSV Eindhoven,,1991,9,1.8,27,18,66.7,0.0,2.0,3.0,1,20.0,0.0,0.0,0.0,0.0,,2017
-Igor Akinfeev,ru RUS,GK,ru CSKA Moscow,,1986,10,1.67,38,28,76.3,3.0,0.0,3.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2018
-Alisson,br BRA,GK,it Roma,,1992,19,1.58,62,43,69.4,6.0,2.0,4.0,5,41.7,0.0,0.0,0.0,0.0,,2018
-Alphonse Areola,fr FRA,GK,fr Paris S-G,,1993,9,1.13,37,28,78.4,5.0,0.0,3.0,4,50.0,1.0,1.0,0.0,0.0,0.0,2018
-Diego Benaglio,ch SUI,GK,fr Monaco,,1983,7,2.33,17,10,58.8,0.0,1.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2018
-Frank Boeckx,be BEL,GK,be Anderlecht,,1986,8,2.67,17,9,52.9,1.0,0.0,2.0,1,33.3,0.0,0.0,0.0,0.0,,2018
-Claudio Bravo,cl CHI,GK,eng Manchester City,,1983,2,2.0,3,1,33.3,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2018
-Gianluigi Buffon,it ITA,GK,it Juventus,,1978,11,1.22,35,24,68.6,4.0,3.0,2.0,2,22.2,0.0,0.0,0.0,0.0,,2018
-Roman Bürki,ch SUI,GK,de Dortmund,,1990,13,2.17,36,23,63.9,0.0,2.0,4.0,0,0.0,0.0,0.0,0.0,0.0,,2018
-Kiko Casilla,es ESP,GK,es Real Madrid,,1986,3,1.5,8,5,62.5,1.0,0.0,1.0,1,50.0,0.0,0.0,0.0,0.0,,2018
-Iker Casillas,es ESP,GK,pt Porto,,1981,3,1.0,6,3,50.0,1.0,1.0,1.0,2,66.7,0.0,0.0,0.0,0.0,,2018
-Júlio César,br BRA,GK,pt Benfica,,1979,5,5.0,8,3,50.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
-Jasper Cillessen,nl NED,GK,es Barcelona,,1989,0,0.0,3,3,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2018
-Thibaut Courtois,be BEL,GK,eng Chelsea,,1992,12,1.5,33,21,66.7,3.0,3.0,2.0,2,25.0,1.0,1.0,0.0,0.0,0.0,2018
-Ederson,br BRA,GK,eng Manchester City,,1993,10,1.11,31,21,74.2,6.0,0.0,3.0,4,44.4,3.0,2.0,1.0,0.0,33.3,2018
-Fabricio,es ESP,GK,tr Beşiktaş,,1987,9,1.5,33,24,72.7,3.0,2.0,1.0,1,16.7,0.0,0.0,0.0,0.0,,2018
-David de Gea,es ESP,GK,eng Manchester Utd,,1990,3,0.5,25,22,88.0,4.0,1.0,1.0,4,66.7,0.0,0.0,0.0,0.0,,2018
-Craig Gordon,sco SCO,GK,sco Celtic,,1982,18,3.0,40,22,57.5,1.0,0.0,5.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2018
-Raúl Gudiño,mx MEX,GK,cy APOEL FC,,1996,1,2.0,3,2,66.7,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2018
-Péter Gulácsi,hu HUN,GK,de RB Leipzig,,1990,11,1.83,26,15,61.5,2.0,1.0,3.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
-Jasmin Handanović,si SVN,GK,si NK Maribor,,1978,16,2.67,45,29,66.7,0.0,3.0,3.0,0,0.0,2.0,1.0,1.0,0.0,50.0,2018
-Brad Jones,au AUS,GK,nl Feyenoord,,1982,13,2.6,25,12,48.0,0.0,0.0,5.0,0,0.0,0.0,0.0,0.0,0.0,,2018
-Stefanos Kapino,gr GRE,GK,gr Olympiacos,,1994,3,3.0,6,3,50.0,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2018
-Loris Karius,de GER,GK,eng Liverpool,,1993,16,1.23,39,23,66.7,7.0,4.0,2.0,6,46.2,3.0,3.0,0.0,0.0,0.0,2018
-Hugo Lloris,fr FRA,GK,eng Tottenham,,1986,8,1.14,26,18,76.9,4.0,2.0,1.0,1,14.3,3.0,2.0,0.0,1.0,0.0,2018
-Keylor Navas,cr CRC,GK,es Real Madrid,,1986,13,1.18,41,28,68.3,8.0,2.0,1.0,2,18.2,0.0,0.0,0.0,0.0,,2018
-Manuel Neuer,de GER,GK,de Bayern Munich,,1986,0,0.0,1,1,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2018
-Jan Oblak,si SVN,GK,es Atlético Madrid,,1993,4,0.67,18,14,77.8,1.0,4.0,1.0,3,50.0,0.0,0.0,0.0,0.0,,2018
-Rui Patrício,pt POR,GK,pt Sporting CP,,1988,9,1.5,28,19,67.9,2.0,1.0,3.0,0,0.0,0.0,0.0,0.0,0.0,,2018
-Nauzet Pérez,es ESP,GK,cy APOEL FC,,1985,10,3.33,19,9,47.4,0.0,1.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2018
-Silvio Proto,be BEL,GK,gr Olympiacos,,1983,10,2.0,24,14,58.3,0.0,1.0,4.0,1,20.0,0.0,0.0,0.0,0.0,,2018
-Andriy Pyatov,ua UKR,GK,ua Shakhtar,,1984,11,1.37,45,34,80.0,5.0,0.0,3.0,0,0.0,3.0,2.0,1.0,0.0,33.3,2018
-Artyom Rebrov,ru RUS,GK,ru Spartak Moscow,,1984,2,1.14,12,10,83.3,0.0,2.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2018
-Pepe Reina,es ESP,GK,it Napoli,,1982,11,1.83,30,19,63.3,2.0,0.0,4.0,1,16.7,1.0,0.0,1.0,0.0,100.0,2018
-Sergio Rico,es ESP,GK,es Sevilla,,1993,13,1.62,34,21,61.8,3.0,4.0,1.0,2,25.0,1.0,0.0,0.0,1.0,,2018
-Sergio Romero,ar ARG,GK,eng Manchester Utd,,1987,2,1.0,7,5,71.4,1.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2018
-José Sá,pt POR,GK,pt Porto,,1993,12,2.4,25,13,56.0,2.0,1.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
-Ibrahim Šehić,ba BIH,GK,az Qarabağ FK,,1988,14,2.33,47,33,74.5,0.0,2.0,4.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2018
-Aleksandr Selikhov,ru RUS,GK,ru Spartak Moscow,,1994,11,2.59,25,14,60.0,1.0,1.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
-Matz Sels,be BEL,GK,be Anderlecht,,1992,9,3.0,14,5,42.9,0.0,0.0,3.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
-David Soria,es ESP,GK,es Sevilla,,1993,2,1.0,10,8,80.0,0.0,1.0,1.0,1,50.0,0.0,0.0,0.0,0.0,,2018
-Danijel Subašić,hr CRO,GK,fr Monaco,,1984,7,2.33,11,4,54.5,0.0,1.0,2.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2018
-Mile Svilar,be BEL,GK,pt Benfica,,1999,5,1.67,13,8,69.2,0.0,0.0,3.0,0,0.0,2.0,1.0,1.0,0.0,50.0,2018
-Wojciech Szczęsny,pl POL,GK,it Juventus,,1990,0,0.0,4,4,125.0,1.0,0.0,0.0,1,100.0,1.0,1.0,0.0,0.0,0.0,2018
-Marc-André ter Stegen,de GER,GK,es Barcelona,,1992,6,0.67,22,16,77.3,5.0,3.0,1.0,5,55.6,1.0,1.0,0.0,0.0,0.0,2018
-Sven Ulreich,de GER,GK,de Bayern Munich,,1988,12,1.09,41,29,70.7,7.0,2.0,2.0,3,27.3,0.0,0.0,0.0,0.0,,2018
-Tomáš Vaclík,cz CZE,GK,ch Basel,,1989,10,1.25,27,17,63.0,5.0,0.0,3.0,4,50.0,0.0,0.0,0.0,0.0,,2018
-Bruno Varela,pt POR,GK,pt Benfica,,1994,4,2.0,10,6,70.0,0.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
-Kenneth Vermeer,nl NED,GK,nl Feyenoord,,1986,1,1.0,5,4,80.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2018
-Michel Vorm,nl NED,GK,eng Tottenham,,1983,0,0.0,1,1,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2018
-Boy Waterman,nl NED,GK,cy APOEL FC,,1984,6,2.4,11,5,54.5,0.0,1.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
-Igor Akinfeev,ru RUS,GK,ru CSKA Moscow,,1986,6,1.2,25,19,76.0,2.0,1.0,2.0,2,40.0,1.0,0.0,1.0,0.0,100.0,2019
-Alisson,br BRA,GK,eng Liverpool,,1992,12,0.92,57,46,78.9,8.0,1.0,4.0,6,46.2,0.0,0.0,0.0,0.0,,2019
-Alphonse Areola,fr FRA,GK,fr Paris S-G,,1993,6,2.0,15,10,66.7,1.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
-Loic Badiashile,fr FRA,GK,fr Monaco,,1998,1,1.0,5,4,80.0,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
-David von Ballmoos,ch SUI,GK,ch Young Boys,,1994,10,2.5,20,11,55.0,0.0,0.0,4.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
-Vasilios Barkas,gr GRE,GK,gr AEK Athens,,1994,13,2.17,38,27,71.1,0.0,0.0,6.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2019
-Oliver Baumann,de GER,GK,de Hoffenheim,,1990,14,2.33,45,31,68.9,0.0,3.0,3.0,0,0.0,0.0,0.0,0.0,0.0,,2019
-Diego Benaglio,ch SUI,GK,fr Monaco,,1983,10,2.22,17,8,47.1,0.0,0.0,5.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
-Milan Borjan,ca CAN,GK,rs Red Star,,1987,17,2.83,56,40,71.4,1.0,1.0,4.0,2,33.3,2.0,1.0,0.0,1.0,0.0,2019
-Gianluigi Buffon,it ITA,GK,fr Paris S-G,,1978,6,1.2,11,8,72.7,3.0,1.0,1.0,1,20.0,3.0,3.0,0.0,0.0,0.0,2019
-Roman Bürki,ch SUI,GK,de Dortmund,,1990,6,0.86,23,17,73.9,3.0,1.0,3.0,4,57.1,0.0,0.0,0.0,0.0,,2019
-Iker Casillas,es ESP,GK,pt Porto,,1981,15,1.45,32,20,62.5,6.0,1.0,3.0,1,10.0,5.0,3.0,0.0,2.0,0.0,2019
-Jasper Cillessen,nl NED,GK,es Barcelona,,1989,1,1.0,7,6,85.7,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
-Thibaut Courtois,be BEL,GK,es Real Madrid,,1992,8,1.6,29,21,72.4,3.0,0.0,2.0,2,40.0,0.0,0.0,0.0,0.0,,2019
-Jaume Doménech,es ESP,GK,es Valencia,,1990,1,1.0,5,4,80.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
-Ederson,br BRA,GK,eng Manchester City,,1993,12,1.2,28,19,67.9,7.0,1.0,2.0,3,30.0,3.0,3.0,0.0,0.0,0.0,2019
-Ralf Fährmann,de GER,GK,de Schalke 04,,1988,14,2.33,27,15,55.6,2.0,1.0,3.0,2,33.3,3.0,2.0,0.0,1.0,0.0,2019
-Paulo Gazzaniga,ar ARG,GK,eng Tottenham,,1992,1,1.0,4,3,75.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
-David de Gea,es ESP,GK,eng Manchester Utd,,1990,9,1.0,31,23,71.0,4.0,1.0,4.0,3,33.3,0.0,0.0,0.0,0.0,,2019
-Mathieu Gorgelin,fr FRA,GK,fr Lyon,,1990,3,4.82,4,1,25.0,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2019
-Samir Handanović,si SVN,GK,it Inter,,1984,7,1.17,43,36,83.7,2.0,2.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2019
-Marwin Hitz,ch SUI,GK,de Dortmund,,1987,0,0.0,0,0,,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2019
-Ethan Horvath,us USA,GK,be Club Brugge,,1995,0,0.0,11,11,100.0,1.0,2.0,0.0,3,100.0,0.0,0.0,0.0,0.0,,2019
-Aleš Hruška,cz CZE,GK,cz Viktoria Plzeň,,1985,9,2.25,22,14,63.6,2.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
-Matúš Kozáčik,sk SVK,GK,cz Viktoria Plzeň,,1983,7,3.5,19,13,68.4,0.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
-Georgii Kyrnats,ru RUS,GK,ru CSKA Moscow,,1998,0,,0,0,,0.0,0.0,0.0,1,,0.0,0.0,0.0,0.0,,2019
-Karlo Letica,hr CRO,GK,be Club Brugge,,1997,5,1.67,13,8,61.5,0.0,1.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2019
-Hugo Lloris,fr FRA,GK,eng Tottenham,,1986,15,1.38,43,29,67.4,5.0,2.0,4.0,4,36.4,2.0,1.0,1.0,0.0,50.0,2019
-Anthony Lopes,pt POR,GK,fr Lyon,,1990,13,1.76,48,36,75.0,1.0,6.0,1.0,1,12.5,1.0,1.0,0.0,0.0,0.0,2019
-Guilherme Marinato,ru RUS,GK,ru Loko Moscow,,1985,12,2.0,32,22,68.8,1.0,0.0,5.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2019
-Antonio Mirante,it ITA,GK,it Roma,,1983,3,1.5,7,4,57.1,1.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2019
-Fernando Muslera,uy URU,GK,tr Galatasaray,,1986,8,1.33,23,17,69.6,1.0,1.0,4.0,2,33.3,1.0,1.0,0.0,0.0,0.0,2019
-Keylor Navas,cr CRC,GK,es Real Madrid,,1986,2,0.67,9,7,77.8,2.0,0.0,1.0,1,33.3,0.0,0.0,0.0,0.0,,2019
-Neto,br BRA,GK,es Valencia,,1989,5,1.0,21,19,90.5,1.0,2.0,2.0,1,20.0,3.0,3.0,0.0,0.0,0.0,2019
-Manuel Neuer,de GER,GK,de Bayern Munich,,1986,8,1.0,29,22,75.9,4.0,3.0,1.0,4,50.0,1.0,1.0,0.0,0.0,0.0,2019
-Alexander Nübel,de GER,GK,de Schalke 04,,1996,0,0.0,3,3,100.0,1.0,1.0,0.0,2,100.0,0.0,0.0,0.0,0.0,,2019
-Jan Oblak,si SVN,GK,es Atlético Madrid,,1993,9,1.13,19,11,57.9,5.0,1.0,2.0,4,50.0,2.0,1.0,0.0,1.0,0.0,2019
-Robin Olsen,se SWE,GK,it Roma,,1990,9,1.42,37,29,78.4,3.0,0.0,3.0,2,33.3,1.0,1.0,0.0,0.0,0.0,2019
-André Onana,cm CMR,GK,nl Ajax,,1996,13,1.08,50,38,76.0,6.0,4.0,2.0,4,33.3,1.0,1.0,0.0,0.0,0.0,2019
-David Ospina,co COL,GK,it Napoli,,1988,5,0.83,21,17,76.2,2.0,3.0,1.0,2,33.3,0.0,0.0,0.0,0.0,,2019
-Ilya Pomazun,ru RUS,GK,ru CSKA Moscow,,1996,3,3.0,13,10,76.9,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2019
-Andriy Pyatov,ua UKR,GK,ua Shakhtar,,1984,16,2.67,34,20,58.8,1.0,3.0,2.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2019
-Sergio Romero,ar ARG,GK,eng Manchester Utd,,1987,2,2.0,4,3,50.0,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2019
-Danijel Subašić,hr CRO,GK,fr Monaco,,1984,3,6.0,5,2,40.0,,,,0,,1.0,0.0,0.0,1.0,,2019
-Wojciech Szczęsny,pl POL,GK,it Juventus,,1990,9,0.9,31,24,74.2,5.0,1.0,4.0,5,50.0,2.0,1.0,0.0,1.0,0.0,2019
-Marc-André ter Stegen,de GER,GK,es Barcelona,,1992,9,0.82,37,28,75.7,8.0,2.0,1.0,6,54.5,0.0,0.0,0.0,0.0,,2019
-Odisseas Vlachodimos,gr GRE,GK,pt Benfica,,1994,11,1.83,36,25,69.4,2.0,1.0,3.0,1,16.7,0.0,0.0,0.0,0.0,,2019
-Michel Vorm,nl NED,GK,eng Tottenham,,1983,3,2.73,5,2,40.0,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2019
-Marco Wölfli,ch SUI,GK,ch Young Boys,,1982,2,1.0,10,8,80.0,1.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
-Jeroen Zoet,nl NED,GK,nl PSV Eindhoven,,1991,13,2.17,51,38,74.5,0.0,2.0,4.0,0,0.0,0.0,0.0,0.0,0.0,,2019
-Adrián,es ESP,GK,eng Liverpool,,1987,8,2.4,15,8,53.3,1.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
-Alisson,br BRA,GK,eng Liverpool,,1992,4,0.8,16,12,75.0,3.0,1.0,1.0,1,20.0,0.0,0.0,0.0,0.0,,2020
-Alphonse Areola,fr FRA,GK,es Real Madrid,,1993,1,0.67,3,2,66.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2020
-Kepa Arrizabalaga,es ESP,GK,eng Chelsea,,1994,9,1.5,18,11,50.0,3.0,2.0,1.0,1,16.7,1.0,0.0,1.0,0.0,100.0,2020
-Milan Borjan,ca CAN,GK,rs Red Star,,1987,20,3.33,51,32,64.7,1.0,0.0,5.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2020
-Claudio Bravo,cl CHI,GK,eng Manchester City,,1983,2,1.44,3,1,33.3,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2020
-Gianluigi Buffon,it ITA,GK,it Juventus,,1978,0,0.0,1,1,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2020
-Roman Bürki,ch SUI,GK,de Dortmund,,1990,11,1.37,36,25,69.4,4.0,1.0,3.0,2,25.0,1.0,0.0,1.0,0.0,100.0,2020
-Willy Caballero,ar ARG,GK,eng Chelsea,,1981,7,3.5,12,6,50.0,0.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
-Leonardo César Jardim,br BRA,GK,fr Lille,,1995,0,0.0,1,1,100.0,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2020
-Jasper Cillessen,nl NED,GK,es Valencia,,1989,11,1.83,30,20,70.0,2.0,2.0,2.0,1,16.7,3.0,2.0,0.0,1.0,0.0,2020
-Carlos Coronel,br BRA,GK,at RB Salzburg,,1996,4,1.51,11,7,63.6,1.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2020
-Gaëtan Coucke,be BEL,GK,be Genk,,1998,16,3.2,35,18,54.3,0.0,1.0,4.0,1,20.0,0.0,0.0,0.0,0.0,,2020
-Thibaut Courtois,be BEL,GK,es Real Madrid,,1992,11,1.69,31,21,67.7,2.0,2.0,3.0,2,28.6,1.0,1.0,0.0,0.0,0.0,2020
-Jaume Doménech,es ESP,GK,es Valencia,,1990,4,2.0,7,3,42.9,1.0,0.0,1.0,1,50.0,0.0,0.0,0.0,0.0,,2020
-Ederson,br BRA,GK,eng Manchester City,,1993,7,0.93,22,16,72.7,5.0,2.0,1.0,2,25.0,1.0,1.0,0.0,0.0,0.0,2020
-Paulo Gazzaniga,ar ARG,GK,eng Tottenham,,1992,5,1.25,22,15,77.3,3.0,0.0,1.0,2,50.0,0.0,0.0,0.0,0.0,,2020
-Pierluigi Gollini,it ITA,GK,it Atalanta,,1995,13,1.86,31,19,61.3,3.0,1.0,3.0,2,28.6,2.0,1.0,0.0,1.0,0.0,2020
-Péter Gulácsi,hu HUN,GK,de RB Leipzig,,1990,12,1.24,44,32,75.0,6.0,2.0,2.0,3,30.0,1.0,1.0,0.0,0.0,0.0,2020
-Samir Handanović,si SVN,GK,it Inter,,1984,9,1.5,29,21,72.4,2.0,1.0,3.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2020
-Lukáš Hrádecký,fi FIN,GK,de Leverkusen,,1989,9,1.5,28,19,67.9,2.0,0.0,4.0,1,16.7,0.0,0.0,0.0,0.0,,2020
-Mikhail Kerzhakov,ru RUS,GK,ru Zenit,,1987,7,1.75,24,18,75.0,1.0,0.0,3.0,1,25.0,1.0,1.0,0.0,0.0,0.0,2020
-Anton Kochenkov,ru RUS,GK,ru Loko Moscow,,1987,2,2.0,4,3,75.0,0.0,0.0,1.0,0,0.0,2.0,1.0,1.0,0.0,50.0,2020
-Ondřej Kolář,cz CZE,GK,cz Slavia Prague,,1994,10,1.67,35,26,71.4,0.0,2.0,4.0,1,16.7,0.0,0.0,0.0,0.0,,2020
-Dominik Livaković,hr CRO,GK,hr Dinamo Zagreb,,1995,13,2.17,32,21,65.6,1.0,2.0,3.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2020
-Hugo Lloris,fr FRA,GK,eng Tottenham,,1986,13,3.25,24,12,54.2,0.0,1.0,3.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2020
-Anthony Lopes,pt POR,GK,fr Lyon,,1990,14,1.4,37,26,70.3,4.0,2.0,4.0,2,20.0,3.0,3.0,0.0,0.0,0.0,2020
-Andrey Lunyov,ru RUS,GK,ru Zenit,,1991,2,1.0,14,13,92.9,1.0,1.0,0.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
-Mike Maignan,fr FRA,GK,fr Lille,,1995,14,2.42,31,19,58.1,0.0,1.0,5.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
-Guilherme Marinato,ru RUS,GK,ru Loko Moscow,,1985,9,1.8,35,28,74.3,1.0,0.0,4.0,0,0.0,0.0,0.0,0.0,0.0,,2020
-Alex Meret,it ITA,GK,it Napoli,,1997,4,0.67,17,15,88.2,3.0,3.0,0.0,3,50.0,2.0,2.0,0.0,0.0,0.0,2020
-Simon Mignolet,be BEL,GK,be Club Brugge,,1988,12,2.0,24,12,50.0,0.0,3.0,3.0,1,16.7,0.0,0.0,0.0,0.0,,2020
-Fernando Muslera,uy URU,GK,tr Galatasaray,,1986,14,2.33,46,34,73.9,0.0,2.0,4.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2020
-Yvon Mvogo,ch SUI,GK,de RB Leipzig,,1994,0,0.0,2,2,100.0,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2020
-Keylor Navas,cr CRC,GK,fr Paris S-G,,1986,6,0.68,28,22,78.6,6.0,1.0,2.0,5,55.6,1.0,0.0,1.0,0.0,100.0,2020
-Neto,br BRA,GK,es Barcelona,,1989,1,1.0,7,6,85.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2020
-Manuel Neuer,de GER,GK,de Bayern Munich,,1986,8,0.73,33,27,78.8,11.0,0.0,0.0,6,54.5,1.0,1.0,0.0,0.0,0.0,2020
-Jan Oblak,si SVN,GK,es Atlético Madrid,,1993,9,0.96,30,22,70.0,5.0,1.0,3.0,4,44.4,0.0,0.0,0.0,0.0,,2020
-André Onana,cm CMR,GK,nl Ajax,,1996,6,1.0,28,24,85.7,3.0,1.0,2.0,3,50.0,3.0,2.0,0.0,1.0,0.0,2020
-David Ospina,co COL,GK,it Napoli,,1988,4,2.0,4,1,25.0,0.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
-Andriy Pyatov,ua UKR,GK,ua Shakhtar,,1984,13,2.17,32,20,62.5,1.0,3.0,2.0,0,0.0,2.0,1.0,1.0,0.0,50.0,2020
-Sergio Rico,es ESP,GK,fr Paris S-G,,1993,0,0.0,3,3,100.0,2.0,0.0,0.0,2,100.0,0.0,0.0,0.0,0.0,,2020
-José Sá,pt POR,GK,gr Olympiacos,,1993,14,2.33,34,21,61.8,1.0,1.0,4.0,1,16.7,2.0,1.0,0.0,1.0,0.0,2020
-Marco Sportiello,it ITA,GK,it Atalanta,,1992,5,2.5,13,8,61.5,1.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2020
-Cican Stankovic,at AUT,GK,at RB Salzburg,,1992,9,2.68,18,9,50.0,1.0,0.0,3.0,0,0.0,0.0,0.0,0.0,0.0,,2020
-Wojciech Szczęsny,pl POL,GK,it Juventus,,1990,6,0.86,21,16,76.2,5.0,1.0,1.0,2,28.6,1.0,1.0,0.0,0.0,0.0,2020
-Marc-André ter Stegen,de GER,GK,es Barcelona,,1992,13,1.62,36,23,66.7,4.0,3.0,1.0,2,25.0,2.0,1.0,1.0,0.0,50.0,2020
-Maarten Vandevoordt,be BEL,GK,be Genk,,2002,4,4.0,3,1,33.3,0.0,0.0,1.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2020
-Odisseas Vlachodimos,gr GRE,GK,pt Benfica,,1994,11,1.83,27,18,63.0,2.0,1.0,3.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2020
-Kyle Walker,eng ENG,DF,eng Manchester City,,1990,0,0.0,1,1,100.0,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2020
-Adrián,es ESP,GK,eng Liverpool,,1987,0,0.0,3,3,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2021
-Alisson,br BRA,GK,eng Liverpool,,1992,2,0.4,15,13,86.7,4.0,0.0,1.0,4,80.0,0.0,0.0,0.0,0.0,,2021
-Mikkel Andersen,dk DEN,GK,dk Midtjylland,,1988,4,2.0,5,2,40.0,0.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
-Kepa Arrizabalaga,es ESP,GK,eng Chelsea,,1994,1,1.0,2,1,50.0,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
-Yassine Bounou,ma MAR,GK,es Sevilla,,1991,6,1.2,20,16,80.0,2.0,2.0,1.0,2,40.0,3.0,2.0,1.0,0.0,33.3,2021
-Denys Boyko,ua UKR,GK,ua Dynamo Kyiv,,1988,2,2.0,4,2,50.0,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
-Gianluigi Buffon,it ITA,GK,it Juventus,,1978,0,0.0,7,7,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2021
-Roman Bürki,ch SUI,GK,de Dortmund,,1990,1,0.25,9,9,100.0,3.0,1.0,0.0,3,75.0,1.0,1.0,0.0,0.0,0.0,2021
-Heorhiy Bushchan,ua UKR,GK,ua Dynamo Kyiv,,1994,9,2.25,21,13,61.9,1.0,0.0,3.0,1,25.0,1.0,1.0,0.0,0.0,0.0,2021
-Diogo Costa,pt POR,GK,pt Porto,,1999,0,0.0,1,1,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2021
-Thibaut Courtois,be BEL,GK,es Real Madrid,,1992,10,1.25,24,15,58.3,5.0,1.0,2.0,3,37.5,0.0,0.0,0.0,0.0,,2021
-Dénes Dibusz,hu HUN,GK,hu Ferencváros,,1990,17,2.83,33,20,57.6,0.0,1.0,5.0,0,0.0,3.0,3.0,0.0,0.0,0.0,2021
-Ederson,br BRA,GK,eng Manchester City,,1993,1,0.14,10,8,90.0,6.0,1.0,0.0,6,85.7,0.0,0.0,0.0,0.0,,2021
-David de Gea,es ESP,GK,eng Manchester Utd,,1990,8,1.6,20,13,60.0,3.0,0.0,2.0,1,20.0,0.0,0.0,0.0,0.0,,2021
-Pierluigi Gollini,it ITA,GK,it Atalanta,,1995,1,0.33,6,5,83.3,2.0,0.0,1.0,2,66.7,0.0,0.0,0.0,0.0,,2021
-Alfred Gomis,sn SEN,GK,fr Rennes,,1993,7,1.75,17,12,70.6,0.0,1.0,3.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
-Yevgeni Gorodov,ru RUS,GK,ru Krasnodar,,1985,3,1.5,12,10,83.3,0.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
-Péter Gulácsi,hu HUN,GK,de RB Leipzig,,1990,16,2.0,33,21,60.6,4.0,0.0,4.0,1,12.5,4.0,3.0,1.0,0.0,25.0,2021
-Mert Günok,tr TUR,GK,tr Başakşehir,,1989,18,3.0,35,19,54.3,1.0,0.0,5.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
-Samir Handanović,si SVN,GK,it Inter,,1984,9,1.5,21,15,66.7,1.0,3.0,2.0,2,33.3,2.0,2.0,0.0,0.0,0.0,2021
-Jesper Hansen,dk DEN,GK,dk Midtjylland,,1985,9,2.25,30,20,70.0,0.0,2.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2021
-Dean Henderson,eng ENG,GK,eng Manchester Utd,,1997,2,2.0,3,1,33.3,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2021
-Marwin Hitz,ch SUI,GK,de Dortmund,,1987,8,2.0,20,14,65.0,2.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
-Ethan Horvath,us USA,GK,be Club Brugge,,1995,1,1.0,3,3,66.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
-Caoimhín Kelleher,ie IRL,GK,eng Liverpool,,1998,1,0.5,9,9,100.0,1.0,1.0,0.0,1,50.0,1.0,1.0,0.0,0.0,0.0,2021
-Mikhail Kerzhakov,ru RUS,GK,ru Zenit,,1987,13,2.17,26,16,61.5,0.0,1.0,5.0,0,0.0,3.0,3.0,0.0,0.0,0.0,2021
-Steve Mandanda,fr FRA,GK,fr Marseille,,1985,13,2.17,26,16,57.7,1.0,0.0,5.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
-Agustín Marchesín,ar ARG,GK,pt Porto,,1988,7,0.95,31,24,80.6,4.0,1.0,2.0,4,57.1,2.0,1.0,0.0,1.0,0.0,2021
-Guilherme Marinato,ru RUS,GK,ru Loko Moscow,,1985,11,1.83,33,23,66.7,0.0,3.0,3.0,1,16.7,0.0,0.0,0.0,0.0,,2021
-Edouard Mendy,sn SEN,GK,eng Chelsea,,1992,1,0.14,19,18,94.7,6.0,1.0,0.0,6,85.7,0.0,0.0,0.0,0.0,,2021
-Simon Mignolet,be BEL,GK,be Club Brugge,,1988,9,1.8,24,16,66.7,1.0,2.0,2.0,1,20.0,1.0,1.0,0.0,0.0,0.0,2021
-Keylor Navas,cr CRC,GK,fr Paris S-G,,1986,8,1.0,37,31,86.5,5.0,1.0,2.0,2,25.0,4.0,3.0,1.0,0.0,25.0,2021
-Ruslan Neshcheret,ua UKR,GK,ua Dynamo Kyiv,,2002,2,2.0,13,12,92.3,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
-Neto,br BRA,GK,es Barcelona,,1989,2,0.67,3,3,66.7,3.0,0.0,0.0,2,66.7,1.0,1.0,0.0,0.0,0.0,2021
-Manuel Neuer,de GER,GK,de Bayern Munich,,1986,5,0.83,36,31,86.1,6.0,0.0,0.0,2,33.3,0.0,0.0,0.0,0.0,,2021
-Alexander Nübel,de GER,GK,de Bayern Munich,,1996,2,1.0,5,3,60.0,1.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
-Jan Oblak,si SVN,GK,es Atlético Madrid,,1993,11,1.37,23,14,60.9,2.0,3.0,3.0,2,25.0,2.0,2.0,0.0,0.0,0.0,2021
-André Onana,cm CMR,GK,nl Ajax,,1996,7,1.17,27,22,77.8,2.0,1.0,3.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
-Alfonso Pastor,es ESP,GK,es Sevilla,,2000,4,4.0,5,2,40.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
-Andriy Pyatov,ua UKR,GK,ua Shakhtar,,1984,4,4.0,5,2,40.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
-Pepe Reina,es ESP,GK,it Lazio,,1982,12,1.71,26,17,61.5,1.0,4.0,2.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
-José Sá,pt POR,GK,gr Olympiacos,,1993,10,1.67,31,24,77.4,1.0,0.0,5.0,1,16.7,3.0,3.0,0.0,0.0,0.0,2021
-Matvei Safonov,ru RUS,GK,ru Krasnodar,,1999,8,2.0,28,21,78.6,1.0,1.0,2.0,1,25.0,3.0,2.0,0.0,1.0,0.0,2021
-Romain Salin,fr FRA,GK,fr Rennes,,1984,4,2.0,8,4,50.0,0.0,0.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2021
-Yann Sommer,ch SUI,GK,de M'Gladbach,,1988,13,1.62,35,21,62.9,2.0,2.0,4.0,2,25.0,0.0,0.0,0.0,0.0,,2021
-Marco Sportiello,it ITA,GK,it Atalanta,,1992,11,2.2,29,20,69.0,1.0,2.0,2.0,1,20.0,2.0,2.0,0.0,0.0,0.0,2021
-Cican Stankovic,at AUT,GK,at RB Salzburg,,1992,17,2.83,30,16,50.0,1.0,1.0,4.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
-Zack Steffen,us USA,GK,eng Manchester City,,1995,0,0.0,2,2,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2021
-Thomas Strakosha,al ALB,GK,it Lazio,,1995,1,1.0,7,6,85.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
-Wojciech Szczęsny,pl POL,GK,it Juventus,,1990,8,1.09,26,20,76.9,5.0,0.0,2.0,2,28.6,2.0,2.0,0.0,0.0,0.0,2021
-Marc-André ter Stegen,de GER,GK,es Barcelona,,1992,9,1.8,22,16,72.7,2.0,1.0,2.0,1,20.0,3.0,3.0,0.0,0.0,0.0,2021
-Anatolii Trubin,ua UKR,GK,ua Shakhtar,,2001,8,1.6,31,23,74.2,2.0,2.0,1.0,3,60.0,0.0,0.0,0.0,0.0,,2021
-Tomáš Vaclík,cz CZE,GK,es Sevilla,,1989,3,1.5,5,3,60.0,2.0,0.0,0.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Igor Akinfeev,ru RUS,GK,CSKA Moscow,UCL,1986,11,1.83,40,29,72.5,0.0,3.0,3.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Miguel Ángel Moyá,es ESP,GK,Atlético Madrid,UCL,1984,2,2.0,5,3,60.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Alphonse Areola,fr FRA,GK,Paris S-G,UCL,1993,7,1.17,13,6,53.8,3.0,3.0,0.0,1,16.7,2.0,1.0,1.0,0.0,50.0,2017
+Milan Borjan,ca CAN,GK,Ludogorets,UCL,1987,3,3.0,4,1,25.0,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Claudio Bravo,cl CHI,GK,Manchester City,UCL,1983,5,1.39,12,7,58.3,1.0,2.0,1.0,1,25.0,1.0,0.0,1.0,0.0,100.0,2017
+Gianluigi Buffon,it ITA,GK,Juventus,UCL,1978,7,0.58,27,20,74.1,8.0,3.0,1.0,8,66.7,1.0,0.0,1.0,0.0,100.0,2017
+Roman Bürki,ch SUI,GK,Dortmund,UCL,1990,10,1.25,27,17,63.0,4.0,1.0,3.0,3,37.5,1.0,0.0,0.0,1.0,,2017
+Ludovic Butelle,fr FRA,GK,Club Brugge,UCL,1983,14,2.33,45,31,75.6,0.0,0.0,6.0,0,0.0,5.0,3.0,1.0,1.0,25.0,2017
+Willy Caballero,ar ARG,GK,Manchester City,UCL,1981,11,2.52,23,12,52.2,2.0,1.0,1.0,0,0.0,1.0,0.0,1.0,0.0,100.0,2017
+Kiko Casilla,es ESP,GK,Real Madrid,UCL,1986,1,1.0,4,3,75.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Iker Casillas,es ESP,GK,Porto,UCL,1981,6,0.75,21,15,76.2,3.0,2.0,3.0,3,37.5,1.0,1.0,0.0,0.0,0.0,2017
+Radosław Cierzniak,pl POL,GK,Legia Warsaw,UCL,1983,8,8.0,9,1,11.1,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Jasper Cillessen,nl NED,GK,Barcelona,UCL,1989,0,0.0,3,3,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2017
+Morgan De Sanctis,it ITA,GK,Monaco,UCL,1977,3,3.0,7,4,57.1,0.0,0.0,1.0,0,0.0,1.0,0.0,0.0,1.0,,2017
+Soslan Dzhanayev,ru RUS,GK,Rostov,UCL,1987,12,2.0,40,28,72.5,1.0,2.0,3.0,1,16.7,2.0,1.0,1.0,0.0,50.0,2017
+Ederson,br BRA,GK,Benfica,UCL,1993,10,1.43,34,24,73.5,3.0,2.0,2.0,3,42.9,3.0,1.0,2.0,0.0,66.7,2017
+Craig Gordon,sco SCO,GK,Celtic,UCL,1982,9,1.8,26,17,69.2,0.0,3.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2017
+Ben Hamer,eng ENG,GK,Leicester City,UCL,1987,5,5.0,8,3,50.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2017
+Bernd Leno,de GER,GK,Leverkusen,UCL,1992,8,1.14,24,16,75.0,1.0,5.0,1.0,3,42.9,2.0,2.0,0.0,0.0,0.0,2017
+Dominik Livaković,hr CRO,GK,Dinamo Zagreb,UCL,1995,8,2.0,34,26,76.5,0.0,0.0,4.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Hugo Lloris,fr FRA,GK,Tottenham,UCL,1986,6,1.0,26,20,76.9,2.0,1.0,3.0,2,33.3,1.0,0.0,1.0,0.0,100.0,2017
+Anthony Lopes,pt POR,GK,Lyon,UCL,1990,3,0.5,20,17,90.0,2.0,2.0,2.0,3,50.0,2.0,1.0,0.0,1.0,0.0,2017
+Arkadiusz Malarz,pl POL,GK,Legia Warsaw,UCL,1980,16,3.2,46,30,65.2,1.0,1.0,3.0,1,20.0,0.0,0.0,0.0,0.0,,2017
+Keylor Navas,cr CRC,GK,Real Madrid,UCL,1986,17,1.38,50,33,74.0,8.0,3.0,1.0,1,8.3,5.0,4.0,0.0,1.0,0.0,2017
+Neto,br BRA,GK,Juventus,UCL,1989,0,0.0,2,2,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2017
+Manuel Neuer,de GER,GK,Bayern Munich,UCL,1986,11,1.18,48,37,77.1,6.0,0.0,3.0,2,22.2,2.0,0.0,1.0,1.0,100.0,2017
+Jan Oblak,si SVN,GK,Atlético Madrid,UCL,1993,7,0.64,48,41,85.4,7.0,2.0,2.0,6,54.5,1.0,0.0,1.0,0.0,100.0,2017
+Robin Olsen,se SWE,GK,FC Copenhagen,UCL,1990,2,0.33,16,14,87.5,2.0,3.0,1.0,4,66.7,0.0,0.0,0.0,0.0,,2017
+David Ospina,co COL,GK,Arsenal,UCL,1988,16,2.0,40,24,62.5,4.0,2.0,2.0,1,12.5,1.0,1.0,0.0,0.0,0.0,2017
+Ramazan Özcan,at AUT,GK,Leverkusen,UCL,1984,0,0.0,3,3,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2017
+Remko Pasveer,nl NED,GK,PSV Eindhoven,UCL,1983,7,7.0,12,5,50.0,0.0,0.0,1.0,1,100.0,1.0,1.0,0.0,0.0,0.0,2017
+Rui Patrício,pt POR,GK,Sporting CP,UCL,1988,8,1.33,19,11,57.9,1.0,0.0,5.0,1,16.7,0.0,0.0,0.0,0.0,,2017
+Pepe Reina,es ESP,GK,Napoli,UCL,1982,14,1.75,24,10,45.8,3.0,2.0,3.0,1,12.5,1.0,1.0,0.0,0.0,0.0,2017
+Sergio Rico,es ESP,GK,Sevilla,UCL,1993,6,0.75,26,20,80.8,4.0,2.0,2.0,5,62.5,1.0,1.0,0.0,0.0,0.0,2017
+Artur Rudko,ua UKR,GK,Dynamo Kyiv,UCL,1992,4,0.8,19,15,89.5,1.0,2.0,2.0,2,40.0,2.0,2.0,0.0,0.0,0.0,2017
+Kasper Schmeichel,dk DEN,GK,Leicester City,UCL,1986,4,0.5,31,27,90.3,4.0,2.0,2.0,5,62.5,3.0,1.0,2.0,0.0,66.7,2017
+Adrian Šemper,hr CRO,GK,Dinamo Zagreb,UCL,1998,7,3.5,16,9,56.3,0.0,0.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Oleksandr Shovkovskiy,ua UKR,GK,Dynamo Kyiv,UCL,1975,2,2.0,5,3,60.0,0.0,0.0,1.0,0,0.0,,,,,,2017
+Yann Sommer,ch SUI,GK,M'Gladbach,UCL,1988,12,2.0,38,26,73.7,1.0,2.0,3.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2017
+Vladislav Stoyanov,bg BUL,GK,Ludogorets,UCL,1987,12,2.4,36,24,66.7,0.0,3.0,2.0,1,20.0,0.0,0.0,0.0,0.0,,2017
+Danijel Subašić,hr CRO,GK,Monaco,UCL,1984,17,1.55,49,32,67.3,6.0,2.0,3.0,1,9.1,1.0,1.0,0.0,0.0,0.0,2017
+Marc-André ter Stegen,de GER,GK,Barcelona,UCL,1992,12,1.33,41,29,70.7,5.0,1.0,3.0,4,44.4,1.0,0.0,1.0,0.0,100.0,2017
+Kevin Trapp,de GER,GK,Paris S-G,UCL,1990,2,1.0,8,6,100.0,1.0,0.0,1.0,1,50.0,2.0,2.0,0.0,0.0,0.0,2017
+Sven Ulreich,de GER,GK,Bayern Munich,UCL,1988,1,1.0,4,3,100.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2017
+Tomáš Vaclík,cz CZE,GK,Basel,UCL,1989,12,2.0,30,18,63.3,0.0,2.0,4.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2017
+Dorus de Vries,nl NED,GK,Celtic,UCL,1980,7,7.0,9,2,22.2,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Roman Weidenfeller,de GER,GK,Dortmund,UCL,1980,6,3.0,15,9,60.0,1.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Tolga Zengin,tr TUR,GK,Beşiktaş,UCL,1983,1,1.0,6,5,83.3,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Ron-Robert Zieler,de GER,GK,Leicester City,UCL,1989,1,1.0,3,2,66.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Jeroen Zoet,nl NED,GK,PSV Eindhoven,UCL,1991,9,1.8,27,18,66.7,0.0,2.0,3.0,1,20.0,0.0,0.0,0.0,0.0,,2017
+Igor Akinfeev,ru RUS,GK,CSKA Moscow,UCL,1986,10,1.67,38,28,76.3,3.0,0.0,3.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2018
+Alisson,br BRA,GK,Roma,UCL,1992,19,1.58,62,43,69.4,6.0,2.0,4.0,5,41.7,0.0,0.0,0.0,0.0,,2018
+Alphonse Areola,fr FRA,GK,Paris S-G,UCL,1993,9,1.13,37,28,78.4,5.0,0.0,3.0,4,50.0,1.0,1.0,0.0,0.0,0.0,2018
+Diego Benaglio,ch SUI,GK,Monaco,UCL,1983,7,2.33,17,10,58.8,0.0,1.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Frank Boeckx,be BEL,GK,Anderlecht,UCL,1986,8,2.67,17,9,52.9,1.0,0.0,2.0,1,33.3,0.0,0.0,0.0,0.0,,2018
+Claudio Bravo,cl CHI,GK,Manchester City,UCL,1983,2,2.0,3,1,33.3,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Gianluigi Buffon,it ITA,GK,Juventus,UCL,1978,11,1.22,35,24,68.6,4.0,3.0,2.0,2,22.2,0.0,0.0,0.0,0.0,,2018
+Roman Bürki,ch SUI,GK,Dortmund,UCL,1990,13,2.17,36,23,63.9,0.0,2.0,4.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Kiko Casilla,es ESP,GK,Real Madrid,UCL,1986,3,1.5,8,5,62.5,1.0,0.0,1.0,1,50.0,0.0,0.0,0.0,0.0,,2018
+Iker Casillas,es ESP,GK,Porto,UCL,1981,3,1.0,6,3,50.0,1.0,1.0,1.0,2,66.7,0.0,0.0,0.0,0.0,,2018
+Júlio César,br BRA,GK,Benfica,UCL,1979,5,5.0,8,3,50.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
+Jasper Cillessen,nl NED,GK,Barcelona,UCL,1989,0,0.0,3,3,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2018
+Thibaut Courtois,be BEL,GK,Chelsea,UCL,1992,12,1.5,33,21,66.7,3.0,3.0,2.0,2,25.0,1.0,1.0,0.0,0.0,0.0,2018
+Ederson,br BRA,GK,Manchester City,UCL,1993,10,1.11,31,21,74.2,6.0,0.0,3.0,4,44.4,3.0,2.0,1.0,0.0,33.3,2018
+Fabricio,es ESP,GK,Beşiktaş,UCL,1987,9,1.5,33,24,72.7,3.0,2.0,1.0,1,16.7,0.0,0.0,0.0,0.0,,2018
+David de Gea,es ESP,GK,Manchester Utd,UCL,1990,3,0.5,25,22,88.0,4.0,1.0,1.0,4,66.7,0.0,0.0,0.0,0.0,,2018
+Craig Gordon,sco SCO,GK,Celtic,UCL,1982,18,3.0,40,22,57.5,1.0,0.0,5.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2018
+Raúl Gudiño,mx MEX,GK,APOEL FC,UCL,1996,1,2.0,3,2,66.7,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2018
+Péter Gulácsi,hu HUN,GK,RB Leipzig,UCL,1990,11,1.83,26,15,61.5,2.0,1.0,3.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
+Jasmin Handanović,si SVN,GK,NK Maribor,UCL,1978,16,2.67,45,29,66.7,0.0,3.0,3.0,0,0.0,2.0,1.0,1.0,0.0,50.0,2018
+Brad Jones,au AUS,GK,Feyenoord,UCL,1982,13,2.6,25,12,48.0,0.0,0.0,5.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Stefanos Kapino,gr GRE,GK,Olympiacos,UCL,1994,3,3.0,6,3,50.0,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Loris Karius,de GER,GK,Liverpool,UCL,1993,16,1.23,39,23,66.7,7.0,4.0,2.0,6,46.2,3.0,3.0,0.0,0.0,0.0,2018
+Hugo Lloris,fr FRA,GK,Tottenham,UCL,1986,8,1.14,26,18,76.9,4.0,2.0,1.0,1,14.3,3.0,2.0,0.0,1.0,0.0,2018
+Keylor Navas,cr CRC,GK,Real Madrid,UCL,1986,13,1.18,41,28,68.3,8.0,2.0,1.0,2,18.2,0.0,0.0,0.0,0.0,,2018
+Manuel Neuer,de GER,GK,Bayern Munich,UCL,1986,0,0.0,1,1,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2018
+Jan Oblak,si SVN,GK,Atlético Madrid,UCL,1993,4,0.67,18,14,77.8,1.0,4.0,1.0,3,50.0,0.0,0.0,0.0,0.0,,2018
+Rui Patrício,pt POR,GK,Sporting CP,UCL,1988,9,1.5,28,19,67.9,2.0,1.0,3.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Nauzet Pérez,es ESP,GK,APOEL FC,UCL,1985,10,3.33,19,9,47.4,0.0,1.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Silvio Proto,be BEL,GK,Olympiacos,UCL,1983,10,2.0,24,14,58.3,0.0,1.0,4.0,1,20.0,0.0,0.0,0.0,0.0,,2018
+Andriy Pyatov,ua UKR,GK,Shakhtar,UCL,1984,11,1.37,45,34,80.0,5.0,0.0,3.0,0,0.0,3.0,2.0,1.0,0.0,33.3,2018
+Artyom Rebrov,ru RUS,GK,Spartak Moscow,UCL,1984,2,1.14,12,10,83.3,0.0,2.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Pepe Reina,es ESP,GK,Napoli,UCL,1982,11,1.83,30,19,63.3,2.0,0.0,4.0,1,16.7,1.0,0.0,1.0,0.0,100.0,2018
+Sergio Rico,es ESP,GK,Sevilla,UCL,1993,13,1.62,34,21,61.8,3.0,4.0,1.0,2,25.0,1.0,0.0,0.0,1.0,,2018
+Sergio Romero,ar ARG,GK,Manchester Utd,UCL,1987,2,1.0,7,5,71.4,1.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+José Sá,pt POR,GK,Porto,UCL,1993,12,2.4,25,13,56.0,2.0,1.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
+Ibrahim Šehić,ba BIH,GK,Qarabağ FK,UCL,1988,14,2.33,47,33,74.5,0.0,2.0,4.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2018
+Aleksandr Selikhov,ru RUS,GK,Spartak Moscow,UCL,1994,11,2.59,25,14,60.0,1.0,1.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
+Matz Sels,be BEL,GK,Anderlecht,UCL,1992,9,3.0,14,5,42.9,0.0,0.0,3.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
+David Soria,es ESP,GK,Sevilla,UCL,1993,2,1.0,10,8,80.0,0.0,1.0,1.0,1,50.0,0.0,0.0,0.0,0.0,,2018
+Danijel Subašić,hr CRO,GK,Monaco,UCL,1984,7,2.33,11,4,54.5,0.0,1.0,2.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2018
+Mile Svilar,be BEL,GK,Benfica,UCL,1999,5,1.67,13,8,69.2,0.0,0.0,3.0,0,0.0,2.0,1.0,1.0,0.0,50.0,2018
+Wojciech Szczęsny,pl POL,GK,Juventus,UCL,1990,0,0.0,4,4,125.0,1.0,0.0,0.0,1,100.0,1.0,1.0,0.0,0.0,0.0,2018
+Marc-André ter Stegen,de GER,GK,Barcelona,UCL,1992,6,0.67,22,16,77.3,5.0,3.0,1.0,5,55.6,1.0,1.0,0.0,0.0,0.0,2018
+Sven Ulreich,de GER,GK,Bayern Munich,UCL,1988,12,1.09,41,29,70.7,7.0,2.0,2.0,3,27.3,0.0,0.0,0.0,0.0,,2018
+Tomáš Vaclík,cz CZE,GK,Basel,UCL,1989,10,1.25,27,17,63.0,5.0,0.0,3.0,4,50.0,0.0,0.0,0.0,0.0,,2018
+Bruno Varela,pt POR,GK,Benfica,UCL,1994,4,2.0,10,6,70.0,0.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
+Kenneth Vermeer,nl NED,GK,Feyenoord,UCL,1986,1,1.0,5,4,80.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Michel Vorm,nl NED,GK,Tottenham,UCL,1983,0,0.0,1,1,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2018
+Boy Waterman,nl NED,GK,APOEL FC,UCL,1984,6,2.4,11,5,54.5,0.0,1.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
+Igor Akinfeev,ru RUS,GK,CSKA Moscow,UCL,1986,6,1.2,25,19,76.0,2.0,1.0,2.0,2,40.0,1.0,0.0,1.0,0.0,100.0,2019
+Alisson,br BRA,GK,Liverpool,UCL,1992,12,0.92,57,46,78.9,8.0,1.0,4.0,6,46.2,0.0,0.0,0.0,0.0,,2019
+Alphonse Areola,fr FRA,GK,Paris S-G,UCL,1993,6,2.0,15,10,66.7,1.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
+Loic Badiashile,fr FRA,GK,Monaco,UCL,1998,1,1.0,5,4,80.0,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+David von Ballmoos,ch SUI,GK,Young Boys,UCL,1994,10,2.5,20,11,55.0,0.0,0.0,4.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
+Vasilios Barkas,gr GRE,GK,AEK Athens,UCL,1994,13,2.17,38,27,71.1,0.0,0.0,6.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2019
+Oliver Baumann,de GER,GK,Hoffenheim,UCL,1990,14,2.33,45,31,68.9,0.0,3.0,3.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Diego Benaglio,ch SUI,GK,Monaco,UCL,1983,10,2.22,17,8,47.1,0.0,0.0,5.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
+Milan Borjan,ca CAN,GK,Red Star,UCL,1987,17,2.83,56,40,71.4,1.0,1.0,4.0,2,33.3,2.0,1.0,0.0,1.0,0.0,2019
+Gianluigi Buffon,it ITA,GK,Paris S-G,UCL,1978,6,1.2,11,8,72.7,3.0,1.0,1.0,1,20.0,3.0,3.0,0.0,0.0,0.0,2019
+Roman Bürki,ch SUI,GK,Dortmund,UCL,1990,6,0.86,23,17,73.9,3.0,1.0,3.0,4,57.1,0.0,0.0,0.0,0.0,,2019
+Iker Casillas,es ESP,GK,Porto,UCL,1981,15,1.45,32,20,62.5,6.0,1.0,3.0,1,10.0,5.0,3.0,0.0,2.0,0.0,2019
+Jasper Cillessen,nl NED,GK,Barcelona,UCL,1989,1,1.0,7,6,85.7,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Thibaut Courtois,be BEL,GK,Real Madrid,UCL,1992,8,1.6,29,21,72.4,3.0,0.0,2.0,2,40.0,0.0,0.0,0.0,0.0,,2019
+Jaume Doménech,es ESP,GK,Valencia,UCL,1990,1,1.0,5,4,80.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Ederson,br BRA,GK,Manchester City,UCL,1993,12,1.2,28,19,67.9,7.0,1.0,2.0,3,30.0,3.0,3.0,0.0,0.0,0.0,2019
+Ralf Fährmann,de GER,GK,Schalke 04,UCL,1988,14,2.33,27,15,55.6,2.0,1.0,3.0,2,33.3,3.0,2.0,0.0,1.0,0.0,2019
+Paulo Gazzaniga,ar ARG,GK,Tottenham,UCL,1992,1,1.0,4,3,75.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+David de Gea,es ESP,GK,Manchester Utd,UCL,1990,9,1.0,31,23,71.0,4.0,1.0,4.0,3,33.3,0.0,0.0,0.0,0.0,,2019
+Mathieu Gorgelin,fr FRA,GK,Lyon,UCL,1990,3,4.82,4,1,25.0,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2019
+Samir Handanović,si SVN,GK,Inter,UCL,1984,7,1.17,43,36,83.7,2.0,2.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Marwin Hitz,ch SUI,GK,Dortmund,UCL,1987,0,0.0,0,0,,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2019
+Ethan Horvath,us USA,GK,Club Brugge,UCL,1995,0,0.0,11,11,100.0,1.0,2.0,0.0,3,100.0,0.0,0.0,0.0,0.0,,2019
+Aleš Hruška,cz CZE,GK,Viktoria Plzeň,UCL,1985,9,2.25,22,14,63.6,2.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
+Matúš Kozáčik,sk SVK,GK,Viktoria Plzeň,UCL,1983,7,3.5,19,13,68.4,0.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
+Georgii Kyrnats,ru RUS,GK,CSKA Moscow,UCL,1998,0,,0,0,,0.0,0.0,0.0,1,,0.0,0.0,0.0,0.0,,2019
+Karlo Letica,hr CRO,GK,Club Brugge,UCL,1997,5,1.67,13,8,61.5,0.0,1.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Hugo Lloris,fr FRA,GK,Tottenham,UCL,1986,15,1.38,43,29,67.4,5.0,2.0,4.0,4,36.4,2.0,1.0,1.0,0.0,50.0,2019
+Anthony Lopes,pt POR,GK,Lyon,UCL,1990,13,1.76,48,36,75.0,1.0,6.0,1.0,1,12.5,1.0,1.0,0.0,0.0,0.0,2019
+Guilherme Marinato,ru RUS,GK,Loko Moscow,UCL,1985,12,2.0,32,22,68.8,1.0,0.0,5.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2019
+Antonio Mirante,it ITA,GK,Roma,UCL,1983,3,1.5,7,4,57.1,1.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Fernando Muslera,uy URU,GK,Galatasaray,UCL,1986,8,1.33,23,17,69.6,1.0,1.0,4.0,2,33.3,1.0,1.0,0.0,0.0,0.0,2019
+Keylor Navas,cr CRC,GK,Real Madrid,UCL,1986,2,0.67,9,7,77.8,2.0,0.0,1.0,1,33.3,0.0,0.0,0.0,0.0,,2019
+Neto,br BRA,GK,Valencia,UCL,1989,5,1.0,21,19,90.5,1.0,2.0,2.0,1,20.0,3.0,3.0,0.0,0.0,0.0,2019
+Manuel Neuer,de GER,GK,Bayern Munich,UCL,1986,8,1.0,29,22,75.9,4.0,3.0,1.0,4,50.0,1.0,1.0,0.0,0.0,0.0,2019
+Alexander Nübel,de GER,GK,Schalke 04,UCL,1996,0,0.0,3,3,100.0,1.0,1.0,0.0,2,100.0,0.0,0.0,0.0,0.0,,2019
+Jan Oblak,si SVN,GK,Atlético Madrid,UCL,1993,9,1.13,19,11,57.9,5.0,1.0,2.0,4,50.0,2.0,1.0,0.0,1.0,0.0,2019
+Robin Olsen,se SWE,GK,Roma,UCL,1990,9,1.42,37,29,78.4,3.0,0.0,3.0,2,33.3,1.0,1.0,0.0,0.0,0.0,2019
+André Onana,cm CMR,GK,Ajax,UCL,1996,13,1.08,50,38,76.0,6.0,4.0,2.0,4,33.3,1.0,1.0,0.0,0.0,0.0,2019
+David Ospina,co COL,GK,Napoli,UCL,1988,5,0.83,21,17,76.2,2.0,3.0,1.0,2,33.3,0.0,0.0,0.0,0.0,,2019
+Ilya Pomazun,ru RUS,GK,CSKA Moscow,UCL,1996,3,3.0,13,10,76.9,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Andriy Pyatov,ua UKR,GK,Shakhtar,UCL,1984,16,2.67,34,20,58.8,1.0,3.0,2.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2019
+Sergio Romero,ar ARG,GK,Manchester Utd,UCL,1987,2,2.0,4,3,50.0,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Danijel Subašić,hr CRO,GK,Monaco,UCL,1984,3,6.0,5,2,40.0,,,,0,,1.0,0.0,0.0,1.0,,2019
+Wojciech Szczęsny,pl POL,GK,Juventus,UCL,1990,9,0.9,31,24,74.2,5.0,1.0,4.0,5,50.0,2.0,1.0,0.0,1.0,0.0,2019
+Marc-André ter Stegen,de GER,GK,Barcelona,UCL,1992,9,0.82,37,28,75.7,8.0,2.0,1.0,6,54.5,0.0,0.0,0.0,0.0,,2019
+Odisseas Vlachodimos,gr GRE,GK,Benfica,UCL,1994,11,1.83,36,25,69.4,2.0,1.0,3.0,1,16.7,0.0,0.0,0.0,0.0,,2019
+Michel Vorm,nl NED,GK,Tottenham,UCL,1983,3,2.73,5,2,40.0,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Marco Wölfli,ch SUI,GK,Young Boys,UCL,1982,2,1.0,10,8,80.0,1.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Jeroen Zoet,nl NED,GK,PSV Eindhoven,UCL,1991,13,2.17,51,38,74.5,0.0,2.0,4.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Adrián,es ESP,GK,Liverpool,UCL,1987,8,2.4,15,8,53.3,1.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
+Alisson,br BRA,GK,Liverpool,UCL,1992,4,0.8,16,12,75.0,3.0,1.0,1.0,1,20.0,0.0,0.0,0.0,0.0,,2020
+Alphonse Areola,fr FRA,GK,Real Madrid,UCL,1993,1,0.67,3,2,66.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2020
+Kepa Arrizabalaga,es ESP,GK,Chelsea,UCL,1994,9,1.5,18,11,50.0,3.0,2.0,1.0,1,16.7,1.0,0.0,1.0,0.0,100.0,2020
+Milan Borjan,ca CAN,GK,Red Star,UCL,1987,20,3.33,51,32,64.7,1.0,0.0,5.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2020
+Claudio Bravo,cl CHI,GK,Manchester City,UCL,1983,2,1.44,3,1,33.3,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2020
+Gianluigi Buffon,it ITA,GK,Juventus,UCL,1978,0,0.0,1,1,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2020
+Roman Bürki,ch SUI,GK,Dortmund,UCL,1990,11,1.37,36,25,69.4,4.0,1.0,3.0,2,25.0,1.0,0.0,1.0,0.0,100.0,2020
+Willy Caballero,ar ARG,GK,Chelsea,UCL,1981,7,3.5,12,6,50.0,0.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
+Leonardo César Jardim,br BRA,GK,Lille,UCL,1995,0,0.0,1,1,100.0,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2020
+Jasper Cillessen,nl NED,GK,Valencia,UCL,1989,11,1.83,30,20,70.0,2.0,2.0,2.0,1,16.7,3.0,2.0,0.0,1.0,0.0,2020
+Carlos Coronel,br BRA,GK,RB Salzburg,UCL,1996,4,1.51,11,7,63.6,1.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2020
+Gaëtan Coucke,be BEL,GK,Genk,UCL,1998,16,3.2,35,18,54.3,0.0,1.0,4.0,1,20.0,0.0,0.0,0.0,0.0,,2020
+Thibaut Courtois,be BEL,GK,Real Madrid,UCL,1992,11,1.69,31,21,67.7,2.0,2.0,3.0,2,28.6,1.0,1.0,0.0,0.0,0.0,2020
+Jaume Doménech,es ESP,GK,Valencia,UCL,1990,4,2.0,7,3,42.9,1.0,0.0,1.0,1,50.0,0.0,0.0,0.0,0.0,,2020
+Ederson,br BRA,GK,Manchester City,UCL,1993,7,0.93,22,16,72.7,5.0,2.0,1.0,2,25.0,1.0,1.0,0.0,0.0,0.0,2020
+Paulo Gazzaniga,ar ARG,GK,Tottenham,UCL,1992,5,1.25,22,15,77.3,3.0,0.0,1.0,2,50.0,0.0,0.0,0.0,0.0,,2020
+Pierluigi Gollini,it ITA,GK,Atalanta,UCL,1995,13,1.86,31,19,61.3,3.0,1.0,3.0,2,28.6,2.0,1.0,0.0,1.0,0.0,2020
+Péter Gulácsi,hu HUN,GK,RB Leipzig,UCL,1990,12,1.24,44,32,75.0,6.0,2.0,2.0,3,30.0,1.0,1.0,0.0,0.0,0.0,2020
+Samir Handanović,si SVN,GK,Inter,UCL,1984,9,1.5,29,21,72.4,2.0,1.0,3.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2020
+Lukáš Hrádecký,fi FIN,GK,Leverkusen,UCL,1989,9,1.5,28,19,67.9,2.0,0.0,4.0,1,16.7,0.0,0.0,0.0,0.0,,2020
+Mikhail Kerzhakov,ru RUS,GK,Zenit,UCL,1987,7,1.75,24,18,75.0,1.0,0.0,3.0,1,25.0,1.0,1.0,0.0,0.0,0.0,2020
+Anton Kochenkov,ru RUS,GK,Loko Moscow,UCL,1987,2,2.0,4,3,75.0,0.0,0.0,1.0,0,0.0,2.0,1.0,1.0,0.0,50.0,2020
+Ondřej Kolář,cz CZE,GK,Slavia Prague,UCL,1994,10,1.67,35,26,71.4,0.0,2.0,4.0,1,16.7,0.0,0.0,0.0,0.0,,2020
+Dominik Livaković,hr CRO,GK,Dinamo Zagreb,UCL,1995,13,2.17,32,21,65.6,1.0,2.0,3.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2020
+Hugo Lloris,fr FRA,GK,Tottenham,UCL,1986,13,3.25,24,12,54.2,0.0,1.0,3.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2020
+Anthony Lopes,pt POR,GK,Lyon,UCL,1990,14,1.4,37,26,70.3,4.0,2.0,4.0,2,20.0,3.0,3.0,0.0,0.0,0.0,2020
+Andrey Lunyov,ru RUS,GK,Zenit,UCL,1991,2,1.0,14,13,92.9,1.0,1.0,0.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
+Mike Maignan,fr FRA,GK,Lille,UCL,1995,14,2.42,31,19,58.1,0.0,1.0,5.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
+Guilherme Marinato,ru RUS,GK,Loko Moscow,UCL,1985,9,1.8,35,28,74.3,1.0,0.0,4.0,0,0.0,0.0,0.0,0.0,0.0,,2020
+Alex Meret,it ITA,GK,Napoli,UCL,1997,4,0.67,17,15,88.2,3.0,3.0,0.0,3,50.0,2.0,2.0,0.0,0.0,0.0,2020
+Simon Mignolet,be BEL,GK,Club Brugge,UCL,1988,12,2.0,24,12,50.0,0.0,3.0,3.0,1,16.7,0.0,0.0,0.0,0.0,,2020
+Fernando Muslera,uy URU,GK,Galatasaray,UCL,1986,14,2.33,46,34,73.9,0.0,2.0,4.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2020
+Yvon Mvogo,ch SUI,GK,RB Leipzig,UCL,1994,0,0.0,2,2,100.0,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2020
+Keylor Navas,cr CRC,GK,Paris S-G,UCL,1986,6,0.68,28,22,78.6,6.0,1.0,2.0,5,55.6,1.0,0.0,1.0,0.0,100.0,2020
+Neto,br BRA,GK,Barcelona,UCL,1989,1,1.0,7,6,85.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2020
+Manuel Neuer,de GER,GK,Bayern Munich,UCL,1986,8,0.73,33,27,78.8,11.0,0.0,0.0,6,54.5,1.0,1.0,0.0,0.0,0.0,2020
+Jan Oblak,si SVN,GK,Atlético Madrid,UCL,1993,9,0.96,30,22,70.0,5.0,1.0,3.0,4,44.4,0.0,0.0,0.0,0.0,,2020
+André Onana,cm CMR,GK,Ajax,UCL,1996,6,1.0,28,24,85.7,3.0,1.0,2.0,3,50.0,3.0,2.0,0.0,1.0,0.0,2020
+David Ospina,co COL,GK,Napoli,UCL,1988,4,2.0,4,1,25.0,0.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
+Andriy Pyatov,ua UKR,GK,Shakhtar,UCL,1984,13,2.17,32,20,62.5,1.0,3.0,2.0,0,0.0,2.0,1.0,1.0,0.0,50.0,2020
+Sergio Rico,es ESP,GK,Paris S-G,UCL,1993,0,0.0,3,3,100.0,2.0,0.0,0.0,2,100.0,0.0,0.0,0.0,0.0,,2020
+José Sá,pt POR,GK,Olympiacos,UCL,1993,14,2.33,34,21,61.8,1.0,1.0,4.0,1,16.7,2.0,1.0,0.0,1.0,0.0,2020
+Marco Sportiello,it ITA,GK,Atalanta,UCL,1992,5,2.5,13,8,61.5,1.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2020
+Cican Stankovic,at AUT,GK,RB Salzburg,UCL,1992,9,2.68,18,9,50.0,1.0,0.0,3.0,0,0.0,0.0,0.0,0.0,0.0,,2020
+Wojciech Szczęsny,pl POL,GK,Juventus,UCL,1990,6,0.86,21,16,76.2,5.0,1.0,1.0,2,28.6,1.0,1.0,0.0,0.0,0.0,2020
+Marc-André ter Stegen,de GER,GK,Barcelona,UCL,1992,13,1.62,36,23,66.7,4.0,3.0,1.0,2,25.0,2.0,1.0,1.0,0.0,50.0,2020
+Maarten Vandevoordt,be BEL,GK,Genk,UCL,2002,4,4.0,3,1,33.3,0.0,0.0,1.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2020
+Odisseas Vlachodimos,gr GRE,GK,Benfica,UCL,1994,11,1.83,27,18,63.0,2.0,1.0,3.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2020
+Kyle Walker,eng ENG,DF,Manchester City,UCL,1990,0,0.0,1,1,100.0,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2020
+Adrián,es ESP,GK,Liverpool,UCL,1987,0,0.0,3,3,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2021
+Alisson,br BRA,GK,Liverpool,UCL,1992,2,0.4,15,13,86.7,4.0,0.0,1.0,4,80.0,0.0,0.0,0.0,0.0,,2021
+Mikkel Andersen,dk DEN,GK,Midtjylland,UCL,1988,4,2.0,5,2,40.0,0.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Kepa Arrizabalaga,es ESP,GK,Chelsea,UCL,1994,1,1.0,2,1,50.0,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Yassine Bounou,ma MAR,GK,Sevilla,UCL,1991,6,1.2,20,16,80.0,2.0,2.0,1.0,2,40.0,3.0,2.0,1.0,0.0,33.3,2021
+Denys Boyko,ua UKR,GK,Dynamo Kyiv,UCL,1988,2,2.0,4,2,50.0,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Gianluigi Buffon,it ITA,GK,Juventus,UCL,1978,0,0.0,7,7,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2021
+Roman Bürki,ch SUI,GK,Dortmund,UCL,1990,1,0.25,9,9,100.0,3.0,1.0,0.0,3,75.0,1.0,1.0,0.0,0.0,0.0,2021
+Heorhiy Bushchan,ua UKR,GK,Dynamo Kyiv,UCL,1994,9,2.25,21,13,61.9,1.0,0.0,3.0,1,25.0,1.0,1.0,0.0,0.0,0.0,2021
+Diogo Costa,pt POR,GK,Porto,UCL,1999,0,0.0,1,1,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2021
+Thibaut Courtois,be BEL,GK,Real Madrid,UCL,1992,10,1.25,24,15,58.3,5.0,1.0,2.0,3,37.5,0.0,0.0,0.0,0.0,,2021
+Dénes Dibusz,hu HUN,GK,Ferencváros,UCL,1990,17,2.83,33,20,57.6,0.0,1.0,5.0,0,0.0,3.0,3.0,0.0,0.0,0.0,2021
+Ederson,br BRA,GK,Manchester City,UCL,1993,1,0.14,10,8,90.0,6.0,1.0,0.0,6,85.7,0.0,0.0,0.0,0.0,,2021
+David de Gea,es ESP,GK,Manchester Utd,UCL,1990,8,1.6,20,13,60.0,3.0,0.0,2.0,1,20.0,0.0,0.0,0.0,0.0,,2021
+Pierluigi Gollini,it ITA,GK,Atalanta,UCL,1995,1,0.33,6,5,83.3,2.0,0.0,1.0,2,66.7,0.0,0.0,0.0,0.0,,2021
+Alfred Gomis,sn SEN,GK,Rennes,UCL,1993,7,1.75,17,12,70.6,0.0,1.0,3.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
+Yevgeni Gorodov,ru RUS,GK,Krasnodar,UCL,1985,3,1.5,12,10,83.3,0.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Péter Gulácsi,hu HUN,GK,RB Leipzig,UCL,1990,16,2.0,33,21,60.6,4.0,0.0,4.0,1,12.5,4.0,3.0,1.0,0.0,25.0,2021
+Mert Günok,tr TUR,GK,Başakşehir,UCL,1989,18,3.0,35,19,54.3,1.0,0.0,5.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
+Samir Handanović,si SVN,GK,Inter,UCL,1984,9,1.5,21,15,66.7,1.0,3.0,2.0,2,33.3,2.0,2.0,0.0,0.0,0.0,2021
+Jesper Hansen,dk DEN,GK,Midtjylland,UCL,1985,9,2.25,30,20,70.0,0.0,2.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Dean Henderson,eng ENG,GK,Manchester Utd,UCL,1997,2,2.0,3,1,33.3,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Marwin Hitz,ch SUI,GK,Dortmund,UCL,1987,8,2.0,20,14,65.0,2.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Ethan Horvath,us USA,GK,Club Brugge,UCL,1995,1,1.0,3,3,66.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Caoimhín Kelleher,ie IRL,GK,Liverpool,UCL,1998,1,0.5,9,9,100.0,1.0,1.0,0.0,1,50.0,1.0,1.0,0.0,0.0,0.0,2021
+Mikhail Kerzhakov,ru RUS,GK,Zenit,UCL,1987,13,2.17,26,16,61.5,0.0,1.0,5.0,0,0.0,3.0,3.0,0.0,0.0,0.0,2021
+Steve Mandanda,fr FRA,GK,Marseille,UCL,1985,13,2.17,26,16,57.7,1.0,0.0,5.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
+Agustín Marchesín,ar ARG,GK,Porto,UCL,1988,7,0.95,31,24,80.6,4.0,1.0,2.0,4,57.1,2.0,1.0,0.0,1.0,0.0,2021
+Guilherme Marinato,ru RUS,GK,Loko Moscow,UCL,1985,11,1.83,33,23,66.7,0.0,3.0,3.0,1,16.7,0.0,0.0,0.0,0.0,,2021
+Edouard Mendy,sn SEN,GK,Chelsea,UCL,1992,1,0.14,19,18,94.7,6.0,1.0,0.0,6,85.7,0.0,0.0,0.0,0.0,,2021
+Simon Mignolet,be BEL,GK,Club Brugge,UCL,1988,9,1.8,24,16,66.7,1.0,2.0,2.0,1,20.0,1.0,1.0,0.0,0.0,0.0,2021
+Keylor Navas,cr CRC,GK,Paris S-G,UCL,1986,8,1.0,37,31,86.5,5.0,1.0,2.0,2,25.0,4.0,3.0,1.0,0.0,25.0,2021
+Ruslan Neshcheret,ua UKR,GK,Dynamo Kyiv,UCL,2002,2,2.0,13,12,92.3,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Neto,br BRA,GK,Barcelona,UCL,1989,2,0.67,3,3,66.7,3.0,0.0,0.0,2,66.7,1.0,1.0,0.0,0.0,0.0,2021
+Manuel Neuer,de GER,GK,Bayern Munich,UCL,1986,5,0.83,36,31,86.1,6.0,0.0,0.0,2,33.3,0.0,0.0,0.0,0.0,,2021
+Alexander Nübel,de GER,GK,Bayern Munich,UCL,1996,2,1.0,5,3,60.0,1.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Jan Oblak,si SVN,GK,Atlético Madrid,UCL,1993,11,1.37,23,14,60.9,2.0,3.0,3.0,2,25.0,2.0,2.0,0.0,0.0,0.0,2021
+André Onana,cm CMR,GK,Ajax,UCL,1996,7,1.17,27,22,77.8,2.0,1.0,3.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Alfonso Pastor,es ESP,GK,Sevilla,UCL,2000,4,4.0,5,2,40.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Andriy Pyatov,ua UKR,GK,Shakhtar,UCL,1984,4,4.0,5,2,40.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Pepe Reina,es ESP,GK,Lazio,UCL,1982,12,1.71,26,17,61.5,1.0,4.0,2.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
+José Sá,pt POR,GK,Olympiacos,UCL,1993,10,1.67,31,24,77.4,1.0,0.0,5.0,1,16.7,3.0,3.0,0.0,0.0,0.0,2021
+Matvei Safonov,ru RUS,GK,Krasnodar,UCL,1999,8,2.0,28,21,78.6,1.0,1.0,2.0,1,25.0,3.0,2.0,0.0,1.0,0.0,2021
+Romain Salin,fr FRA,GK,Rennes,UCL,1984,4,2.0,8,4,50.0,0.0,0.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Yann Sommer,ch SUI,GK,M'Gladbach,UCL,1988,13,1.62,35,21,62.9,2.0,2.0,4.0,2,25.0,0.0,0.0,0.0,0.0,,2021
+Marco Sportiello,it ITA,GK,Atalanta,UCL,1992,11,2.2,29,20,69.0,1.0,2.0,2.0,1,20.0,2.0,2.0,0.0,0.0,0.0,2021
+Cican Stankovic,at AUT,GK,RB Salzburg,UCL,1992,17,2.83,30,16,50.0,1.0,1.0,4.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
+Zack Steffen,us USA,GK,Manchester City,UCL,1995,0,0.0,2,2,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2021
+Thomas Strakosha,al ALB,GK,Lazio,UCL,1995,1,1.0,7,6,85.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Wojciech Szczęsny,pl POL,GK,Juventus,UCL,1990,8,1.09,26,20,76.9,5.0,0.0,2.0,2,28.6,2.0,2.0,0.0,0.0,0.0,2021
+Marc-André ter Stegen,de GER,GK,Barcelona,UCL,1992,9,1.8,22,16,72.7,2.0,1.0,2.0,1,20.0,3.0,3.0,0.0,0.0,0.0,2021
+Anatolii Trubin,ua UKR,GK,Shakhtar,UCL,2001,8,1.6,31,23,74.2,2.0,2.0,1.0,3,60.0,0.0,0.0,0.0,0.0,,2021
+Tomáš Vaclík,cz CZE,GK,Sevilla,UCL,1989,3,1.5,5,3,60.0,2.0,0.0,0.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Igor Akinfeev,ru RUS,GK,CSKA Moscow,Europa League,1986,11,1.83,40,29,72.5,0.0,3.0,3.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Miguel Ángel Moyá,es ESP,GK,Atlético Madrid,Europa League,1984,2,2.0,5,3,60.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Alphonse Areola,fr FRA,GK,Paris S-G,Europa League,1993,7,1.17,13,6,53.8,3.0,3.0,0.0,1,16.7,2.0,1.0,1.0,0.0,50.0,2017
+Milan Borjan,ca CAN,GK,Ludogorets,Europa League,1987,3,3.0,4,1,25.0,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Claudio Bravo,cl CHI,GK,Manchester City,Europa League,1983,5,1.39,12,7,58.3,1.0,2.0,1.0,1,25.0,1.0,0.0,1.0,0.0,100.0,2017
+Gianluigi Buffon,it ITA,GK,Juventus,Europa League,1978,7,0.58,27,20,74.1,8.0,3.0,1.0,8,66.7,1.0,0.0,1.0,0.0,100.0,2017
+Roman Bürki,ch SUI,GK,Dortmund,Europa League,1990,10,1.25,27,17,63.0,4.0,1.0,3.0,3,37.5,1.0,0.0,0.0,1.0,,2017
+Ludovic Butelle,fr FRA,GK,Club Brugge,Europa League,1983,14,2.33,45,31,75.6,0.0,0.0,6.0,0,0.0,5.0,3.0,1.0,1.0,25.0,2017
+Willy Caballero,ar ARG,GK,Manchester City,Europa League,1981,11,2.52,23,12,52.2,2.0,1.0,1.0,0,0.0,1.0,0.0,1.0,0.0,100.0,2017
+Kiko Casilla,es ESP,GK,Real Madrid,Europa League,1986,1,1.0,4,3,75.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Iker Casillas,es ESP,GK,Porto,Europa League,1981,6,0.75,21,15,76.2,3.0,2.0,3.0,3,37.5,1.0,1.0,0.0,0.0,0.0,2017
+Radosław Cierzniak,pl POL,GK,Legia Warsaw,Europa League,1983,8,8.0,9,1,11.1,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Jasper Cillessen,nl NED,GK,Barcelona,Europa League,1989,0,0.0,3,3,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2017
+Morgan De Sanctis,it ITA,GK,Monaco,Europa League,1977,3,3.0,7,4,57.1,0.0,0.0,1.0,0,0.0,1.0,0.0,0.0,1.0,,2017
+Soslan Dzhanayev,ru RUS,GK,Rostov,Europa League,1987,12,2.0,40,28,72.5,1.0,2.0,3.0,1,16.7,2.0,1.0,1.0,0.0,50.0,2017
+Ederson,br BRA,GK,Benfica,Europa League,1993,10,1.43,34,24,73.5,3.0,2.0,2.0,3,42.9,3.0,1.0,2.0,0.0,66.7,2017
+Craig Gordon,sco SCO,GK,Celtic,Europa League,1982,9,1.8,26,17,69.2,0.0,3.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2017
+Ben Hamer,eng ENG,GK,Leicester City,Europa League,1987,5,5.0,8,3,50.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2017
+Bernd Leno,de GER,GK,Leverkusen,Europa League,1992,8,1.14,24,16,75.0,1.0,5.0,1.0,3,42.9,2.0,2.0,0.0,0.0,0.0,2017
+Dominik Livaković,hr CRO,GK,Dinamo Zagreb,Europa League,1995,8,2.0,34,26,76.5,0.0,0.0,4.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Hugo Lloris,fr FRA,GK,Tottenham,Europa League,1986,6,1.0,26,20,76.9,2.0,1.0,3.0,2,33.3,1.0,0.0,1.0,0.0,100.0,2017
+Anthony Lopes,pt POR,GK,Lyon,Europa League,1990,3,0.5,20,17,90.0,2.0,2.0,2.0,3,50.0,2.0,1.0,0.0,1.0,0.0,2017
+Arkadiusz Malarz,pl POL,GK,Legia Warsaw,Europa League,1980,16,3.2,46,30,65.2,1.0,1.0,3.0,1,20.0,0.0,0.0,0.0,0.0,,2017
+Keylor Navas,cr CRC,GK,Real Madrid,Europa League,1986,17,1.38,50,33,74.0,8.0,3.0,1.0,1,8.3,5.0,4.0,0.0,1.0,0.0,2017
+Neto,br BRA,GK,Juventus,Europa League,1989,0,0.0,2,2,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2017
+Manuel Neuer,de GER,GK,Bayern Munich,Europa League,1986,11,1.18,48,37,77.1,6.0,0.0,3.0,2,22.2,2.0,0.0,1.0,1.0,100.0,2017
+Jan Oblak,si SVN,GK,Atlético Madrid,Europa League,1993,7,0.64,48,41,85.4,7.0,2.0,2.0,6,54.5,1.0,0.0,1.0,0.0,100.0,2017
+Robin Olsen,se SWE,GK,FC Copenhagen,Europa League,1990,2,0.33,16,14,87.5,2.0,3.0,1.0,4,66.7,0.0,0.0,0.0,0.0,,2017
+David Ospina,co COL,GK,Arsenal,Europa League,1988,16,2.0,40,24,62.5,4.0,2.0,2.0,1,12.5,1.0,1.0,0.0,0.0,0.0,2017
+Ramazan Özcan,at AUT,GK,Leverkusen,Europa League,1984,0,0.0,3,3,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2017
+Remko Pasveer,nl NED,GK,PSV Eindhoven,Europa League,1983,7,7.0,12,5,50.0,0.0,0.0,1.0,1,100.0,1.0,1.0,0.0,0.0,0.0,2017
+Rui Patrício,pt POR,GK,Sporting CP,Europa League,1988,8,1.33,19,11,57.9,1.0,0.0,5.0,1,16.7,0.0,0.0,0.0,0.0,,2017
+Pepe Reina,es ESP,GK,Napoli,Europa League,1982,14,1.75,24,10,45.8,3.0,2.0,3.0,1,12.5,1.0,1.0,0.0,0.0,0.0,2017
+Sergio Rico,es ESP,GK,Sevilla,Europa League,1993,6,0.75,26,20,80.8,4.0,2.0,2.0,5,62.5,1.0,1.0,0.0,0.0,0.0,2017
+Artur Rudko,ua UKR,GK,Dynamo Kyiv,Europa League,1992,4,0.8,19,15,89.5,1.0,2.0,2.0,2,40.0,2.0,2.0,0.0,0.0,0.0,2017
+Kasper Schmeichel,dk DEN,GK,Leicester City,Europa League,1986,4,0.5,31,27,90.3,4.0,2.0,2.0,5,62.5,3.0,1.0,2.0,0.0,66.7,2017
+Adrian Šemper,hr CRO,GK,Dinamo Zagreb,Europa League,1998,7,3.5,16,9,56.3,0.0,0.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Oleksandr Shovkovskiy,ua UKR,GK,Dynamo Kyiv,Europa League,1975,2,2.0,5,3,60.0,0.0,0.0,1.0,0,0.0,,,,,,2017
+Yann Sommer,ch SUI,GK,M'Gladbach,Europa League,1988,12,2.0,38,26,73.7,1.0,2.0,3.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2017
+Vladislav Stoyanov,bg BUL,GK,Ludogorets,Europa League,1987,12,2.4,36,24,66.7,0.0,3.0,2.0,1,20.0,0.0,0.0,0.0,0.0,,2017
+Danijel Subašić,hr CRO,GK,Monaco,Europa League,1984,17,1.55,49,32,67.3,6.0,2.0,3.0,1,9.1,1.0,1.0,0.0,0.0,0.0,2017
+Marc-André ter Stegen,de GER,GK,Barcelona,Europa League,1992,12,1.33,41,29,70.7,5.0,1.0,3.0,4,44.4,1.0,0.0,1.0,0.0,100.0,2017
+Kevin Trapp,de GER,GK,Paris S-G,Europa League,1990,2,1.0,8,6,100.0,1.0,0.0,1.0,1,50.0,2.0,2.0,0.0,0.0,0.0,2017
+Sven Ulreich,de GER,GK,Bayern Munich,Europa League,1988,1,1.0,4,3,100.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2017
+Tomáš Vaclík,cz CZE,GK,Basel,Europa League,1989,12,2.0,30,18,63.3,0.0,2.0,4.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2017
+Dorus de Vries,nl NED,GK,Celtic,Europa League,1980,7,7.0,9,2,22.2,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Roman Weidenfeller,de GER,GK,Dortmund,Europa League,1980,6,3.0,15,9,60.0,1.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Tolga Zengin,tr TUR,GK,Beşiktaş,Europa League,1983,1,1.0,6,5,83.3,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Ron-Robert Zieler,de GER,GK,Leicester City,Europa League,1989,1,1.0,3,2,66.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2017
+Jeroen Zoet,nl NED,GK,PSV Eindhoven,Europa League,1991,9,1.8,27,18,66.7,0.0,2.0,3.0,1,20.0,0.0,0.0,0.0,0.0,,2017
+Igor Akinfeev,ru RUS,GK,CSKA Moscow,Europa League,1986,10,1.67,38,28,76.3,3.0,0.0,3.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2018
+Alisson,br BRA,GK,Roma,Europa League,1992,19,1.58,62,43,69.4,6.0,2.0,4.0,5,41.7,0.0,0.0,0.0,0.0,,2018
+Alphonse Areola,fr FRA,GK,Paris S-G,Europa League,1993,9,1.13,37,28,78.4,5.0,0.0,3.0,4,50.0,1.0,1.0,0.0,0.0,0.0,2018
+Diego Benaglio,ch SUI,GK,Monaco,Europa League,1983,7,2.33,17,10,58.8,0.0,1.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Frank Boeckx,be BEL,GK,Anderlecht,Europa League,1986,8,2.67,17,9,52.9,1.0,0.0,2.0,1,33.3,0.0,0.0,0.0,0.0,,2018
+Claudio Bravo,cl CHI,GK,Manchester City,Europa League,1983,2,2.0,3,1,33.3,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Gianluigi Buffon,it ITA,GK,Juventus,Europa League,1978,11,1.22,35,24,68.6,4.0,3.0,2.0,2,22.2,0.0,0.0,0.0,0.0,,2018
+Roman Bürki,ch SUI,GK,Dortmund,Europa League,1990,13,2.17,36,23,63.9,0.0,2.0,4.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Kiko Casilla,es ESP,GK,Real Madrid,Europa League,1986,3,1.5,8,5,62.5,1.0,0.0,1.0,1,50.0,0.0,0.0,0.0,0.0,,2018
+Iker Casillas,es ESP,GK,Porto,Europa League,1981,3,1.0,6,3,50.0,1.0,1.0,1.0,2,66.7,0.0,0.0,0.0,0.0,,2018
+Júlio César,br BRA,GK,Benfica,Europa League,1979,5,5.0,8,3,50.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
+Jasper Cillessen,nl NED,GK,Barcelona,Europa League,1989,0,0.0,3,3,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2018
+Thibaut Courtois,be BEL,GK,Chelsea,Europa League,1992,12,1.5,33,21,66.7,3.0,3.0,2.0,2,25.0,1.0,1.0,0.0,0.0,0.0,2018
+Ederson,br BRA,GK,Manchester City,Europa League,1993,10,1.11,31,21,74.2,6.0,0.0,3.0,4,44.4,3.0,2.0,1.0,0.0,33.3,2018
+Fabricio,es ESP,GK,Beşiktaş,Europa League,1987,9,1.5,33,24,72.7,3.0,2.0,1.0,1,16.7,0.0,0.0,0.0,0.0,,2018
+David de Gea,es ESP,GK,Manchester Utd,Europa League,1990,3,0.5,25,22,88.0,4.0,1.0,1.0,4,66.7,0.0,0.0,0.0,0.0,,2018
+Craig Gordon,sco SCO,GK,Celtic,Europa League,1982,18,3.0,40,22,57.5,1.0,0.0,5.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2018
+Raúl Gudiño,mx MEX,GK,APOEL FC,Europa League,1996,1,2.0,3,2,66.7,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2018
+Péter Gulácsi,hu HUN,GK,RB Leipzig,Europa League,1990,11,1.83,26,15,61.5,2.0,1.0,3.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
+Jasmin Handanović,si SVN,GK,NK Maribor,Europa League,1978,16,2.67,45,29,66.7,0.0,3.0,3.0,0,0.0,2.0,1.0,1.0,0.0,50.0,2018
+Brad Jones,au AUS,GK,Feyenoord,Europa League,1982,13,2.6,25,12,48.0,0.0,0.0,5.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Stefanos Kapino,gr GRE,GK,Olympiacos,Europa League,1994,3,3.0,6,3,50.0,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Loris Karius,de GER,GK,Liverpool,Europa League,1993,16,1.23,39,23,66.7,7.0,4.0,2.0,6,46.2,3.0,3.0,0.0,0.0,0.0,2018
+Hugo Lloris,fr FRA,GK,Tottenham,Europa League,1986,8,1.14,26,18,76.9,4.0,2.0,1.0,1,14.3,3.0,2.0,0.0,1.0,0.0,2018
+Keylor Navas,cr CRC,GK,Real Madrid,Europa League,1986,13,1.18,41,28,68.3,8.0,2.0,1.0,2,18.2,0.0,0.0,0.0,0.0,,2018
+Manuel Neuer,de GER,GK,Bayern Munich,Europa League,1986,0,0.0,1,1,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2018
+Jan Oblak,si SVN,GK,Atlético Madrid,Europa League,1993,4,0.67,18,14,77.8,1.0,4.0,1.0,3,50.0,0.0,0.0,0.0,0.0,,2018
+Rui Patrício,pt POR,GK,Sporting CP,Europa League,1988,9,1.5,28,19,67.9,2.0,1.0,3.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Nauzet Pérez,es ESP,GK,APOEL FC,Europa League,1985,10,3.33,19,9,47.4,0.0,1.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Silvio Proto,be BEL,GK,Olympiacos,Europa League,1983,10,2.0,24,14,58.3,0.0,1.0,4.0,1,20.0,0.0,0.0,0.0,0.0,,2018
+Andriy Pyatov,ua UKR,GK,Shakhtar,Europa League,1984,11,1.37,45,34,80.0,5.0,0.0,3.0,0,0.0,3.0,2.0,1.0,0.0,33.3,2018
+Artyom Rebrov,ru RUS,GK,Spartak Moscow,Europa League,1984,2,1.14,12,10,83.3,0.0,2.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Pepe Reina,es ESP,GK,Napoli,Europa League,1982,11,1.83,30,19,63.3,2.0,0.0,4.0,1,16.7,1.0,0.0,1.0,0.0,100.0,2018
+Sergio Rico,es ESP,GK,Sevilla,Europa League,1993,13,1.62,34,21,61.8,3.0,4.0,1.0,2,25.0,1.0,0.0,0.0,1.0,,2018
+Sergio Romero,ar ARG,GK,Manchester Utd,Europa League,1987,2,1.0,7,5,71.4,1.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+José Sá,pt POR,GK,Porto,Europa League,1993,12,2.4,25,13,56.0,2.0,1.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
+Ibrahim Šehić,ba BIH,GK,Qarabağ FK,Europa League,1988,14,2.33,47,33,74.5,0.0,2.0,4.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2018
+Aleksandr Selikhov,ru RUS,GK,Spartak Moscow,Europa League,1994,11,2.59,25,14,60.0,1.0,1.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
+Matz Sels,be BEL,GK,Anderlecht,Europa League,1992,9,3.0,14,5,42.9,0.0,0.0,3.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
+David Soria,es ESP,GK,Sevilla,Europa League,1993,2,1.0,10,8,80.0,0.0,1.0,1.0,1,50.0,0.0,0.0,0.0,0.0,,2018
+Danijel Subašić,hr CRO,GK,Monaco,Europa League,1984,7,2.33,11,4,54.5,0.0,1.0,2.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2018
+Mile Svilar,be BEL,GK,Benfica,Europa League,1999,5,1.67,13,8,69.2,0.0,0.0,3.0,0,0.0,2.0,1.0,1.0,0.0,50.0,2018
+Wojciech Szczęsny,pl POL,GK,Juventus,Europa League,1990,0,0.0,4,4,125.0,1.0,0.0,0.0,1,100.0,1.0,1.0,0.0,0.0,0.0,2018
+Marc-André ter Stegen,de GER,GK,Barcelona,Europa League,1992,6,0.67,22,16,77.3,5.0,3.0,1.0,5,55.6,1.0,1.0,0.0,0.0,0.0,2018
+Sven Ulreich,de GER,GK,Bayern Munich,Europa League,1988,12,1.09,41,29,70.7,7.0,2.0,2.0,3,27.3,0.0,0.0,0.0,0.0,,2018
+Tomáš Vaclík,cz CZE,GK,Basel,Europa League,1989,10,1.25,27,17,63.0,5.0,0.0,3.0,4,50.0,0.0,0.0,0.0,0.0,,2018
+Bruno Varela,pt POR,GK,Benfica,Europa League,1994,4,2.0,10,6,70.0,0.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
+Kenneth Vermeer,nl NED,GK,Feyenoord,Europa League,1986,1,1.0,5,4,80.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2018
+Michel Vorm,nl NED,GK,Tottenham,Europa League,1983,0,0.0,1,1,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2018
+Boy Waterman,nl NED,GK,APOEL FC,Europa League,1984,6,2.4,11,5,54.5,0.0,1.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2018
+Igor Akinfeev,ru RUS,GK,CSKA Moscow,Europa League,1986,6,1.2,25,19,76.0,2.0,1.0,2.0,2,40.0,1.0,0.0,1.0,0.0,100.0,2019
+Alisson,br BRA,GK,Liverpool,Europa League,1992,12,0.92,57,46,78.9,8.0,1.0,4.0,6,46.2,0.0,0.0,0.0,0.0,,2019
+Alphonse Areola,fr FRA,GK,Paris S-G,Europa League,1993,6,2.0,15,10,66.7,1.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
+Loic Badiashile,fr FRA,GK,Monaco,Europa League,1998,1,1.0,5,4,80.0,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+David von Ballmoos,ch SUI,GK,Young Boys,Europa League,1994,10,2.5,20,11,55.0,0.0,0.0,4.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
+Vasilios Barkas,gr GRE,GK,AEK Athens,Europa League,1994,13,2.17,38,27,71.1,0.0,0.0,6.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2019
+Oliver Baumann,de GER,GK,Hoffenheim,Europa League,1990,14,2.33,45,31,68.9,0.0,3.0,3.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Diego Benaglio,ch SUI,GK,Monaco,Europa League,1983,10,2.22,17,8,47.1,0.0,0.0,5.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
+Milan Borjan,ca CAN,GK,Red Star,Europa League,1987,17,2.83,56,40,71.4,1.0,1.0,4.0,2,33.3,2.0,1.0,0.0,1.0,0.0,2019
+Gianluigi Buffon,it ITA,GK,Paris S-G,Europa League,1978,6,1.2,11,8,72.7,3.0,1.0,1.0,1,20.0,3.0,3.0,0.0,0.0,0.0,2019
+Roman Bürki,ch SUI,GK,Dortmund,Europa League,1990,6,0.86,23,17,73.9,3.0,1.0,3.0,4,57.1,0.0,0.0,0.0,0.0,,2019
+Iker Casillas,es ESP,GK,Porto,Europa League,1981,15,1.45,32,20,62.5,6.0,1.0,3.0,1,10.0,5.0,3.0,0.0,2.0,0.0,2019
+Jasper Cillessen,nl NED,GK,Barcelona,Europa League,1989,1,1.0,7,6,85.7,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Thibaut Courtois,be BEL,GK,Real Madrid,Europa League,1992,8,1.6,29,21,72.4,3.0,0.0,2.0,2,40.0,0.0,0.0,0.0,0.0,,2019
+Jaume Doménech,es ESP,GK,Valencia,Europa League,1990,1,1.0,5,4,80.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Ederson,br BRA,GK,Manchester City,Europa League,1993,12,1.2,28,19,67.9,7.0,1.0,2.0,3,30.0,3.0,3.0,0.0,0.0,0.0,2019
+Ralf Fährmann,de GER,GK,Schalke 04,Europa League,1988,14,2.33,27,15,55.6,2.0,1.0,3.0,2,33.3,3.0,2.0,0.0,1.0,0.0,2019
+Paulo Gazzaniga,ar ARG,GK,Tottenham,Europa League,1992,1,1.0,4,3,75.0,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+David de Gea,es ESP,GK,Manchester Utd,Europa League,1990,9,1.0,31,23,71.0,4.0,1.0,4.0,3,33.3,0.0,0.0,0.0,0.0,,2019
+Mathieu Gorgelin,fr FRA,GK,Lyon,Europa League,1990,3,4.82,4,1,25.0,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2019
+Samir Handanović,si SVN,GK,Inter,Europa League,1984,7,1.17,43,36,83.7,2.0,2.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Marwin Hitz,ch SUI,GK,Dortmund,Europa League,1987,0,0.0,0,0,,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2019
+Ethan Horvath,us USA,GK,Club Brugge,Europa League,1995,0,0.0,11,11,100.0,1.0,2.0,0.0,3,100.0,0.0,0.0,0.0,0.0,,2019
+Aleš Hruška,cz CZE,GK,Viktoria Plzeň,Europa League,1985,9,2.25,22,14,63.6,2.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
+Matúš Kozáčik,sk SVK,GK,Viktoria Plzeň,Europa League,1983,7,3.5,19,13,68.4,0.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2019
+Georgii Kyrnats,ru RUS,GK,CSKA Moscow,Europa League,1998,0,,0,0,,0.0,0.0,0.0,1,,0.0,0.0,0.0,0.0,,2019
+Karlo Letica,hr CRO,GK,Club Brugge,Europa League,1997,5,1.67,13,8,61.5,0.0,1.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Hugo Lloris,fr FRA,GK,Tottenham,Europa League,1986,15,1.38,43,29,67.4,5.0,2.0,4.0,4,36.4,2.0,1.0,1.0,0.0,50.0,2019
+Anthony Lopes,pt POR,GK,Lyon,Europa League,1990,13,1.76,48,36,75.0,1.0,6.0,1.0,1,12.5,1.0,1.0,0.0,0.0,0.0,2019
+Guilherme Marinato,ru RUS,GK,Loko Moscow,Europa League,1985,12,2.0,32,22,68.8,1.0,0.0,5.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2019
+Antonio Mirante,it ITA,GK,Roma,Europa League,1983,3,1.5,7,4,57.1,1.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Fernando Muslera,uy URU,GK,Galatasaray,Europa League,1986,8,1.33,23,17,69.6,1.0,1.0,4.0,2,33.3,1.0,1.0,0.0,0.0,0.0,2019
+Keylor Navas,cr CRC,GK,Real Madrid,Europa League,1986,2,0.67,9,7,77.8,2.0,0.0,1.0,1,33.3,0.0,0.0,0.0,0.0,,2019
+Neto,br BRA,GK,Valencia,Europa League,1989,5,1.0,21,19,90.5,1.0,2.0,2.0,1,20.0,3.0,3.0,0.0,0.0,0.0,2019
+Manuel Neuer,de GER,GK,Bayern Munich,Europa League,1986,8,1.0,29,22,75.9,4.0,3.0,1.0,4,50.0,1.0,1.0,0.0,0.0,0.0,2019
+Alexander Nübel,de GER,GK,Schalke 04,Europa League,1996,0,0.0,3,3,100.0,1.0,1.0,0.0,2,100.0,0.0,0.0,0.0,0.0,,2019
+Jan Oblak,si SVN,GK,Atlético Madrid,Europa League,1993,9,1.13,19,11,57.9,5.0,1.0,2.0,4,50.0,2.0,1.0,0.0,1.0,0.0,2019
+Robin Olsen,se SWE,GK,Roma,Europa League,1990,9,1.42,37,29,78.4,3.0,0.0,3.0,2,33.3,1.0,1.0,0.0,0.0,0.0,2019
+André Onana,cm CMR,GK,Ajax,Europa League,1996,13,1.08,50,38,76.0,6.0,4.0,2.0,4,33.3,1.0,1.0,0.0,0.0,0.0,2019
+David Ospina,co COL,GK,Napoli,Europa League,1988,5,0.83,21,17,76.2,2.0,3.0,1.0,2,33.3,0.0,0.0,0.0,0.0,,2019
+Ilya Pomazun,ru RUS,GK,CSKA Moscow,Europa League,1996,3,3.0,13,10,76.9,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Andriy Pyatov,ua UKR,GK,Shakhtar,Europa League,1984,16,2.67,34,20,58.8,1.0,3.0,2.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2019
+Sergio Romero,ar ARG,GK,Manchester Utd,Europa League,1987,2,2.0,4,3,50.0,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Danijel Subašić,hr CRO,GK,Monaco,Europa League,1984,3,6.0,5,2,40.0,,,,0,,1.0,0.0,0.0,1.0,,2019
+Wojciech Szczęsny,pl POL,GK,Juventus,Europa League,1990,9,0.9,31,24,74.2,5.0,1.0,4.0,5,50.0,2.0,1.0,0.0,1.0,0.0,2019
+Marc-André ter Stegen,de GER,GK,Barcelona,Europa League,1992,9,0.82,37,28,75.7,8.0,2.0,1.0,6,54.5,0.0,0.0,0.0,0.0,,2019
+Odisseas Vlachodimos,gr GRE,GK,Benfica,Europa League,1994,11,1.83,36,25,69.4,2.0,1.0,3.0,1,16.7,0.0,0.0,0.0,0.0,,2019
+Michel Vorm,nl NED,GK,Tottenham,Europa League,1983,3,2.73,5,2,40.0,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Marco Wölfli,ch SUI,GK,Young Boys,Europa League,1982,2,1.0,10,8,80.0,1.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Jeroen Zoet,nl NED,GK,PSV Eindhoven,Europa League,1991,13,2.17,51,38,74.5,0.0,2.0,4.0,0,0.0,0.0,0.0,0.0,0.0,,2019
+Adrián,es ESP,GK,Liverpool,Europa League,1987,8,2.4,15,8,53.3,1.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
+Alisson,br BRA,GK,Liverpool,Europa League,1992,4,0.8,16,12,75.0,3.0,1.0,1.0,1,20.0,0.0,0.0,0.0,0.0,,2020
+Alphonse Areola,fr FRA,GK,Real Madrid,Europa League,1993,1,0.67,3,2,66.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2020
+Kepa Arrizabalaga,es ESP,GK,Chelsea,Europa League,1994,9,1.5,18,11,50.0,3.0,2.0,1.0,1,16.7,1.0,0.0,1.0,0.0,100.0,2020
+Milan Borjan,ca CAN,GK,Red Star,Europa League,1987,20,3.33,51,32,64.7,1.0,0.0,5.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2020
+Claudio Bravo,cl CHI,GK,Manchester City,Europa League,1983,2,1.44,3,1,33.3,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2020
+Gianluigi Buffon,it ITA,GK,Juventus,Europa League,1978,0,0.0,1,1,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2020
+Roman Bürki,ch SUI,GK,Dortmund,Europa League,1990,11,1.37,36,25,69.4,4.0,1.0,3.0,2,25.0,1.0,0.0,1.0,0.0,100.0,2020
+Willy Caballero,ar ARG,GK,Chelsea,Europa League,1981,7,3.5,12,6,50.0,0.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
+Leonardo César Jardim,br BRA,GK,Lille,Europa League,1995,0,0.0,1,1,100.0,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2020
+Jasper Cillessen,nl NED,GK,Valencia,Europa League,1989,11,1.83,30,20,70.0,2.0,2.0,2.0,1,16.7,3.0,2.0,0.0,1.0,0.0,2020
+Carlos Coronel,br BRA,GK,RB Salzburg,Europa League,1996,4,1.51,11,7,63.6,1.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2020
+Gaëtan Coucke,be BEL,GK,Genk,Europa League,1998,16,3.2,35,18,54.3,0.0,1.0,4.0,1,20.0,0.0,0.0,0.0,0.0,,2020
+Thibaut Courtois,be BEL,GK,Real Madrid,Europa League,1992,11,1.69,31,21,67.7,2.0,2.0,3.0,2,28.6,1.0,1.0,0.0,0.0,0.0,2020
+Jaume Doménech,es ESP,GK,Valencia,Europa League,1990,4,2.0,7,3,42.9,1.0,0.0,1.0,1,50.0,0.0,0.0,0.0,0.0,,2020
+Ederson,br BRA,GK,Manchester City,Europa League,1993,7,0.93,22,16,72.7,5.0,2.0,1.0,2,25.0,1.0,1.0,0.0,0.0,0.0,2020
+Paulo Gazzaniga,ar ARG,GK,Tottenham,Europa League,1992,5,1.25,22,15,77.3,3.0,0.0,1.0,2,50.0,0.0,0.0,0.0,0.0,,2020
+Pierluigi Gollini,it ITA,GK,Atalanta,Europa League,1995,13,1.86,31,19,61.3,3.0,1.0,3.0,2,28.6,2.0,1.0,0.0,1.0,0.0,2020
+Péter Gulácsi,hu HUN,GK,RB Leipzig,Europa League,1990,12,1.24,44,32,75.0,6.0,2.0,2.0,3,30.0,1.0,1.0,0.0,0.0,0.0,2020
+Samir Handanović,si SVN,GK,Inter,Europa League,1984,9,1.5,29,21,72.4,2.0,1.0,3.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2020
+Lukáš Hrádecký,fi FIN,GK,Leverkusen,Europa League,1989,9,1.5,28,19,67.9,2.0,0.0,4.0,1,16.7,0.0,0.0,0.0,0.0,,2020
+Mikhail Kerzhakov,ru RUS,GK,Zenit,Europa League,1987,7,1.75,24,18,75.0,1.0,0.0,3.0,1,25.0,1.0,1.0,0.0,0.0,0.0,2020
+Anton Kochenkov,ru RUS,GK,Loko Moscow,Europa League,1987,2,2.0,4,3,75.0,0.0,0.0,1.0,0,0.0,2.0,1.0,1.0,0.0,50.0,2020
+Ondřej Kolář,cz CZE,GK,Slavia Prague,Europa League,1994,10,1.67,35,26,71.4,0.0,2.0,4.0,1,16.7,0.0,0.0,0.0,0.0,,2020
+Dominik Livaković,hr CRO,GK,Dinamo Zagreb,Europa League,1995,13,2.17,32,21,65.6,1.0,2.0,3.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2020
+Hugo Lloris,fr FRA,GK,Tottenham,Europa League,1986,13,3.25,24,12,54.2,0.0,1.0,3.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2020
+Anthony Lopes,pt POR,GK,Lyon,Europa League,1990,14,1.4,37,26,70.3,4.0,2.0,4.0,2,20.0,3.0,3.0,0.0,0.0,0.0,2020
+Andrey Lunyov,ru RUS,GK,Zenit,Europa League,1991,2,1.0,14,13,92.9,1.0,1.0,0.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
+Mike Maignan,fr FRA,GK,Lille,Europa League,1995,14,2.42,31,19,58.1,0.0,1.0,5.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
+Guilherme Marinato,ru RUS,GK,Loko Moscow,Europa League,1985,9,1.8,35,28,74.3,1.0,0.0,4.0,0,0.0,0.0,0.0,0.0,0.0,,2020
+Alex Meret,it ITA,GK,Napoli,Europa League,1997,4,0.67,17,15,88.2,3.0,3.0,0.0,3,50.0,2.0,2.0,0.0,0.0,0.0,2020
+Simon Mignolet,be BEL,GK,Club Brugge,Europa League,1988,12,2.0,24,12,50.0,0.0,3.0,3.0,1,16.7,0.0,0.0,0.0,0.0,,2020
+Fernando Muslera,uy URU,GK,Galatasaray,Europa League,1986,14,2.33,46,34,73.9,0.0,2.0,4.0,1,16.7,2.0,2.0,0.0,0.0,0.0,2020
+Yvon Mvogo,ch SUI,GK,RB Leipzig,Europa League,1994,0,0.0,2,2,100.0,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2020
+Keylor Navas,cr CRC,GK,Paris S-G,Europa League,1986,6,0.68,28,22,78.6,6.0,1.0,2.0,5,55.6,1.0,0.0,1.0,0.0,100.0,2020
+Neto,br BRA,GK,Barcelona,Europa League,1989,1,1.0,7,6,85.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2020
+Manuel Neuer,de GER,GK,Bayern Munich,Europa League,1986,8,0.73,33,27,78.8,11.0,0.0,0.0,6,54.5,1.0,1.0,0.0,0.0,0.0,2020
+Jan Oblak,si SVN,GK,Atlético Madrid,Europa League,1993,9,0.96,30,22,70.0,5.0,1.0,3.0,4,44.4,0.0,0.0,0.0,0.0,,2020
+André Onana,cm CMR,GK,Ajax,Europa League,1996,6,1.0,28,24,85.7,3.0,1.0,2.0,3,50.0,3.0,2.0,0.0,1.0,0.0,2020
+David Ospina,co COL,GK,Napoli,Europa League,1988,4,2.0,4,1,25.0,0.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2020
+Andriy Pyatov,ua UKR,GK,Shakhtar,Europa League,1984,13,2.17,32,20,62.5,1.0,3.0,2.0,0,0.0,2.0,1.0,1.0,0.0,50.0,2020
+Sergio Rico,es ESP,GK,Paris S-G,Europa League,1993,0,0.0,3,3,100.0,2.0,0.0,0.0,2,100.0,0.0,0.0,0.0,0.0,,2020
+José Sá,pt POR,GK,Olympiacos,Europa League,1993,14,2.33,34,21,61.8,1.0,1.0,4.0,1,16.7,2.0,1.0,0.0,1.0,0.0,2020
+Marco Sportiello,it ITA,GK,Atalanta,Europa League,1992,5,2.5,13,8,61.5,1.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2020
+Cican Stankovic,at AUT,GK,RB Salzburg,Europa League,1992,9,2.68,18,9,50.0,1.0,0.0,3.0,0,0.0,0.0,0.0,0.0,0.0,,2020
+Wojciech Szczęsny,pl POL,GK,Juventus,Europa League,1990,6,0.86,21,16,76.2,5.0,1.0,1.0,2,28.6,1.0,1.0,0.0,0.0,0.0,2020
+Marc-André ter Stegen,de GER,GK,Barcelona,Europa League,1992,13,1.62,36,23,66.7,4.0,3.0,1.0,2,25.0,2.0,1.0,1.0,0.0,50.0,2020
+Maarten Vandevoordt,be BEL,GK,Genk,Europa League,2002,4,4.0,3,1,33.3,0.0,0.0,1.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2020
+Odisseas Vlachodimos,gr GRE,GK,Benfica,Europa League,1994,11,1.83,27,18,63.0,2.0,1.0,3.0,1,16.7,1.0,1.0,0.0,0.0,0.0,2020
+Kyle Walker,eng ENG,DF,Manchester City,Europa League,1990,0,0.0,1,1,100.0,0.0,0.0,0.0,0,,0.0,0.0,0.0,0.0,,2020
+Adrián,es ESP,GK,Liverpool,Europa League,1987,0,0.0,3,3,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2021
+Alisson,br BRA,GK,Liverpool,Europa League,1992,2,0.4,15,13,86.7,4.0,0.0,1.0,4,80.0,0.0,0.0,0.0,0.0,,2021
+Mikkel Andersen,dk DEN,GK,Midtjylland,Europa League,1988,4,2.0,5,2,40.0,0.0,0.0,2.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Kepa Arrizabalaga,es ESP,GK,Chelsea,Europa League,1994,1,1.0,2,1,50.0,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Yassine Bounou,ma MAR,GK,Sevilla,Europa League,1991,6,1.2,20,16,80.0,2.0,2.0,1.0,2,40.0,3.0,2.0,1.0,0.0,33.3,2021
+Denys Boyko,ua UKR,GK,Dynamo Kyiv,Europa League,1988,2,2.0,4,2,50.0,0.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Gianluigi Buffon,it ITA,GK,Juventus,Europa League,1978,0,0.0,7,7,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2021
+Roman Bürki,ch SUI,GK,Dortmund,Europa League,1990,1,0.25,9,9,100.0,3.0,1.0,0.0,3,75.0,1.0,1.0,0.0,0.0,0.0,2021
+Heorhiy Bushchan,ua UKR,GK,Dynamo Kyiv,Europa League,1994,9,2.25,21,13,61.9,1.0,0.0,3.0,1,25.0,1.0,1.0,0.0,0.0,0.0,2021
+Diogo Costa,pt POR,GK,Porto,Europa League,1999,0,0.0,1,1,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2021
+Thibaut Courtois,be BEL,GK,Real Madrid,Europa League,1992,10,1.25,24,15,58.3,5.0,1.0,2.0,3,37.5,0.0,0.0,0.0,0.0,,2021
+Dénes Dibusz,hu HUN,GK,Ferencváros,Europa League,1990,17,2.83,33,20,57.6,0.0,1.0,5.0,0,0.0,3.0,3.0,0.0,0.0,0.0,2021
+Ederson,br BRA,GK,Manchester City,Europa League,1993,1,0.14,10,8,90.0,6.0,1.0,0.0,6,85.7,0.0,0.0,0.0,0.0,,2021
+David de Gea,es ESP,GK,Manchester Utd,Europa League,1990,8,1.6,20,13,60.0,3.0,0.0,2.0,1,20.0,0.0,0.0,0.0,0.0,,2021
+Pierluigi Gollini,it ITA,GK,Atalanta,Europa League,1995,1,0.33,6,5,83.3,2.0,0.0,1.0,2,66.7,0.0,0.0,0.0,0.0,,2021
+Alfred Gomis,sn SEN,GK,Rennes,Europa League,1993,7,1.75,17,12,70.6,0.0,1.0,3.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
+Yevgeni Gorodov,ru RUS,GK,Krasnodar,Europa League,1985,3,1.5,12,10,83.3,0.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Péter Gulácsi,hu HUN,GK,RB Leipzig,Europa League,1990,16,2.0,33,21,60.6,4.0,0.0,4.0,1,12.5,4.0,3.0,1.0,0.0,25.0,2021
+Mert Günok,tr TUR,GK,Başakşehir,Europa League,1989,18,3.0,35,19,54.3,1.0,0.0,5.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
+Samir Handanović,si SVN,GK,Inter,Europa League,1984,9,1.5,21,15,66.7,1.0,3.0,2.0,2,33.3,2.0,2.0,0.0,0.0,0.0,2021
+Jesper Hansen,dk DEN,GK,Midtjylland,Europa League,1985,9,2.25,30,20,70.0,0.0,2.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Dean Henderson,eng ENG,GK,Manchester Utd,Europa League,1997,2,2.0,3,1,33.3,0.0,0.0,1.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Marwin Hitz,ch SUI,GK,Dortmund,Europa League,1987,8,2.0,20,14,65.0,2.0,1.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Ethan Horvath,us USA,GK,Club Brugge,Europa League,1995,1,1.0,3,3,66.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Caoimhín Kelleher,ie IRL,GK,Liverpool,Europa League,1998,1,0.5,9,9,100.0,1.0,1.0,0.0,1,50.0,1.0,1.0,0.0,0.0,0.0,2021
+Mikhail Kerzhakov,ru RUS,GK,Zenit,Europa League,1987,13,2.17,26,16,61.5,0.0,1.0,5.0,0,0.0,3.0,3.0,0.0,0.0,0.0,2021
+Steve Mandanda,fr FRA,GK,Marseille,Europa League,1985,13,2.17,26,16,57.7,1.0,0.0,5.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
+Agustín Marchesín,ar ARG,GK,Porto,Europa League,1988,7,0.95,31,24,80.6,4.0,1.0,2.0,4,57.1,2.0,1.0,0.0,1.0,0.0,2021
+Guilherme Marinato,ru RUS,GK,Loko Moscow,Europa League,1985,11,1.83,33,23,66.7,0.0,3.0,3.0,1,16.7,0.0,0.0,0.0,0.0,,2021
+Edouard Mendy,sn SEN,GK,Chelsea,Europa League,1992,1,0.14,19,18,94.7,6.0,1.0,0.0,6,85.7,0.0,0.0,0.0,0.0,,2021
+Simon Mignolet,be BEL,GK,Club Brugge,Europa League,1988,9,1.8,24,16,66.7,1.0,2.0,2.0,1,20.0,1.0,1.0,0.0,0.0,0.0,2021
+Keylor Navas,cr CRC,GK,Paris S-G,Europa League,1986,8,1.0,37,31,86.5,5.0,1.0,2.0,2,25.0,4.0,3.0,1.0,0.0,25.0,2021
+Ruslan Neshcheret,ua UKR,GK,Dynamo Kyiv,Europa League,2002,2,2.0,13,12,92.3,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Neto,br BRA,GK,Barcelona,Europa League,1989,2,0.67,3,3,66.7,3.0,0.0,0.0,2,66.7,1.0,1.0,0.0,0.0,0.0,2021
+Manuel Neuer,de GER,GK,Bayern Munich,Europa League,1986,5,0.83,36,31,86.1,6.0,0.0,0.0,2,33.3,0.0,0.0,0.0,0.0,,2021
+Alexander Nübel,de GER,GK,Bayern Munich,Europa League,1996,2,1.0,5,3,60.0,1.0,1.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Jan Oblak,si SVN,GK,Atlético Madrid,Europa League,1993,11,1.37,23,14,60.9,2.0,3.0,3.0,2,25.0,2.0,2.0,0.0,0.0,0.0,2021
+André Onana,cm CMR,GK,Ajax,Europa League,1996,7,1.17,27,22,77.8,2.0,1.0,3.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Alfonso Pastor,es ESP,GK,Sevilla,Europa League,2000,4,4.0,5,2,40.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Andriy Pyatov,ua UKR,GK,Shakhtar,Europa League,1984,4,4.0,5,2,40.0,0.0,0.0,1.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
+Pepe Reina,es ESP,GK,Lazio,Europa League,1982,12,1.71,26,17,61.5,1.0,4.0,2.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
+José Sá,pt POR,GK,Olympiacos,Europa League,1993,10,1.67,31,24,77.4,1.0,0.0,5.0,1,16.7,3.0,3.0,0.0,0.0,0.0,2021
+Matvei Safonov,ru RUS,GK,Krasnodar,Europa League,1999,8,2.0,28,21,78.6,1.0,1.0,2.0,1,25.0,3.0,2.0,0.0,1.0,0.0,2021
+Romain Salin,fr FRA,GK,Rennes,Europa League,1984,4,2.0,8,4,50.0,0.0,0.0,2.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Yann Sommer,ch SUI,GK,M'Gladbach,Europa League,1988,13,1.62,35,21,62.9,2.0,2.0,4.0,2,25.0,0.0,0.0,0.0,0.0,,2021
+Marco Sportiello,it ITA,GK,Atalanta,Europa League,1992,11,2.2,29,20,69.0,1.0,2.0,2.0,1,20.0,2.0,2.0,0.0,0.0,0.0,2021
+Cican Stankovic,at AUT,GK,RB Salzburg,Europa League,1992,17,2.83,30,16,50.0,1.0,1.0,4.0,0,0.0,2.0,2.0,0.0,0.0,0.0,2021
+Zack Steffen,us USA,GK,Manchester City,Europa League,1995,0,0.0,2,2,100.0,1.0,0.0,0.0,1,100.0,0.0,0.0,0.0,0.0,,2021
+Thomas Strakosha,al ALB,GK,Lazio,Europa League,1995,1,1.0,7,6,85.7,1.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,,2021
+Wojciech Szczęsny,pl POL,GK,Juventus,Europa League,1990,8,1.09,26,20,76.9,5.0,0.0,2.0,2,28.6,2.0,2.0,0.0,0.0,0.0,2021
+Marc-André ter Stegen,de GER,GK,Barcelona,Europa League,1992,9,1.8,22,16,72.7,2.0,1.0,2.0,1,20.0,3.0,3.0,0.0,0.0,0.0,2021
+Anatolii Trubin,ua UKR,GK,Shakhtar,Europa League,2001,8,1.6,31,23,74.2,2.0,2.0,1.0,3,60.0,0.0,0.0,0.0,0.0,,2021
+Tomáš Vaclík,cz CZE,GK,Sevilla,Europa League,1989,3,1.5,5,3,60.0,2.0,0.0,0.0,0,0.0,1.0,1.0,0.0,0.0,0.0,2021
