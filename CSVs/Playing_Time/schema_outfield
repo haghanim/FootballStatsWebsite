@@ -31,11 +31,6 @@ net_xg_difference DECIMAL(5, 2),
 season INT,
 
 PRIMARY KEY (player_name, player_nation, player_birthyear, comp),
-
-*** Playing time is for both GK's and outfield players so foreign key should be for both Player_GK and Player tables. Not sure how we deal with this ***
 FOREIGN KEY (player_name, player_nation, player_birthyear) REFERENCES Player_GK(name, nationality, year_born),
-
 FOREIGN KEY (squad) REFERENCES Team(name)
 )
-
-
