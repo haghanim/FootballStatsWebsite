@@ -1,4 +1,3 @@
-Player,Nation,Born,Season,Squad,Comp,yellow_cards,red_cards,2nd_yellow_cards,fouls_committed,fouls_drawn,offsides,pks_won,pks_conceded,own_goals,loose_balls_recovered,aerials_won,aerials_lost,aerials_won_pct
 Patrick van Aanholt,nl NED,1990.0,2018.0,Crystal Palace,eng Premier League,7.0,0.0,0.0,18.0,10.0,3.0,0.0,0.0,0.0,225.0,2.0,6.0,25.0
 Rolando Aarons,eng ENG,1995.0,2018.0,Newcastle Utd,eng Premier League,0.0,0.0,0.0,1.0,3.0,1.0,0.0,0.0,0.0,12.0,2.0,2.0,50.0
 Rolando Aarons,eng ENG,1995.0,2018.0,Hellas Verona,it Serie A,0.0,0.0,0.0,8.0,11.0,0.0,0.0,0.0,0.0,22.0,7.0,15.0,31.8
