@@ -32,7 +32,7 @@ defensive_actions INT,
 AvgDist DECIMAL(5, 2),
 season INT,
 
-PRIMARY KEY (player_name, player_nation, player_birthyear, comp),
+PRIMARY KEY (player_name, player_nation, player_birthyear, comp, season),
 FOREIGN KEY (player_name, player_nation, player_birthyear) REFERENCES Player_GK(name, nationality, year_born),
 FOREIGN KEY (squad) REFERENCES Team(name)
 )
