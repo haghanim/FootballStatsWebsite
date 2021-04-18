@@ -1,13 +1,19 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-var routes = require("./routes.js");
 const cors = require('cors');
+
+// delete later
+var routes = require("./routes.js");
+
+// Divide routes
+var playerRoutes = require("./routes/player.js");
+var teamRoutes = require("./routes/team.js");
 
 const app = express();
 
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 /* ---------------------------------------------------------------- */
 /* ------------------- Route handler registration ----------------- */
@@ -39,19 +45,14 @@ app.get('/best-movies/:selectedDecade/:selectedGenre', routes.bestMoviesPerDecad
 /* ---------------------------------------------------------------- */
 
 /* ---- (Player Page) ---- */
-app.get('/players/:player', routes.getTopMoviesWithKeyword);
+app.get('/players/:player', playerRoutes.getTopMoviesWithKeyword);
 
 /* ---- (Team Page) ---- */
-app.get('/teams/:team', routes.getTopMoviesWithKeyword);
-app.get('/keywords', routes.getTop20Keywords);
-app.get('/keywords', routes.getTop20Keywords);
-app.get('/keywords', routes.getTop20Keywords);
-
-
+app.get('/teams/:team', teamRoutes.getTopMoviesWithKeyword);
 
 
 
 
 app.listen(8081, () => {
-	console.log(`Server listening on PORT 8081`);
+    console.log(`Server listening on PORT 8081`);
 });
