@@ -4,9 +4,14 @@ import {
 	Route,
 	Switch
 } from 'react-router-dom';
+
+// Delete
 import Dashboard from './Dashboard';
 import Recommendations from './Recommendations';
 import BestMovies from './BestMovies';
+
+// Import components 
+import Player from './Player';
 
 export default class App extends React.Component {
 
@@ -18,8 +23,17 @@ export default class App extends React.Component {
 						<Route
 							exact
 							path="/"
-							render={() => <Dashboard />}
+							render={() => <Player />}
 						/>
+						
+						{/* Routes */}
+						<Route
+							exact
+							path="/players"
+							render={() => <Player />}
+						/>
+						
+						{/* Delete later */}
 						<Route
 							exact
 							path="/dashboard"
