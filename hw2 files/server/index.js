@@ -45,10 +45,10 @@ app.get('/best-movies/:selectedDecade/:selectedGenre', routes.bestMoviesPerDecad
 /* ---------------------------------------------------------------- */
 
 /* ---- (Player Page) ---- */
-app.get('/players/:playerId', playerRoutes.getTopMoviesWithKeyword);
+app.get('/players/:player_id', playerRoutes.getTopMoviesWithKeyword);
 
 /* ---- (Team Page) ---- */
-app.get('/teams/:teamId', teamRoutes.getTopMoviesWithKeyword);
+app.get('/teams/:team_id', teamRoutes.getTopMoviesWithKeyword);
 
 
 
