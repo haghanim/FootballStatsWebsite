@@ -27,10 +27,32 @@ export default class Recommendations extends React.Component {
 	/* ---- Q2 (Recommendations) ---- */
 	// Hint: Name of movie submitted is contained in `this.state.movieName`.
 	submitMovie() {
-		
+		fetch("http://localhost:8081/recs/" + this.state.movieName, {
+			method: "GET"
+		})
+			.then(res => res.json())
+			.then(moviesList => {
+				console.log(moviesList); //displays your JSON object in the console
+				let moviesDivs = moviesList.map((movieObj, i) =>
+					<RecommendationsRow
+						title={movieObj.title}
+						movie_id={movieObj.movie_id}
+						rating={movieObj.rating}
+						num_ratings={movieObj.num_ratings}
+					/>
+				);
+
+				//This saves our HTML representation of the data into the state, which we can call in our render function
+				this.setState({
+					recMovies: moviesDivs
+				});
+			}, err => {
+        // Print the error if there is one.
+        console.log(err);
+      });
 	};
 
-	
+
 	render() {
 		return (
 			<div className="Recommendations">

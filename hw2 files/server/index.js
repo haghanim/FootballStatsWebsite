@@ -24,8 +24,7 @@ app.get('/keywords/:keyword', routes.getTopMoviesWithKeyword);
 
 
 /* ---- Q2 (Recommendations) ---- */
-
-
+app.get('/recs/:movieName', routes.getRecs);
 
 /* ---- (Best Movies) ---- */
 app.get('/decades', routes.getDecades);
@@ -33,6 +32,23 @@ app.get('/genres', routes.getGenres);
 
 
 /* ---- Q3b (Best Movies) ---- */
+app.get('/best-movies/:selectedDecade/:selectedGenre', routes.bestMoviesPerDecadeGenre);
+
+/* ---------------------------------------------------------------- */
+/* ------------------- Route handler registration ----------------- */
+/* ---------------------------------------------------------------- */
+
+/* ---- (Player Page) ---- */
+app.get('/players/:player', routes.getTopMoviesWithKeyword);
+
+/* ---- (Team Page) ---- */
+app.get('/teams/:team', routes.getTopMoviesWithKeyword);
+app.get('/keywords', routes.getTop20Keywords);
+app.get('/keywords', routes.getTop20Keywords);
+app.get('/keywords', routes.getTop20Keywords);
+
+
+
 
 
 
