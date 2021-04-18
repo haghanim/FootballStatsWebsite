@@ -1,4 +1,5 @@
-const config = require('./db-config.js');
+// Fix this Path so that it's local to your computer
+const config = require('/Users/markhaghani/Documents/GitHub/550FinalProject/hw2 files/server/db-config.js');
 const mysql = require('mysql');
 
 config.connectionLimit = 10;

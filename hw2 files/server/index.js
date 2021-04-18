@@ -7,7 +7,7 @@ var routes = require("./routes.js");
 
 // Divide routes
 var playerRoutes = require("./routes/player.js");
-var teamRoutes = require("./routes/team.js");
+var teamRoutes = require("./routes/Team.js");
 
 const app = express();
 
@@ -45,11 +45,10 @@ app.get('/best-movies/:selectedDecade/:selectedGenre', routes.bestMoviesPerDecad
 /* ---------------------------------------------------------------- */
 
 /* ---- (Player Page) ---- */
-app.get('/players/:player', playerRoutes.getTopMoviesWithKeyword);
+app.get('/players/:playerId', playerRoutes.getTopMoviesWithKeyword);
 
 /* ---- (Team Page) ---- */
-app.get('/teams/:team', teamRoutes.getTopMoviesWithKeyword);
-
+app.get('/teams/:teamId', teamRoutes.getTopMoviesWithKeyword);
 
 
 

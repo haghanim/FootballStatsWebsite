@@ -1,4 +1,5 @@
-const config = require('./db-config.js');
+// Fix this Path so that it's local to your computer 
+const config = require('/Users/markhaghani/Documents/GitHub/550FinalProject/hw2 files/server/db-config.js');
 const mysql = require('mysql');
 
 config.connectionLimit = 10;
@@ -8,6 +9,25 @@ const connection = mysql.createPool(config);
 /* ------------------- Route Handlers --------------- */
 /* -------------------------------------------------- */
 
+const getPlayerName = (req, res) => {
+    var query = `
+    SELECT name
+    FROM player
+    LIMIT 20;
+  `;
+    connection.query(query, function(err, rows, fields) {
+        if (err) console.log(err);
+        else {
+            console.log(rows);
+            res.json(rows);
+        }
+    });
+};
+
+
+/* -------------------------------------------------- */
+/* ------------------- Route Handlers --------------- */
+/* -------------------------------------------------- */
 
 /* ---- Q1a (Dashboard) ---- */
 // Equivalent to: function getTop20Keywords(req, res) {}
@@ -186,7 +206,11 @@ const bestMoviesPerDecadeGenre = (req, res) => {
     });
 };
 
+
+
+// Keep this
 module.exports = {
+    getPlayerName: getPlayerName,
     getTop20Keywords: getTop20Keywords,
     getTopMoviesWithKeyword: getTopMoviesWithKeyword,
     getRecs: getRecs,
