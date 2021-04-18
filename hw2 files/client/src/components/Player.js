@@ -22,7 +22,7 @@ export default class Player extends React.Component {
   // React function that is called when the page load.
   componentDidMount() {
     // Send an HTTP request to the server.
-    fetch("http://localhost:8081/keywords",
+    fetch("http://localhost:8081/players",
     {
       method: 'GET' // The type of HTTP request.
     }).then(res => {
