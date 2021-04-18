@@ -48,7 +48,7 @@ app.get('/best-movies/:selectedDecade/:selectedGenre', routes.bestMoviesPerDecad
 app.get('/players/:player_id', playerRoutes.getTopMoviesWithKeyword);
 
 /* ---- (Team Page) ---- */
-app.get('/teams/:team_id', teamRoutes.getTopMoviesWithKeyword);
+app.get('/teams/:team_id', teamRoutes.getTeamName);
 
 
 

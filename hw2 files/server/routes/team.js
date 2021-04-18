@@ -5,6 +5,27 @@ const mysql = require('mysql');
 config.connectionLimit = 10;
 const connection = mysql.createPool(config);
 
+
+/* -------------------------------------------------- */
+/* ------------------- Route Handlers --------------- */
+/* -------------------------------------------------- */
+
+const getTeamName = (req, res) => {
+    var query = `
+    SELECT name
+    FROM team
+    LIMIT 20;
+  `;
+    connection.query(query, function(err, rows, fields) {
+        if (err) console.log(err);
+        else {
+            console.log(rows);
+            res.json(rows);
+        }
+    });
+};
+
+
 /* -------------------------------------------------- */
 /* ------------------- Route Handlers --------------- */
 /* -------------------------------------------------- */
@@ -188,6 +209,7 @@ const bestMoviesPerDecadeGenre = (req, res) => {
 };
 
 module.exports = {
+    getTeamName: getTeamName,
     getTop20Keywords: getTop20Keywords,
     getTopMoviesWithKeyword: getTopMoviesWithKeyword,
     getRecs: getRecs,

@@ -12,6 +12,7 @@ import BestMovies from './BestMovies';
 
 // Import components 
 import Player from './Player';
+import Team from './Team';
 
 export default class App extends React.Component {
 
@@ -20,17 +21,23 @@ export default class App extends React.Component {
 			<div className="App">
 				<Router>
 					<Switch>
+						{/* Routes */}
 						<Route
 							exact
 							path="/"
 							render={() => <Player />}
 						/>
 						
-						{/* Routes */}
 						<Route
 							exact
 							path="/players"
 							render={() => <Player />}
+						/>
+
+						<Route
+							exact
+							path="/teams"
+							render={() => <Team />}
 						/>
 						
 						{/* Delete later */}
