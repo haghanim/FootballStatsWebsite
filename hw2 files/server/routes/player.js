@@ -1,4 +1,4 @@
-// Fix this Path so that it's local to your computer 
+// Fix this Path so that it's local to your computer
 const config = require('/Users/markhaghani/Documents/GitHub/550FinalProject/hw2 files/server/db-config.js');
 const mysql = require('mysql');
 
@@ -24,6 +24,53 @@ const getPlayerName = (req, res) => {
     });
 };
 
+
+const getPercentileForSelectedStatAndYear = (req, res) => {
+    var query = `
+    WITH selected_player_position AS(
+	     SELECT pp.primary_position, pp.secondary_position
+	     FROM player_position pp
+	     WHERE pp.player_id = ${input_player_id} AND pp.season = ${inputYear}
+	     LIMIT 1
+    ), same_position_players AS(
+       SELECT pp.player_id
+       FROM player_position pp
+       WHERE pp.season = ${inputYear} AND
+		       ((pp.primary_position, pp.secondary_position) IN (SELECT * FROM selected_player_position) OR
+		        (pp.secondary_position, pp.primary_position) IN (SELECT * FROM selected_player_position))
+    ), ranked AS(
+	     SELECT player_id, season, team, league, ${inputStat}, ${inputStat}/90s_played, ROW_NUMBER() OVER(ORDER BY ${inputStat}/90s_played) ROWNUMBER
+       FROM player_playing_time_stats
+       NATURAL JOIN player_shooting_stats
+		   NATURAL JOIN player_passing_stats
+		   NATURAL JOIN player_possession_stats
+		   NATURAL JOIN player_goal_shot_creation_stats
+	     NATURAL JOIN player_pass_type_stats
+   	 	 NATURAL JOIN player_misc_stats
+	   	 NATURAL JOIN player_defensive_actions_stats
+	   	 NATURAL JOIN same_position_players
+       WHERE 90s_played > 2 AND season = ${inputYear}
+    ), number_of_player_stats AS(
+	     SELECT COUNT(*) AS total
+	     FROM ranked r
+    ), selected_players_ranking AS(
+	     SELECT ROWNUMBER
+	     FROM ranked r
+	     WHERE player_id = ${input_player_id} AND season = ${inputYear}
+	     ORDER BY ROWNUMBER ASC
+	     LIMIT 1
+    )
+    SELECT spr.ROWNUMBER / nops.total AS ${inputStat}_Percentile
+    FROM number_of_player_stats nops, selected_players_ranking spr
+    `;
+    connection.query(query, function(err, rows, fields) {
+        if (err) console.log(err);
+        else {
+            console.log(rows);
+            res.json(rows);
+        }
+    });
+};
 
 /* -------------------------------------------------- */
 /* ------------------- Route Handlers --------------- */
