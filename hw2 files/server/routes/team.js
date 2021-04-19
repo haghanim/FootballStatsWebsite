@@ -17,6 +17,8 @@ const getTeamName = (req, res) => {
     LIMIT 20;
   `;
     connection.query(query, function(err, rows, fields) {
+        console.log('hello')
+
         if (err) console.log(err);
         else {
             console.log(rows);
@@ -24,6 +26,55 @@ const getTeamName = (req, res) => {
         }
     });
 };
+
+// query a - Player who contributed highest % of team’s xG in any given season over last few years (player_name, season, xg, percentage_xg).
+const mostXGContributer = (req, res) => {
+    var query = `
+    WITH teamHomeXgXga AS(
+        SELECT season, sum(xG_Home) AS team_xg, sum(xG_Away) AS team_xga, COUNT(*) AS match_count
+        FROM Fixtures
+        WHERE home='Arsenal'
+        GROUP BY season
+    ),
+    teamAwayXgXga AS(
+        SELECT season, sum(xG_Home) AS team_xga, sum(xG_Away) AS team_xg, COUNT(*) AS match_count
+        FROM Fixtures
+        WHERE away='Arsenal'
+        GROUP BY season
+    ),
+
+     combineHomeAwayXg AS (
+         SELECT *
+         FROM teamHomeXgXga
+         UNION
+         SELECT *
+         FROM teamAwayXgXga
+     )
+
+    SELECT *
+    FROM combineHomeAwayXg
+  `;
+};
+
+
+
+const getTeamName = (req, res) => {
+    var query = `
+    SELECT name
+    FROM team
+    LIMIT 20;
+  `;
+    connection.query(query, function(err, rows, fields) {
+        console.log('hello')
+        
+        if (err) console.log(err);
+        else {
+            console.log(rows);
+            res.json(rows);
+        }
+    });
+};
+
 
 
 /* -------------------------------------------------- */

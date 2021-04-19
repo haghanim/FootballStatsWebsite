@@ -2,8 +2,6 @@ import React from 'react';
 import '../style/Dashboard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
-import KeywordButton from './KeywordButton';
-import DashboardMovieRow from './DashboardMovieRow';
 
 export default class Team extends React.Component {
   constructor(props) {
@@ -12,13 +10,9 @@ export default class Team extends React.Component {
     // The state maintained by this React Component. This component maintains the list of keywords,
     // and a list of movies for a specified keyword.
     this.state = {
-      name: [],
-      keywords: [],
-      movies: []
+      names: [],
     };
 
-
-    this.showMovies = this.showMovies.bind(this);
   };
 
   // React function that is called when the page load.
@@ -29,59 +23,31 @@ export default class Team extends React.Component {
       method: 'GET' // The type of HTTP request.
     }).then(res => {
       // Convert the response data to a JSON.
+      
+      console.log("hello")
+
       return res.json();
     }, err => {
       // Print the error if there is one.
       console.log(err);
-    }).then(keywordsList => {
-      if (!keywordsList) return;
+    }).then(namesList => {
+      if (!namesList) return;
+
       // Map each keyword in this.state.keywords to an HTML element:
       // A button which triggers the showMovies function for each keyword.
-      const keywordsDivs = keywordsList.map((keywordObj, i) =>
-        <KeywordButton
-          id={"button-" + keywordObj.kwd_name}
-          onClick={() => this.showMovies(keywordObj.kwd_name)}
-          keyword={keywordObj.kwd_name}
-        />
+      const namesDivs = namesList.map((namesObj, i) =>
+        <div> Example Team Name </div>
       );
+      console.log("hello")
 
       // Set the state of the keywords list to the value returned by the HTTP response from the server.
       this.setState({
-        keywords: keywordsDivs
+        names: namesDivs
       });
     }, err => {
       // Print the error if there is one.
       console.log(err);
     });
-  };
-
-  /* ---- Q1b (Dashboard) ---- */
-  /* Set this.state.movies to a list of <DashboardMovieRow />'s. */
-  showMovies(keyword) {
-    // Send an HTTP request to the server.
-    fetch("http://localhost:8081/keywords/" + keyword,
-    {
-      method: 'GET' // The type of HTTP request.
-    })
-      .then(res => res.json())
-      .then(moviesList => {
-        console.log(moviesList) //displays your JSON object in the console
-        let moviesDivs = moviesList.map((movieObj, i) =>
-          <DashboardMovieRow
-            title={movieObj.title}
-            rating={movieObj.rating}
-            num_ratings={movieObj.num_ratings}
-          />
-        );
-        
-        // Set the state of the movies list to the value returned by the HTTP response from the server.
-        this.setState({
-          movies: moviesDivs
-        });
-      }, err => {
-        // Print the error if there is one.
-        console.log(err);
-      });
   };
 
   render() {
@@ -95,7 +61,7 @@ export default class Team extends React.Component {
           <div className="jumbotron">
             <div className="h5">Team Profile</div>
             <div className="keywords-container">
-              {this.state.name}
+              {this.state.names}
             </div> 
           </div>
 
@@ -108,7 +74,7 @@ export default class Team extends React.Component {
                 <div className="header"><strong>Vote Count</strong></div>
               </div>
               <div className="results-container" id="results">
-                {this.state.name}
+                {this.state.names}
               </div>
             </div>
           </div>

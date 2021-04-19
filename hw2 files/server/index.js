@@ -7,7 +7,7 @@ var routes = require("./routes.js");
 
 // Divide routes
 var playerRoutes = require("./routes/player.js");
-var teamRoutes = require("./routes/Team.js");
+var teamRoutes = require("./routes/team.js");
 
 const app = express();
 
