@@ -59,30 +59,39 @@ const getMostXGContributer = (req, res) => {
 const getMostProgressivePlayer = (req, res) => {
     var query = `
     WITH team_outfielders AS(
-        SELECT ppts.player_id, SUM(ppts.90s_played) AS 90s_played, SUM(ppas.prog_passes) AS prog_passes, SUM(ppas.comp_passes_leading_to_final_third) AS comp_passes_f3, SUM(ppos.att_3rd_carries) AS f3_carries, SUM(ppos.prog_dist_carried) AS prog_dist_carried
-    	FROM player_playing_time_stats ppts
-    	NATURAL JOIN player_passing_stats ppas
-    	NATURAL JOIN player_possession_stats ppos
-    	JOIN team t ON t.name = ppts.team
-    	WHERE t.team_id = ${input_teamID} AND ppts.season = ${input_year}
-    	GROUP BY ppts.player_id
+        SELECT ppts.player_id,
+            SUM(ppts.90s_played) AS 90s_played,
+            SUM(ppas.prog_passes) AS prog_passes,
+            SUM(ppas.comp_passes_leading_to_final_third) AS comp_passes_f3,
+            SUM(ppos.att_3rd_carries) AS f3_carries,
+            SUM(ppos.prog_dist_carried) AS prog_dist_carried
+    	  FROM player_playing_time_stats ppts
+    	  NATURAL JOIN player_passing_stats ppas
+    	  NATURAL JOIN player_possession_stats ppos
+    	  JOIN team t ON t.name = ppts.team
+    	  WHERE t.team_id = ${input_teamID} AND ppts.season = ${input_year}
+    	  GROUP BY ppts.player_id
     ), team_outfielders_per_90 AS(
-    	SELECT player_id, prog_passes/90s_played AS prog_passes_p90, comp_passes_f3/90s_played AS comp_passes_f3_p90, f3_carries/90s_played AS f3_carries_p90, prog_dist_carried/90s_played AS prog_dist_carried_p90
-    	FROM team_outfielders
+    	  SELECT player_id, prog_passes/90s_played AS prog_passes_p90, comp_passes_f3/90s_played AS comp_passes_f3_p90, f3_carries/90s_played AS f3_carries_p90, prog_dist_carried/90s_played AS prog_dist_carried_p90
+    	  FROM team_outfielders
         WHERE 90s_played > 2
     ), ranked AS(
-    	SELECT player_id, ROW_NUMBER() OVER(ORDER BY prog_passes_p90) ROWNUMBER1, ROW_NUMBER() OVER(ORDER BY comp_passes_f3_p90) ROWNUMBER2, ROW_NUMBER() OVER(ORDER BY f3_carries_p90) ROWNUMBER3, ROW_NUMBER() OVER(ORDER BY prog_dist_carried_p90) ROWNUMBER4
-    	FROM team_outfielders_per_90
+    	  SELECT player_id,
+            ROW_NUMBER() OVER(ORDER BY prog_passes_p90) ROWNUMBER1,
+            ROW_NUMBER() OVER(ORDER BY comp_passes_f3_p90) ROWNUMBER2,
+            ROW_NUMBER() OVER(ORDER BY f3_carries_p90) ROWNUMBER3,
+            ROW_NUMBER() OVER(ORDER BY prog_dist_carried_p90) ROWNUMBER4
+    	  FROM team_outfielders_per_90
     ), number_of_players AS(
-    	SELECT COUNT(*) AS total
-    	FROM team_outfielders_per_90
+    	  SELECT COUNT(*) AS total
+    	  FROM team_outfielders_per_90
     ), percentiles AS(
-    	 SELECT r.player_id,
-         r.ROWNUMBER1/n.total AS prog_passes_percentile,
-         r.ROWNUMBER2/n.total AS comp_passes_f3_percentile,
-         r.ROWNUMBER3/n.total AS f3_carries_percentile,
-         r.ROWNUMBER4/n.total AS prog_dist_carried_percentile
-    	 FROM ranked r, number_of_players n
+    	   SELECT r.player_id,
+             r.ROWNUMBER1/n.total AS prog_passes_percentile,
+             r.ROWNUMBER2/n.total AS comp_passes_f3_percentile,
+             r.ROWNUMBER3/n.total AS f3_carries_percentile,
+             r.ROWNUMBER4/n.total AS prog_dist_carried_percentile
+    	   FROM ranked r, number_of_players n
     )
     SELECT name, (prog_passes_percentile+comp_passes_f3_percentile+f3_carries_percentile+prog_dist_carried_percentile)/4 AS ranking
     FROM percentiles
@@ -103,7 +112,27 @@ const getMostProgressivePlayer = (req, res) => {
 
 const getMostDominantAgainst = (req, res) => {
     var query = `
-
+    WITH goals_diff AS(
+    		(SELECT t2.team_id AS against_id, (goals_scored_by_home - goals_scored_by_away) AS goals_diff
+    		FROM Fixtures
+    		JOIN team t1 ON home = t1.name
+    		JOIN team t2 ON away = t2.name
+    		WHERE t1.team_id = ${input_teamID})
+    		UNION ALL
+    		(SELECT t1.team_id AS against_id, (goals_scored_by_away - goals_scored_by_home) AS goals_diff
+    		FROM Fixtures
+    		JOIN team t1 ON home = t1.name
+    		JOIN team t2 ON away = t2.name
+    		WHERE t2.team_id = ${input_teamID})
+    ), temp AS(
+    		SELECT goals_diff.against_id, AVG(goals_diff.goals_diff)
+    		FROM goals_diff
+    		GROUP BY goals_diff.against_id
+    		ORDER BY AVG(goals_diff.goals_diff) DESC
+    )
+    SELECT team.name AS opponent, temp.avg_goal_diff AS avg_goal_advantage
+    FROM temp
+    JOIN team ON team_id = against_id
   `;
     connection.query(query, function(err, rows, fields) {
         console.log('hello')
