@@ -25,7 +25,7 @@ const getPlayerName = (req, res) => {
 };
 
 
-const getPercentileForSelectedStatAndYear = (req, res) => {
+const getPercentileForSelectedStatAndYear_Outfield = (req, res) => {
     var query = `
     WITH selected_player_position AS(
 	     SELECT pp.primary_position, pp.secondary_position
@@ -61,6 +61,36 @@ const getPercentileForSelectedStatAndYear = (req, res) => {
 	     LIMIT 1
     )
     SELECT spr.ROWNUMBER / nops.total AS ${inputStat}_Percentile
+    FROM number_of_player_stats nops, selected_players_ranking spr
+    `;
+    connection.query(query, function(err, rows, fields) {
+        if (err) console.log(err);
+        else {
+            console.log(rows);
+            res.json(rows);
+        }
+    });
+};
+
+const getPercentileForSelectedStatAndYear_GK = (req, res) => {
+    var query = `
+    WITH ranked AS(
+    	SELECT player_id, season, team, league, ${inputStat}, ${inputStat}/90s_played, ROW_NUMBER() OVER(ORDER BY ${inputStat}/90s_played) ROWNUMBER
+        FROM player_gk_playing_time_stats
+    		NATURAL JOIN player_gk_basic_stats
+    		NATURAL JOIN player_gk_advanced_stats
+        WHERE 90s_played > 2 AND season = ${inputYear}
+    ), number_of_player_stats AS(
+    	SELECT COUNT(*) AS total
+    	FROM ranked r
+    ), selected_players_ranking AS(
+    	SELECT ROWNUMBER
+    	FROM ranked r
+    	WHERE player_id = ${input_player_id} AND season = ${inputYear}
+    	ORDER BY ROWNUMBER ASC
+    	LIMIT 1
+    )
+    SELECT 1 - spr.ROWNUMBER / nops.total AS ${inputStat}_Percentile
     FROM number_of_player_stats nops, selected_players_ranking spr
     `;
     connection.query(query, function(err, rows, fields) {
