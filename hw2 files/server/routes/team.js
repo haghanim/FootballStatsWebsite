@@ -27,32 +27,53 @@ const getTeamName = (req, res) => {
     });
 };
 
-// query a - Player who contributed highest % of team’s xG in any given season over last few years (player_name, season, xg, percentage_xg).
+// query a - Player who contributed highest % of team’s xG + xA in any given season over last few years (player_name, season, xg, percentage_xg).
+// This is for all comps. 
+
 const getMostXGContributer = (req, res) => {
+    teamName = 'Arsenal'
+        // '${teamName}'
     var query = `
     WITH teamHomeXgXga AS(
-        SELECT season, sum(xG_Home) AS team_xg, sum(xG_Away) AS team_xga, COUNT(*) AS match_count
+        SELECT season, home AS team, sum(xG_Home) AS team_xg, sum(xG_Away) AS team_xga, COUNT(*) AS match_count
         FROM Fixtures
-        WHERE home='Arsenal'
-        GROUP BY season
+        WHERE home = 'Arsenal'
+        GROUP BY season, home
     ),
     teamAwayXgXga AS(
-        SELECT season, sum(xG_Home) AS team_xga, sum(xG_Away) AS team_xg, COUNT(*) AS match_count
+        SELECT season, away AS team, sum(xG_Away) AS team_xg, sum(xG_Home) AS team_xga, COUNT(*) AS match_count
         FROM Fixtures
-        WHERE away='Arsenal'
-        GROUP BY season
+        WHERE away = 'Arsenal'
+        GROUP BY season, away
     ),
-
-     combineHomeAwayXg AS (
-         SELECT *
-         FROM teamHomeXgXga
-         UNION
-         SELECT *
-         FROM teamAwayXgXga
-     )
-
-    SELECT *
-    FROM combineHomeAwayXg
+    combineHomeAwayXg AS (
+        SELECT *
+        FROM teamHomeXgXga
+        UNION
+        SELECT *
+        FROM teamAwayXgXga
+    ),
+    totalXgTeamSeason AS (
+        SELECT season,  team, SUM(team_xg) AS team_xg, SUM(team_xga) AS team_xga, SUM(match_count)
+        FROM combineHomeAwayXg
+        GROUP BY season, team
+    ),
+    playerSeasonTotals AS (
+        SELECT player_id, season, team, SUM(xG) AS xG
+        FROM player_shooting_stats
+        WHERE team = 'Arsenal' 
+        GROUP BY player_id, season, team 
+    ),
+    combinePlayersAndTeams AS (
+        SELECT t1.player_id, t1.team, t1.season,  t1.xG / t2.team_xg AS percentXgContribution
+        FROM playerSeasonTotals t1 
+        JOIN totalXgTeamSeason t2 ON t1.season = t2.season
+        ORDER BY percentXgContribution DESC
+        LIMIT 10
+    )
+    
+    SELECT *    
+    FROM combinePlayersAndTeams
   `;
 };
 
