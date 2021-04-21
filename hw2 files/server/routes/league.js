@@ -96,6 +96,75 @@ const getHistoricalLeagueTable = (req, res) => {
     });
 };
 
+const getTeamOffensiveStats = (req, res) => {
+    var query = `
+    WITH relevant_stats AS(
+        SELECT ppts.player_id, ppts.team, ppts.season, ppts.minutes_played,
+            pss.xG,
+            pss.npxG_per_Shot AS npxG_per_Shot,
+            pgsct.shot_creating_actions AS sca,
+            pgsct.goal_creating_actions AS gca,
+            pps.assisted_shots AS key_passes,
+            pps.comp_passes_into_18_yd_box AS comp_passes,
+            pps.comp_crosses_into_18_yd_box AS comp_crosses
+
+        FROM player_playing_time_stats ppts
+        NATURAL JOIN player_goal_shot_creation_stats pgsct
+        NATURAL JOIN player_shooting_stats pss
+        NATURAL JOIN player_passing_stats pps
+        WHERE ppts.league = ${inputLeague}
+    ), aggregated_by_team AS(
+        SELECT r.team, r.season,
+        SUM(xG) AS xG,
+        SUM(npxG_per_Shot) AS npxG_per_Shot,
+        SUM(sca) AS sca,
+        SUM(gca) AS gca,
+        SUM(key_passes) AS key_passes,
+        SUM(comp_passes) AS comp_passes,
+        SUM(comp_crosses) AS comp_crosses
+
+        FROM relevant_stats r
+        GROUP BY r.team, r.season
+        ORDER BY r.team, r.season
+    ), total_minutes_played AS(
+        SELECT team, season, SUM(minutes_played) AS tot
+        FROM relevant_stats
+        GROUP BY team, season
+        ORDER BY team, season
+    ), mins_weighting AS(
+    	SELECT team, season, MAX(minutes_played_percent) as weight
+        FROM player_playing_time_stats
+        GROUP BY team, season
+    ), norm_total_minutes_played AS(
+        SELECT t.team, t.season, t.tot/(w.weight/100) AS tot
+        FROM total_minutes_played t
+        NATURAL JOIN mins_weighting w
+        GROUP BY t.team, t.season
+        ORDER BY t.team, t.season
+    )
+    	SELECT a.team, a.season,
+        a.xG/(t.tot/10)*90,
+        a.npxG_per_Shot/(t.tot/10)*90,
+        a.sca/(t.tot/10)*90,
+        a.gca/(t.tot/10)*90,
+        a.key_passes/(t.tot/10)*90,
+        a.comp_passes/(t.tot/10)*90,
+        a.comp_crosses/a.comp_passes
+
+        FROM aggregated_by_team a
+        NATURAL JOIN norm_total_minutes_played t
+        ORDER BY team, season
+  `;
+    connection.query(query, function(err, rows, fields) {
+        console.log('hello')
+
+        if (err) console.log(err);
+        else {
+            console.log(rows);
+            res.json(rows);
+        }
+    });
+};
 
 module.exports = {
     getTeamName: getTeamName,
