@@ -211,15 +211,15 @@ const getAvgAge = (req, res) => {
     	  SELECT player_id, league, t.minutes_played/tmp.tot AS weight
     		FROM team_squad t, total_minutes_played tmp
     ), with_birthyear AS(
-    		(SELECT mts.player_id, mts.league, 2021 - po.year_born AS weighted_age
+    		(SELECT mts.player_id, mts.league, mts.weight * (2021 - po.year_born) AS weighted_age
     		FROM mod_team_squad mts
     		JOIN Player_Outfield po ON mts.player_id = po.player_id)
             UNION
-            (SELECT mts.player_id, mts.league, 2021 - pgk.year_born AS weighted_age
+            (SELECT mts.player_id, mts.league, mts.weight * (2021 - pgk.year_born) AS weighted_age
     		FROM mod_team_squad mts
     		JOIN Player_GK pgk ON mts.player_id = pgk.player_id)
     )
-    SELECT SUM(weighted_age)/COUNT(*)
+    SELECT SUM(weighted_age) AS weighted_team_age
     FROM with_birthyear;
   `;
     connection.query(query, function(err, rows, fields) {
@@ -236,30 +236,37 @@ const getAvgAge = (req, res) => {
 const getWinPcts = (req, res) => {
     var query = `
     WITH goals_diff_table AS(
-    	  SELECT t1.team_id AS home_id, t2.team_id AS away_id, (goals_scored_by_home - goals_scored_by_away) AS goals_diff
-    	  FROM Fixtures
-    	  JOIN team t1 ON home = t1.name
-    	  JOIN team t2 ON away = t2.name
-    		WHERE t1.team_id = ${input_teamID} OR t2.team_id = ${input_teamID}
+    	SELECT t1.team_id AS home_id, t2.team_id AS away_id, (goals_scored_by_home - goals_scored_by_away) AS goals_diff
+    	FROM Fixtures
+    	JOIN team t1 ON home = t1.name
+    	JOIN team t2 ON away = t2.name
+    	WHERE t1.team_id = ${input_teamID} OR t2.team_id = ${input_teamID}
     ), home_wins AS(
-    	  SELECT COUNT(*) AS home_wins
-    	  FROM goals_diff_table
-    	  WHERE goals_diff > 0 AND home_id = ${input_teamID}
+    	SELECT COUNT(*) AS home_wins
+    	FROM goals_diff_table
+    	WHERE goals_diff > 0 AND home_id = ${input_teamID}
     ), home_games AS(
-    	  SELECT COUNT(*) AS num_home_games
-    	  FROM goals_diff_table
-    	  WHERE home_id = ${input_teamID}
+    	SELECT COUNT(*) AS num_home_games
+    	FROM goals_diff_table
+    	WHERE home_id = ${input_teamID}
     ), away_wins AS(
-    	  SELECT COUNT(*) AS away_wins
-    	  FROM goals_diff_table
-    	  WHERE goals_diff < 0 AND away_id = ${input_teamID}
+    	SELECT COUNT(*) AS away_wins
+    	FROM goals_diff_table
+        WHERE goals_diff < 0 AND away_id = ${input_teamID}
     ), away_games AS(
-    	  SELECT COUNT(*) AS num_away_games
-    	  FROM goals_diff_table
-    	  WHERE away_id = ${input_teamID}
+    	SELECT COUNT(*) AS num_away_games
+    	FROM goals_diff_table
+    	WHERE away_id = ${input_teamID}
+    ), draws AS(
+        SELECT COUNT(*) AS draws
+        FROM goals_diff_table
+        WHERE goals_diff = 0 AND (home_id = ${input_teamID} OR away_id = ${input_teamID} )
     )
-    SELECT home_wins.home_wins / home_games.num_home_games AS home_win_pct, away_wins.away_wins / away_games.num_away_games AS away_win_pct, (home_wins.home_wins+away_wins.away_wins)/(home_games.num_home_games+away_games.num_away_games) AS total_win_pct
-    FROM home_wins, home_games, away_wins, away_games;
+    SELECT home_wins.home_wins / home_games.num_home_games AS home_win_pct,
+            away_wins.away_wins / away_games.num_away_games AS away_win_pct,
+            (home_wins.home_wins+away_wins.away_wins)/(home_games.num_home_games+away_games.num_away_games) AS total_win_pct,
+            (draws)/(home_games.num_home_games+away_games.num_away_games) AS total_draw_pct
+    FROM home_wins, home_games, away_wins, away_games, draws;
   `;
     connection.query(query, function(err, rows, fields) {
         console.log('hello')
