@@ -12,7 +12,7 @@ const connection = mysql.createPool(config);
 
 const getTeamName = (req, res) => {
     var query = `
-    SELECT name
+    SELECT name 
     FROM team
     LIMIT 20;
   `;
@@ -32,18 +32,18 @@ const getTeamName = (req, res) => {
 
 const getMostXGContributer = (req, res) => {
     teamName = 'Arsenal'
-        // '${teamName}'
+
     var query = `
     WITH teamHomeXgXga AS(
         SELECT season, home AS team, sum(xG_Home) AS team_xg, sum(xG_Away) AS team_xga, COUNT(*) AS match_count
         FROM Fixtures
-        WHERE home = 'Arsenal'
+        WHERE home = ${teamName}
         GROUP BY season, home
     ),
     teamAwayXgXga AS(
         SELECT season, away AS team, sum(xG_Away) AS team_xg, sum(xG_Home) AS team_xga, COUNT(*) AS match_count
         FROM Fixtures
-        WHERE away = 'Arsenal'
+        WHERE away = ${teamName}
         GROUP BY season, away
     ),
     combineHomeAwayXg AS (
@@ -65,14 +65,14 @@ const getMostXGContributer = (req, res) => {
         SELECT player_id, season, team,
         SUM(xA) AS xA
         FROM player_passing_stats
-        WHERE team = 'Arsenal' 
+        WHERE team = ${teamName} 
         GROUP BY player_id, season, team 
     ),
     playerSeasonXgTotals AS (
         SELECT player_id, season, team,
         SUM(xG) AS xG
         FROM player_shooting_stats
-        WHERE team = 'Arsenal' 
+        WHERE team = ${teamName} 
         GROUP BY player_id, season, team 
     ),
     combineXgXaPlayers AS (
@@ -96,7 +96,6 @@ const getMostXGContributer = (req, res) => {
     FROM combinePlayersAndTeams
   `;
 };
-
 
 const getMostProgressivePlayer = (req, res) => {
     var query = `
@@ -272,6 +271,36 @@ const getWinPcts = (req, res) => {
         }
     });
 };
+
+
+// query g: xG and xG recent trendline and performance of last 10-30 matches. (Definitely) 
+const get30RecentGames = (req, res) => {
+    teamName = 'Arsenal'
+
+    var query = `
+    WITH mostRecent30Games AS(
+        SELECT * 
+        FROM Fixtures
+        WHERE home = 'Arsenal'
+        ORDER BY date DESC
+        )
+
+    SELECT *
+    FROM mostRecent30Games
+  `;
+    connection.query(query, function(err, rows, fields) {
+        console.log('hello')
+
+        if (err) console.log(err);
+        else {
+            console.log(rows);
+            res.json(rows);
+        }
+    });
+};
+
+
+
 
 /* -------------------------------------------------- */
 /* ------------------- Route Handlers --------------- */
