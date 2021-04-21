@@ -27,7 +27,7 @@ const getTeamName = (req, res) => {
     });
 };
 
-// query a - Player who contributed highest % of team’s xG + xA in any given season over last few years (player_name, season, xg, percentage_xg).
+// query a - Player who contributed highest % of team’s xG, xA, and xG + xA in any given season over last few years (player_name, season, xg, percentage_xg).
 // This is for all comps. 
 
 const getMostXGContributer = (req, res) => {
@@ -54,19 +54,39 @@ const getMostXGContributer = (req, res) => {
         FROM teamAwayXgXga
     ),
     totalXgTeamSeason AS (
-        SELECT season,  team, SUM(team_xg) AS team_xg, SUM(team_xga) AS team_xga, SUM(match_count)
+        SELECT season, team,
+        SUM(team_xg) AS team_xg,
+        SUM(team_xga) AS team_xga,
+        SUM(match_count) as match_count
         FROM combineHomeAwayXg
         GROUP BY season, team
     ),
-    playerSeasonTotals AS (
-        SELECT player_id, season, team, SUM(xG) AS xG
+    playerSeasonXaTotals AS (
+        SELECT player_id, season, team,
+        SUM(xA) AS xA
+        FROM player_passing_stats
+        WHERE team = 'Arsenal' 
+        GROUP BY player_id, season, team 
+    ),
+    playerSeasonXgTotals AS (
+        SELECT player_id, season, team,
+        SUM(xG) AS xG
         FROM player_shooting_stats
         WHERE team = 'Arsenal' 
         GROUP BY player_id, season, team 
     ),
+    combineXgXaPlayers AS (
+        SELECT t1.player_id, t1.season, t1.team, t1.xG, t2.xA
+        FROM playerSeasonXgTotals t1
+        JOIN playerSeasonXaTotals t2 ON t1.player_id = t2.player_id AND
+        t1.season = t2.season AND t1.team = t2.team
+    ),
     combinePlayersAndTeams AS (
-        SELECT t1.player_id, t1.team, t1.season,  t1.xG / t2.team_xg AS percentXgContribution
-        FROM playerSeasonTotals t1 
+        SELECT t1.player_id, t1.team, t1.season,
+        t1.xG / t2.team_xg AS percentXgContribution,
+        t1.xA / t2.team_xg AS percentXaContribution,
+        (t1.xG + t1.xA) / t2.team_xg AS percentXgXAContribution
+        FROM combineXgXaPlayers t1 
         JOIN totalXgTeamSeason t2 ON t1.season = t2.season
         ORDER BY percentXgContribution DESC
         LIMIT 10
@@ -76,6 +96,7 @@ const getMostXGContributer = (req, res) => {
     FROM combinePlayersAndTeams
   `;
 };
+
 
 const getMostProgressivePlayer = (req, res) => {
     var query = `
