@@ -10,27 +10,34 @@ const connection = mysql.createPool(config);
 /* ------------------- Route Handlers --------------- */
 /* -------------------------------------------------- */
 
-const getTeamName = (req, res) => {
-    var query = `
-    SELECT name 
-    FROM team
-    LIMIT 20;
-  `;
-    connection.query(query, function(err, rows, fields) {
-        console.log('hello')
+const getTeamNames = (req, res) => {
+    teamName = req.team_name
 
+    console.log(req);
+
+    // teamName = 'Arsenal'
+    
+    var query = `
+    SELECT name
+    FROM team
+    WHERE name = '${teamName}';
+  `;
+
+    connection.query(query, function(err, rows, fields) {
         if (err) console.log(err);
         else {
             console.log(rows);
             res.json(rows);
         }
-    });
+    })
 };
 
 // query a - Player who contributed highest % of team’s xG, xA, and xG + xA in any given season over last few years (player_name, season, xg, percentage_xg).
 // This is for all comps. 
 
 const getMostXGContributer = (req, res) => {
+    teamName = req.team_id
+
     teamName = 'Arsenal'
 
     var query = `
@@ -95,6 +102,17 @@ const getMostXGContributer = (req, res) => {
     SELECT *    
     FROM combinePlayersAndTeams
   `;
+
+    connection.query(query, function(err, rows, fields) {
+        console.log('helloGetTeamNames')
+
+        if (err) console.log(err);
+        else {
+            console.log(rows);
+            res.json(rows);
+        }
+    });
+
 };
 
 const getMostProgressivePlayer = (req, res) => {
@@ -314,189 +332,190 @@ const get30RecentGames = (req, res) => {
 /* -------------------------------------------------- */
 
 
-/* ---- Q1a (Dashboard) ---- */
-// Equivalent to: function getTop20Keywords(req, res) {}
-const getTop20Keywords = (req, res) => {
-    var query = `
-    WITH temp AS(
-        SELECT kwd_name, COUNT(*) AS count
-        FROM movie_keyword mk
-        GROUP BY kwd_name
-        ORDER BY COUNT(*) DESC
-    )
+// /* ---- Q1a (Dashboard) ---- */
+// // Equivalent to: function getTop20Keywords(req, res) {}
+// const getTop20Keywords = (req, res) => {
+//     var query = `
+//     WITH temp AS(
+//         SELECT kwd_name, COUNT(*) AS count
+//         FROM movie_keyword mk
+//         GROUP BY kwd_name
+//         ORDER BY COUNT(*) DESC
+//     )
 
-    SELECT kwd_name
-    FROM temp t
-    LIMIT 20;
-  `;
-    connection.query(query, function(err, rows, fields) {
-        if (err) console.log(err);
-        else {
-            console.log(rows);
-            res.json(rows);
-        }
-    });
-};
-
-
-/* ---- Q1b (Dashboard) ---- */
-const getTopMoviesWithKeyword = (req, res) => {
-    var inputKeyword = req.params.keyword;
-
-    var query = `
-    SELECT title, rating, num_ratings
-    FROM movie m
-    JOIN movie_keyword mk ON m.movie_id = mk.movie_id
-    WHERE kwd_name = '${inputKeyword}'
-    ORDER BY rating DESC, num_ratings DESC
-    LIMIT 10;
-  `;
-    connection.query(query, function(err, rows, fields) {
-        if (err) console.log(err);
-        else {
-            console.log(rows);
-            res.json(rows);
-        }
-    });
-};
+//     SELECT kwd_name
+//     FROM temp t
+//     LIMIT 20;
+//   `;
+//     connection.query(query, function(err, rows, fields) {
+//         if (err) console.log(err);
+//         else {
+//             console.log(rows);
+//             res.json(rows);
+//         }
+//     });
+// };
 
 
-/* ---- Q2 (Recommendations) ---- */
-const getRecs = (req, res) => {
-    var inputMovie = req.params.movieName;
+// /* ---- Q1b (Dashboard) ---- */
+// const getTopMoviesWithKeyword = (req, res) => {
+//     var inputKeyword = req.params.keyword;
 
-    var query = `
-    WITH input_movie AS(
-      SELECT m.movie_id
-      FROM movie m
-      WHERE m.title = '${inputMovie}'
-      ORDER BY m.release_year DESC
-      LIMIT 1
-    ), input_movie_cast AS(
-      SELECT cast_id
-      FROM input_movie im
-      JOIN cast_in c ON im.movie_id = c.movie_id
-    ), temp AS(
-      SELECT c.movie_id, COUNT(*) as count
-      FROM input_movie_cast imc
-      LEFT JOIN cast_in c ON c.cast_id = imc.cast_id
-      GROUP BY c.movie_id
-    )
-
-    SELECT m.title, t.movie_id, m.rating, m.num_ratings
-    FROM temp t
-    JOIN movie m ON m.movie_id = t.movie_id
-    WHERE m.title <> '${inputMovie}'
-    ORDER BY t.count DESC, m.rating DESC, m.num_ratings DESC
-    LIMIT 10;
-  `;
-    connection.query(query, function(err, rows, fields) {
-        if (err) console.log(err);
-        else {
-            console.log(rows);
-            res.json(rows);
-        }
-    });
-};
+//     var query = `
+//     SELECT title, rating, num_ratings
+//     FROM movie m
+//     JOIN movie_keyword mk ON m.movie_id = mk.movie_id
+//     WHERE kwd_name = '${inputKeyword}'
+//     ORDER BY rating DESC, num_ratings DESC
+//     LIMIT 10;
+//   `;
+//     connection.query(query, function(err, rows, fields) {
+//         if (err) console.log(err);
+//         else {
+//             console.log(rows);
+//             res.json(rows);
+//         }
+//     });
+// };
 
 
-/* ---- Q3a (Best Movies) ---- */
-const getDecades = (req, res) => {
-    const query = `
-    WITH years AS(
-        SELECT DISTINCT m.release_year AS year
-        FROM movie m
-        ORDER BY m.release_year ASC
-    )
+// /* ---- Q2 (Recommendations) ---- */
+// const getRecs = (req, res) => {
+//     var inputMovie = req.params.movieName;
 
-    SELECT DISTINCT TRUNCATE(year, -1) as decade
-    FROM years
-    ORDER BY decade ASC;
-  `;
+//     var query = `
+//     WITH input_movie AS(
+//       SELECT m.movie_id
+//       FROM movie m
+//       WHERE m.title = '${inputMovie}'
+//       ORDER BY m.release_year DESC
+//       LIMIT 1
+//     ), input_movie_cast AS(
+//       SELECT cast_id
+//       FROM input_movie im
+//       JOIN cast_in c ON im.movie_id = c.movie_id
+//     ), temp AS(
+//       SELECT c.movie_id, COUNT(*) as count
+//       FROM input_movie_cast imc
+//       LEFT JOIN cast_in c ON c.cast_id = imc.cast_id
+//       GROUP BY c.movie_id
+//     )
 
-    connection.query(query, (err, rows, fields) => {
-        if (err) console.log(err);
-        else {
-            console.log(rows);
-            res.json(rows);
-        }
-    });
-};
-
-
-/* ---- (Best Movies) ---- */
-const getGenres = (req, res) => {
-    const query = `
-    SELECT name
-    FROM genre
-    WHERE name <> 'genres'
-    ORDER BY name ASC;
-  `;
-
-    connection.query(query, (err, rows, fields) => {
-        if (err) console.log(err);
-        else {
-            console.log(rows);
-            res.json(rows);
-        }
-    });
-};
+//     SELECT m.title, t.movie_id, m.rating, m.num_ratings
+//     FROM temp t
+//     JOIN movie m ON m.movie_id = t.movie_id
+//     WHERE m.title <> '${inputMovie}'
+//     ORDER BY t.count DESC, m.rating DESC, m.num_ratings DESC
+//     LIMIT 10;
+//   `;
+//     connection.query(query, function(err, rows, fields) {
+//         if (err) console.log(err);
+//         else {
+//             console.log(rows);
+//             res.json(rows);
+//         }
+//     });
+// };
 
 
-/* ---- Q3b (Best Movies) ---- */
-const bestMoviesPerDecadeGenre = (req, res) => {
-    var inputGenre = req.params.selectedGenre;
-    var inputDecade = req.params.selectedDecade;
+// /* ---- Q3a (Best Movies) ---- */
+// const getDecades = (req, res) => {
+//     const query = `
+//     WITH years AS(
+//         SELECT DISTINCT m.release_year AS year
+//         FROM movie m
+//         ORDER BY m.release_year ASC
+//     )
 
-    var query = `
-    WITH master_table AS(
-        SELECT m.release_year, m.movie_id, m.title, m.rating, mg.genre_name
-        FROM movie m
-        JOIN movie_genre mg ON mg.movie_id = m.movie_id
-        WHERE m.release_year BETWEEN ${inputDecade} AND ${inputDecade}+9
-    ), input_movies_by_decade AS (
-        SELECT DISTINCT mstr.release_year, mstr.movie_id, mstr.title, mstr.rating
-        FROM master_table mstr
-    ), relevant_movies AS(
-        SELECT mstr.release_year, mstr.movie_id, mstr.title, mstr.rating
-        FROM master_table mstr
-        WHERE mstr.genre_name = '${inputGenre}'
-    ), relevant_genres AS(
-        SELECT DISTINCT mg.genre_name
-        FROM relevant_movies rm
-        JOIN movie_genre mg ON rm.movie_id = mg.movie_id
-    ), genre_decade_averages AS(
-        SELECT mg.genre_name, AVG(imbd.rating) AS avg_rating
-        FROM movie_genre mg
-        JOIN input_movies_by_decade imbd ON imbd.movie_id = mg.movie_id
-        WHERE mg.genre_name IN (SELECT * FROM relevant_genres rg)
-        GROUP BY mg.genre_name
-    )
-    SELECT DISTINCT rm.movie_id, rm.title, rm.rating
-    FROM relevant_movies rm
-    JOIN movie_genre mg ON rm.movie_id = mg.movie_id
-    WHERE rm.rating > ALL (SELECT gda.avg_rating
-                          FROM genre_decade_averages gda
-                          JOIN master_table mstr ON mstr.genre_name = gda.genre_name
-                          WHERE rm.movie_id = mstr.movie_id)
-    ORDER BY rm.title ASC
-    LIMIT 100;
-  `;
-    connection.query(query, function(err, rows, fields) {
-        if (err) console.log(err);
-        else {
-            console.log(rows);
-            res.json(rows);
-        }
-    });
-};
+//     SELECT DISTINCT TRUNCATE(year, -1) as decade
+//     FROM years
+//     ORDER BY decade ASC;
+//   `;
+
+//     connection.query(query, (err, rows, fields) => {
+//         if (err) console.log(err);
+//         else {
+//             console.log(rows);
+//             res.json(rows);
+//         }
+//     });
+// };
+
+
+// /* ---- (Best Movies) ---- */
+// const getGenres = (req, res) => {
+//     const query = `
+//     SELECT name
+//     FROM genre
+//     WHERE name <> 'genres'
+//     ORDER BY name ASC;
+//   `;
+
+//     connection.query(query, (err, rows, fields) => {
+//         if (err) console.log(err);
+//         else {
+//             console.log(rows);
+//             res.json(rows);
+//         }
+//     });
+// };
+
+
+// /* ---- Q3b (Best Movies) ---- */
+// const bestMoviesPerDecadeGenre = (req, res) => {
+//     var inputGenre = req.params.selectedGenre;
+//     var inputDecade = req.params.selectedDecade;
+
+//     var query = `
+//     WITH master_table AS(
+//         SELECT m.release_year, m.movie_id, m.title, m.rating, mg.genre_name
+//         FROM movie m
+//         JOIN movie_genre mg ON mg.movie_id = m.movie_id
+//         WHERE m.release_year BETWEEN ${inputDecade} AND ${inputDecade}+9
+//     ), input_movies_by_decade AS (
+//         SELECT DISTINCT mstr.release_year, mstr.movie_id, mstr.title, mstr.rating
+//         FROM master_table mstr
+//     ), relevant_movies AS(
+//         SELECT mstr.release_year, mstr.movie_id, mstr.title, mstr.rating
+//         FROM master_table mstr
+//         WHERE mstr.genre_name = '${inputGenre}'
+//     ), relevant_genres AS(
+//         SELECT DISTINCT mg.genre_name
+//         FROM relevant_movies rm
+//         JOIN movie_genre mg ON rm.movie_id = mg.movie_id
+//     ), genre_decade_averages AS(
+//         SELECT mg.genre_name, AVG(imbd.rating) AS avg_rating
+//         FROM movie_genre mg
+//         JOIN input_movies_by_decade imbd ON imbd.movie_id = mg.movie_id
+//         WHERE mg.genre_name IN (SELECT * FROM relevant_genres rg)
+//         GROUP BY mg.genre_name
+//     )
+//     SELECT DISTINCT rm.movie_id, rm.title, rm.rating
+//     FROM relevant_movies rm
+//     JOIN movie_genre mg ON rm.movie_id = mg.movie_id
+//     WHERE rm.rating > ALL (SELECT gda.avg_rating
+//                           FROM genre_decade_averages gda
+//                           JOIN master_table mstr ON mstr.genre_name = gda.genre_name
+//                           WHERE rm.movie_id = mstr.movie_id)
+//     ORDER BY rm.title ASC
+//     LIMIT 100;
+//   `;
+//     connection.query(query, function(err, rows, fields) {
+//         if (err) console.log(err);
+//         else {
+//             console.log(rows);
+//             res.json(rows);
+//         }
+//     });
+// };
 
 module.exports = {
-    getTeamName: getTeamName,
-    getTop20Keywords: getTop20Keywords,
-    getTopMoviesWithKeyword: getTopMoviesWithKeyword,
-    getRecs: getRecs,
-    getDecades: getDecades,
-    getGenres: getGenres,
-    bestMoviesPerDecadeGenre: bestMoviesPerDecadeGenre
+    getTeamNames: getTeamNames,
+    getMostXGContributer: getMostXGContributer,
+    // getTop20Keywords: getTop20Keywords,
+    // getTopMoviesWithKeyword: getTopMoviesWithKeyword,
+    // getRecs: getRecs,
+    // getDecades: getDecades,
+    // getGenres: getGenres,
+    // bestMoviesPerDecadeGenre: bestMoviesPerDecadeGenre
 };

@@ -3,7 +3,6 @@ const express = require('express');
 const cors = require('cors');
 
 // delete later
-var routes = require("./routes.js");
 
 // Divide routes
 var playerRoutes = require("./routes/player.js");
@@ -22,23 +21,23 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /* ---- (Dashboard) ---- */
 // The route localhost:8081/keywords is registered to the function
 // routes.getTop20Keywords, specified in routes.js.
-app.get('/keywords', routes.getTop20Keywords);
+// app.get('/keywords', routes.getTop20Keywords);
 
 
-/* ---- Q1b (Dashboard) ---- */
-app.get('/keywords/:keyword', routes.getTopMoviesWithKeyword);
+// /* ---- Q1b (Dashboard) ---- */
+// app.get('/keywords/:keyword', routes.getTopMoviesWithKeyword);
 
 
-/* ---- Q2 (Recommendations) ---- */
-app.get('/recs/:movieName', routes.getRecs);
+// /* ---- Q2 (Recommendations) ---- */
+// app.get('/recs/:movieName', routes.getRecs);
 
-/* ---- (Best Movies) ---- */
-app.get('/decades', routes.getDecades);
-app.get('/genres', routes.getGenres);
+// /* ---- (Best Movies) ---- */
+// app.get('/decades', routes.getDecades);
+// app.get('/genres', routes.getGenres);
 
 
-/* ---- Q3b (Best Movies) ---- */
-app.get('/best-movies/:selectedDecade/:selectedGenre', routes.bestMoviesPerDecadeGenre);
+// /* ---- Q3b (Best Movies) ---- */
+// app.get('/best-movies/:selectedDecade/:selectedGenre', routes.bestMoviesPerDecadeGenre);
 
 /* ---------------------------------------------------------------- */
 /* ------------------- Route handler registration ----------------- */
@@ -48,8 +47,9 @@ app.get('/best-movies/:selectedDecade/:selectedGenre', routes.bestMoviesPerDecad
 app.get('/players/:player_id', playerRoutes.getTopMoviesWithKeyword);
 
 /* ---- (Team Page) ---- */
-app.get('/teams/:team_id', teamRoutes.getTeamName);
+app.get('/teams/:team_name', teamRoutes.getTeamNames);
 
+app.get('/teams', teamRoutes.getTeamNames);
 
 
 app.listen(8081, () => {

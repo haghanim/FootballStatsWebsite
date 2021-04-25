@@ -3,6 +3,8 @@ import '../style/Dashboard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
 
+import TeamRow from './TeamRow'
+
 export default class Team extends React.Component {
   constructor(props) {
     super(props);
@@ -10,39 +12,47 @@ export default class Team extends React.Component {
     // The state maintained by this React Component. This component maintains the list of keywords,
     // and a list of movies for a specified keyword.
     this.state = {
-      names: [],
+      name: "",
     };
 
+    this.handleMovieNameChange = this.handleMovieNameChange.bind(this);
+	};
+
+	handleMovieNameChange(e) {
+		this.setState({
+			name: e.target.value
+		});
+    
   };
 
   // React function that is called when the page load.
   componentDidMount() {
     // Send an HTTP request to the server.
-    fetch("http://localhost:8081/teams",
+    fetch("http://localhost:8081/teams/" + this.state.name,
     {
       method: 'GET' // The type of HTTP request.
     }).then(res => {
       // Convert the response data to a JSON.
-      
-      console.log("hello")
 
       return res.json();
     }, err => {
-      // Print the error if there is one.
       console.log(err);
-    }).then(namesList => {
-      if (!namesList) return;
+    }).then(nameList => {
+      if (!nameList) return;
 
       // Map each keyword in this.state.keywords to an HTML element:
       // A button which triggers the showMovies function for each keyword.
-      const namesDivs = namesList.map((namesObj, i) =>
-        <div> Example Team Name </div>
+      const nameDivs = nameList.map((nameObj, i) =>
+        // <p> team 1 </p>
+        <TeamRow
+          name={nameObj.name}
+      />
       );
-      console.log("hello")
+      console.log(nameDivs)
 
       // Set the state of the keywords list to the value returned by the HTTP response from the server.
       this.setState({
-        names: namesDivs
+        name: nameDivs
       });
     }, err => {
       // Print the error if there is one.
@@ -53,7 +63,6 @@ export default class Team extends React.Component {
   render() {
     return (
       <div className="Dashboard">
-
         <PageNavbar active="dashboard" />
 
         <br />
@@ -61,25 +70,19 @@ export default class Team extends React.Component {
           <div className="jumbotron">
             <div className="h5">Team Profile</div>
             <div className="keywords-container">
-              {this.state.names}
+              {this.state.name}
             </div> 
           </div>
 
           <br />
           <div className="jumbotron">
-            <div className="movies-container">
-              <div className="movies-header">
-                <div className="header-lg"><strong>Title</strong></div>
-                <div className="header"><strong>Rating</strong></div>
-                <div className="header"><strong>Vote Count</strong></div>
-              </div>
-              <div className="results-container" id="results">
-                {this.state.names}
-              </div>
+            <div className="h5">xG Trendline</div>
+            <div className="keywords-container">
+              {this.state.name}
             </div>
-          </div>
         </div>
-      </div>
+        </div>
+        </div>
     );
   };
 };
