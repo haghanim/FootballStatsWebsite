@@ -44,6 +44,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /* ---------------------------------------------------------------- */
 
 /* ---- (Player Page) ---- */
+app.get('/players', playerRoutes.getAllPlayers);
+
 app.get('/players/:player_id', playerRoutes.getTopMoviesWithKeyword);
 
 /* ---- (Team Page) ---- */

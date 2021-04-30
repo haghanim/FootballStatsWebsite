@@ -1,5 +1,5 @@
 // Fix this Path so that it's local to your computer
-const config = require('/Users/markhaghani/Documents/GitHub/550FinalProject/hw2 files/server/db-config.js');
+const config = require('C:/Users/alanf/OneDrive/Desktop/CIS450/Project/550FinalProject/hw2 files/server/db-config.js');
 const mysql = require('mysql');
 
 config.connectionLimit = 10;
@@ -34,7 +34,7 @@ const getHomeVsAwayGoalDifferential = (req, res) => {
     JOIN away_goal_diff_by_team a ON h.team_name = a.team_name
     ORDER BY differential DESC;
   `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         console.log('hello')
 
         if (err) console.log(err);
@@ -85,7 +85,7 @@ const getHistoricalLeagueTable = (req, res) => {
     FROM temp
     GROUP BY team_name;
   `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         console.log('hello')
 
         if (err) console.log(err);
@@ -155,7 +155,7 @@ const getTeamOffensiveStats = (req, res) => {
         NATURAL JOIN norm_total_minutes_played t
         ORDER BY team, season
   `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         console.log('hello')
 
         if (err) console.log(err);

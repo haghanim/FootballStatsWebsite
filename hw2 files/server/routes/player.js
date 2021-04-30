@@ -1,5 +1,5 @@
 // Fix this Path so that it's local to your computer
-const config = require('/Users/markhaghani/Documents/GitHub/550FinalProject/hw2 files/server/db-config.js');
+const config = require('C:/Users/alanf/OneDrive/Desktop/CIS450/Project/550FinalProject/hw2 files/server/db-config.js');
 const mysql = require('mysql');
 
 config.connectionLimit = 10;
@@ -9,6 +9,23 @@ const connection = mysql.createPool(config);
 /* ------------------- Route Handlers --------------- */
 /* -------------------------------------------------- */
 
+const getAllPlayers = (req, res) => {
+    var query =
+        `SELECT name, nationality, year_born
+    FROM Player_Outfield
+    LIMIT 20;`;
+    connection.query(query, function (err, rows, fields) {
+        if (err) {
+            console.log(err);
+            res.status(400).json({ 'message': 'generic error message' });
+        }
+        else {
+            console.log(rows);
+            res.status(200).json(rows);
+        }
+    });
+}
+
 const getPlayerName = (req, res) => {
     var query = `
     SELECT name
@@ -16,7 +33,7 @@ const getPlayerName = (req, res) => {
     LIMIT 20;
     
   `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         if (err) console.log(err);
         else {
             console.log(rows);
@@ -64,7 +81,7 @@ const getPercentileForSelectedStatAndYear_Outfield = (req, res) => {
     SELECT spr.ROWNUMBER / nops.total AS ${inputStat}_Percentile
     FROM number_of_player_stats nops, selected_players_ranking spr
     `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         if (err) console.log(err);
         else {
             console.log(rows);
@@ -94,7 +111,7 @@ const getPercentileForSelectedStatAndYear_GK = (req, res) => {
     SELECT 1 - spr.ROWNUMBER / nops.total AS ${inputStat}_Percentile
     FROM number_of_player_stats nops, selected_players_ranking spr
     `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         if (err) console.log(err);
         else {
             console.log(rows);
@@ -122,7 +139,7 @@ const getTop20Keywords = (req, res) => {
     FROM temp t
     LIMIT 20;
   `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         if (err) console.log(err);
         else {
             console.log(rows);
@@ -144,7 +161,7 @@ const getTopMoviesWithKeyword = (req, res) => {
     ORDER BY rating DESC, num_ratings DESC
     LIMIT 10;
   `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         if (err) console.log(err);
         else {
             console.log(rows);
@@ -183,7 +200,7 @@ const getRecs = (req, res) => {
     ORDER BY t.count DESC, m.rating DESC, m.num_ratings DESC
     LIMIT 10;
   `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         if (err) console.log(err);
         else {
             console.log(rows);
@@ -275,7 +292,7 @@ const bestMoviesPerDecadeGenre = (req, res) => {
     ORDER BY rm.title ASC
     LIMIT 100;
   `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         if (err) console.log(err);
         else {
             console.log(rows);
@@ -288,6 +305,7 @@ const bestMoviesPerDecadeGenre = (req, res) => {
 
 // Keep this
 module.exports = {
+    getAllPlayers: getAllPlayers,
     getPlayerName: getPlayerName,
     getTop20Keywords: getTop20Keywords,
     getTopMoviesWithKeyword: getTopMoviesWithKeyword,

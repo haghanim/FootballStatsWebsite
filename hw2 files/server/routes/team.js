@@ -1,5 +1,5 @@
 // Fix this Path so that it's local to your computer
-const config = require('/Users/markhaghani/Documents/GitHub/550FinalProject/hw2 files/server/db-config.js');
+const config = require('C:/Users/alanf/OneDrive/Desktop/CIS450/Project/550FinalProject/hw2 files/server/db-config.js');
 const mysql = require('mysql');
 
 config.connectionLimit = 10;
@@ -17,7 +17,7 @@ const getTeamLeague = (req, res) => {
     console.log("REQ:", req.params.team_name);
 
     // teamName = 'Arsenal'
-    
+
     var query = `
     SELECT league
     FROM player_passing_stats
@@ -25,7 +25,7 @@ const getTeamLeague = (req, res) => {
     LIMIT 1;
   `;
 
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         if (err) console.log(err);
         else {
             console.log(rows);
@@ -105,7 +105,7 @@ const getMostXGContributer = (req, res) => {
     FROM combinePlayersAndTeams
   `;
 
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         console.log('helloGetTeamNames')
 
         if (err) console.log(err);
@@ -160,7 +160,7 @@ const getMostProgressivePlayer = (req, res) => {
     ORDER BY ranking DESC
     LIMIT 5;
   `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         console.log('hello')
 
         if (err) console.log(err);
@@ -195,7 +195,7 @@ const getMostDominantAgainst = (req, res) => {
     FROM temp
     JOIN team ON team_id = against_id
   `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         console.log('hello')
 
         if (err) console.log(err);
@@ -242,7 +242,7 @@ const getAvgAge = (req, res) => {
     SELECT SUM(weighted_age) AS weighted_team_age
     FROM with_birthyear;
   `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         console.log('hello')
 
         if (err) console.log(err);
@@ -288,7 +288,7 @@ const getWinPcts = (req, res) => {
             (draws)/(home_games.num_home_games+away_games.num_away_games) AS total_draw_pct
     FROM home_wins, home_games, away_wins, away_games, draws;
   `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         console.log('hello')
 
         if (err) console.log(err);
@@ -315,7 +315,7 @@ const get30RecentGames = (req, res) => {
     SELECT *
     FROM mostRecent30Games
   `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         console.log('hello')
 
         if (err) console.log(err);
