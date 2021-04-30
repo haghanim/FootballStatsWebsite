@@ -10,17 +10,19 @@ const connection = mysql.createPool(config);
 /* ------------------- Route Handlers --------------- */
 /* -------------------------------------------------- */
 
-const getTeamNames = (req, res) => {
-    teamName = req.team_name
+const getTeamLeague = (req, res) => {
+    
+    teamName = req.params.team_name
 
-    console.log(req);
+    console.log("REQ:", req.params.team_name);
 
     // teamName = 'Arsenal'
     
     var query = `
-    SELECT name
-    FROM team
-    WHERE name = '${teamName}';
+    SELECT league
+    FROM player_passing_stats
+    WHERE team = '${teamName}'
+    LIMIT 1;
   `;
 
     connection.query(query, function(err, rows, fields) {
@@ -36,7 +38,7 @@ const getTeamNames = (req, res) => {
 // This is for all comps. 
 
 const getMostXGContributer = (req, res) => {
-    teamName = req.team_id
+    teamName = req.team_name
 
     teamName = 'Arsenal'
 
@@ -510,7 +512,7 @@ const get30RecentGames = (req, res) => {
 // };
 
 module.exports = {
-    getTeamNames: getTeamNames,
+    getTeamLeague: getTeamLeague,
     getMostXGContributer: getMostXGContributer,
     // getTop20Keywords: getTop20Keywords,
     // getTopMoviesWithKeyword: getTopMoviesWithKeyword,

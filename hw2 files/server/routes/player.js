@@ -14,6 +14,7 @@ const getPlayerName = (req, res) => {
     SELECT name
     FROM player
     LIMIT 20;
+    
   `;
     connection.query(query, function(err, rows, fields) {
         if (err) console.log(err);

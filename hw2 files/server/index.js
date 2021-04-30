@@ -47,9 +47,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/players/:player_id', playerRoutes.getTopMoviesWithKeyword);
 
 /* ---- (Team Page) ---- */
-app.get('/teams/:team_name', teamRoutes.getTeamNames);
+app.get('/teams/:team_name', teamRoutes.getTeamLeague);
 
-app.get('/teams', teamRoutes.getTeamNames);
+app.get('/teams', teamRoutes.getTeamLeague);
 
 
 app.listen(8081, () => {
