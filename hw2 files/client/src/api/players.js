@@ -2,7 +2,7 @@ import { fetchWithErrors } from './';
 
 export function getAllPlayers() {
     return fetchWithErrors(
-        'http:localhost:8081/players',
+        'http://localhost:8081/players/',
         {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -19,7 +19,7 @@ export function getAllPlayers() {
 
 export function getPlayerProfile(playerId) {
     return fetchWithErrors(
-        `http:localhost:8081/players/getprofile/${playerId}`,
+        `http://localhost:8081/players/getprofile/${playerId}`,
         {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
