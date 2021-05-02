@@ -10,10 +10,13 @@ const connection = mysql.createPool(config);
 /* -------------------------------------------------- */
 
 const getAllPlayers = (req, res) => {
+    console.log('yo');
     var query =
-        `SELECT name, nationality, year_born
-    FROM Player_Outfield
-    LIMIT 20;`;
+        `SELECT *
+    FROM Player_Outfield UNION 
+    SELECT *
+    FROM Player_GK
+    ;`;
     connection.query(query, function (err, rows, fields) {
         if (err) {
             console.log(err);

@@ -19,7 +19,7 @@ export function getAllTeams() {
 
 export function getTeamProfile(teamId) {
     return fetchWithErrors(
-        `http:localhost:8081/team/getprofile/${teamIdId}`,
+        `http:localhost:8081/team/getprofile/${teamId}`,
         {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
