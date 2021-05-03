@@ -10,8 +10,23 @@ const connection = mysql.createPool(config);
 /* ------------------- Route Handlers --------------- */
 /* -------------------------------------------------- */
 
+const getAllTeams = (req, res) => {
+    var query = `
+    SELECT *
+    FROM team;`;
+    connection.query(query, function (err, rows, fields) {
+        if (err) {
+            console.log(err);
+            res.status(400).json({ 'message': 'generic error message' });
+        }
+        else {
+            res.status(200).send(rows);
+        }
+    });
+};
+
 const getTeamLeague = (req, res) => {
-    
+
     teamName = req.params.team_name
 
     console.log("REQ:", req.params.team_name);
@@ -514,6 +529,7 @@ const get30RecentGames = (req, res) => {
 module.exports = {
     getTeamLeague: getTeamLeague,
     getMostXGContributer: getMostXGContributer,
+    getAllTeams: getAllTeams,
     // getTop20Keywords: getTop20Keywords,
     // getTopMoviesWithKeyword: getTopMoviesWithKeyword,
     // getRecs: getRecs,

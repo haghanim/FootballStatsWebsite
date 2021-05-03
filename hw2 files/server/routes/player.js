@@ -26,13 +26,13 @@ const getAllPlayers = (req, res) => {
     (SELECT *
     FROM player_table1)
 `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         if (err) {
-            console.log(err);
+            // console.log(err);
             res.status(400).json({ 'message': 'generic error message' });
         }
         else {
-            console.log(rows);
+            // console.log(rows);
             res.status(200).json(rows);
         }
     });
