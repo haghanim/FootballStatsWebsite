@@ -11,60 +11,36 @@ const connection = mysql.createPool(config);
 
 const getAllPlayers = (req, res) => {
     console.log('yo');
-    var query = `
-    WITH player_table AS(SELECT DISTINCT po.name AS 'name', po.year_born, po.nationality, pp.team AS 'Club', pp.primary_position AS 'Position'
-    FROM Player_Outfield po
-    JOIN player_position pp ON po.player_id = pp.player_id),
+    var query = `With x AS(
+    SELECT player_id, MAX(season) AS season, MIN(team) AS team, primary_position AS 'primary_position'
+    FROM player_position 
+    GROUP BY player_id
+),
 
-    player_table1 AS(SELECT DISTINCT po.name AS 'name', po.year_born, po.nationality, pp.team AS 'Club', 'GK' AS 'Position'
-    FROM Player_GK po
-    JOIN player_gk_basic_stats pp ON po.player_id = pp.player_id)
+y as (SELECT player_id, 'GK' AS 'primary_position', MAX(season) AS season, MIN(team) AS team
+    FROM player_gk_basic_stats 
+    GROUP BY player_id
+),
 
-   (SELECT *
-    FROM player_table)
+z as (Select b.name as 'name', b.year_born, b.nationality, a.team as 'Club', a.primary_position as 'Position', a.player_id
+from x a
+Join Player_Outfield b on a.player_id = b.player_id),
+
+g as (Select b.name as 'name', b.year_born, b.nationality, a.team as 'Club', a.primary_position as 'Position', a.player_id
+from y a
+Join Player_GK b on a.player_id = b.player_id)
+
+(SELECT *
+    FROM z)
     UNION
     (SELECT *
-    FROM player_table1)
-`;
-
-
-
-var q2 = `With x as (SELECT a.team, a.primary_position, a.player_id, a.season
-    FROM player_position a
-    INNER JOIN (
-        SELECT player_id, MAX(season) season, MIN(team) team
-        FROM player_position 
-        GROUP BY player_id
-    ) b ON a.player_id = b.player_id AND a.season = b.season AND a.team = b.team),
-    
-    y as (SELECT a.team, 'GK' AS 'primary_position', a.player_id, a.season
-    FROM player_gk_basic_stats a
-    INNER JOIN (
-        SELECT player_id, MAX(season) season, MIN(team) team
-        FROM player_gk_basic_stats 
-        GROUP BY player_id
-    ) b ON a.player_id = b.player_id AND a.season = b.season AND a.team = b.team),
-    
-    z as (Select b.name as 'name', b.year_born, b.nationality, a.team as 'Club', a.primary_position as 'Position', a.player_id
-    from x a
-    Join Player_Outfield b on a.player_id = b.player_id),
-    
-    g as (Select b.name as 'name', b.year_born, b.nationality, a.team as 'Club', a.primary_position as 'Position', a.player_id
-    from y a
-    Join Player_GK b on a.player_id = b.player_id)
-    
-    (SELECT *
-        FROM z)
-        UNION
-        (SELECT *
-        FROM g)`;
+    FROM g)`;
 
     connection.query(query, function(err, rows, fields) {
         if (err) {
             console.log(err);
             res.status(400).json({ 'message': 'generic error message' });
-        }
-        else {
+        } else {
             console.log(rows);
             res.status(200).json(rows);
         }
@@ -78,7 +54,7 @@ const getPlayerName = (req, res) => {
     LIMIT 20;
     
   `;
-    connection.query(query, function (err, rows, fields) {
+    connection.query(query, function(err, rows, fields) {
         if (err) console.log(err);
         else {
             console.log(rows);
@@ -126,7 +102,7 @@ const getPercentileForSelectedStatAndYear_Outfield = (req, res) => {
     SELECT spr.ROWNUMBER / nops.total AS ${inputStat}_Percentile
     FROM number_of_player_stats nops, selected_players_ranking spr
     `;
-    connection.query(query, function (err, rows, fields) {
+    connection.query(query, function(err, rows, fields) {
         if (err) console.log(err);
         else {
             console.log(rows);
@@ -156,7 +132,7 @@ const getPercentileForSelectedStatAndYear_GK = (req, res) => {
     SELECT 1 - spr.ROWNUMBER / nops.total AS ${inputStat}_Percentile
     FROM number_of_player_stats nops, selected_players_ranking spr
     `;
-    connection.query(query, function (err, rows, fields) {
+    connection.query(query, function(err, rows, fields) {
         if (err) console.log(err);
         else {
             console.log(rows);
@@ -184,7 +160,7 @@ const getTop20Keywords = (req, res) => {
     FROM temp t
     LIMIT 20;
   `;
-    connection.query(query, function (err, rows, fields) {
+    connection.query(query, function(err, rows, fields) {
         if (err) console.log(err);
         else {
             console.log(rows);
@@ -245,7 +221,7 @@ const getRecs = (req, res) => {
     ORDER BY t.count DESC, m.rating DESC, m.num_ratings DESC
     LIMIT 10;
   `;
-    connection.query(query, function (err, rows, fields) {
+    connection.query(query, function(err, rows, fields) {
         if (err) console.log(err);
         else {
             console.log(rows);
