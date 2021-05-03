@@ -51,6 +51,14 @@ function Players() {
         console.log('yo');
         api.players.getAllPlayers()
             .then((apiPlayersList) => {
+
+
+              apiPlayersList = apiPlayersList.map((item) =>
+              {  item.nationality = item.nationality.slice(-3);
+                      return   item;}
+          );
+
+
                 setPlayersList(apiPlayersList)
             });
     }, [])
