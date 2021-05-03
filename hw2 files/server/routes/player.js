@@ -11,29 +11,34 @@ const connection = mysql.createPool(config);
 
 const getAllPlayers = (req, res) => {
     console.log('yo');
-    var query = `With x AS(
-    SELECT player_id, MAX(season) AS season, MIN(team) AS team, primary_position AS 'primary_position'
-    FROM player_position 
-    GROUP BY player_id
-),
+    var query = `
+    WITH x AS(
+        SELECT player_id, MAX(season) AS season, MIN(team) AS team, primary_position AS 'primary_position'
+        FROM player_position
+        GROUP BY player_id
+    ),
 
-y as (SELECT player_id, 'GK' AS 'primary_position', MAX(season) AS season, MIN(team) AS team
-    FROM player_gk_basic_stats 
-    GROUP BY player_id
-),
+    y as (
+        SELECT player_id, 'GK' AS 'primary_position', MAX(season) AS season, MIN(team) AS team
+        FROM player_gk_basic_stats
+        GROUP BY player_id
+    ),
 
-z as (Select b.name as 'name', b.year_born, b.nationality, a.team as 'Club', a.primary_position as 'Position', a.player_id
-from x a
-Join Player_Outfield b on a.player_id = b.player_id),
+    z as (
+        SELECT b.name as 'name', b.year_born, b.nationality, a.team as 'Club', a.primary_position as 'Position', a.player_id
+        FROM x a
+        JOIN Player_Outfield b on a.player_id = b.player_id),
 
-g as (Select b.name as 'name', b.year_born, b.nationality, a.team as 'Club', a.primary_position as 'Position', a.player_id
-from y a
-Join Player_GK b on a.player_id = b.player_id)
+    g as (
+        SELECT b.name as 'name', b.year_born, b.nationality, a.team as 'Club', a.primary_position as 'Position', a.player_id
+        FROM y a
+        JOIN Player_GK b on a.player_id = b.player_id
+    )
 
-(SELECT *
+   (SELECT *
     FROM z)
     UNION
-    (SELECT *
+   (SELECT *
     FROM g)`;
 
     connection.query(query, function(err, rows, fields) {
@@ -52,7 +57,7 @@ const getPlayerName = (req, res) => {
     SELECT name
     FROM player
     LIMIT 20;
-    
+
   `;
     connection.query(query, function(err, rows, fields) {
         if (err) console.log(err);
