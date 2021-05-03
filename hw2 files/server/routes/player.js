@@ -26,6 +26,39 @@ const getAllPlayers = (req, res) => {
     (SELECT *
     FROM player_table1)
 `;
+
+
+
+var q2 = `With x as (SELECT a.team, a.primary_position, a.player_id, a.season
+    FROM player_position a
+    INNER JOIN (
+        SELECT player_id, MAX(season) season, MIN(team) team
+        FROM player_position 
+        GROUP BY player_id
+    ) b ON a.player_id = b.player_id AND a.season = b.season AND a.team = b.team),
+    
+    y as (SELECT a.team, 'GK' AS 'primary_position', a.player_id, a.season
+    FROM player_gk_basic_stats a
+    INNER JOIN (
+        SELECT player_id, MAX(season) season, MIN(team) team
+        FROM player_gk_basic_stats 
+        GROUP BY player_id
+    ) b ON a.player_id = b.player_id AND a.season = b.season AND a.team = b.team),
+    
+    z as (Select b.name as 'name', b.year_born, b.nationality, a.team as 'Club', a.primary_position as 'Position', a.player_id
+    from x a
+    Join Player_Outfield b on a.player_id = b.player_id),
+    
+    g as (Select b.name as 'name', b.year_born, b.nationality, a.team as 'Club', a.primary_position as 'Position', a.player_id
+    from y a
+    Join Player_GK b on a.player_id = b.player_id)
+    
+    (SELECT *
+        FROM z)
+        UNION
+        (SELECT *
+        FROM g)`;
+
     connection.query(query, function(err, rows, fields) {
         if (err) {
             console.log(err);
