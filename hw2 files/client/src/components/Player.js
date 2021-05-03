@@ -72,13 +72,13 @@ function Players() {
                             icons={tableIcons}
                             columns={[
                                 { title: "Name", field: "name" },
-                                //{ title: "Club", field: "Club" },
+                                { title: "Club", field: "Club" },
                                 { title: "Birth Year", field: "year_born", type: "numeric" },
                                 {
                                     title: "Nationality",
                                     field: "nationality",
                                 },
-                                //{ title: "Current Position", field: "Position" }
+                                { title: "Current Position", field: "Position" }
                             ]}
                             data={playersList
                                 //     [

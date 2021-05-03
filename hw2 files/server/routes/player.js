@@ -11,13 +11,22 @@ const connection = mysql.createPool(config);
 
 const getAllPlayers = (req, res) => {
     console.log('yo');
-    var query =
-        `SELECT *
-    FROM Player_Outfield UNION 
-    SELECT *
-    FROM Player_GK
-    ;`;
-    connection.query(query, function (err, rows, fields) {
+    var query = `
+    WITH player_table AS(SELECT DISTINCT po.name AS 'name', po.year_born, po.nationality, pp.team AS 'Club', pp.primary_position AS 'Position'
+    FROM Player_Outfield po
+    JOIN player_position pp ON po.player_id = pp.player_id),
+
+    player_table1 AS(SELECT DISTINCT po.name AS 'name', po.year_born, po.nationality, pp.team AS 'Club', 'GK' AS 'Position'
+    FROM Player_GK po
+    JOIN player_gk_basic_stats pp ON po.player_id = pp.player_id)
+
+   (SELECT *
+    FROM player_table)
+    UNION
+    (SELECT *
+    FROM player_table1)
+`;
+    connection.query(query, function(err, rows, fields) {
         if (err) {
             console.log(err);
             res.status(400).json({ 'message': 'generic error message' });
