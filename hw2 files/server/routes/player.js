@@ -12,27 +12,35 @@ const connection = mysql.createPool(config);
 const getAllPlayers = (req, res) => {
     console.log('yo');
     var query = `
-    WITH player_table AS(SELECT DISTINCT po.name AS 'name', po.year_born, po.nationality, pp.team AS 'Club', pp.primary_position AS 'Position'
-    FROM Player_Outfield po
-    JOIN player_position pp ON po.player_id = pp.player_id),
-
-    player_table1 AS(SELECT DISTINCT po.name AS 'name', po.year_born, po.nationality, pp.team AS 'Club', 'GK' AS 'Position'
-    FROM Player_GK po
-    JOIN player_gk_basic_stats pp ON po.player_id = pp.player_id)
-
+    WITH get_outfielders_team AS(
+        SELECT player_id, MAX(season) AS season, MIN(team) AS team, primary_position AS 'primary_position'
+        FROM player_position
+        GROUP BY player_id
+    ), get_gks_team as (
+        SELECT player_id, 'GK' AS 'primary_position', MAX(season) AS season, MIN(team) AS team
+        FROM player_gk_basic_stats
+        GROUP BY player_id
+    ), get_outfielders as (
+        SELECT b.name as 'name', b.year_born, b.nationality, a.team as 'Club', a.primary_position as 'Position', a.player_id
+        FROM get_outfielders_team a
+        JOIN Player_Outfield b on a.player_id = b.player_id
+	), get_gks as (
+        SELECT b.name as 'name', b.year_born, b.nationality, a.team as 'Club', a.primary_position as 'Position', a.player_id
+        FROM get_gks_team a
+        JOIN Player_GK b on a.player_id = b.player_id
+    )
    (SELECT *
-    FROM player_table)
+    FROM get_outfielders)
     UNION
-    (SELECT *
-    FROM player_table1)
-`;
+   (SELECT *
+    FROM get_gks)`;
+
     connection.query(query, function (err, rows, fields) {
         if (err) {
             // console.log(err);
             res.status(400).json({ 'message': 'generic error message' });
-        }
-        else {
-            // console.log(rows);
+        } else {
+            console.log(rows);
             res.status(200).json(rows);
         }
     });
@@ -43,7 +51,7 @@ const getPlayerName = (req, res) => {
     SELECT name
     FROM player
     LIMIT 20;
-    
+
   `;
     connection.query(query, function (err, rows, fields) {
         if (err) console.log(err);
