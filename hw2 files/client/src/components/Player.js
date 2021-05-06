@@ -77,9 +77,18 @@ function Players() {
                     <div style={{ maxWidth: "100%" }}>
 
                         <MaterialTable
+
+actions={[
+  {
+    icon: 'save',
+    tooltip: 'Save User',
+    onClick: (event, rowData) => {
+      // Do save operation
+    }}
+  ]}
                             icons={tableIcons}
                             columns={[
-                                { title: "Name", field: "name" },
+                                { title: "Name" , field: "name" },
                                 { title: "Club", field: "Club" },
                                 { title: "Birth Year", field: "year_born", type: "numeric" },
                                 {
