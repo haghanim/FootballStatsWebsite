@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-
+import { Redirect } from 'react-router-dom'
 import '../style/Player.css';
+import { useHistory } from 'react-router-dom';
+import { Route, Link, BrowserRouter, withRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
 import KeywordButton from './KeywordButton';
@@ -39,12 +41,16 @@ const tableIcons = {
     PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
     ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
     Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+    Actions: forwardRef((props, ref) => <Search {...props} ref={ref} />),
     SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
     ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
+
+
 function Players() {
+  const history = useHistory();
     const [playersList, setPlayersList] = useState([]);
 
     useEffect(() => {
@@ -80,22 +86,24 @@ function Players() {
 
 actions={[
   {
-    icon: 'save',
-    tooltip: 'Save User',
+    icon: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+    tooltip: 'Look Up User',
+    
     onClick: (event, rowData) => {
-      // Do save operation
+      history.push(`/players/:` + rowData.player_id);
     }}
   ]}
                             icons={tableIcons}
                             columns={[
                                 { title: "Name" , field: "name" },
-                                { title: "Club", field: "Club" },
-                                { title: "Birth Year", field: "year_born", type: "numeric" },
+                                { title: "Club", field: "Club"},
+                                { title: "Birth Year", field: "year_born", type: "numeric"},
                                 {
                                     title: "Nationality",
                                     field: "nationality",
                                 },
-                                { title: "Current Position", field: "Position" }
+                                { title: "Current Position", field: "Position" },
+                                { title: "id", field: "player_id", hidden: true }
                             ]}
                             data={playersList
                                 //     [
@@ -157,3 +165,4 @@ actions={[
 }
 
 export default Players;
+
