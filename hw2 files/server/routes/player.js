@@ -12,28 +12,8 @@ const connection = mysql.createPool(config);
 const getAllPlayers = (req, res) => {
     console.log('yo');
     var query = `
-    WITH get_outfielders_team AS(
-        SELECT player_id, MAX(season) AS season, MIN(team) AS team, primary_position AS 'primary_position'
-        FROM player_position
-        GROUP BY player_id
-    ), get_gks_team as (
-        SELECT player_id, 'GK' AS 'primary_position', MAX(season) AS season, MIN(team) AS team
-        FROM player_gk_basic_stats
-        GROUP BY player_id
-    ), get_outfielders as (
-        SELECT b.name as 'name', b.year_born, b.nationality, a.team as 'Club', a.primary_position as 'Position', a.player_id
-        FROM get_outfielders_team a
-        JOIN Player_Outfield b on a.player_id = b.player_id
-	), get_gks as (
-        SELECT b.name as 'name', b.year_born, b.nationality, a.team as 'Club', a.primary_position as 'Position', a.player_id
-        FROM get_gks_team a
-        JOIN Player_GK b on a.player_id = b.player_id
-    )
-   (SELECT *
-    FROM get_outfielders)
-    UNION
-   (SELECT *
-    FROM get_gks)`;
+    SELECT *
+    FROM getAllPlayers`;
 
     connection.query(query, function(err, rows, fields) {
         if (err) {
