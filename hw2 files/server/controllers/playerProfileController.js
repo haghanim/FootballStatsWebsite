@@ -48,7 +48,7 @@ async function getRadarStats(playerId, position) {
 		       ((pp.primary_position, pp.secondary_position) IN (SELECT * FROM selected_player_position) OR
 		        (pp.secondary_position, pp.primary_position) IN (SELECT * FROM selected_player_position))
     ), ranked AS(
-	     SELECT player_id, season, team, league, ${inputStat}, ${inputStat}/90s_played, ROW_NUMBER() OVER(ORDER BY ${inputStat}/90s_played) ROWNUMBER
+	     SELECT player_id, ROW_NUMBER() OVER(ORDER BY ${inputStat}/90s_played) ROWNUMBER
        FROM player_playing_time_stats
        NATURAL JOIN player_shooting_stats
 		   NATURAL JOIN player_passing_stats
@@ -65,7 +65,7 @@ async function getRadarStats(playerId, position) {
     ), selected_players_ranking AS(
 	     SELECT ROWNUMBER
 	     FROM ranked r
-	     WHERE player_id = ${playerId} AND season = 2021
+	     WHERE player_id = ${playerId}
 	     ORDER BY ROWNUMBER ASC
 	     LIMIT 1
     )
@@ -75,7 +75,7 @@ async function getRadarStats(playerId, position) {
 
     const getPercentileForSelectedStatAndYear_GK = `
     WITH ranked AS(
-    	SELECT player_id, season, team, league, ${inputStat}, ${inputStat}/90s_played, ROW_NUMBER() OVER(ORDER BY ${inputStat}/90s_played) ROWNUMBER
+    	SELECT player_id, ROW_NUMBER() OVER(ORDER BY ${inputStat}/90s_played) ROWNUMBER
         FROM player_gk_playing_time_stats
     		NATURAL JOIN player_gk_basic_stats
     		NATURAL JOIN player_gk_advanced_stats
@@ -86,11 +86,11 @@ async function getRadarStats(playerId, position) {
     ), selected_players_ranking AS(
     	SELECT ROWNUMBER
     	FROM ranked r
-    	WHERE player_id = ${playerId} AND season = 2021
+    	WHERE player_id = ${playerId}
     	ORDER BY ROWNUMBER ASC
     	LIMIT 1
     )
-    SELECT 1 - spr.ROWNUMBER / nops.total AS ${inputStat}_Percentile
+    SELECT spr.ROWNUMBER / nops.total AS ${inputStat}_Percentile
     FROM number_of_player_stats nops, selected_players_ranking spr
     `;
 
