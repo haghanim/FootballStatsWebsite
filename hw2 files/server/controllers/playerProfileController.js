@@ -31,7 +31,7 @@ async function getRadarStats(playerId, position, secondary_position) {
         'interceptions', 'succ_dribbles', 'prog_passes', 'xA'];
 
     const forwardStats = ['xA', 'succ_dribbles', 'prog_receptions', 'npxG',
-        'npxG_per_Shot', 'Sh_per_90'];
+        'npxG_per_Shot', 'Shots'];
 
     const goalkeeperStats = ['penalty_save_percentage', 'PSxG_difference',
     'AvgDist', 'stop_percentage', 'long_pass_completion_pct', 'defensive_actions'];
@@ -41,11 +41,6 @@ async function getRadarStats(playerId, position, secondary_position) {
 
     const wingerStats = ['succ_dribbles', 'xA',
         'npxG', 'prog_receptions', 'fouls_drawn', 'comp_passes_into_18_yd_box'];
-
-    // // Assume queried player is an outfielder
-    // var query = getPercentileForSelectedStatAndYear_Outfield;
-    // // Array to store query results
-    // var output = [];
 
     // if player's position is midfielder, assign him midfieldersRadarStats... do this for all positions
     if ((position == 'DF' && secondary_position == 'FW') ||
@@ -62,7 +57,7 @@ async function getRadarStats(playerId, position, secondary_position) {
     } else if ((position == 'FW' && secondary_position == 'MF') ||
                 (position == 'MF' && secondary_position == 'FW')) {
         positionRadarStats = wingerStats;
-    } else {
+    } else { //else is a GK
         return Promise.all(goalkeeperRadarStats.map((inputStat) => {
             return makeQueryGetPercentileForSelectedStatAndYear_GK(playerId, inputStat);
         }))
