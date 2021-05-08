@@ -30,11 +30,11 @@ const getHomeVsAwayGoalDifferential = (req, res) => {
     WITH home_goal_diff AS (
         SELECT home AS team_name, (goals_scored_by_home - goals_scored_by_away) AS goal_diff
         FROM Fixtures
-        WHERE league = ${inputLeague}
+        WHERE league = ${input_league}
     ), away_goal_diff AS (
         SELECT away AS team_name, (goals_scored_by_away - goals_scored_by_home) AS goal_diff
         FROM Fixtures
-        WHERE league = ${inputLeague}
+        WHERE league = ${input_league}
     ), home_goal_diff_by_team AS (
         SELECT home_goal_diff.team_name, SUM(home_goal_diff.goal_diff) AS goal_diff
         FROM home_goal_diff
@@ -45,7 +45,7 @@ const getHomeVsAwayGoalDifferential = (req, res) => {
         GROUP BY away_goal_diff.team_name
     )
     SELECT h.team_name, h.goal_diff AS home_goal_diff, a.goal_diff AS away_goal_diff, h.goal_diff - a.goal_diff AS differential
-    FROM home_goal_diff_by_team hß
+    FROM home_goal_diff_by_team h
     JOIN away_goal_diff_by_team a ON h.team_name = a.team_name
     ORDER BY differential DESC;
   `;
@@ -65,7 +65,7 @@ const getHistoricalLeagueTable = (req, res) => {
     WITH goals_diff_table AS (
         SELECT home, away, (goals_scored_by_home - goals_scored_by_away) AS goals_diff
         FROM Fixtures
-        WHERE league = ${inputLeague}
+        WHERE league = ${input_league}
     ), home_wins AS (
         SELECT home AS team_name, 3 AS pts
         FROM goals_diff_table
@@ -127,7 +127,7 @@ const getTeamOffensiveStats = (req, res) => {
         NATURAL JOIN player_goal_shot_creation_stats pgsct
         NATURAL JOIN player_shooting_stats pss
         NATURAL JOIN player_passing_stats pps
-        WHERE ppts.league = ${inputLeague}
+        WHERE ppts.league = ${input_league}
     ), aggregated_by_team AS(
         SELECT r.team, r.season,
         SUM(xG) AS xG,
@@ -181,6 +181,23 @@ const getTeamOffensiveStats = (req, res) => {
     });
 };
 
+
+const getLeagueNames = (req, res) => {
+    var query = `
+    SELECT DISTINCT(league)
+    FROM Fixtures
+          `;
+    connection.query(query, function (err, rows, fields) {
+        console.log('hello')
+
+        if (err) console.log(err);
+        else {
+            console.log(rows);
+            res.json(rows);
+        }
+    });
+};
+
 module.exports = {
     getAllLeagues: getAllLeagues,
     // getTeamName: getTeamName,
@@ -190,4 +207,8 @@ module.exports = {
     // getDecades: getDecades,
     // getGenres: getGenres,
     // bestMoviesPerDecadeGenre: bestMoviesPerDecadeGenre
+    getTeamOffensiveStats: getTeamOffensiveStats,
+    getHistoricalLeagueTable: getHistoricalLeagueTable,
+    getHomeVsAwayGoalDifferential: getHomeVsAwayGoalDifferential,
+    getLeagueNames: getLeagueNames,
 };

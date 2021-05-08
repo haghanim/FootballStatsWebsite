@@ -27,16 +27,14 @@ const getAllTeams = (req, res) => {
 
 const getTeamLeague = (req, res) => {
 
-    teamName = req.params.team_name
+    team_name = req.params.team_name
 
     console.log("REQ:", req.params.team_name);
-
-    // teamName = 'Arsenal'
 
     var query = `
     SELECT league
     FROM player_passing_stats
-    WHERE team = '${teamName}'
+    WHERE team = '${team_name}'
     LIMIT 1;
   `;
 
@@ -50,78 +48,72 @@ const getTeamLeague = (req, res) => {
 };
 
 // query a - Player who contributed highest % of team’s xG, xA, and xG + xA in any given season over last few years (player_name, season, xg, percentage_xg).
-// This is for all comps. 
+// This is for all comps.
 
-const getMostXGContributer = (req, res) => {
-    teamName = req.team_name
+const getMostXgXaContributer = (req, res) => {
+    team_name = req.team_name
 
-    teamName = 'Arsenal'
+    team_name = 'Arsenal'
 
     var query = `
-    WITH teamHomeXgXga AS(
-        SELECT season, home AS team, sum(xG_Home) AS team_xg, sum(xG_Away) AS team_xga, COUNT(*) AS match_count
-        FROM Fixtures
-        WHERE home = ${teamName}
+    WITH teamHomeXG AS(
+        SELECT season, home AS team, sum(xG_Home) AS team_xG
+        FROM Fixtures f
+        JOIN team t ON t.name = f.home
+        WHERE t.team_id = ${input_teamID}
         GROUP BY season, home
     ),
-    teamAwayXgXga AS(
-        SELECT season, away AS team, sum(xG_Away) AS team_xg, sum(xG_Home) AS team_xga, COUNT(*) AS match_count
-        FROM Fixtures
-        WHERE away = ${teamName}
+    teamAwayXG AS(
+        SELECT season, away AS team, sum(xG_Away) AS team_xG
+        FROM Fixtures f
+        JOIN team t ON t.name = f.away
+        WHERE t.team_id = ${input_teamID}
         GROUP BY season, away
     ),
-    combineHomeAwayXg AS (
+    teamHomeAwayXG AS (
         SELECT *
-        FROM teamHomeXgXga
+        FROM teamHomeXG
         UNION
         SELECT *
-        FROM teamAwayXgXga
+        FROM teamAwayXG
     ),
-    totalXgTeamSeason AS (
-        SELECT season, team,
-        SUM(team_xg) AS team_xg,
-        SUM(team_xga) AS team_xga,
-        SUM(match_count) as match_count
-        FROM combineHomeAwayXg
+    teamTotalXG AS (
+        SELECT season, team, SUM(team_xg) AS team_xg
+        FROM teamHomeAwayXG
         GROUP BY season, team
     ),
-    playerSeasonXaTotals AS (
-        SELECT player_id, season, team,
-        SUM(xA) AS xA
-        FROM player_passing_stats
-        WHERE team = ${teamName} 
-        GROUP BY player_id, season, team 
+    playerXA AS (
+        SELECT player_id, season, team, SUM(xA) AS xA
+        FROM player_passing_stats pps
+        JOIN team t ON t.name = pps.team
+        WHERE t.team_id = ${input_teamID}
+        GROUP BY player_id, season, team
     ),
-    playerSeasonXgTotals AS (
-        SELECT player_id, season, team,
-        SUM(xG) AS xG
-        FROM player_shooting_stats
-        WHERE team = ${teamName} 
-        GROUP BY player_id, season, team 
+    playerXG AS (
+        SELECT player_id, season, team, SUM(xG) AS xG
+        FROM player_shooting_stats pss
+        JOIN team t ON t.name = pss.team
+        WHERE t.team_id = ${input_teamID}
+        GROUP BY player_id, season, team
     ),
-    combineXgXaPlayers AS (
-        SELECT t1.player_id, t1.season, t1.team, t1.xG, t2.xA
-        FROM playerSeasonXgTotals t1
-        JOIN playerSeasonXaTotals t2 ON t1.player_id = t2.player_id AND
-        t1.season = t2.season AND t1.team = t2.team
-    ),
-    combinePlayersAndTeams AS (
-        SELECT t1.player_id, t1.team, t1.season,
-        t1.xG / t2.team_xg AS percentXgContribution,
-        t1.xA / t2.team_xg AS percentXaContribution,
-        (t1.xG + t1.xA) / t2.team_xg AS percentXgXAContribution
-        FROM combineXgXaPlayers t1 
-        JOIN totalXgTeamSeason t2 ON t1.season = t2.season
-        ORDER BY percentXgContribution DESC
-        LIMIT 10
+    playerXGXA AS (
+        SELECT pxg.player_id, pxg.season, pxg.team, pxg.xG, pxa.xA
+        FROM playerXG pxg
+        NATURAL JOIN playerXA pxa
     )
-    
-    SELECT *    
-    FROM combinePlayersAndTeams
+    SELECT po.name, pxgxa.team, pxgxa.season,
+    pxgxa.xG / ttxg.team_xg AS percentXgContribution,
+    pxgxa.xA / ttxg.team_xg AS percentXaContribution,
+    (pxgxa.xG + pxgxa.xA) / ttxg.team_xg AS percentXgXAContribution
+    FROM playerXGXA pxgxa
+    JOIN teamTotalXG ttxg ON pxgxa.season = ttxg.season
+    NATURAL JOIN Player_Outfield po
+    ORDER BY percentXgXAContribution DESC
+    LIMIT 10
   `;
 
     connection.query(query, function (err, rows, fields) {
-        console.log('helloGetTeamNames')
+        console.log('helloGetteam_names')
 
         if (err) console.log(err);
         else {
@@ -145,7 +137,7 @@ const getMostProgressivePlayer = (req, res) => {
     	  NATURAL JOIN player_passing_stats ppas
     	  NATURAL JOIN player_possession_stats ppos
     	  JOIN team t ON t.name = ppts.team
-    	  WHERE t.team_id = ${input_teamID} AND ppts.season = ${input_year}
+    	  WHERE t.team_id = ${input_teamID} AND ppts.season = ${input_season}
     	  GROUP BY ppts.player_id
     ), team_outfielders_per_90 AS(
     	  SELECT player_id, prog_passes/90s_played AS prog_passes_p90, comp_passes_f3/90s_played AS comp_passes_f3_p90, f3_carries/90s_played AS f3_carries_p90, prog_dist_carried/90s_played AS prog_dist_carried_p90
@@ -227,12 +219,12 @@ const getAvgAge = (req, res) => {
         SELECT ppts.player_id, ppts.league, ppts.minutes_played
     	  FROM team t
     		JOIN player_playing_time_stats ppts ON t.name = ppts.team
-    		WHERE t.team_id = ${input_teamID} AND ppts.season = ${input_year}
+    		WHERE t.team_id = ${input_teamID} AND ppts.season = ${input_season}
     ), team_gks AS(
     	  SELECT pgpts.player_id, pgpts.league, pgpts.minutes_played
     	  FROM team t
     	  JOIN player_gk_playing_time_stats pgpts ON t.name = pgpts.team
-      	WHERE t.team_id = ${input_teamID} AND pgpts.season = ${input_year}
+      	WHERE t.team_id = ${input_teamID} AND pgpts.season = ${input_season}
     ), team_squad AS(
     	  (SELECT *
     		FROM team_outfielders)
@@ -315,13 +307,13 @@ const getWinPcts = (req, res) => {
 };
 
 
-// query g: xG and xG recent trendline and performance of last 10-30 matches. (Definitely) 
+// query g: xG and xG recent trendline and performance of last 10-30 matches. (Definitely)
 const get30RecentGames = (req, res) => {
-    teamName = 'Arsenal'
+    team_name = 'Arsenal'
 
     var query = `
     WITH mostRecent30Games AS(
-        SELECT * 
+        SELECT *
         FROM Fixtures
         WHERE home = 'Arsenal'
         ORDER BY date DESC
@@ -534,6 +526,11 @@ module.exports = {
     // getTopMoviesWithKeyword: getTopMoviesWithKeyword,
     // getRecs: getRecs,
     // getDecades: getDecades,
+    getMostXgXaContributer: getMostXgXaContributer,
+    getWinPcts: getWinPcts,
+    getMostDominantAgainst: getMostDominantAgainst,
+    getAvgAge: getAvgAge,
+    getMostProgressivePlayer: getMostProgressivePlayer,
     // getGenres: getGenres,
     // bestMoviesPerDecadeGenre: bestMoviesPerDecadeGenre
 };
