@@ -9,14 +9,16 @@ async function getPlayerInfo(playerId) {
     FROM getAllPlayers
     WHERE player_id = ${playerId}
     `
-    return connection.query(query, function (err, rows, fields) {
-        if (err) {
-            throw new Error('error in getRadarStats');
-        } else {
-            console.log(rows);
-            return rows;
-        }
-    });
+    return new Promise((resolve, reject) => {
+        connection.query(query, function (err, rows, fields) {
+            if (err) {
+                reject(new Error(err));
+            } else {
+                console.log("this should print first", rows);
+                resolve(rows[0]);
+            }
+        });
+    })
 }
 
 async function getRadarStats(playerId, position) {
@@ -33,9 +35,66 @@ async function getRadarStats(playerId, position) {
 
     const goalkeeperRadarStats = ['penalty_save_percentage', 'PSxG_difference',
         'AvgDist', 'stop_percentage',
-        'long_pass_completion_pct', 'loose_balls_recovered'];
+        'long_pass_completion_pct', 'defensive_actions'];
 
-    const getPercentileForSelectedStatAndYear_Outfield = `
+    // // Assume queried player is an outfielder
+    // var query = getPercentileForSelectedStatAndYear_Outfield;
+    // // Array to store query results
+    // var output = [];
+
+    // if player's primary position is midfielder, assign him midfieldersRadarStats... do this for all positions
+    if (position == 'DF') {
+        positionRadarStats = defensiveRadarStats;
+    } else if (position == 'MF') {
+        positionRadarStats = midfieldersRadarStats;
+    } else if (position == 'FW') {
+        positionRadarStats = forwardRadarStats;
+    } else {
+        return Promise.all(goalkeeperRadarStats.map((inputStat) => {
+            return makeQueryGK(playerId, inputStat);
+        }))
+    }
+
+    return Promise.all(positionRadarStats.map((inputStat) => {
+        return makeQueryOF(playerId, inputStat);
+    }));
+}
+
+function makeQueryGK(playerId, inputStat) {
+    const query = `
+    WITH ranked AS(
+    	SELECT player_id, ROW_NUMBER() OVER(ORDER BY ${inputStat}/90s_played) ROWNUMBER
+        FROM player_gk_playing_time_stats
+    		NATURAL JOIN player_gk_basic_stats
+    		NATURAL JOIN player_gk_advanced_stats
+        WHERE 90s_played > 2 AND season = 2021
+    ), number_of_player_stats AS(
+    	SELECT COUNT(*) AS total
+    	FROM ranked r
+    ), selected_players_ranking AS(
+    	SELECT ROWNUMBER
+    	FROM ranked r
+    	WHERE player_id = ${playerId}
+    	ORDER BY ROWNUMBER ASC
+    	LIMIT 1
+    )
+    SELECT spr.ROWNUMBER / nops.total AS ${inputStat}_Percentile
+    FROM number_of_player_stats nops, selected_players_ranking spr
+    `;
+    return new Promise((resolve, reject) => {
+        connection.query(query, (err, rows) => {
+            if (err) {
+                reject(err);
+            }
+            else {
+                resolve(rows[0]);
+            }
+        })
+    })
+}
+
+function makeQueryOF(playerId, inputStat) {
+    const query = `
     WITH selected_player_position AS(
 	     SELECT pp.primary_position, pp.secondary_position
 	     FROM player_position pp
@@ -48,7 +107,7 @@ async function getRadarStats(playerId, position) {
 		       ((pp.primary_position, pp.secondary_position) IN (SELECT * FROM selected_player_position) OR
 		        (pp.secondary_position, pp.primary_position) IN (SELECT * FROM selected_player_position))
     ), ranked AS(
-	     SELECT player_id, season, team, league, ${inputStat}, ${inputStat}/90s_played, ROW_NUMBER() OVER(ORDER BY ${inputStat}/90s_played) ROWNUMBER
+	     SELECT player_id, ROW_NUMBER() OVER(ORDER BY ${inputStat}/90s_played) ROWNUMBER
        FROM player_playing_time_stats
        NATURAL JOIN player_shooting_stats
 		   NATURAL JOIN player_passing_stats
@@ -65,65 +124,23 @@ async function getRadarStats(playerId, position) {
     ), selected_players_ranking AS(
 	     SELECT ROWNUMBER
 	     FROM ranked r
-	     WHERE player_id = ${playerId} AND season = 2021
+	     WHERE player_id = ${playerId}
 	     ORDER BY ROWNUMBER ASC
 	     LIMIT 1
     )
     SELECT spr.ROWNUMBER / nops.total AS ${inputStat}_Percentile
     FROM number_of_player_stats nops, selected_players_ranking spr
     `;
-
-    const getPercentileForSelectedStatAndYear_GK = `
-    WITH ranked AS(
-    	SELECT player_id, season, team, league, ${inputStat}, ${inputStat}/90s_played, ROW_NUMBER() OVER(ORDER BY ${inputStat}/90s_played) ROWNUMBER
-        FROM player_gk_playing_time_stats
-    		NATURAL JOIN player_gk_basic_stats
-    		NATURAL JOIN player_gk_advanced_stats
-        WHERE 90s_played > 2 AND season = 2021
-    ), number_of_player_stats AS(
-    	SELECT COUNT(*) AS total
-    	FROM ranked r
-    ), selected_players_ranking AS(
-    	SELECT ROWNUMBER
-    	FROM ranked r
-    	WHERE player_id = ${playerId} AND season = 2021
-    	ORDER BY ROWNUMBER ASC
-    	LIMIT 1
-    )
-    SELECT 1 - spr.ROWNUMBER / nops.total AS ${inputStat}_Percentile
-    FROM number_of_player_stats nops, selected_players_ranking spr
-    `;
-
-    // Assume queried player is an outfielder
-    var query = getPercentileForSelectedStatAndYear_Outfield;
-    // Array to store query results
-    var output = [];
-
-    // if player's primary position is midfielder, assign him midfieldersRadarStats... do this for all positions
-    if (position == 'DF') {
-        positionRadarStats = defensiveRadarStats;
-    } else if (position == 'MF') {
-        positionRadarStats = midfieldersRadarStats;
-    } else if (position == 'FW') {
-        positionRadarStats = forwardRadarStats;
-    } else {
-        positionRadarStats = goalkeeperRadarStats;
-        query = getPercentileForSelectedStatAndYear_GK;
-    }
-
-    for (var idx = 0; idx < 6; idx++) {
-        var inputStat = positionRadarStats[idx];
-
-        connection.query(query, function (err, rows, fields) {
+    return new Promise((resolve, reject) => {
+        connection.query(query, (err, rows) => {
             if (err) {
-                console.log(position, inputStat, idx);
-                throw new Error(err.message);
-            } else {
-                output = output.concat(rows);
+                reject(err);
             }
-        });
-    }
-    return output;
+            else {
+                resolve(rows[0]);
+            }
+        })
+    })
 }
 
 module.exports = { getPlayerInfo, getRadarStats, }
