@@ -152,22 +152,25 @@ function makeQueryGetPercentileForSelectedStatAndYear_Outfield(playerId, inputSt
 }
 
 async function getStats(playerId, position) {
-    // List 6 stats for each positional radar
-    const defensiveStats = ['pct_of_dribblers_tackled/90s_played', 'succ_pressure_pct/90s_played',
+    // List important stats for each positionn
+    const defenderStats = ['pct_of_dribblers_tackled/90s_played', 'succ_pressure_pct/90s_played',
         'interceptions/90s_played', 'aerials_won_pct/90s_played', 'prog_passes/90s_played',
         'long_pass_comp_pct/90s_played'];
 
     const midfielderStats = ['pct_of_dribblers_tackled/90s_played', 'succ_pressure_pct/90s_played',
-        'interceptions/90s_played', 'succ_dribbles/90s_played',
-        'prog_passes/90s_played', 'xA/90s_played'];
+        'interceptions/90s_played', 'succ_dribbles/90s_played', 'prog_passes/90s_played', 'xA/90s_played'];
 
-    const forwardStats = ['xA/90s_played', 'succ_dribbles/90s_played',
-        'prog_receptions/90s_played', 'npxG/90s_played',
-        'npxG_per_Shot/90s_played', 'Sh_per_90/90s_played'];
+    const forwardStats = ['xA/90s_played', 'succ_dribbles/90s_played', 'prog_receptions/90s_played', 'npxG/90s_played',
+        'npxG_per_Shot/90s_played', 'Shots/90s_played'];
 
     const goalkeeperStats = ['penalty_save_percentage/90s_played', 'PSxG_difference/90s_played',
-        'AvgDist/90s_played', 'stop_percentage/90s_played',
-        'long_pass_completion_pct/90s_played', 'defensive_actions/90s_played'];
+    'AvgDist/90s_played', 'stop_percentage/90s_played', 'long_pass_completion_pct/90s_played', 'defensive_actions/90s_played'];
+
+    const defensiveMidfielderStats = ['players_tackled_plus_interceptions/90s_played', 'succ_pressure_pct/90s_played',
+    'comp_passes_leading_to_final_third/90s_played', 'tot_dist_traveled_by_comp_passes/90s_played', 'aerials_won/90s_played', 'loose_balls_recovered/90s_played'];
+
+    const wingerStats = ['succ_dribbles/90s_played', 'xA/90s_played',
+        'npxG/90s_played', 'prog_receptions/90s_played', 'fouls_drawn/90s_played', 'comp_passes_into_18_yd_box/90s_played'];
 
     const getStat_Outfield = `
     SELECT ppts.season, ppts.team, ppts.league, ${positionStats}
