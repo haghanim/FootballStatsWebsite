@@ -9,10 +9,11 @@ async function getPlayerInfo(playerId) {
     FROM getAllPlayers
     WHERE player_id = ${playerId}
     `
-    connection.query(query, function (err, rows, fields) {
+    return connection.query(query, function (err, rows, fields) {
         if (err) {
-            res.status(400).json({ 'message': 'error in getPlayerInfo' });
+            throw new Error('error in getRadarStats');
         } else {
+            console.log(rows);
             return rows;
         }
     });
@@ -21,18 +22,18 @@ async function getPlayerInfo(playerId) {
 async function getRadarStats(playerId, position) {
     // List 6 stats for each positional radar
     const defensiveRadarStats = ['pct_of_dribblers_tackled', 'succ_pressure_pct',
-                            'interceptions', 'aerials_won_pct', 'prog_passes',
-                            'long_pass_comp_pct'];
+        'interceptions', 'aerials_won_pct', 'prog_passes',
+        'long_pass_comp_pct'];
 
     const midfieldersRadarStats = ['pct_of_dribblers_tackled', 'succ_pressure_pct',
-                             'interceptions', 'succ_dribbles', 'prog_passes', 'xA'];
+        'interceptions', 'succ_dribbles', 'prog_passes', 'xA'];
 
     const forwardRadarStats = ['xA', 'succ_dribbles', 'prog_receptions', 'npxG',
-                        'npxG_per_Shot', 'Sh_per_90'];
+        'npxG_per_Shot', 'Sh_per_90'];
 
     const goalkeeperRadarStats = ['penalty_save_percentage', 'PSxG_difference',
-                            'AvgDist', 'stop_percentage',
-                            'long_pass_completion_pct', 'loose_balls_recovered'];
+        'AvgDist', 'stop_percentage',
+        'long_pass_completion_pct', 'loose_balls_recovered'];
 
     const getPercentileForSelectedStatAndYear_Outfield = `
     WITH selected_player_position AS(
@@ -94,7 +95,7 @@ async function getRadarStats(playerId, position) {
     `;
 
     // Assume queried player is an outfielder
-    const query = getPercentileForSelectedStatAndYear_Outfield;
+    var query = getPercentileForSelectedStatAndYear_Outfield;
     // Array to store query results
     var output = [];
 
@@ -115,7 +116,8 @@ async function getRadarStats(playerId, position) {
 
         connection.query(query, function (err, rows, fields) {
             if (err) {
-                res.status(400).json({ 'message': 'error in getRadarStats' });
+                console.log(position, inputStat, idx);
+                throw new Error(err.message);
             } else {
                 output = output.concat(rows);
             }
@@ -124,4 +126,4 @@ async function getRadarStats(playerId, position) {
     return output;
 }
 
-module.exports = { getPlayerInfo, }
+module.exports = { getPlayerInfo, getRadarStats, }

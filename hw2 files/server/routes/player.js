@@ -13,10 +13,20 @@ const connection = mysql.createPool(config);
 
 const getPlayerProfile = (req, res) => {
     playerId = req.params.playerId;
-    // const playerInfo = PlayerProfileController.getPlayerInfo(playerId);
-    // const radarStats = PlayerProfileController.getRadarStats(playerId, playerInfo.Position);
+    PlayerProfileController.getPlayerInfo(playerId)
+        .then((playerInfo) => {
+            console.log(playerInfo);
+            return PlayerProfileController.getRadarStats(playerId, playerInfo.Position)
+                .then((radarStats) => {
+                    console.log(radarStats);
 
-    res.status(200).json({ playerInfo: playerInfo, radarStats: radarStats });
+                    res.status(200).send('done');
+                })
+        })
+        .catch((err) => {
+            console.log(err.message);
+            res.status(400).send('error');
+        })
 }
 
 const getAllPlayers = (req, res) => {
