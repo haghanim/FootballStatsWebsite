@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { getPlayerProfile } from '../api/players';
 
-<div className="page-content p-5" id="content">
+function PlayerProfile(playerId) {
+    return (
+        <h1>
+            Player Profile
+        </h1>
+    )
+}
+
+{/* <div className="page-content p-5" id="content">
                     <div className="card">
                         <div className="card-body">
                             <h1 className="h2 card-title">Account Settings</h1>
@@ -106,4 +115,6 @@ import React, { useEffect, useState } from 'react';
                                         account?</small>
                         </div>
                     </div>
-                </div>
+                </div> */}
+
+export default PlayerProfile;

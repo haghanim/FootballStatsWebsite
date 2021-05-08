@@ -50,7 +50,7 @@ const tableIcons = {
 
 
 function Players() {
-  const history = useHistory();
+    const history = useHistory();
     const [playersList, setPlayersList] = useState([]);
 
     useEffect(() => {
@@ -59,10 +59,11 @@ function Players() {
             .then((apiPlayersList) => {
 
 
-              apiPlayersList = apiPlayersList.map((item) =>
-              {  item.nationality = item.nationality.slice(-3);
-                      return   item;}
-          );
+                apiPlayersList = apiPlayersList.map((item) => {
+                    item.nationality = item.nationality.slice(-3);
+                    return item;
+                }
+                );
 
 
                 setPlayersList(apiPlayersList)
@@ -84,20 +85,21 @@ function Players() {
 
                         <MaterialTable
 
-actions={[
-  {
-    icon: forwardRef((props, ref) => <Search {...props} ref={ref} />),
-    tooltip: 'Look Up User',
-    
-    onClick: (event, rowData) => {
-      history.push(`/players/:` + rowData.player_id);
-    }}
-  ]}
+                            actions={[
+                                {
+                                    icon: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+                                    tooltip: 'Look Up User',
+
+                                    onClick: (event, rowData) => {
+                                        history.push(`/players/profile/` + rowData.player_id);
+                                    }
+                                }
+                            ]}
                             icons={tableIcons}
                             columns={[
-                                { title: "Name" , field: "name" },
-                                { title: "Club", field: "Club"},
-                                { title: "Birth Year", field: "year_born", type: "numeric"},
+                                { title: "Name", field: "name" },
+                                { title: "Club", field: "Club" },
+                                { title: "Birth Year", field: "year_born", type: "numeric" },
                                 {
                                     title: "Nationality",
                                     field: "nationality",

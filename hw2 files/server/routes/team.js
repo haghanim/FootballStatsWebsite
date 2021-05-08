@@ -520,7 +520,7 @@ const get30RecentGames = (req, res) => {
 
 module.exports = {
     getTeamLeague: getTeamLeague,
-    getMostXGContributer: getMostXGContributer,
+    // getMostXGContributer: getMostXGContributer,
     getAllTeams: getAllTeams,
     // getTop20Keywords: getTop20Keywords,
     // getTopMoviesWithKeyword: getTopMoviesWithKeyword,

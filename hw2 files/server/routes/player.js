@@ -2,6 +2,8 @@
 const config = require('C:/Users/alanf/OneDrive/Desktop/CIS450/Project/550FinalProject/hw2 files/server/db-config.js');
 const mysql = require('mysql');
 
+const PlayerProfileController = require('../controllers/playerProfileController')
+
 config.connectionLimit = 10;
 const connection = mysql.createPool(config);
 
@@ -9,28 +11,36 @@ const connection = mysql.createPool(config);
 /* ------------------- Route Handlers --------------- */
 /* -------------------------------------------------- */
 
-const getRadarStats = (req, res) =>
-{
+const getPlayerProfile = (req, res) => {
+    playerId = req.params.playerId;
+    const playerInfo = PlayerProfileController.getPlayerInfo(playerId);
+    const radarStats = PlayerProfileController.getRadarStats(playerId, playerInfo.Position);
+
+    res.status(200).json({playerInfo: playerInfo, radarStats: radarStats});
+
+}
+
+const getRadarStats = (req, res) => {
     // List 6 stats for each positional radar
     defensiveRadarStats = {
         'player_defensive_actions_stats': ['pct_of_dribblers_tackled', 'succ_pressure_pct', 'interceptions'],
         'player_misc_stats': ['aerials_won_pct'],
-        'player_passing_stats' : ['prog_passes', 'long_pass_comp_pct']
+        'player_passing_stats': ['prog_passes', 'long_pass_comp_pct']
     }
     midfieldersRadarStats = {
         'player_defensive_actions_stats': ['pct_of_dribblers_tackled', 'succ_pressure_pct', 'interceptions'],
         'player_possession_stats': ['succ_dribbles'],
-        'player_passing_stats' : ['prog_passes', 'xA']
+        'player_passing_stats': ['prog_passes', 'xA']
     }
     forwardRadarStats = {
-        'player_passing_stats' : ['xA'],
+        'player_passing_stats': ['xA'],
         'player_possession_stats': ['succ_dribbles', 'prog_receptions'],
-        'player_shooting_stats' : ['npxG', 'npxG_per_Shot', 'Sh_per_90']
+        'player_shooting_stats': ['npxG', 'npxG_per_Shot', 'Sh_per_90']
     }
     goalkeeperRadarStats = {
         'player_gk_basic_stats': ['penalty_save_percentage'],
-        'player_gk_advanced_stats': ['PSxG_difference',  'AvgDist', 'stop_percentage', 'long_pass_completion_pct'],
-        'player_misc_stats' : ['loose_balls_recovered']
+        'player_gk_advanced_stats': ['PSxG_difference', 'AvgDist', 'stop_percentage', 'long_pass_completion_pct'],
+        'player_misc_stats': ['loose_balls_recovered']
     }
 
     // Assign position stats based on player's primary position
@@ -47,7 +57,7 @@ const getRadarStats = (req, res) =>
     } else {
         positionRadarStats = goalkeeperRadarStats;
     }
-    
+
     // Get names of each of the three tables used
     firstTable = Object.keys(positionRadarStats)[0]
     secondTable = Object.keys(positionRadarStats)[1]
@@ -70,7 +80,7 @@ const getRadarStats = (req, res) =>
     FROM ${thirdTable})
     UNION`;
 
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         if (err) {
             console.log(err);
             res.status(400).json({ 'message': 'generic error message' });

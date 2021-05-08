@@ -47,7 +47,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /* ---- (Player Page) ---- */
 app.get('/players', playerRoutes.getAllPlayers);
 
-app.get('/players/:player_id', playerRoutes.getRadarStats);
+app.get('/players/:player_id', playerRoutes.getPlayerProfile);
 
 /* ---- (Team Page) ---- */
 // app.get('/teams/:team_name', teamRoutes.getTeamLeague);

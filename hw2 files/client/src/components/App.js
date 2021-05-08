@@ -15,6 +15,7 @@ import Player from './Player';
 import Team from './Teams';
 import League from './League';
 import Teams from './Teams';
+import PlayerProfile from './PlayerProfile';
 
 export default class App extends React.Component {
 
@@ -34,6 +35,10 @@ export default class App extends React.Component {
 							exact
 							path="/players"
 							render={() => <Player />}
+						/>
+						<Route
+							path="/players/profile"
+							render={() => <PlayerProfile />}
 						/>
 
 						<Route
