@@ -63,7 +63,7 @@ function Teams() {
             <br />
             <div className="container movies-container">
                 <div className="jumbotron">
-                    <div className="h3 text-center mb-5">Team Database</div>
+                    <div className="h3 text-center mb-5">Teams Database</div>
                     <div style={{ maxWidth: "100%" }}>
 
                         <MaterialTable
