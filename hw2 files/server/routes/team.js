@@ -48,9 +48,7 @@ const getTeamLeagues = (req, res) => {
 // This is for all comps.
 
 const getMostXgXaContributer = (req, res) => {
-    team_name = req.team_name
-
-    team_name = 'Arsenal'
+    input_teamID = req.input_team
 
     var query = `
     WITH teamHomeXG AS(

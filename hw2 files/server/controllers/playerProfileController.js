@@ -34,9 +34,14 @@ async function getRadarStats(playerId, position) {
         'npxG_per_Shot', 'Sh_per_90'];
 
     const goalkeeperStats = ['penalty_save_percentage', 'PSxG_difference',
-        'AvgDist', 'stop_percentage',
-        'long_pass_completion_pct', 'defensive_actions'];
+    'AvgDist', 'stop_percentage', 'long_pass_completion_pct', 'defensive_actions'];
+    
+    const defenderMidfielderStats = ['players_tackled_plus_interceptions', 'succ_pressure_pct',
+    'comp_passes_leading_to_final_third', 'tot_dist_traveled_by_comp_passes', 'aerials_won', 'loose_balls_recovered'];
 
+    const midfielderForwardStats = ['succ_dribbles', 'xA',
+        'npxG', 'prog_receptions', 'fouls_drawn', 'comp_passes_into_18_yd_box'];
+    
     // // Assume queried player is an outfielder
     // var query = getPercentileForSelectedStatAndYear_Outfield;
     // // Array to store query results
