@@ -35,13 +35,13 @@ async function getRadarStats(playerId, position) {
 
     const goalkeeperStats = ['penalty_save_percentage', 'PSxG_difference',
     'AvgDist', 'stop_percentage', 'long_pass_completion_pct', 'defensive_actions'];
-    
+
     const defenderMidfielderStats = ['players_tackled_plus_interceptions', 'succ_pressure_pct',
     'comp_passes_leading_to_final_third', 'tot_dist_traveled_by_comp_passes', 'aerials_won', 'loose_balls_recovered'];
 
     const midfielderForwardStats = ['succ_dribbles', 'xA',
         'npxG', 'prog_receptions', 'fouls_drawn', 'comp_passes_into_18_yd_box'];
-    
+
     // // Assume queried player is an outfielder
     // var query = getPercentileForSelectedStatAndYear_Outfield;
     // // Array to store query results
@@ -56,16 +56,16 @@ async function getRadarStats(playerId, position) {
         positionRadarStats = forwardRadarStats;
     } else {
         return Promise.all(goalkeeperRadarStats.map((inputStat) => {
-            return makeQueryGK(playerId, inputStat);
+            return makeQueryGetPercentileForSelectedStatAndYear_GK(playerId, inputStat);
         }))
     }
 
     return Promise.all(positionRadarStats.map((inputStat) => {
-        return makeQueryOF(playerId, inputStat);
+        return makeQueryGetPercentileForSelectedStatAndYear_Outfield(playerId, inputStat);
     }));
 }
 
-function makeQueryGK(playerId, inputStat) {
+function makeQueryGetPercentileForSelectedStatAndYear_GK(playerId, inputStat) {
     const query = `
     WITH ranked AS(
     	SELECT player_id, ROW_NUMBER() OVER(ORDER BY ${inputStat}/90s_played) ROWNUMBER
@@ -98,7 +98,7 @@ function makeQueryGK(playerId, inputStat) {
     })
 }
 
-function makeQueryOF(playerId, inputStat) {
+function makeQueryGetPercentileForSelectedStatAndYear_Outfield(playerId, inputStat) {
     const query = `
     WITH selected_player_position AS(
 	     SELECT pp.primary_position, pp.secondary_position
