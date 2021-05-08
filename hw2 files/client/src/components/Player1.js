@@ -134,7 +134,7 @@ export default class Player extends React.Component {
         <br />
         <div className="container movies-container">
           <div className="jumbotron">
-            <div className="h3 text-center mb-5">Player Database</div>
+            <div className="h3 text-center mb-5">Players Database</div>
             <div style={{ maxWidth: "100%" }}>
               
         <MaterialTable

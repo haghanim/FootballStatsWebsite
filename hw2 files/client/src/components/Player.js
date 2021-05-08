@@ -5,8 +5,8 @@ import { useHistory } from 'react-router-dom';
 import { Route, Link, BrowserRouter, withRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
-import KeywordButton from './KeywordButton';
-import DashboardMovieRow from './DashboardMovieRow';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import MaterialTable from "material-table";
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
@@ -25,6 +25,7 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import api from '../api';
+import Grid from '@material-ui/core/Grid';
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -47,11 +48,23 @@ const tableIcons = {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.primary,
+      justify: 'center',
+      container: true
+    },
+  }));
 
 function Players() {
     const history = useHistory();
     const [playersList, setPlayersList] = useState([]);
+    const classes = useStyles();
 
     useEffect(() => {
         console.log('yo');
@@ -79,8 +92,10 @@ function Players() {
 
             <br />
             <div className="container movies-container">
-                <div className="jumbotron">
-                    <div className="h3 text-center mb-5">Player Database</div>
+            <div className={classes.root}>
+            <Grid container spacing={5} align = "center" justify = "center" alignItems = "center">
+      <Grid item xs={8}>
+                    <Paper className={classes.paper}><h3><strong>Player Database</strong></h3></Paper>
                     <div style={{ maxWidth: "100%" }}>
 
                         <MaterialTable
@@ -111,9 +126,7 @@ function Players() {
                             }
                             title=""
                         />
-                    </div>
-
-                </div>
+                    </div></Grid></Grid></div>
 
                 <br />
 

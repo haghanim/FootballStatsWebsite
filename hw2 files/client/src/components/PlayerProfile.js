@@ -1,126 +1,129 @@
-import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import api from '../api';
+import React, { Component } from "react";
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import PageNavbar from './PageNavbar';
+import Table from 'react-bootstrap/Table';
+import ReactApexChart from "react-apexcharts";
+import { borders } from '@material-ui/system';
 
-function PlayerProfile() {
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.Primary,
+      justify: 'center',
+      container: true
+    },
+    color: {
+        backgroundColor: '#FFFFFF'
+        }
+  }));
+
+const Player = "Joe Soccer";
+
+const radar = {
+          
+    series: [{
+      name: 'dsdfsdf 1',
+      data: [80, 50, 30, 40, 100, 20],
+    }],
+    options: {
+      chart: {
+        height: 350,
+        type: 'radar',
+      },
+      title: {
+        text: 'Player Stats'
+      },
+      xaxis: {
+        categories: ['Shooting', 'Passing', 'Scoring', 'Defence', 'Offense', 'Saves']
+      }
+    },
+  
+  
+  };
+
+export default function PlayerProfile() {
     let { playerId } = useParams();
+    const classes = useStyles();
 
+  return (
+    <div className="Dashboard">
 
-    // api.players.getPlayerProfile(playerId);
-
-    return (
-        <h1>
-            {playerId}
-        </h1>
-    )
+    <PageNavbar active="dashboard" />
+    <span>  .</span>
+  <div className={classes.root}>
+    <Grid container spacing={3} align = "center" justify = "center" alignItems = "center">
+      <Grid item xs={7}>
+        <Paper className={classes.paper}><h3><strong>{Player} Profile</strong></h3></Paper>
+        <Table striped bordered variant="light">
+  
+  <tbody>
+    <tr>
+      <td><strong>Club:</strong></td>
+      <td>Mark</td>
+      <td><strong>Birth Year:</strong></td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <td><strong>Nationality:</strong></td>
+      <td>Jacob</td>
+      <td><strong>Primary Position:</strong></td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <td><strong>Nationality:</strong></td>
+      <td>Larry the Bird</td>
+      <td><strong>Nationality:</strong></td>
+      <td>Larry the Bird</td>
+    </tr>
+  </tbody>
+</Table>
+      </Grid>
+      <Grid item xs={6} className={classes.color} borderRadius={16} borderColor="primary.main">
+      <div id="chart">
+  <ReactApexChart options={radar.options} series={radar.series} type="radar" height={350} />
+</div>
+      </Grid>
+      <Grid item xs={5}>
+        <Paper className={classes.paper}><h5><strong>Player Stats</strong></h5></Paper>
+        <Table striped bordered variant="light">
+  
+  <tbody>
+    <tr>
+      <td><strong>Shooting:</strong></td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <td><strong>Passing:</strong></td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <td><strong>Field goal:</strong></td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td><strong>Saves:</strong></td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <td><strong>Fouls:</strong></td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td><strong></strong></td>
+      <td></td>
+    </tr>
+  </tbody>
+</Table>
+      </Grid>
+    </Grid>
+  </div></div>
+);
 }
-
-{/* <div className="page-content p-5" id="content">
-                    <div className="card">
-                        <div className="card-body">
-                            <h1 className="h2 card-title">Account Settings</h1>
-                            <hr />
-                            <ul className="list-group">
-                                <li className="list-group-item">
-                                    <div className="row">
-                                        <div className="col-sm">
-                                            <h6>Username</h6>
-                                        </div>
-                                        <div className="col-sm">
-                                            <h6 className="text-muted">{this.state.username}</h6>
-                                        </div>
-                                        <div className="col-sm">
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="list-group-item">
-                                    <div className="row">
-                                        <div className="col-sm">
-                                            <h6>Name</h6>
-                                        </div>
-                                        <div className="col-sm">
-                                            <h6 className="text-muted">{this.state.name}</h6>
-                                        </div>
-                                        <div className="col-sm">
-                                            <a href="#"><h6 className="text-right">Edit</h6></a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="list-group-item">
-                                    <div className="row">
-                                        <div className="col-sm">
-                                            <h6>Email</h6>
-                                        </div>
-                                        <div className="col-sm">
-                                            <h6 className="text-muted">{this.state.email}</h6>
-                                        </div>
-                                        <div className="col-sm">
-                                            <a href="#"><h6 className="text-right">Edit</h6></a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="list-group-item">
-                                    <div className="row">
-                                        <div className="col-sm">
-                                            <h6>Avatar</h6>
-                                        </div>
-                                        <div className="col-sm">
-                                            <a href="#"><h6>View Avatar</h6></a>
-                                        </div>
-                                        <div className="col-sm">
-                                            <button onClick={this.onEditAvatarClick}> Edit </button>
-                                            <a href="#"><h6 className="text-right">Edit</h6></a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="list-group-item">
-                                    <div className="row">
-                                        <div className="col-sm">
-                                            <h6>Bio</h6>
-                                        </div>
-                                        <div className="col-sm">
-                                            <h6 className="text-muted">Student at University of Pennsylvania</h6>
-                                        </div>
-                                        <div className="col-sm">
-                                            <a href="#"><h6 className="text-right">Edit</h6></a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    {this.state.editAvatarActive && edit_avatar_component}
-                    <div className="card mt-4">
-                        <div className="card-body">
-                            <h1 className="h2 card-title">Reset Password</h1>
-                            <hr />
-                                <div className="form-group">
-                                    <label htmlFor="oldPassword">Old Password</label>
-                                    <input type="password" className="form-control" id="oldPassword" onChange={this.onOldPasswordInputChange} />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="newPassword">New Password</label>
-                                    <input type="password" className="form-control" id="newPassword" onChange={this.onNewPasswordInputChange} />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="newPasswordConfirm">Confirm New Password</label>
-                                    <input type="password" className="form-control" id="newPasswordConfirm" onChange={this.onConfNewPasswordInputChange} />
-                                    <small id="passHelp" className="form-text text-muted">Make sure it's at least 15
-                                                characters.</small>
-                                </div>
-                                <button className="btn btn-primary" onClick={this.onChangePasswordBtnPressed}>Submit</button>
-                        </div>
-                    </div>
-                    <div className="card mt-4">
-                        <div className="card-body">
-                            <h1 className="h2 card-title text-danger">Delete Account</h1>
-                            <hr />
-                            <button type="button" className="btn btn-outline-danger mb-1">Delete Account</button>
-                            <br />
-                            <small id="deleteHelp" className="text-muted">Are you sure you want to delete your
-                                        account?</small>
-                        </div>
-                    </div>
-                </div> */}
-
-export default PlayerProfile;
