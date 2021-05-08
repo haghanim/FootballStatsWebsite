@@ -46,24 +46,9 @@ const getAllPlayers = (req, res) => {
     });
 }
 
-const getPlayerName = (req, res) => {
-    var query = `
-    SELECT name
-    FROM player
-    LIMIT 20;
-  `;
-    connection.query(query, function (err, rows, fields) {
-        if (err) console.log(err);
-        else {
-            res.json(rows);
-        }
-    });
-};
-
 
 // Keep this
 module.exports = {
     getAllPlayers: getAllPlayers,
-    getPlayerName: getPlayerName,
     getPlayerProfile: getPlayerProfile,
 };

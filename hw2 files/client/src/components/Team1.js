@@ -137,7 +137,7 @@ export default class Team extends React.Component {
         <br />
         <div className="container movies-container">
         <div className="jumbotron">
-            <div className="h3 text-center mb-5">team Database</div>
+            <div className="h3 text-center mb-5">Teams Database</div>
             <div style={{ maxWidth: "100%" }}>
               
         <MaterialTable
