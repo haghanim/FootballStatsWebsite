@@ -1,5 +1,5 @@
 // Fix this Path so that it's local to your computer
-const config = require('/Users/nikolasmihailidis/Desktop/550_Project/550FinalProject/hw2 files/server/db-config.js');
+const config = require('C:/Users/alanf/OneDrive/Desktop/CIS450/Project/550FinalProject/hw2 files/server/db-config.js');
 const mysql = require('mysql');
 
 config.connectionLimit = 10;
@@ -9,6 +9,21 @@ const connection = mysql.createPool(config);
 /* -------------------------------------------------- */
 /* ------------------- Route Handlers --------------- */
 /* -------------------------------------------------- */
+
+const getAllLeagues = (req, res) => {
+    var query = `
+    SELECT DISTINCT league 
+    FROM Fixtures;
+    `;
+    connection.query(query, function (err, rows, fields) {
+        if (err) {
+            res.status(400).json({ message: err });
+        }
+        else {
+            res.status(200).json(rows);
+        }
+    });
+}
 
 const getHomeVsAwayGoalDifferential = (req, res) => {
     var query = `
@@ -167,11 +182,12 @@ const getTeamOffensiveStats = (req, res) => {
 };
 
 module.exports = {
-    getTeamName: getTeamName,
-    getTop20Keywords: getTop20Keywords,
-    getTopMoviesWithKeyword: getTopMoviesWithKeyword,
-    getRecs: getRecs,
-    getDecades: getDecades,
-    getGenres: getGenres,
-    bestMoviesPerDecadeGenre: bestMoviesPerDecadeGenre
+    getAllLeagues: getAllLeagues,
+    // getTeamName: getTeamName,
+    // getTop20Keywords: getTop20Keywords,
+    // getTopMoviesWithKeyword: getTopMoviesWithKeyword,
+    // getRecs: getRecs,
+    // getDecades: getDecades,
+    // getGenres: getGenres,
+    // bestMoviesPerDecadeGenre: bestMoviesPerDecadeGenre
 };

@@ -98,50 +98,6 @@ actions={[
                                 { title: "Current Position", field: "Position" }
                             ]}
                             data={playersList
-                                //     [
-                                //     {
-                                //         Name: "Leo Messi",
-                                //         Club: "Barcelona",
-                                //         BirthYear: 1987,
-                                //         Nationality: "Argentina",
-                                //         Position: "Midfield"
-                                //     },
-                                //     {
-                                //         Name: "Niko Mihailidis",
-                                //         Club: "Penn",
-                                //         BirthYear: 2000,
-                                //         Nationality: "USA",
-                                //         Position: "Forward"
-                                //     },
-                                //     {
-                                //         Name: "Yuan Han Li",
-                                //         Club: "Penn",
-                                //         BirthYear: 2000,
-                                //         Nationality: "USA",
-                                //         Position: "Midfield"
-                                //     },
-                                //     {
-                                //         Name: "Alan Frastai",
-                                //         Club: "Penn",
-                                //         BirthYear: 2000,
-                                //         Nationality: "USA",
-                                //         Position: "Winger"
-                                //     },
-                                //     {
-                                //         Name: "Mark Haghani",
-                                //         Club: "Penn",
-                                //         BirthYear: 1987,
-                                //         Nationality: "Defense",
-                                //         Position: "Midfield"
-                                //     },
-                                //     {
-                                //         Name: "Niko",
-                                //         Club: "Mihailidis",
-                                //         BirthYear: 2000,
-                                //         Nationality: "USA",
-                                //         Position: "Forward"
-                                //     },
-                                // ]
                             }
                             title=""
                         />

@@ -7,6 +7,7 @@ const cors = require('cors');
 // Divide routes
 var playerRoutes = require("./routes/player.js");
 var teamRoutes = require("./routes/team.js");
+var leagueRoutes = require("./routes/league");
 
 const app = express();
 
@@ -52,6 +53,8 @@ app.get('/players/:player_id', playerRoutes.getTopMoviesWithKeyword);
 // app.get('/teams/:team_name', teamRoutes.getTeamLeague);
 
 app.get('/teams', teamRoutes.getAllTeams);
+
+app.get('/leagues', leagueRoutes.getAllLeagues)
 
 
 app.listen(8081, () => {
