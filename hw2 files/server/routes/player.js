@@ -16,7 +16,8 @@ const getPlayerProfile = (req, res) => {
     return PlayerProfileController.getPlayerInfo(playerId)
         .then((playerInfo) => {
             const position = playerInfo.Position;
-            return PlayerProfileController.getRadarStats(playerId, position)
+            const secondary_position = playerInfo.secondary_position;
+            return PlayerProfileController.getRadarStats(playerId, position, secondary_position)
                 .then((radarStats) => {
                     res.status(200).json({ playerInfo, radarStats });
                 })
