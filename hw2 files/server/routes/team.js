@@ -1,5 +1,5 @@
 // Fix this Path so that it's local to your computer
-const config = require('/Users/nikolasmihailidis/Desktop/550_Project/550FinalProject/hw2 files/server/db-config.js');
+const config = require('/Users/markhaghani/Documents/GitHub/550FinalProject/hw2 files/server/db-config.js');
 const mysql = require('mysql');
 
 config.connectionLimit = 10;
@@ -15,8 +15,6 @@ const getTeamLeague = (req, res) => {
     team_name = req.params.team_name
 
     console.log("REQ:", req.params.team_name);
-
-    // team_name = 'Arsenal'
 
     var query = `
     SELECT league
@@ -37,7 +35,7 @@ const getTeamLeague = (req, res) => {
 // query a - Player who contributed highest % of team’s xG, xA, and xG + xA in any given season over last few years (player_name, season, xg, percentage_xg).
 // This is for all comps.
 
-const getMostXGContributer = (req, res) => {
+const getMostXgXaContributer = (req, res) => {
     team_name = req.team_name
 
     team_name = 'Arsenal'
@@ -46,13 +44,13 @@ const getMostXGContributer = (req, res) => {
     WITH teamHomeXG AS(
         SELECT season, home AS team, sum(xG_Home) AS team_xG
         FROM Fixtures
-        WHERE home = 'Bayern Munich'
+        WHERE home = '${team_name}'
         GROUP BY season, home
     ),
     teamAwayXG AS(
         SELECT season, away AS team, sum(xG_Away) AS team_xG
         FROM Fixtures
-        WHERE away = 'Bayern Munich'
+        WHERE away = '${team_name}'
         GROUP BY season, away
     ),
     teamHomeAwayXG AS (
@@ -70,13 +68,13 @@ const getMostXGContributer = (req, res) => {
     playerXA AS (
         SELECT player_id, season, team, SUM(xA) AS xA
         FROM player_passing_stats
-        WHERE team = 'Bayern Munich'
+        WHERE team = '${team_name}'
         GROUP BY player_id, season, team
     ),
     playerXG AS (
         SELECT player_id, season, team, SUM(xG) AS xG
         FROM player_shooting_stats
-        WHERE team = 'Bayern Munich'
+        WHERE team = '${team_name}'
         GROUP BY player_id, season, team
     ),
     playerXGXA AS (
@@ -502,11 +500,11 @@ const get30RecentGames = (req, res) => {
 
 module.exports = {
     getTeamLeague: getTeamLeague,
-    getMostXGContributer: getMostXGContributer,
-    // getTop20Keywords: getTop20Keywords,
-    // getTopMoviesWithKeyword: getTopMoviesWithKeyword,
-    // getRecs: getRecs,
-    // getDecades: getDecades,
+    getMostXgXaContributer: getMostXgXaContributer,
+    getWinPcts: getWinPcts,
+    getMostDominantAgainst: getMostDominantAgainst,
+    getAvgAge: getAvgAge,
+    getMostProgressivePlayer: getMostProgressivePlayer,
     // getGenres: getGenres,
     // bestMoviesPerDecadeGenre: bestMoviesPerDecadeGenre
 };

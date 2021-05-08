@@ -166,12 +166,26 @@ const getTeamOffensiveStats = (req, res) => {
     });
 };
 
+
+const getLeagueNames = (req, res) => {
+    var query = `
+    SELECT DISTINCT(league)
+    FROM Fixtures
+          `;
+    connection.query(query, function (err, rows, fields) {
+        console.log('hello')
+
+        if (err) console.log(err);
+        else {
+            console.log(rows);
+            res.json(rows);
+        }
+    });
+};
+
 module.exports = {
-    getTeamName: getTeamName,
-    getTop20Keywords: getTop20Keywords,
-    getTopMoviesWithKeyword: getTopMoviesWithKeyword,
-    getRecs: getRecs,
-    getDecades: getDecades,
-    getGenres: getGenres,
-    bestMoviesPerDecadeGenre: bestMoviesPerDecadeGenre
+    getTeamOffensiveStats: getTeamOffensiveStats,
+    getHistoricalLeagueTable: getHistoricalLeagueTable,
+    getHomeVsAwayGoalDifferential: getHomeVsAwayGoalDifferential,
+    getLeagueNames: getLeagueNames,
 };
