@@ -1,4 +1,4 @@
-const config = require('C:/Users/alanf/OneDrive/Desktop/CIS450/Project/550FinalProject/hw2 files/server/db-config.js');
+const config = require('../db-config');
 const mysql = require('mysql');
 config.connectionLimit = 10;
 const connection = mysql.createPool(config);

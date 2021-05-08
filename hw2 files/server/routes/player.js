@@ -1,5 +1,5 @@
 // Fix this Path so that it's local to your computer
-const config = require('C:/Users/alanf/OneDrive/Desktop/CIS450/Project/550FinalProject/hw2 files/server/db-config.js');
+const config = require('../db-config');
 const mysql = require('mysql');
 
 const PlayerProfileController = require('../controllers/playerProfileController')
@@ -13,10 +13,10 @@ const connection = mysql.createPool(config);
 
 const getPlayerProfile = (req, res) => {
     playerId = req.params.playerId;
-    const playerInfo = PlayerProfileController.getPlayerInfo(playerId);
-    const radarStats = PlayerProfileController.getRadarStats(playerId, playerInfo.Position);
+    // const playerInfo = PlayerProfileController.getPlayerInfo(playerId);
+    // const radarStats = PlayerProfileController.getRadarStats(playerId, playerInfo.Position);
 
-    res.status(200).json({playerInfo: playerInfo, radarStats: radarStats});
+    res.status(200).json({ playerInfo: 'hi', radarStats: 'bi' });
 
 }
 
@@ -209,5 +209,6 @@ module.exports = {
     getPlayerName: getPlayerName,
     getPercentileForSelectedStatAndYear_GK: getPercentileForSelectedStatAndYear_GK,
     getPercentileForSelectedStatAndYear_Outfield: getPercentileForSelectedStatAndYear_Outfield,
-    getRadarStats: getRadarStats
+    getRadarStats: getRadarStats,
+    getPlayerProfile: getPlayerProfile,
 };

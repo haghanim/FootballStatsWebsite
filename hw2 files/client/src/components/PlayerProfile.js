@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { getPlayerProfile } from '../api/players';
+import { useParams } from 'react-router';
+import api from '../api';
 
-function PlayerProfile(playerId) {
+function PlayerProfile() {
+    let { playerId } = useParams();
+
+
+    // api.players.getPlayerProfile(playerId);
+
     return (
         <h1>
-            Player Profile
+            {playerId}
         </h1>
     )
 }

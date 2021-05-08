@@ -37,7 +37,7 @@ export default class App extends React.Component {
 							render={() => <Player />}
 						/>
 						<Route
-							path="/players/profile"
+							path="/players/profile/:playerId"
 							render={() => <PlayerProfile />}
 						/>
 
