@@ -43,14 +43,16 @@ const getMostXgXaContributer = (req, res) => {
     var query = `
     WITH teamHomeXG AS(
         SELECT season, home AS team, sum(xG_Home) AS team_xG
-        FROM Fixtures
-        WHERE home = '${team_name}'
+        FROM Fixtures f
+        JOIN team t ON t.name = f.home
+        WHERE t.team_id = ${input_teamID}
         GROUP BY season, home
     ),
     teamAwayXG AS(
         SELECT season, away AS team, sum(xG_Away) AS team_xG
-        FROM Fixtures
-        WHERE away = '${team_name}'
+        FROM Fixtures f
+        JOIN team t ON t.name = f.away
+        WHERE t.team_id = ${input_teamID}
         GROUP BY season, away
     ),
     teamHomeAwayXG AS (
@@ -67,14 +69,16 @@ const getMostXgXaContributer = (req, res) => {
     ),
     playerXA AS (
         SELECT player_id, season, team, SUM(xA) AS xA
-        FROM player_passing_stats
-        WHERE team = '${team_name}'
+        FROM player_passing_stats pps
+        JOIN team t ON t.name = pps.team
+        WHERE t.team_id = ${input_teamID}
         GROUP BY player_id, season, team
     ),
     playerXG AS (
         SELECT player_id, season, team, SUM(xG) AS xG
-        FROM player_shooting_stats
-        WHERE team = '${team_name}'
+        FROM player_shooting_stats pss
+        JOIN team t ON t.name = pss.team
+        WHERE t.team_id = ${input_teamID}
         GROUP BY player_id, season, team
     ),
     playerXGXA AS (
@@ -82,13 +86,14 @@ const getMostXgXaContributer = (req, res) => {
         FROM playerXG pxg
         NATURAL JOIN playerXA pxa
     )
-    SELECT pxgxa.player_id, pxgxa.team, pxgxa.season,
+    SELECT po.name, pxgxa.team, pxgxa.season,
     pxgxa.xG / ttxg.team_xg AS percentXgContribution,
     pxgxa.xA / ttxg.team_xg AS percentXaContribution,
     (pxgxa.xG + pxgxa.xA) / ttxg.team_xg AS percentXgXAContribution
     FROM playerXGXA pxgxa
     JOIN teamTotalXG ttxg ON pxgxa.season = ttxg.season
-    ORDER BY percentXgContribution DESC
+    NATURAL JOIN Player_Outfield po
+    ORDER BY percentXgXAContribution DESC
     LIMIT 10
   `;
 
