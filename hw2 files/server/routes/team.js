@@ -307,22 +307,28 @@ const getWinPcts = (req, res) => {
 };
 
 
-// query g: xG and xG recent trendline and performance of last 10-30 matches. (Definitely)
+// query g: xG and xG recent trendline and performance of last 10-30 matches. (Definitely) 
 const get30RecentGames = (req, res) => {
-    team_name = 'Arsenal'
+    teamId = req.param.teamId
 
     var query = `
-    WITH mostRecent30Games AS(
-        SELECT *
+    WITH teamName AS(
+        SELECT name
+        FROM team
+        WHERE team_id = ${teamId}
+    ),
+    mostRecent30Games AS(
+        SELECT * 
         FROM Fixtures
-        WHERE home = 'Arsenal'
+        WHERE ((xG_Away + xG_Home) <> 0) AND (home IN (SELECT * FROM teamName) OR away IN (SELECT * FROM teamName) )
         ORDER BY date DESC
         )
 
-    SELECT *
+    SELECT date, xG_Home, xG_Away
     FROM mostRecent30Games
+    LIMIT 30;
   `;
-    connection.query(query, function (err, rows, fields) {
+    connection.query(query, function(err, rows, fields) {
         console.log('hello')
 
         if (err) console.log(err);
