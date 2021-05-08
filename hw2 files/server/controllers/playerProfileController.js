@@ -58,7 +58,7 @@ async function getRadarStats(playerId, position, secondary_position) {
         (position == 'MF' && secondary_position == 'FW')) {
         positionRadarStats = wingerStats;
     } else { //else is a GK
-        return Promise.all(goalkeeperRadarStats.map((inputStat) => {
+        return Promise.all(goalkeeperStats.map((inputStat) => {
             return makeQueryGetPercentileForSelectedStatAndYear_GK(playerId, inputStat);
         }))
     }
@@ -213,6 +213,51 @@ async function getStats(playerId, position) {
             return rows;
         }
     });
+}
+
+function makeQueryGetStat_Outfield(playerId, inputStat) {
+    const query = `
+    SELECT ppts.season, ppts.team, ppts.league, ${inputStat}
+    FROM player_playing_time_stats ppts
+        NATURAL JOIN player_shooting_stats
+        NATURAL JOIN player_passing_stats
+        NATURAL JOIN player_possession_stats
+        NATURAL JOIN player_goal_shot_creation_stats
+        NATURAL JOIN player_pass_type_stats
+        NATURAL JOIN player_misc_stats
+        NATURAL JOIN player_defensive_actions_stats
+    WHERE player_id = ${playerId};
+    `;
+    return new Promise((resolve, reject) => {
+        connection.query(query, (err, rows) => {
+            if (err) {
+                reject(err);
+            }
+            else {
+                resolve(rows[0]);
+            }
+        })
+    })
+}
+
+function makeQueryGetStat_GK(playerId, inputStat) {
+    const query = `
+    SELECT ppts.season, ppts.team, ppts.league, ${inputStat}
+    FROM player_gk_playing_time_stats ppts
+        NATURAL JOIN player_gk_basic_stats
+        NATURAL JOIN player_gk_advanced_stats
+    WHERE player_id = ${playerId};
+    `;
+    return new Promise((resolve, reject) => {
+        connection.query(query, (err, rows) => {
+            if (err) {
+                reject(err);
+            }
+            else {
+                resolve(rows[0]);
+            }
+        })
+    })
 }
 
 module.exports = { getPlayerInfo, getRadarStats, getStats }
