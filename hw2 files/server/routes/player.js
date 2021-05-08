@@ -16,7 +16,7 @@ const getPlayerProfile = (req, res) => {
     // const playerInfo = PlayerProfileController.getPlayerInfo(playerId);
     // const radarStats = PlayerProfileController.getRadarStats(playerId, playerInfo.Position);
 
-    res.status(200).json({playerInfo: playerInfo, radarStats: radarStats});
+    res.status(200).json({ playerInfo: playerInfo, radarStats: radarStats });
 }
 
 const getAllPlayers = (req, res) => {
@@ -56,8 +56,5 @@ const getPlayerName = (req, res) => {
 module.exports = {
     getAllPlayers: getAllPlayers,
     getPlayerName: getPlayerName,
-    getPercentileForSelectedStatAndYear_GK: getPercentileForSelectedStatAndYear_GK,
-    getPercentileForSelectedStatAndYear_Outfield: getPercentileForSelectedStatAndYear_Outfield,
-    getRadarStats: getRadarStats,
     getPlayerProfile: getPlayerProfile,
 };
