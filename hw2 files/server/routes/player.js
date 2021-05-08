@@ -13,16 +13,18 @@ const connection = mysql.createPool(config);
 
 const getPlayerProfile = (req, res) => {
     playerId = req.params.playerId;
-    PlayerProfileController.getPlayerInfo(playerId)
+    return PlayerProfileController.getPlayerInfo(playerId)
         .then((playerInfo) => {
             console.log(playerInfo);
-            return PlayerProfileController.getRadarStats(playerId, playerInfo.Position)
-                .then((radarStats) => {
-                    console.log(radarStats);
-
-                    res.status(200).send('done');
-                })
+            res.status(200).send();
         })
+        //     return PlayerProfileController.getRadarStats(playerId, playerInfo.Position)
+        //         .then((radarStats) => {
+        //             // console.log(radarStats);
+
+        //             res.status(200).send('done');
+        //         })
+        // })
         .catch((err) => {
             console.log(err.message);
             res.status(400).send('error');
@@ -30,7 +32,6 @@ const getPlayerProfile = (req, res) => {
 }
 
 const getAllPlayers = (req, res) => {
-    console.log('yo');
     var query = `
     SELECT *
     FROM getAllPlayers`;
@@ -40,7 +41,6 @@ const getAllPlayers = (req, res) => {
             // console.log(err);
             res.status(400).json({ 'message': 'generic error message' });
         } else {
-            console.log(rows);
             res.status(200).json(rows);
         }
     });
@@ -55,7 +55,6 @@ const getPlayerName = (req, res) => {
     connection.query(query, function (err, rows, fields) {
         if (err) console.log(err);
         else {
-            console.log(rows);
             res.json(rows);
         }
     });
