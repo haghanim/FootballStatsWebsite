@@ -21,19 +21,19 @@ async function getPlayerInfo(playerId) {
 
 async function getRadarStats(playerId, position) {
     // List 6 stats for each positional radar
-    const defensiveRadarStats = ['pct_of_dribblers_tackled', 'succ_pressure_pct',
+    const defensiveStats = ['pct_of_dribblers_tackled', 'succ_pressure_pct',
         'interceptions', 'aerials_won_pct', 'prog_passes',
         'long_pass_comp_pct'];
 
-    const midfieldersRadarStats = ['pct_of_dribblers_tackled', 'succ_pressure_pct',
+    const midfielderStats = ['pct_of_dribblers_tackled', 'succ_pressure_pct',
         'interceptions', 'succ_dribbles', 'prog_passes', 'xA'];
 
-    const forwardRadarStats = ['xA', 'succ_dribbles', 'prog_receptions', 'npxG',
+    const forwardStats = ['xA', 'succ_dribbles', 'prog_receptions', 'npxG',
         'npxG_per_Shot', 'Sh_per_90'];
 
-    const goalkeeperRadarStats = ['penalty_save_percentage', 'PSxG_difference',
+    const goalkeeperStats = ['penalty_save_percentage', 'PSxG_difference',
         'AvgDist', 'stop_percentage',
-        'long_pass_completion_pct', 'loose_balls_recovered'];
+        'long_pass_completion_pct', 'defensive_actions'];
 
     const getPercentileForSelectedStatAndYear_Outfield = `
     WITH selected_player_position AS(
@@ -101,18 +101,18 @@ async function getRadarStats(playerId, position) {
 
     // if player's primary position is midfielder, assign him midfieldersRadarStats... do this for all positions
     if (position == 'DF') {
-        positionRadarStats = defensiveRadarStats;
+        positionStats = defensiveStats;
     } else if (position == 'MF') {
-        positionRadarStats = midfieldersRadarStats;
+        positionStats = midfielderStats;
     } else if (position == 'FW') {
-        positionRadarStats = forwardRadarStats;
+        positionStats = forwardStats;
     } else {
-        positionRadarStats = goalkeeperRadarStats;
+        positionStats = goalkeeperStats;
         query = getPercentileForSelectedStatAndYear_GK;
     }
 
     for (var idx = 0; idx < 6; idx++) {
-        var inputStat = positionRadarStats[idx];
+        var inputStat = positionStats[idx];
 
         connection.query(query, function (err, rows, fields) {
             if (err) {
@@ -124,6 +124,70 @@ async function getRadarStats(playerId, position) {
         });
     }
     return output;
+}
+
+async function getStats(playerId, position) {
+    // List 6 stats for each positional radar
+    const defensiveStats = ['pct_of_dribblers_tackled/90s_played', 'succ_pressure_pct/90s_played',
+        'interceptions/90s_played', 'aerials_won_pct/90s_played', 'prog_passes/90s_played',
+        'long_pass_comp_pct/90s_played'];
+
+    const midfielderStats = ['pct_of_dribblers_tackled/90s_played', 'succ_pressure_pct/90s_played',
+        'interceptions/90s_played', 'succ_dribbles/90s_played',
+         'prog_passes/90s_played', 'xA/90s_played'];
+
+    const forwardStats = ['xA/90s_played', 'succ_dribbles/90s_played',
+                            'prog_receptions/90s_played', 'npxG/90s_played',
+                            'npxG_per_Shot/90s_played', 'Sh_per_90/90s_played'];
+
+    const goalkeeperStats = ['penalty_save_percentage/90s_played', 'PSxG_difference/90s_played',
+                                'AvgDist/90s_played', 'stop_percentage/90s_played',
+                                'long_pass_completion_pct/90s_played', 'defensive_actions/90s_played'];
+
+    const getStat_Outfield = `
+    SELECT ppts.season, ppts.team, ppts.league, ${positionStats}
+    FROM player_playing_time_stats ppts
+        NATURAL JOIN player_shooting_stats
+        NATURAL JOIN player_passing_stats
+        NATURAL JOIN player_possession_stats
+        NATURAL JOIN player_goal_shot_creation_stats
+        NATURAL JOIN player_pass_type_stats
+        NATURAL JOIN player_misc_stats
+        NATURAL JOIN player_defensive_actions_stats
+    WHERE player_id = ${playerId};
+    `;
+
+    const getStat_GK = `
+    SELECT ppts.season, ppts.team, ppts.league, ${positionStats}
+    FROM player_gk_playing_time_stats ppts
+        NATURAL JOIN player_gk_basic_stats
+        NATURAL JOIN player_gk_advanced_stats
+    WHERE player_id = ${playerId};
+    `;
+
+    // Assume queried player is an outfielder
+    var query = getStat_Outfield;
+
+    // if player's primary position is midfielder, assign him midfieldersRadarStats... do this for all positions
+    if (position == 'DF') {
+        positionStats = defensiveStats;
+    } else if (position == 'MF') {
+        positionStats = midfielderStats;
+    } else if (position == 'FW') {
+        positionStats = forwardStats;
+    } else {
+        positionStats = goalkeeperStats;
+        query = getStat_GK;
+    }
+
+    connection.query(query, function (err, rows, fields) {
+        if (err) {
+            console.log(position, inputStat, idx);
+            throw new Error(err.message);
+        } else {
+            return rows;
+        }
+    });
 }
 
 module.exports = { getPlayerInfo, getRadarStats, }
