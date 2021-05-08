@@ -23,17 +23,17 @@ async function getPlayerInfo(playerId) {
 
 async function getRadarStats(playerId, position) {
     // List 6 stats for each positional radar
-    const defensiveStats = ['pct_of_dribblers_tackled', 'succ_pressure_pct',
+    const defensiveRadarStats = ['pct_of_dribblers_tackled', 'succ_pressure_pct',
         'interceptions', 'aerials_won_pct', 'prog_passes',
         'long_pass_comp_pct'];
 
-    const midfielderStats = ['pct_of_dribblers_tackled', 'succ_pressure_pct',
+    const midfieldersRadarStats = ['pct_of_dribblers_tackled', 'succ_pressure_pct',
         'interceptions', 'succ_dribbles', 'prog_passes', 'xA'];
 
-    const forwardStats = ['xA', 'succ_dribbles', 'prog_receptions', 'npxG',
+    const forwardRadarStats = ['xA', 'succ_dribbles', 'prog_receptions', 'npxG',
         'npxG_per_Shot', 'Sh_per_90'];
 
-    const goalkeeperStats = ['penalty_save_percentage', 'PSxG_difference',
+    const goalkeeperRadarStats = ['penalty_save_percentage', 'PSxG_difference',
         'AvgDist', 'stop_percentage',
         'long_pass_completion_pct', 'defensive_actions'];
 
@@ -207,4 +207,4 @@ async function getStats(playerId, position) {
     });
 }
 
-module.exports = { getPlayerInfo, getRadarStats, }
+module.exports = { getPlayerInfo, getRadarStats, getStats }
