@@ -13,87 +13,26 @@ const connection = mysql.createPool(config);
 
 const getPlayerProfile = (req, res) => {
     playerId = req.params.playerId;
-    // const playerInfo = PlayerProfileController.getPlayerInfo(playerId);
-    // const radarStats = PlayerProfileController.getRadarStats(playerId, playerInfo.Position);
+    return PlayerProfileController.getPlayerInfo(playerId)
+        .then((playerInfo) => {
+            console.log(playerInfo);
+            res.status(200).send();
+        })
+        //     return PlayerProfileController.getRadarStats(playerId, playerInfo.Position)
+        //         .then((radarStats) => {
+        //             // console.log(radarStats);
 
-    res.status(200).json({ playerInfo: 'hi', radarStats: 'bi' });
-
-}
-
-const getRadarStats = (req, res) => {
-    // List 6 stats for each positional radar
-    defensiveRadarStats = {
-        'player_defensive_actions_stats': ['pct_of_dribblers_tackled', 'succ_pressure_pct', 'interceptions'],
-        'player_misc_stats': ['aerials_won_pct'],
-        'player_passing_stats': ['prog_passes', 'long_pass_comp_pct']
-    }
-    midfieldersRadarStats = {
-        'player_defensive_actions_stats': ['pct_of_dribblers_tackled', 'succ_pressure_pct', 'interceptions'],
-        'player_possession_stats': ['succ_dribbles'],
-        'player_passing_stats': ['prog_passes', 'xA']
-    }
-    forwardRadarStats = {
-        'player_passing_stats': ['xA'],
-        'player_possession_stats': ['succ_dribbles', 'prog_receptions'],
-        'player_shooting_stats': ['npxG', 'npxG_per_Shot', 'Sh_per_90']
-    }
-    goalkeeperRadarStats = {
-        'player_gk_basic_stats': ['penalty_save_percentage'],
-        'player_gk_advanced_stats': ['PSxG_difference', 'AvgDist', 'stop_percentage', 'long_pass_completion_pct'],
-        'player_misc_stats': ['loose_balls_recovered']
-    }
-
-    // Assign position stats based on player's primary position
-    // if player's primary position is midfielder, assign him midfieldersRadarStats... do this for all positions
-    player_id = req.params.player_id;
-    player_pos = 'MF';
-
-    if (player_pos == 'DF') {
-        positionRadarStats = defensiveRadarStats;
-    } else if (player_pos == 'MF') {
-        positionRadarStats = midfieldersRadarStats;
-    } else if (player_pos == 'FW') {
-        positionRadarStats = forwardRadarStats;
-    } else {
-        positionRadarStats = goalkeeperRadarStats;
-    }
-
-    // Get names of each of the three tables used
-    firstTable = Object.keys(positionRadarStats)[0]
-    secondTable = Object.keys(positionRadarStats)[1]
-    thirdTable = Object.keys(positionRadarStats)[2]
-
-    // Get string of attributes from each of the three tables used
-    firstTableAttributes = positionRadarStats[firstTable]
-    secondTableAttributes = positionRadarStats[secondTable]
-    thirdTableAttributes = positionRadarStats[thirdTable]
-
-    // Replace * with attributes
-    var query = `
-    (SELECT ${firstTableAttributes}
-    FROM ${firstTable})
-    UNION
-    (SELECT ${secondTableAttributes}
-    FROM ${secondTable})
-    UNION
-    (SELECT ${thirdTableAttributes}
-    FROM ${thirdTable})
-    UNION`;
-
-    connection.query(query, function (err, rows, fields) {
-        if (err) {
-            console.log(err);
-            res.status(400).json({ 'message': 'generic error message' });
-        } else {
-            console.log(rows);
-            res.status(200).json(rows);
-        }
-    });
+        //             res.status(200).send('done');
+        //         })
+        // })
+        .catch((err) => {
+            console.log(err.message);
+            res.status(400).send('error');
+        })
 }
 
 
 const getAllPlayers = (req, res) => {
-    console.log('yo');
     var query = `
     SELECT *
     FROM getAllPlayers`;
@@ -103,26 +42,10 @@ const getAllPlayers = (req, res) => {
             // console.log(err);
             res.status(400).json({ 'message': 'generic error message' });
         } else {
-            console.log(rows);
             res.status(200).json(rows);
         }
     });
 }
-
-const getPlayerName = (req, res) => {
-    var query = `
-    SELECT name
-    FROM player
-    LIMIT 20;
-  `;
-    connection.query(query, function (err, rows, fields) {
-        if (err) console.log(err);
-        else {
-            console.log(rows);
-            res.json(rows);
-        }
-    });
-};
 
 
 const getPercentileForSelectedStatAndYear_Outfield = (req, res) => {
@@ -206,9 +129,5 @@ const getPercentileForSelectedStatAndYear_GK = (req, res) => {
 // Keep this
 module.exports = {
     getAllPlayers: getAllPlayers,
-    getPlayerName: getPlayerName,
-    getPercentileForSelectedStatAndYear_GK: getPercentileForSelectedStatAndYear_GK,
-    getPercentileForSelectedStatAndYear_Outfield: getPercentileForSelectedStatAndYear_Outfield,
-    getRadarStats: getRadarStats,
     getPlayerProfile: getPlayerProfile,
 };
