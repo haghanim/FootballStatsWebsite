@@ -152,7 +152,6 @@ function makeQueryGetPercentileForSelectedStatAndYear_Outfield(playerId, inputSt
 }
 
 async function getStats(playerId, position) {
-    // List important stats for each positionn
     const defenderStats = ['pct_of_dribblers_tackled/90s_played', 'succ_pressure_pct/90s_played',
         'interceptions/90s_played', 'aerials_won_pct/90s_played', 'prog_passes/90s_played',
         'long_pass_comp_pct/90s_played'];
@@ -172,40 +171,25 @@ async function getStats(playerId, position) {
     const wingerStats = ['succ_dribbles/90s_played', 'xA/90s_played',
         'npxG/90s_played', 'prog_receptions/90s_played', 'fouls_drawn/90s_played', 'comp_passes_into_18_yd_box/90s_played'];
 
-    const getStat_Outfield = `
-    SELECT ppts.season, ppts.team, ppts.league, ${positionStats}
-    FROM player_playing_time_stats ppts
-        NATURAL JOIN player_shooting_stats
-        NATURAL JOIN player_passing_stats
-        NATURAL JOIN player_possession_stats
-        NATURAL JOIN player_goal_shot_creation_stats
-        NATURAL JOIN player_pass_type_stats
-        NATURAL JOIN player_misc_stats
-        NATURAL JOIN player_defensive_actions_stats
-    WHERE player_id = ${playerId};
-    `;
-
-    const getStat_GK = `
-    SELECT ppts.season, ppts.team, ppts.league, ${positionStats}
-    FROM player_gk_playing_time_stats ppts
-        NATURAL JOIN player_gk_basic_stats
-        NATURAL JOIN player_gk_advanced_stats
-    WHERE player_id = ${playerId};
-    `;
-
-    // Assume queried player is an outfielder
-    var query = getStat_Outfield;
-
-    // if player's primary position is midfielder, assign him midfieldersRadarStats... do this for all positions
-    if (position == 'DF') {
-        positionStats = defensiveStats;
-    } else if (position == 'MF') {
+    // if player's position is midfielder, assign him midfieldersRadarStats... do this for all positions
+    if ((position == 'DF' && secondary_position == 'FW') ||
+        (position == 'FW' && secondary_position == 'DF') ||
+        (position == 'DF' && secondary_position == '')) {
+        positionStats = defenderStats;
+    } else if (position == 'MF' && secondary_position == '') {
         positionStats = midfielderStats;
-    } else if (position == 'FW') {
+    } else if (position == 'FW' && secondary_position == '') {
         positionStats = forwardStats;
-    } else {
-        positionStats = goalkeeperStats;
-        query = getStat_GK;
+    } else if ((position == 'DF' && secondary_position == 'MF') ||
+                (position == 'MF' && secondary_position == 'DF')) {
+        positionStats = defensiveMidfielderStats;
+    } else if ((position == 'FW' && secondary_position == 'MF') ||
+                (position == 'MF' && secondary_position == 'FW')) {
+        positionStats = wingerStats;
+    } else { //else is a GK
+        return Promise.all(goalkeeperStats.map((inputStat) => {
+            return makeQueryGetPercentileForSelectedStatAndYear_GK(playerId, inputStat);
+        }))
     }
 
     connection.query(query, function (err, rows, fields) {
