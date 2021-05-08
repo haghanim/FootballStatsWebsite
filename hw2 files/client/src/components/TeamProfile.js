@@ -207,7 +207,7 @@ export default function PlayerProfile() {
   <div className={classes.root}>
     <Grid container spacing={3} align = "center" justify = "center" alignItems = "center">
       <Grid item xs={7}>
-        <Paper className={classes.paper}><h3><strong>Team Profile</strong></h3>
+        <Paper className={classes.paper}><h3><strong>Team Profile: -Name- </strong></h3>
             <div> League:</div>
             <div> Home Win %:</div>
             <div> Away Win %:</div>
