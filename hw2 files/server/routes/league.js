@@ -158,13 +158,14 @@ const getTeamOffensiveStats = (req, res) => {
         ORDER BY t.team, t.season
     )
     	SELECT a.team, a.season,
-        a.xG/(t.tot/10)*90,
-        a.npxG_per_Shot/(t.tot/10)*90,
-        a.sca/(t.tot/10)*90,
-        a.gca/(t.tot/10)*90,
-        a.key_passes/(t.tot/10)*90,
-        a.comp_passes/(t.tot/10)*90,
-        a.comp_crosses/a.comp_passes
+        a.xG/(t.tot/10)*90 AS xG_per_Game,
+        a.npxG_per_Shot/(t.tot/10)*90 AS npxG_per_Shot_per_Game,
+        a.sca/(t.tot/10)*90 AS Shot_Creating_Actions_per_Game,
+        a.gca/(t.tot/10)*90 AS Goal_Creating_Actions_per_Game,
+        a.key_passes/(t.tot/10)*90 AS Assisted_Shots_per_Game,
+        a.comp_passes/(t.tot/10)*90 AS Comp_Passes_into_18yd_Box_per_Game,
+        a.comp_crosses/(t.tot/10)*90 AS Comp_Crosses_into_18yd_Box_per_Game,
+        a.comp_crosses/a.comp_passes AS Comp_Crosses_as_pct_of_Comp_Passes
 
         FROM aggregated_by_team a
         NATURAL JOIN norm_total_minutes_played t
@@ -187,7 +188,6 @@ const getTeamDefensiveStats = (req, res) => {
         SELECT ppts.team, ppts.season, ppts.minutes_played,
             pdas.tackles_won,
             pdas.tackles_in_att_3rd,
-            -- pdas.tackles_in_att_3rd/pdas.tackles_won AS tackles_in_att_3rd_percentage,
             pdas.pressures_attempted,
             pdas.succ_pressure_pct,
             pdas.pressures_in_att_3rd,
