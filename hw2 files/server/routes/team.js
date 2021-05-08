@@ -312,21 +312,28 @@ const get30RecentGames = (req, res) => {
     teamId = req.param.teamId
 
     var query = `
-    WITH teamName AS(
-        SELECT name
-        FROM team
-        WHERE team_id = ${teamId}
-    ),
-    mostRecent30Games AS(
-        SELECT * 
-        FROM Fixtures
-        WHERE ((xG_Away + xG_Home) <> 0) AND (home IN (SELECT * FROM teamName) OR away IN (SELECT * FROM teamName) )
+    WITH teamHomeXG AS(
+        SELECT date, xG_Home AS team_xG, xG_Away AS team_xGA
+        FROM Fixtures f
+        JOIN team t ON t.name = f.home
+        WHERE t.team_id = ${teamId} AND ((xG_Away + xG_Home) <> 0)
         ORDER BY date DESC
-        )
-
-    SELECT date, xG_Home, xG_Away
-    FROM mostRecent30Games
-    LIMIT 30;
+        LIMIT 30
+    ),
+    teamAwayXG AS(
+        SELECT date, xG_Away AS team_xG, xG_Home AS team_xGA
+        FROM Fixtures f
+        JOIN team t ON t.name = f.away
+        WHERE t.team_id = ${teamId} AND ((xG_Away + xG_Home) <> 0)
+        ORDER BY date DESC
+        LIMIT 30
+    )
+        (SELECT *
+        FROM teamHomeXG
+        UNION
+        SELECT *
+        FROM teamAwayXG)
+        ORDER BY date DESC
   `;
     connection.query(query, function(err, rows, fields) {
         console.log('hello')
