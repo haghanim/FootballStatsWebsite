@@ -12,7 +12,7 @@ const connection = mysql.createPool(config);
 
 const getAllLeagues = (req, res) => {
     var query = `
-    SELECT DISTINCT league 
+    SELECT DISTINCT league
     FROM Fixtures;
     `;
     connection.query(query, function (err, rows, fields) {
@@ -114,7 +114,7 @@ const getHistoricalLeagueTable = (req, res) => {
 const getTeamOffensiveStats = (req, res) => {
     var query = `
     WITH relevant_stats AS(
-        SELECT ppts.player_id, ppts.team, ppts.season, ppts.minutes_played,
+        SELECT ppts.team, ppts.season, ppts.minutes_played,
             pss.xG,
             pss.npxG_per_Shot AS npxG_per_Shot,
             pgsct.shot_creating_actions AS sca,
