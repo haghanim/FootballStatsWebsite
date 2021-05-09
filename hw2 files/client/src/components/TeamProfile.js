@@ -29,105 +29,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const xAData = {
-  options: {
-    chart: {
-      id: "basic-bar"
-    },
-    xaxis: {
-      categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
-      title: {
-        text: 'Player'
-      }
-    },
-    yaxis: {
-      title: {
-        text: 'Expected Assists % Contribution'
-      }
-    },
-  },
-  series: [
-    {
-      name: "xA",
-      data: [0.3, .3, .4, .45, .46]
-    }
-  ]
-};
-
-const xAxGData = {
-  options: {
-    chart: {
-      id: "basic-bar"
-    },
-    xaxis: {
-      categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
-      title: {
-        text: 'Player'
-      }
-    },
-    yaxis: {
-      title: {
-        text: 'Expected Goals + Assists % Contribution'
-      }
-    },
-  },
-  series: [
-    {
-      name: "xG + xA",
-      data: [0.3, .35, .4, .49, .55]
-    }
-  ]
-};
-
-const ballProgressionData = {
-  options: {
-    chart: {
-      id: "basic-bar"
-    },
-    xaxis: {
-      categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
-      title: {
-        text: 'Player'
-      }
-    },
-    yaxis: {
-      title: {
-        text: 'Ball Progression'
-      }
-    },
-  },
-  series: [
-    {
-      name: "Ball Progression",
-      data: [30, 40, 45, 50, 91]
-    }
-  ]
-};
-
-const trendlineData = {
-  options: {
-    chart: {
-      id: "basic-bar"
-    },
-    stroke: {
-      width: 1
-    }
-  },
-  series: [
-    {
-      name: "xG",
-      data: [1, 1.5, 1.5, 1.7, 1.3, 2, 1, 1.5, 1.5, 1.7, 1.3, 2, 1, 1.5, 1.5, 1.7, 1.3, 2, 1, 1.5, 1.5, 1.7, 1.3, 2, 1, 1.5, 1.5, 1.7, 1.3, 2]
-    },
-    {
-      name: "xGA",
-      data: [0.5, 1.4, 0.9, 0.2, 0.4, 0, 0.5, 0.2, 0.9, 0.2, 0.4, 0, 0.5, 0.2, 0.9, 0.2, 0.4, 0, 0.5, 0.2, 0.9, 0.2, 0.4, 0, 0.5, 1.4, 0.9, 0.2, 0.4, 0]
-    }
-  ]
-};
-
-
-
-
 export default function TeamProfile() {
   let { teamId } = useParams();
   const classes = useStyles();
@@ -135,6 +36,78 @@ export default function TeamProfile() {
                                             ,w1: "Not Enough Data", w2: "Not Enough Data", w3: "Not Enough Data", w4: "Not Enough Data"});
   const [teamInfo, setTeamInfo] = useState([]);
   const [year, setYear] = useState("2021");
+
+  const [trendlineData, setTl] = useState({
+    options: {
+      chart: {
+        id: "basic-bar"
+      },
+      stroke: {
+        width: 1
+      }
+    },
+    series: [
+      {
+        name: "n/a",
+        data: [0]
+      },
+      {
+        name: "n/A",
+        data: [0]
+      }
+    ]
+  });
+
+  const [ballProgressionData, setBp] = useState({
+    options: {
+      chart: {
+        id: "basic-bar"
+      },
+      xaxis: {
+        categories: ['n/a'],
+        title: {
+          text: 'Player'
+        }
+      },
+      yaxis: {
+        title: {
+          text: 'Ball Progression'
+        }
+      },
+    },
+    series: [
+      {
+        name: "Ball Progression",
+        data: [0]
+      }
+    ]
+  });
+
+  const [xAxGData, setXga] = useState({
+    options: {
+      chart: {
+        id: "basic-bar"
+      },
+      xaxis: {
+        categories: ['n/a'],
+        title: {
+          text: 'Player'
+        }
+      },
+      yaxis: {
+        title: {
+          text: 'Expected Goals + Assists % Contribution'
+        }
+      },
+    },
+    series: [
+      {
+        name: "xG + xA",
+        data: [0]
+      }
+    ]
+  });
+
   const [xgData, setXg] = useState({
     options: {
       chart: {
@@ -158,6 +131,31 @@ export default function TeamProfile() {
     series: [
       {
         name: "xG",
+        data: [0]
+      }
+    ]
+  });
+
+  const [xAData, setXa] = useState({
+    options: {
+      chart: {
+        id: "basic-bar"
+      },
+      xaxis: {
+        categories: ['n/a'],
+        title: {
+          text: 'Player'
+        }
+      },
+      yaxis: {
+        title: {
+          text: 'Expected Assists % Contribution'
+        }
+      },
+    },
+    series: [
+      {
+        name: "xA",
         data: [0]
       }
     ]
@@ -187,17 +185,84 @@ export default function TeamProfile() {
         ,w1: x[(x.length) -1].opponent, w2: x[x.length-2].opponent, w3: x[x.length-3].opponent, w4: x[x.length-4].opponent})
         }
 
+        if(apiTeamInfo.recentGames.length > 5){
+
+          var xG = [];
+          var xA = [];
+
+            for(var i = 0; i< Math.min(apiTeamInfo.recentGames.length,30); i++){
+                xG.push(apiTeamInfo.recentGames[i].team_xG);
+                xA.push(apiTeamInfo.recentGames[i].team_xGA);
+            }
+
+            setTl({
+              options: {
+                chart: {
+                  id: "basic-bar"
+                },
+                stroke: {
+                  width: 1
+                }
+              },
+              series: [
+                {
+                  name: "xG",
+                  data: xG
+                },
+                {
+                  name: "xGA",
+                  data: xA
+                }
+              ]
+            });
+          
+        }
+
+        if(apiTeamInfo.mostProgressivePlayer.length = 5){
+
+          setBp({
+            options: {
+              chart: {
+                id: "basic-bar"
+              },
+              xaxis: {
+                categories: [apiTeamInfo.mostProgressivePlayer[0].name, apiTeamInfo.mostProgressivePlayer[1].name, apiTeamInfo.mostProgressivePlayer[2].name, apiTeamInfo.mostProgressivePlayer[3].name, apiTeamInfo.mostProgressivePlayer[4].name],
+                title: {
+                  text: 'Player'
+                }
+              },
+              yaxis: {
+                title: {
+                  text: 'Ball Progression'
+                }
+              },
+            },
+            series: [
+              {
+                name: "Ball Progression",
+                data: [apiTeamInfo.mostProgressivePlayer[0].ranking, apiTeamInfo.mostProgressivePlayer[1].ranking, apiTeamInfo.mostProgressivePlayer[2].ranking, apiTeamInfo.mostProgressivePlayer[3].ranking, apiTeamInfo.mostProgressivePlayer[4].ranking]
+              }
+            ]
+          });
+
+        }
         
         if (apiTeamInfo.mostXgXaContributor.length >9){
 
         const names = [apiTeamInfo.mostXgXaContributor[0].name, apiTeamInfo.mostXgXaContributor[1].name, apiTeamInfo.mostXgXaContributor[2].name, apiTeamInfo.mostXgXaContributor[3].name, apiTeamInfo.mostXgXaContributor[4].name
                       , apiTeamInfo.mostXgXaContributor[5].name, apiTeamInfo.mostXgXaContributor[6].name, apiTeamInfo.mostXgXaContributor[7].name, apiTeamInfo.mostXgXaContributor[8].name, apiTeamInfo.mostXgXaContributor[9].name];
+        
         const xgvals = [apiTeamInfo.mostXgXaContributor[0].percentXgContribution, apiTeamInfo.mostXgXaContributor[1].percentXgContribution, apiTeamInfo.mostXgXaContributor[2].percentXgContribution, apiTeamInfo.mostXgXaContributor[3].percentXgContribution, apiTeamInfo.mostXgXaContributor[4].percentXgContribution
                       , apiTeamInfo.mostXgXaContributor[5].percentXgContribution, apiTeamInfo.mostXgXaContributor[6].percentXgContribution, apiTeamInfo.mostXgXaContributor[7].percentXgContribution, apiTeamInfo.mostXgXaContributor[8].percentXgContribution, apiTeamInfo.mostXgXaContributor[9].percentXgContribution];
 
         const xavals = [apiTeamInfo.mostXgXaContributor[0].percentXaContribution, apiTeamInfo.mostXgXaContributor[1].percentXaContribution, apiTeamInfo.mostXgXaContributor[2].percentXaContribution, apiTeamInfo.mostXgXaContributor[3].percentXaContribution, apiTeamInfo.mostXgXaContributor[4].percentXaContribution
                       , apiTeamInfo.mostXgXaContributor[5].percentXaContribution, apiTeamInfo.mostXgXaContributor[6].percentXaContribution, apiTeamInfo.mostXgXaContributor[7].percentXaContribution, apiTeamInfo.mostXgXaContributor[8].percentXaContribution, apiTeamInfo.mostXgXaContributor[9].percentXaContribution];
-                       console.log(xgvals);
+                       
+
+        const xgavals = [apiTeamInfo.mostXgXaContributor[0].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[1].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[2].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[3].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[4].percentXgXAContribution
+        , apiTeamInfo.mostXgXaContributor[5].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[6].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[7].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[8].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[9].percentXgXAContribution];
+         
+
                       setXg({
                         options: {
                           chart: {
@@ -224,7 +289,64 @@ export default function TeamProfile() {
                             data: xgvals}
                         ]
                       });
-                    } 
+
+                      setXa({
+                        options: {
+                          chart: {
+                            id: "basic-bar"
+                          },
+                          xaxis: {
+                            categories: names,
+                            title: {
+                              text: 'Player'
+                            }
+                          },
+                          yaxis: {
+                            title: {
+                              text: 'Expected Assists % Contribution'
+                            }
+                          },
+                        },
+                        chart: {
+                          background: '#111'
+                        },
+                        series: [
+                          {
+                            name: "xG",
+                            data: xavals}
+                        ]
+                      });
+
+                      setXga({
+                        options: {
+                          chart: {
+                            id: "basic-bar"
+                          },
+                          xaxis: {
+                            categories: names,
+                            title: {
+                              text: 'Player'
+                            }
+                          },
+                          yaxis: {
+                            title: {
+                              text: 'Expected Assists/Goals & Contrib.'
+                            }
+                          },
+                        },
+                        chart: {
+                          background: '#111'
+                        },
+                        series: [
+                          {
+                            name: "xG",
+                            data: xgavals}
+                        ]
+                      });
+
+                    }
+                    
+                    
 
         
       });
@@ -349,7 +471,7 @@ export default function TeamProfile() {
             </Table>
           </Grid>
           <Grid item xs={5} className={classes.color} borderRadius={16} borderColor="primary.main">
-            <Paper className={classes.paper}> <b>xG and xA Trendline (30 most recent games)</b></Paper>
+            <Paper className={classes.paper}> <b>xG and xA Trendline (Most recent games)</b></Paper>
             <Chart
               options={trendlineData.options}
               series={trendlineData.series}

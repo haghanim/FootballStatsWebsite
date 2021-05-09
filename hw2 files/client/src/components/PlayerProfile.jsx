@@ -11,7 +11,7 @@ import ReactApexChart from "react-apexcharts";
         
 const dict = {
     'tackles': 'Tackles', 
-    'succ_pressures' : 'Pressures',
+    'succ_pressures' : 'Successful Pressures',
     'interceptions' : 'Interceptions',
     'aerials_won' : 'Aerials',
     'prog_passes' : 'Progressive Passes',
@@ -101,7 +101,7 @@ function PlayerProfile() {
                             type: 'radar',
                         },
                         title: {
-                            text: 'Player Stats'
+                            text: 'Player Stat Percentiles'
                         },
                         xaxis: {
                             categories: [dict[Object.keys(apiPlayerInfo.radarStats[0])[0]], dict[Object.keys(apiPlayerInfo.radarStats[1])[0]], dict[Object.keys(apiPlayerInfo.radarStats[2])[0]], 

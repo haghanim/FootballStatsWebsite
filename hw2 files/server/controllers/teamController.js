@@ -85,16 +85,37 @@ async function getMostXgXaContributor(teamId) {
         SELECT pxg.player_id, pxg.season, pxg.team, pxg.xG, pxa.xA
         FROM playerXG pxg
         NATURAL JOIN playerXA pxa
-    )
-    SELECT po.name, pxgxa.team, pxgxa.season,
-    pxgxa.xG / ttxg.team_xg AS percentXgContribution,
-    pxgxa.xA / ttxg.team_xg AS percentXaContribution,
-    (pxgxa.xG + pxgxa.xA) / ttxg.team_xg AS percentXgXAContribution
+    ),
+    temp as (SELECT po.name, pxgxa.team, pxgxa.season,
+    ROUND(pxgxa.xG / ttxg.team_xg*100, 2) AS percentXgContribution,
+    ROUND(pxgxa.xA / ttxg.team_xg*100, 2) AS percentXaContribution,
+    ROUND((pxgxa.xG + pxgxa.xA)/ ttxg.team_xg*100, 2) AS percentXgXAContribution
     FROM playerXGXA pxgxa
     JOIN teamTotalXG ttxg ON pxgxa.season = ttxg.season
     NATURAL JOIN Player_Outfield po
-    ORDER BY percentXgXAContribution DESC
-    LIMIT 10
+    ORDER BY percentXgXAContribution DESC),
+    
+    temp1 as (Select name, max(percentXgContribution) as percentXgContribution
+    from temp
+    Group by name),
+    
+    temp2 as (Select name, max(percentXaContribution) as percentXaContribution
+    from temp
+    Group by name),
+    
+    temp3 as (Select name, max(percentXgXAContribution) as percentXgXAContribution
+    from temp
+    Group by name),
+    
+    temp4 as (Select temp1.name, temp1.percentXgContribution, temp2.percentXaContribution
+    from temp1
+    Join temp2 on temp1.name = temp2.name)
+    
+    Select temp4.name, temp4.percentXgContribution, temp4.percentXaContribution, temp3.percentXgXAContribution
+    from temp4
+    Join temp3 on temp4.name = temp3.name
+    Order by temp3.percentXgXAContribution desc
+    Limit 10
   `;
     return new Promise((resolve, reject) => {
         connection.query(query, function (err, rows, fields) {
@@ -146,7 +167,7 @@ async function getMostProgressivePlayer(teamId, season) {
              r.ROWNUMBER4/n.total AS prog_dist_carried_percentile
     	   FROM ranked r, number_of_players n
     )
-    SELECT name, (prog_passes_percentile+comp_passes_f3_percentile+f3_carries_percentile+prog_dist_carried_percentile)/4 AS ranking
+    SELECT name, Round((prog_passes_percentile+comp_passes_f3_percentile+f3_carries_percentile+prog_dist_carried_percentile)/4, 4)*100 AS ranking
     FROM percentiles
     NATURAL JOIN Player_Outfield
     ORDER BY ranking DESC
