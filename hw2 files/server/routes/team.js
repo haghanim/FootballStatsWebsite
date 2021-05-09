@@ -184,7 +184,7 @@ const getMostDominantAgainst = (req, res) => {
     		JOIN team t2 ON away = t2.name
     		WHERE t2.team_id = ${input_teamID})
     ), temp AS(
-    		SELECT goals_diff.against_id, AVG(goals_diff.goals_diff)
+    		SELECT goals_diff.against_id, AVG(goals_diff.goals_diff) AS avg_goal_diff
     		FROM goals_diff
     		GROUP BY goals_diff.against_id
     		ORDER BY AVG(goals_diff.goals_diff) DESC
@@ -298,7 +298,7 @@ const getWinPcts = (req, res) => {
 };
 
 
-// query g: xG and xG recent trendline and performance of last 10-30 matches. (Definitely) 
+// query g: xG and xG recent trendline and performance of last 10-30 matches. (Definitely)
 const get30RecentGames = (req, res) => {
     teamId = req.param.teamId
 
