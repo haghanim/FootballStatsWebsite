@@ -16,3 +16,18 @@ export function getAllLeagues() {
             alert(err);
         })
 }
+export function getLeagueProfile(leagueName) {
+    return fetchWithErrors(
+        `http://localhost:8081/leagues/${leagueName}`,
+        {
+            method: "GET",
+            headers: { 'Content-Type': 'application/json' },
+        }
+    )
+        .then((res) => {
+            return res;
+        })
+        .catch((err) => {
+            alert(err);
+        })
+}

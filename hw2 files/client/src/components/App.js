@@ -49,7 +49,7 @@ export default class App extends React.Component {
 						/>
 
 						<Route
-							path="/teams/profile/:playerId"
+							path="/teams/profile/:teamId"
 							render={() => <TeamProfile />}
 						/>
 

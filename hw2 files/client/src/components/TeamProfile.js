@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
 import '../style/Player.css';
 import Table from 'react-bootstrap/Table';
+import api from '../api';
 
 
 
@@ -24,16 +25,16 @@ const useStyles = makeStyles((theme) => ({
     container: true
   },
   color: {
-      backgroundColor: '#f3f3f3f5'
-      }
+    backgroundColor: '#f3f3f3f5'
+  }
 }));
 
 
 const xgData = {
-	options: {
-	  chart: {
-		id: "basic-bar"
-	  },
+  options: {
+    chart: {
+      id: "basic-bar"
+    },
     xaxis: {
       categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
       title: {
@@ -45,240 +46,260 @@ const xgData = {
         text: 'Expected Goals % Contribution'
       }
     },
-	},
+  },
   chart: {
     background: '#111'
-},
-	series: [
-	  {
-		name: "xG",
-		data: [0.3, .3, .4, .45, .46]
-	  }
-	]
-  };
+  },
+  series: [
+    {
+      name: "xG",
+      data: [0.3, .3, .4, .45, .46]
+    }
+  ]
+};
 
-  const xAData = {
-    options: {
-      chart: {
+const xAData = {
+  options: {
+    chart: {
       id: "basic-bar"
-      },
-      xaxis: {
-        categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
-        title: {
-          text: 'Player'
-        }
-      },
-      yaxis: {
-        title: {
-          text: 'Expected Assists % Contribution'
-        }
-      },
     },
-    series: [
-      {
+    xaxis: {
+      categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
+      title: {
+        text: 'Player'
+      }
+    },
+    yaxis: {
+      title: {
+        text: 'Expected Assists % Contribution'
+      }
+    },
+  },
+  series: [
+    {
       name: "xA",
       data: [0.3, .3, .4, .45, .46]
-      }
-    ]
-  };
-    
-  const xAxGData = {
-    options: {
-      chart: {
+    }
+  ]
+};
+
+const xAxGData = {
+  options: {
+    chart: {
       id: "basic-bar"
-      },
-      xaxis: {
-        categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
-        title: {
-          text: 'Player'
-        }
-      },
-      yaxis: {
-        title: {
-          text: 'Expected Goals + Assists % Contribution'
-        }
-      },
     },
-    series: [
-      {
+    xaxis: {
+      categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
+      title: {
+        text: 'Player'
+      }
+    },
+    yaxis: {
+      title: {
+        text: 'Expected Goals + Assists % Contribution'
+      }
+    },
+  },
+  series: [
+    {
       name: "xG + xA",
       data: [0.3, .35, .4, .49, .55]
-      }
-    ]
-    };
+    }
+  ]
+};
 
-    const ballProgressionData = {
-      options: {
-        chart: {
-        id: "basic-bar"
-        },
-        xaxis: {
-          categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
-          title: {
-            text: 'Player'
-          }
-        },
-        yaxis: {
-          title: {
-            text: 'Ball Progression'
-          }
-        },
-      },
-      series: [
-        {
-        name: "Ball Progression",
-        data: [30, 40, 45, 50, 91]
-        }
-      ]
-    };
-      
-    const trendlineData = {
-    options: {
-      chart: {
+const ballProgressionData = {
+  options: {
+    chart: {
       id: "basic-bar"
-        },
-        stroke: {
-          width: 1
+    },
+    xaxis: {
+      categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
+      title: {
+        text: 'Player'
       }
     },
-    series: [
-      {
-      name: "xG",
-      data: [1, 1.5, 1.5, 1.7, 1.3, 2, 1, 1.5, 1.5, 1.7, 1.3, 2,1, 1.5, 1.5, 1.7, 1.3, 2,1, 1.5, 1.5, 1.7, 1.3, 2,1, 1.5, 1.5, 1.7, 1.3, 2]
-      },
-      {
-        name: "xGA",
-        data: [0.5, 1.4, 0.9, 0.2, 0.4, 0, 0.5, 0.2, 0.9, 0.2, 0.4, 0, 0.5, 0.2, 0.9, 0.2, 0.4, 0,0.5, 0.2, 0.9, 0.2, 0.4, 0,0.5, 1.4, 0.9, 0.2, 0.4, 0]
+    yaxis: {
+      title: {
+        text: 'Ball Progression'
       }
-    ]
-  };
+    },
+  },
+  series: [
+    {
+      name: "Ball Progression",
+      data: [30, 40, 45, 50, 91]
+    }
+  ]
+};
+
+const trendlineData = {
+  options: {
+    chart: {
+      id: "basic-bar"
+    },
+    stroke: {
+      width: 1
+    }
+  },
+  series: [
+    {
+      name: "xG",
+      data: [1, 1.5, 1.5, 1.7, 1.3, 2, 1, 1.5, 1.5, 1.7, 1.3, 2, 1, 1.5, 1.5, 1.7, 1.3, 2, 1, 1.5, 1.5, 1.7, 1.3, 2, 1, 1.5, 1.5, 1.7, 1.3, 2]
+    },
+    {
+      name: "xGA",
+      data: [0.5, 1.4, 0.9, 0.2, 0.4, 0, 0.5, 0.2, 0.9, 0.2, 0.4, 0, 0.5, 0.2, 0.9, 0.2, 0.4, 0, 0.5, 0.2, 0.9, 0.2, 0.4, 0, 0.5, 1.4, 0.9, 0.2, 0.4, 0]
+    }
+  ]
+};
 
 
 
 
-export default function PlayerProfile() {
-    let { playerId } = useParams();
-    const classes = useStyles();
+export default function TeamProfile() {
+  let { teamId } = useParams();
+  const classes = useStyles();
+
+  const [teamInfo, setTeamInfo] = useState([]);
+  const [year, setYear] = useState(2021);
+
+  const onYearChanged = (newYear) => {
+    setYear(newYear);
+    api.teams.getTeamProfile(teamId, year)
+      .then((apiTeamInfo) => {
+        console.log(apiTeamInfo);
+        setTeamInfo(apiTeamInfo)
+      });
+  }
+
+  useEffect(() => {
+    api.teams.getTeamProfile(teamId, year)
+      .then((apiTeamInfo) => {
+        setTeamInfo(apiTeamInfo)
+
+      });
+  }, [])
 
   return (
     <div className="Dashboard">
 
-    <PageNavbar active="dashboard" />
-    <span>  .</span>
-  <div className={classes.root}>
-    <Grid container spacing={4} align = "center" justify = "center" alignItems = "center">
-      <Grid item xs={8} >
-      <Paper className={classes.paper}><h3><strong>Chelsea Team Profile </strong></h3>
-      <p class="font-weight-light">Stats for <select name="selectList" id="selectList">
-                  <option value="option 1">2021</option>
-                  <option value="option 2">2020</option>
+      <PageNavbar active="dashboard" />
+      <span>  .</span>
+      <div className={classes.root}>
+        <Grid container spacing={4} align="center" justify="center" alignItems="center">
+          <Grid item xs={8} >
+            <Paper className={classes.paper}><h3><strong>{teamInfo && teamInfo.teamInfo && teamInfo.teamInfo.leaguesList[0].name} Team Profile </strong></h3>
+              <p class="font-weight-light">Stats for <select name="selectList" id="selectList" onChange={(e) => onYearChanged(e.target.value)}>
+                <option value="option 1">2021</option>
+                <option value="option 2">2020</option>
                 <option value="option 2">2019</option>
                 <option value="option 2">2018</option>
                 <option value="option 2">2017</option>
-                </select> season</p></Paper>
-      
-      <Table striped bordered variant="light">
-  
-  <tbody>
-    <tr>
-      <td><strong>League:</strong></td>
-      <td>Premier League</td>
-      <td><strong>Home Win %:</strong></td>
-      <td>77%</td>
-    </tr>
-    <tr>
-      <td><strong>Away Win %:</strong></td>
-      <td>44%</td>
-      <td><strong>Total Win %:</strong></td>
-      <td>59%</td>
-    </tr>
-    <tr>
-      <td><strong>Total Draw %:</strong></td>
-      <td>22%</td>
-      <td><strong>Average Age:</strong></td>
-      <td>29</td>
-    </tr>
-  </tbody>
-</Table>   
-      </Grid>
-      <Grid item xs={5} className={classes.color} borderRadius={16} borderColor="primary.main">
-                  <Paper className={classes.paper}> <b>Historical xG% Contribution</b></Paper>
-            
-                  <Chart
+              </select> season</p></Paper>
+
+            <Table striped bordered variant="light">
+
+              <tbody>
+                <tr>
+                  <td><strong>League:</strong></td>
+                  <td>Premier League</td>
+                  <td><strong>Home Win %:</strong></td>
+                  <td>77%</td>
+                </tr>
+                <tr>
+                  <td><strong>Away Win %:</strong></td>
+                  <td>44%</td>
+                  <td><strong>Total Win %:</strong></td>
+                  <td>59%</td>
+                </tr>
+                <tr>
+                  <td><strong>Total Draw %:</strong></td>
+                  <td>22%</td>
+                  <td><strong>Average Age:</strong></td>
+                  <td>29</td>
+                </tr>
+              </tbody>
+            </Table>
+          </Grid>
+          <Grid item xs={5} className={classes.color} borderRadius={16} borderColor="primary.main">
+            <Paper className={classes.paper}> <b>Historical xG% Contribution</b></Paper>
+
+            <Chart
               options={xgData.options}
               series={xgData.series}
               type="bar"
               width="500"
-              chart = {xgData.chart}
-              
+              chart={xgData.chart}
+
             />
-            
+
           </Grid>
-      <Grid item xs={5}  className={classes.color} borderRadius={16} borderColor="primary.main">
+          <Grid item xs={5} className={classes.color} borderRadius={16} borderColor="primary.main">
             <Paper className={classes.paper}> <b>Historical xA% Contribution</b></Paper>
-            
+
             <Chart
               options={xAData.options}
               series={xAData.series}
               type="bar"
               width="500"
-              class = "apexcharts-canvas"
+              class="apexcharts-canvas"
             />
-            
 
-    </Grid>
-      <Grid item xs={5}  className={classes.color} borderRadius={16} borderColor="primary.main">
-        <Paper className={classes.paper}> <b>Historical xG + xA% Contribution</b></Paper>
-        <Chart
+
+          </Grid>
+          <Grid item xs={5} className={classes.color} borderRadius={16} borderColor="primary.main">
+            <Paper className={classes.paper}> <b>Historical xG + xA% Contribution</b></Paper>
+            <Chart
               options={xAxGData.options}
               series={xAxGData.series}
               type="bar"
               width="500"
             />
-            
+
           </Grid>
-      <Grid item xs={5}  className={classes.color} borderRadius={3} borderColor="primary.main">
-        <Paper className={classes.paper}> <b>Most Progressive Players</b></Paper>
-        <Chart
+          <Grid item xs={5} className={classes.color} borderRadius={3} borderColor="primary.main">
+            <Paper className={classes.paper}> <b>Most Progressive Players</b></Paper>
+            <Chart
               options={ballProgressionData.options}
               series={ballProgressionData.series}
               type="bar"
               width="500"
             />
           </Grid>
-      <Grid item xs={5}  className={classes.color} borderRadius={16} borderColor="primary.main">
-        <Paper className={classes.paper}> <b> Most and Least Dominant Against</b></Paper>
-        <Table striped bordered variant="light">
-  
-  <tbody>
-  <tr className= "tab">
-      <td><strong>Best Team:</strong></td>
-      <td>Team 1</td>
-      <td><strong>Worst Team:</strong></td>
-      <td>Team 1</td>
-    </tr>
-    <tr className= "tab">
-      <td><strong>Second Best Team:</strong></td>
-      <td>Team 1</td>
-      <td><strong>Second Worst Team:</strong></td>
-      <td>Team 1</td>
-    </tr>
-    <tr className= "tab">
-      <td><strong>Third Best Team:</strong></td>
-      <td>Team 1</td>
-      <td><strong>Third Worst Team:</strong></td>
-      <td>Team 1</td>
-    </tr>
-    <tr className= "tab">
-      <td><strong>Fourth Best Team:</strong></td>
-      <td>Team 1</td>
-      <td><strong>Fourth Worst Team:</strong></td>
-      <td>Team 1</td>
-    </tr>
-  </tbody>
-</Table> 
-                  </Grid>
-      <Grid item xs={5}  className={classes.color} borderRadius={16} borderColor="primary.main">
+          <Grid item xs={5} className={classes.color} borderRadius={16} borderColor="primary.main">
+            <Paper className={classes.paper}> <b> Most and Least Dominant Against</b></Paper>
+            <Table striped bordered variant="light">
+
+              <tbody>
+                <tr className="tab">
+                  <td><strong>Best Team:</strong></td>
+                  <td>Team 1</td>
+                  <td><strong>Worst Team:</strong></td>
+                  <td>Team 1</td>
+                </tr>
+                <tr className="tab">
+                  <td><strong>Second Best Team:</strong></td>
+                  <td>Team 1</td>
+                  <td><strong>Second Worst Team:</strong></td>
+                  <td>Team 1</td>
+                </tr>
+                <tr className="tab">
+                  <td><strong>Third Best Team:</strong></td>
+                  <td>Team 1</td>
+                  <td><strong>Third Worst Team:</strong></td>
+                  <td>Team 1</td>
+                </tr>
+                <tr className="tab">
+                  <td><strong>Fourth Best Team:</strong></td>
+                  <td>Team 1</td>
+                  <td><strong>Fourth Worst Team:</strong></td>
+                  <td>Team 1</td>
+                </tr>
+              </tbody>
+            </Table>
+          </Grid>
+          <Grid item xs={5} className={classes.color} borderRadius={16} borderColor="primary.main">
             <Paper className={classes.paper}> <b>xG and xA Trendline (30 most recent games)</b></Paper>
             <Chart
               options={trendlineData.options}
@@ -286,8 +307,8 @@ export default function PlayerProfile() {
               type="line"
               width="500"
             />
-      </Grid>
-    </Grid>
-  </div></div>
-);
+          </Grid>
+        </Grid>
+      </div></div>
+  );
 }

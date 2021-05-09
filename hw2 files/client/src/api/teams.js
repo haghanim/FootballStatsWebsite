@@ -1,7 +1,6 @@
 import { fetchWithErrors } from './';
 
 export function getAllTeams() {
-    console.log('yo');
     return fetchWithErrors(
         'http://localhost:8081/teams',
         {
@@ -19,12 +18,16 @@ export function getAllTeams() {
         })
 }
 
-export function getTeamProfile(teamId) {
+export function getTeamProfile(teamId, season) {
     return fetchWithErrors(
-        `http://localhost:8081/team/getprofile/${teamId}`,
+        `http://localhost:8081/teams/profile/`,
         {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' }
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                teamId,
+                season,
+            })
         }
     )
         .then((res) => {

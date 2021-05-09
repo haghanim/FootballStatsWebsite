@@ -22,7 +22,7 @@ async function getAllTeams() {
 async function getTeamLeagues(teamId) {
     console.log('getTeamLeagues');
     var query = `
-    SELECT DISTINCT(league)
+    SELECT DISTINCT t.name, league
     FROM player_passing_stats pps
     JOIN (SELECT * FROM team t WHERE t.team_id = ${teamId}) AS t ON t.name = pps.team
   `;
