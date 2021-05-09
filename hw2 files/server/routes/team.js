@@ -1,4 +1,5 @@
 // Fix this Path so that it's local to your computer
+const TeamController = require("../controllers/teamController");
 const config = require('../db-config');
 const mysql = require('mysql');
 
@@ -11,18 +12,13 @@ const connection = mysql.createPool(config);
 /* -------------------------------------------------- */
 
 const getAllTeams = (req, res) => {
-    var query = `
-    SELECT *
-    FROM team;`;
-    connection.query(query, function (err, rows, fields) {
-        if (err) {
-            console.log(err);
-            res.status(400).json({ 'message': 'generic error message' });
-        }
-        else {
-            res.status(200).send(rows);
-        }
-    });
+    TeamController.getAllTeams()
+    .then((teamList) => {
+        res.status(200).json(teamList);
+    })
+    .catch((err) => {
+        res.status(400).json({message: err});
+    })
 };
 
 const getTeamLeagues = (req, res) => {
@@ -48,9 +44,7 @@ const getTeamLeagues = (req, res) => {
 // This is for all comps.
 
 const getMostXgXaContributer = (req, res) => {
-    team_name = req.team_name
-
-    team_name = 'Arsenal'
+    input_teamID = req.input_team
 
     var query = `
     WITH teamHomeXG AS(
@@ -190,7 +184,7 @@ const getMostDominantAgainst = (req, res) => {
     		JOIN team t2 ON away = t2.name
     		WHERE t2.team_id = ${input_teamID})
     ), temp AS(
-    		SELECT goals_diff.against_id, AVG(goals_diff.goals_diff)
+    		SELECT goals_diff.against_id, AVG(goals_diff.goals_diff) AS avg_goal_diff
     		FROM goals_diff
     		GROUP BY goals_diff.against_id
     		ORDER BY AVG(goals_diff.goals_diff) DESC
@@ -304,7 +298,7 @@ const getWinPcts = (req, res) => {
 };
 
 
-// query g: xG and xG recent trendline and performance of last 10-30 matches. (Definitely) 
+// query g: xG and xG recent trendline and performance of last 10-30 matches. (Definitely)
 const get30RecentGames = (req, res) => {
     teamId = req.param.teamId
 

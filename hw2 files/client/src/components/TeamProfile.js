@@ -35,8 +35,16 @@ const xgData = {
 		id: "basic-bar"
 	  },
     xaxis: {
-		categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020']
-	  }
+      categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
+      title: {
+        text: 'Player'
+      }
+    },
+    yaxis: {
+      title: {
+        text: 'Expected Goals % Contribution'
+      }
+    },
 	},
   chart: {
     background: '#111'
@@ -44,7 +52,7 @@ const xgData = {
 	series: [
 	  {
 		name: "xG",
-		data: [30, 40, 45, 50, 91]
+		data: [0.3, .3, .4, .45, .46]
 	  }
 	]
   };
@@ -55,13 +63,21 @@ const xgData = {
       id: "basic-bar"
       },
       xaxis: {
-      categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020']
-      }
+        categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
+        title: {
+          text: 'Player'
+        }
+      },
+      yaxis: {
+        title: {
+          text: 'Expected Assists % Contribution'
+        }
+      },
     },
     series: [
       {
       name: "xA",
-      data: [30, 40, 45, 50, 91]
+      data: [0.3, .3, .4, .45, .46]
       }
     ]
   };
@@ -72,13 +88,21 @@ const xgData = {
       id: "basic-bar"
       },
       xaxis: {
-      categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020']
-      }
+        categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
+        title: {
+          text: 'Player'
+        }
+      },
+      yaxis: {
+        title: {
+          text: 'Expected Goals + Assists % Contribution'
+        }
+      },
     },
     series: [
       {
       name: "xG + xA",
-      data: [30, 40, 45, 50, 91]
+      data: [0.3, .35, .4, .49, .55]
       }
     ]
     };
@@ -89,8 +113,16 @@ const xgData = {
         id: "basic-bar"
         },
         xaxis: {
-        categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020']
-        }
+          categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
+          title: {
+            text: 'Player'
+          }
+        },
+        yaxis: {
+          title: {
+            text: 'Ball Progression'
+          }
+        },
       },
       series: [
         {
@@ -107,8 +139,6 @@ const xgData = {
         },
         stroke: {
           width: 1
-      },
-      xaxis: {
       }
     },
     series: [
