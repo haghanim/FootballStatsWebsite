@@ -7,7 +7,6 @@ import Grid from '@material-ui/core/Grid';
 import PageNavbar from './PageNavbar';
 import Table from 'react-bootstrap/Table';
 import ReactApexChart from "react-apexcharts";
-import { borders } from '@material-ui/system';
 
 const useStyles = makeStyles((theme) => ({
     root: {
