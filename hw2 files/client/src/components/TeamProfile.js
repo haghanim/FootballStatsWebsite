@@ -1,62 +1,33 @@
 import React, { useEffect, useState } from 'react';
-
 import { useParams } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-
 import Chart from "react-apexcharts";
-
 import '../style/Player.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
-import KeywordButton from './KeywordButton';
-import DashboardMovieRow from './DashboardMovieRow';
-import MaterialTable from "material-table";
-import { forwardRef } from 'react';
-import AddBox from '@material-ui/icons/AddBox';
-import ArrowDownward from '@material-ui/icons/ArrowDownward';
-import Check from '@material-ui/icons/Check';
-import ChevronLeft from '@material-ui/icons/ChevronLeft';
-import ChevronRight from '@material-ui/icons/ChevronRight';
-import Clear from '@material-ui/icons/Clear';
-import DeleteOutline from '@material-ui/icons/DeleteOutline';
-import Edit from '@material-ui/icons/Edit';
-import FilterList from '@material-ui/icons/FilterList';
-import FirstPage from '@material-ui/icons/FirstPage';
-import LastPage from '@material-ui/icons/LastPage';
-import Remove from '@material-ui/icons/Remove';
-import SaveAlt from '@material-ui/icons/SaveAlt';
-import Search from '@material-ui/icons/Search';
-import ViewColumn from '@material-ui/icons/ViewColumn';
-import api from '../api';
-
-import DropdownButton from 'react-bootstrap/DropdownButton'
-
-const tableIcons = {
-    Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
-    Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
-    Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-    Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
-    DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
-    Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
-    Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
-    Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
-    FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
-    LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
-    NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
-    PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
-    ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-    Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
-    SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
-    ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
-    ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
-};
+import '../style/Player.css';
+import Table from 'react-bootstrap/Table';
 
 
-/*
-* Data that we pass into our charts. 
-*/ 
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(3),
+    textAlign: 'center',
+    color: theme.palette.text.Secondary,
+    justify: 'center',
+    container: true
+  },
+  color: {
+      backgroundColor: '#f3f3f3f5'
+      }
+}));
+
 
 const xgData = {
 	options: {
@@ -75,6 +46,9 @@ const xgData = {
       }
     },
 	},
+  chart: {
+    background: '#111'
+},
 	series: [
 	  {
 		name: "xG",
@@ -179,51 +153,8 @@ const xgData = {
     ]
   };
 
-function Teams() {
-    const [teamsList, setTeamsList] = useState([]);
-
-  
-    useEffect(() => {
-        api.teams.getAllTeams()
-            .then((apiTeamsList) => {
-                setTeamsList(apiTeamsList)
-            });
-    }, [])
-    return (
-        <div className="Dashboard">
-
-            <PageNavbar active="dashboard" />
 
 
-
-            <br />
-            <div className="container movies-container">
-                <div className="jumbotron">
-                    <div className="h3 text-center mb-5">Team Profile</div>
-                    <div style={{ maxWidth: "100%" }}>
-                    </div>
-
-                </div>
-
-                <br />
-
-            </div>
-        </div>
-    )
-}
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.Primary,
-      justify: 'center',
-      container: true
-    },
-  }));
 
 export default function PlayerProfile() {
     let { playerId } = useParams();
@@ -235,25 +166,42 @@ export default function PlayerProfile() {
     <PageNavbar active="dashboard" />
     <span>  .</span>
   <div className={classes.root}>
-    <Grid container spacing={3} align = "center" justify = "center" alignItems = "center">
-      <Grid item xs={7}>
-        <Paper className={classes.paper}><h3><strong>Team Profile: -Name- </strong></h3>
-            <div> League:</div>
-            <div> Home Win %:</div>
-            <div> Away Win %:</div>
-            <div> Total Win %:</div>
-            <div> Total Draw %:</div>
-            
-            {/* dropdown to choose season */}
-                          <div> Average Age in *
-                <select name="selectList" id="selectList">
-                  <option value="option 1">2020</option>
-                  <option value="option 2">2021</option>
-                </select>              * Season: 26</div>
-                          
-        </Paper>
+    <Grid container spacing={4} align = "center" justify = "center" alignItems = "center">
+      <Grid item xs={8} >
+      <Paper className={classes.paper}><h3><strong>Chelsea Team Profile </strong></h3>
+      <p class="font-weight-light">Stats for <select name="selectList" id="selectList">
+                  <option value="option 1">2021</option>
+                  <option value="option 2">2020</option>
+                <option value="option 2">2019</option>
+                <option value="option 2">2018</option>
+                <option value="option 2">2017</option>
+                </select> season</p></Paper>
+      
+      <Table striped bordered variant="light">
+  
+  <tbody>
+    <tr>
+      <td><strong>League:</strong></td>
+      <td>Premier League</td>
+      <td><strong>Home Win %:</strong></td>
+      <td>77%</td>
+    </tr>
+    <tr>
+      <td><strong>Away Win %:</strong></td>
+      <td>44%</td>
+      <td><strong>Total Win %:</strong></td>
+      <td>59%</td>
+    </tr>
+    <tr>
+      <td><strong>Total Draw %:</strong></td>
+      <td>22%</td>
+      <td><strong>Average Age:</strong></td>
+      <td>29</td>
+    </tr>
+  </tbody>
+</Table>   
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={5} className={classes.color} borderRadius={16} borderColor="primary.main">
                   <Paper className={classes.paper}> <b>Historical xG% Contribution</b></Paper>
             
                   <Chart
@@ -261,10 +209,12 @@ export default function PlayerProfile() {
               series={xgData.series}
               type="bar"
               width="500"
+              chart = {xgData.chart}
+              
             />
             
           </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={5}  className={classes.color} borderRadius={16} borderColor="primary.main">
             <Paper className={classes.paper}> <b>Historical xA% Contribution</b></Paper>
             
             <Chart
@@ -272,11 +222,12 @@ export default function PlayerProfile() {
               series={xAData.series}
               type="bar"
               width="500"
+              class = "apexcharts-canvas"
             />
             
 
     </Grid>
-    <Grid item xs={6}>
+      <Grid item xs={5}  className={classes.color} borderRadius={16} borderColor="primary.main">
         <Paper className={classes.paper}> <b>Historical xG + xA% Contribution</b></Paper>
         <Chart
               options={xAxGData.options}
@@ -286,8 +237,8 @@ export default function PlayerProfile() {
             />
             
           </Grid>
-    <Grid item xs={6}>
-        <Paper className={classes.paper}> <b>Ball Progression</b></Paper>
+      <Grid item xs={5}  className={classes.color} borderRadius={3} borderColor="primary.main">
+        <Paper className={classes.paper}> <b>Most Progressive Players</b></Paper>
         <Chart
               options={ballProgressionData.options}
               series={ballProgressionData.series}
@@ -295,10 +246,39 @@ export default function PlayerProfile() {
               width="500"
             />
           </Grid>
-    <Grid item xs={6}>
-        <Paper className={classes.paper}> <b> Best and Worst Opponents</b></Paper>
+      <Grid item xs={5}  className={classes.color} borderRadius={16} borderColor="primary.main">
+        <Paper className={classes.paper}> <b> Most and Least Dominant Against</b></Paper>
+        <Table striped bordered variant="light">
+  
+  <tbody>
+  <tr className= "tab">
+      <td><strong>Best Team:</strong></td>
+      <td>Team 1</td>
+      <td><strong>Worst Team:</strong></td>
+      <td>Team 1</td>
+    </tr>
+    <tr className= "tab">
+      <td><strong>Second Best Team:</strong></td>
+      <td>Team 1</td>
+      <td><strong>Second Worst Team:</strong></td>
+      <td>Team 1</td>
+    </tr>
+    <tr className= "tab">
+      <td><strong>Third Best Team:</strong></td>
+      <td>Team 1</td>
+      <td><strong>Third Worst Team:</strong></td>
+      <td>Team 1</td>
+    </tr>
+    <tr className= "tab">
+      <td><strong>Fourth Best Team:</strong></td>
+      <td>Team 1</td>
+      <td><strong>Fourth Worst Team:</strong></td>
+      <td>Team 1</td>
+    </tr>
+  </tbody>
+</Table> 
                   </Grid>
-    <Grid item xs={6}>
+      <Grid item xs={5}  className={classes.color} borderRadius={16} borderColor="primary.main">
             <Paper className={classes.paper}> <b>xG and xA Trendline (30 most recent games)</b></Paper>
             <Chart
               options={trendlineData.options}

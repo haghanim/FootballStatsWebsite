@@ -67,7 +67,7 @@ function Players() {
     const classes = useStyles();
 
     useEffect(() => {
-        console.log('yo');
+        
         api.players.getAllPlayers()
             .then((apiPlayersList) => {
 
@@ -93,7 +93,7 @@ function Players() {
             <br />
             <div className="container movies-container">
             <div className={classes.root}>
-            <Grid container spacing={5} align = "center" justify = "center" alignItems = "center">
+            <Grid  spacing={5} align = "center" justify = "center" alignItems = "center">
       <Grid item xs={8}>
                     <Paper className={classes.paper}><h3><strong>Player Database</strong></h3></Paper>
                     <div style={{ maxWidth: "100%" }}>

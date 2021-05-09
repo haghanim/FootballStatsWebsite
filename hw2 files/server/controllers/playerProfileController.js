@@ -14,7 +14,6 @@ async function getPlayerInfo(playerId) {
             if (err) {
                 reject(new Error(err));
             } else {
-                console.log("this should print first", rows);
                 resolve(rows[0]);
             }
         });
@@ -22,7 +21,6 @@ async function getPlayerInfo(playerId) {
 }
 
 async function getRadarStats(playerId, position, secondary_position) {
-    console.log("inRadarStats", secondary_position);
     // List 6 stats for each positional radar
     const defenderStats = ['pct_of_dribblers_tackled', 'succ_pressure_pct',
         'interceptions', 'aerials_won_pct', 'prog_passes',

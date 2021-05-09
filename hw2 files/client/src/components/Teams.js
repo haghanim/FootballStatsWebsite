@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-
+import { useHistory } from 'react-router-dom';
 import '../style/Player.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
-import KeywordButton from './KeywordButton';
-import DashboardMovieRow from './DashboardMovieRow';
 import MaterialTable from "material-table";
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
@@ -46,10 +44,12 @@ const tableIcons = {
 
 function Teams() {
     const [teamsList, setTeamsList] = useState([]);
+    const history = useHistory();
 
     useEffect(() => {
         api.teams.getAllTeams()
             .then((apiTeamsList) => {
+
                 setTeamsList(apiTeamsList)
             });
     }, [])
@@ -67,62 +67,23 @@ function Teams() {
                     <div style={{ maxWidth: "100%" }}>
 
                         <MaterialTable
+                        actions={[
+                            {
+                                icon: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+                                tooltip: 'Look Up Team',
+
+                                onClick: (event, rowData) => {
+                                    history.push(`/teams/profile/` + rowData.team_id);
+                                }
+                            }
+                        ]}
                             icons={tableIcons}
+                            style={{ width: 400 }}
                             columns={[
                                 { title: "Team Name", field: "name" },
-                                // { title: "League", field: "league" },
-                                // { title: "Birth Year", field: "year_born", type: "numeric" },
-                                // {
-                                //     title: "Nationality",
-                                //     field: "nationality",
-                                // },
-                                // { title: "Current Position", field: "Position" }
+                                { title: "id", field: "team_id", hidden: true },
                             ]}
                             data={teamsList
-                                //     [
-                                //     {
-                                //         Name: "Leo Messi",
-                                //         Club: "Barcelona",
-                                //         BirthYear: 1987,
-                                //         Nationality: "Argentina",
-                                //         Position: "Midfield"
-                                //     },
-                                //     {
-                                //         Name: "Niko Mihailidis",
-                                //         Club: "Penn",
-                                //         BirthYear: 2000,
-                                //         Nationality: "USA",
-                                //         Position: "Forward"
-                                //     },
-                                //     {
-                                //         Name: "Yuan Han Li",
-                                //         Club: "Penn",
-                                //         BirthYear: 2000,
-                                //         Nationality: "USA",
-                                //         Position: "Midfield"
-                                //     },
-                                //     {
-                                //         Name: "Alan Frastai",
-                                //         Club: "Penn",
-                                //         BirthYear: 2000,
-                                //         Nationality: "USA",
-                                //         Position: "Winger"
-                                //     },
-                                //     {
-                                //         Name: "Mark Haghani",
-                                //         Club: "Penn",
-                                //         BirthYear: 1987,
-                                //         Nationality: "Defense",
-                                //         Position: "Midfield"
-                                //     },
-                                //     {
-                                //         Name: "Niko",
-                                //         Club: "Mihailidis",
-                                //         BirthYear: 2000,
-                                //         Nationality: "USA",
-                                //         Position: "Forward"
-                                //     },
-                                // ]
                             }
                             title=""
                         />
