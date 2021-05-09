@@ -471,7 +471,7 @@ export default function TeamProfile() {
             </Table>
           </Grid>
           <Grid item xs={5} className={classes.color} borderRadius={16} borderColor="primary.main">
-            <Paper className={classes.paper}> <b>xG and xA Trendline (Most recent games)</b></Paper>
+            <Paper className={classes.paper}> <b>xG and xGA Trendline (Most recent games)</b></Paper>
             <Chart
               options={trendlineData.options}
               series={trendlineData.series}
