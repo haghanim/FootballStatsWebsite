@@ -50,7 +50,7 @@ async function getRadarStats(playerId, position, secondary_position) {
         'comp_passes_into_18_yd_box', 'Shots'];
 
     const goalkeeperStats = ['penalties_allowed', 'PSxG_difference',
-        'SoTA', 'crosses_stopped', 'long_passes_completed', 'defensive_actions'];
+        'SoTA', 'stop_percentage', 'long_passes_completed', 'defensive_actions'];
 
     const defensiveMidfielderStats = ['players_tackled_plus_interceptions', 'succ_pressures',
         'comp_passes_leading_to_final_third', 'tot_dist_traveled_by_comp_passes', 'aerials_won', 'loose_balls_recovered'];
@@ -74,10 +74,9 @@ async function getRadarStats(playerId, position, secondary_position) {
         (position == 'MF' && secondary_position == 'FW')) {
         positionRadarStats = wingerStats;
     } else { //else is a GK
-        return Promise.all(goalkeeperStats.map((inputStat) =>
-        {
+        return Promise.all(goalkeeperStats.map((inputStat) => {
             return makeQueryGetPercentileForSelectedStatAndYear_GK(playerId, inputStat);
-        }));
+        }))
     }
 
     return Promise.all(positionRadarStats.map((inputStat) => {
@@ -86,13 +85,18 @@ async function getRadarStats(playerId, position, secondary_position) {
 }
 
 function makeQueryGetPercentileForSelectedStatAndYear_GK(playerId, inputStat) {
-    const query = `
-    WITH ranked AS(
+    const query = `WITH latest_season AS(
+		SELECT season
+		FROM player_gk_basic_stats
+		WHERE player_id = ${playerId}
+		ORDER BY season DESC
+		LIMIT 1
+    ), ranked AS(
     	SELECT player_id, ROW_NUMBER() OVER(ORDER BY ${inputStat}/90s_played) ROWNUMBER
         FROM player_gk_playing_time_stats
     		NATURAL JOIN player_gk_basic_stats
     		NATURAL JOIN player_gk_advanced_stats
-        WHERE 90s_played > 2 AND season = 2021
+        WHERE 90s_played > 2 AND (season IN (SELECT * FROM latest_season))
     ), number_of_player_stats AS(
     	SELECT COUNT(*) AS total
     	FROM ranked r
@@ -119,42 +123,42 @@ function makeQueryGetPercentileForSelectedStatAndYear_GK(playerId, inputStat) {
 }
 
 function makeQueryGetPercentileForSelectedStatAndYear_Outfield(playerId, inputStat) {
-    const query = `
-    WITH selected_player_position AS(
-	     SELECT pp.primary_position, pp.secondary_position
-	     FROM player_position pp
-	     WHERE pp.player_id = ${playerId} AND pp.season = 2021
-	     LIMIT 1
-    ), same_position_players AS(
-       SELECT pp.player_id
-       FROM player_position pp
-       WHERE pp.season = 2021 AND
-		       ((pp.primary_position, pp.secondary_position) IN (SELECT * FROM selected_player_position) OR
-		        (pp.secondary_position, pp.primary_position) IN (SELECT * FROM selected_player_position))
-    ), ranked AS(
-	     SELECT player_id, ROW_NUMBER() OVER(ORDER BY ${inputStat}/90s_played) ROWNUMBER
-       FROM player_playing_time_stats
-       NATURAL JOIN player_shooting_stats
-		   NATURAL JOIN player_passing_stats
-		   NATURAL JOIN player_possession_stats
-		   NATURAL JOIN player_goal_shot_creation_stats
-	     NATURAL JOIN player_pass_type_stats
-   	 	 NATURAL JOIN player_misc_stats
-	   	 NATURAL JOIN player_defensive_actions_stats
-	   	 NATURAL JOIN same_position_players
-       WHERE 90s_played > 2 AND season = 2021
-    ), number_of_player_stats AS(
-	     SELECT COUNT(*) AS total
-	     FROM ranked r
-    ), selected_players_ranking AS(
-	     SELECT ROWNUMBER
-	     FROM ranked r
-	     WHERE player_id = ${playerId}
-	     ORDER BY ROWNUMBER ASC
-	     LIMIT 1
-    )
-    SELECT ROUND(spr.ROWNUMBER / nops.total*100, 2) AS ${inputStat}
-    FROM number_of_player_stats nops, selected_players_ranking spr
+    const query = `WITH selected_player_position AS(
+        SELECT pp.primary_position, pp.secondary_position, pp.season
+        FROM player_position pp
+        WHERE pp.player_id = ${playerId}
+        ORDER BY pp.season DESC
+        LIMIT 1
+   ), same_position_players AS(
+      SELECT DISTINCT pp.player_id
+      FROM player_position pp
+      WHERE (pp.season IN (SELECT season FROM selected_player_position)) AND
+                   ((pp.primary_position, pp.secondary_position) IN (SELECT pp.primary_position, pp.secondary_position FROM selected_player_position) OR
+                   (pp.secondary_position, pp.primary_position) IN (SELECT pp.primary_position, pp.secondary_position FROM selected_player_position))
+   ), ranked AS(
+        SELECT player_id, ROW_NUMBER() OVER(ORDER BY ${inputStat}/90s_played) ROWNUMBER
+      FROM player_playing_time_stats
+      NATURAL JOIN player_shooting_stats
+          NATURAL JOIN player_passing_stats
+          NATURAL JOIN player_possession_stats
+          NATURAL JOIN player_goal_shot_creation_stats
+        NATURAL JOIN player_pass_type_stats
+            NATURAL JOIN player_misc_stats
+           NATURAL JOIN player_defensive_actions_stats
+           NATURAL JOIN same_position_players
+      WHERE 90s_played > 2 AND (season IN (SELECT season FROM selected_player_position))
+   ), number_of_player_stats AS(
+        SELECT COUNT(*) AS total
+        FROM ranked r
+   ), selected_players_ranking AS(
+        SELECT ROWNUMBER
+        FROM ranked r
+        WHERE player_id = ${playerId}
+        ORDER BY ROWNUMBER ASC
+        LIMIT 1
+   )
+   SELECT ROUND(spr.ROWNUMBER / nops.total*100, 2) AS ${inputStat}
+   FROM number_of_player_stats nops, selected_players_ranking spr
     `;
     return new Promise((resolve, reject) => {
         connection.query(query, (err, rows) => {
@@ -180,7 +184,7 @@ async function getStats(playerId, position, secondary_position) {
         'npxG_per_Shot/90s_played', 'Shots/90s_played'];
 
     const goalkeeperStats = ['penalty_save_percentage/90s_played', 'PSxG_difference/90s_played',
-        'AvgDist/90s_played', 'stop_percentage/90s_played', 'long_pass_completion_pct/90s_played', 'defensive_actions/90s_played'];
+        'AvgDist/90s_played', 'stop_percentage/90s_played', 'long_pass_completion_pct', 'defensive_actions/90s_played'];
 
     const defensiveMidfielderStats = ['players_tackled_plus_interceptions/90s_played', 'succ_pressure_pct/90s_played',
         'comp_passes_leading_to_final_third/90s_played', 'tot_dist_traveled_by_comp_passes/90s_played', 'aerials_won/90s_played', 'loose_balls_recovered/90s_played'];
