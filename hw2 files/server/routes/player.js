@@ -21,7 +21,14 @@ const getPlayerProfile = (req, res) => {
                 .then((radarStats) => {
                     return PlayerProfileController.getStats(playerId, position, secondary_position)
                         .then((playerStats) => {
-                            res.status(200).json({ playerInfo, radarStats, playerStats });
+                            var results = playerStats[0];
+                            for (var i = 1; i < 6; i++) {
+                                for (var j = 0; j < results.length; j++) {
+
+                                    results[j][Object.keys(playerStats[i][j])[3]] = Object.values(playerStats[i][j])[3];
+                                }
+                            }
+                            res.status(200).json({ playerInfo, radarStats, playerStats: results });
                         })
                 })
         }).catch((err) => {
