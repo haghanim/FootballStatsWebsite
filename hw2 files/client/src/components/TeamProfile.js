@@ -29,35 +29,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
-const xgData = {
-  options: {
-    chart: {
-      id: "basic-bar"
-    },
-    xaxis: {
-      categories: ['Aubameyang 2021', 'Lacazette 2020', 'Lacazette 2019', 'Ramsey 2018', 'Aubameyang 2020'],
-      title: {
-        text: 'Player'
-      }
-    },
-    yaxis: {
-      title: {
-        text: 'Expected Goals % Contribution'
-      }
-    },
-  },
-  chart: {
-    background: '#111'
-  },
-  series: [
-    {
-      name: "xG",
-      data: [0.3, .3, .4, .45, .46]
-    }
-  ]
-};
-
 const xAData = {
   options: {
     chart: {
@@ -160,9 +131,37 @@ const trendlineData = {
 export default function TeamProfile() {
   let { teamId } = useParams();
   const classes = useStyles();
-
+  const [dominant, setDominant] = useState({b1: "Not Enough Data", b2: "Not Enough Data", b3: "Not Enough Data", b4: "Not Enough Data"
+                                            ,w1: "Not Enough Data", w2: "Not Enough Data", w3: "Not Enough Data", w4: "Not Enough Data"});
   const [teamInfo, setTeamInfo] = useState([]);
   const [year, setYear] = useState("2021");
+  const [xgData, setXg] = useState({
+    options: {
+      chart: {
+        id: "basic-bar"
+      },
+      xaxis: {
+        categories: ['n/a'],
+        title: {
+          text: 'Player'
+        }
+      },
+      yaxis: {
+        title: {
+          text: 'Expected Goals % Contribution'
+        }
+      },
+    },
+    chart: {
+      background: '#111'
+    },
+    series: [
+      {
+        name: "xG",
+        data: [0]
+      }
+    ]
+  });
 
   const onYearChanged = (newYear) => {
     // console.log("newYear input", newYear);
@@ -179,7 +178,55 @@ export default function TeamProfile() {
   useEffect(() => {
     api.teams.getTeamProfile(teamId, year)
       .then((apiTeamInfo) => {
-        setTeamInfo(apiTeamInfo)
+        console.log(apiTeamInfo);
+        setTeamInfo(apiTeamInfo);
+
+        const x = apiTeamInfo.mostDominantAgainst;
+        if(x.length > 3){
+        setDominant({b1: x[0].opponent, b2: x[1].opponent, b3: x[2].opponent, b4: x[3].opponent
+        ,w1: x[(x.length) -1].opponent, w2: x[x.length-2].opponent, w3: x[x.length-3].opponent, w4: x[x.length-4].opponent})
+        }
+
+        
+        if (apiTeamInfo.mostXgXaContributor.length >9){
+
+        const names = [apiTeamInfo.mostXgXaContributor[0].name, apiTeamInfo.mostXgXaContributor[1].name, apiTeamInfo.mostXgXaContributor[2].name, apiTeamInfo.mostXgXaContributor[3].name, apiTeamInfo.mostXgXaContributor[4].name
+                      , apiTeamInfo.mostXgXaContributor[5].name, apiTeamInfo.mostXgXaContributor[6].name, apiTeamInfo.mostXgXaContributor[7].name, apiTeamInfo.mostXgXaContributor[8].name, apiTeamInfo.mostXgXaContributor[9].name];
+        const xgvals = [apiTeamInfo.mostXgXaContributor[0].percentXgContribution, apiTeamInfo.mostXgXaContributor[1].percentXgContribution, apiTeamInfo.mostXgXaContributor[2].percentXgContribution, apiTeamInfo.mostXgXaContributor[3].percentXgContribution, apiTeamInfo.mostXgXaContributor[4].percentXgContribution
+                      , apiTeamInfo.mostXgXaContributor[5].percentXgContribution, apiTeamInfo.mostXgXaContributor[6].percentXgContribution, apiTeamInfo.mostXgXaContributor[7].percentXgContribution, apiTeamInfo.mostXgXaContributor[8].percentXgContribution, apiTeamInfo.mostXgXaContributor[9].percentXgContribution];
+
+        const xavals = [apiTeamInfo.mostXgXaContributor[0].percentXaContribution, apiTeamInfo.mostXgXaContributor[1].percentXaContribution, apiTeamInfo.mostXgXaContributor[2].percentXaContribution, apiTeamInfo.mostXgXaContributor[3].percentXaContribution, apiTeamInfo.mostXgXaContributor[4].percentXaContribution
+                      , apiTeamInfo.mostXgXaContributor[5].percentXaContribution, apiTeamInfo.mostXgXaContributor[6].percentXaContribution, apiTeamInfo.mostXgXaContributor[7].percentXaContribution, apiTeamInfo.mostXgXaContributor[8].percentXaContribution, apiTeamInfo.mostXgXaContributor[9].percentXaContribution];
+                       console.log(xgvals);
+                      setXg({
+                        options: {
+                          chart: {
+                            id: "basic-bar"
+                          },
+                          xaxis: {
+                            categories: names,
+                            title: {
+                              text: 'Player'
+                            }
+                          },
+                          yaxis: {
+                            title: {
+                              text: 'Expected Goals % Contribution'
+                            }
+                          },
+                        },
+                        chart: {
+                          background: '#111'
+                        },
+                        series: [
+                          {
+                            name: "xG",
+                            data: xgvals}
+                        ]
+                      });
+                    } 
+
+        
       });
   }, [])
 
@@ -275,28 +322,28 @@ export default function TeamProfile() {
 
               <tbody>
                 <tr className="tab">
-                  <td><strong>Best Team:</strong></td>
-                  <td>Team 1</td>
-                  <td><strong>Worst Team:</strong></td>
-                  <td>Team 1</td>
+                  <td><strong>Easiest Opponent:</strong></td>
+                  <td>{dominant.b1}</td>
+                  <td><strong>Worst Rival:</strong></td>
+                  <td>{dominant.w1}</td>
                 </tr>
                 <tr className="tab">
-                  <td><strong>Second Best Team:</strong></td>
-                  <td>Team 1</td>
-                  <td><strong>Second Worst Team:</strong></td>
-                  <td>Team 1</td>
+                  <td><strong>Second Easiest Opponent:</strong></td>
+                  <td>{dominant.b2}</td>
+                  <td><strong>Second Worst Rival:</strong></td>
+                  <td>{dominant.w2}</td>
                 </tr>
                 <tr className="tab">
-                  <td><strong>Third Best Team:</strong></td>
-                  <td>Team 1</td>
-                  <td><strong>Third Worst Team:</strong></td>
-                  <td>Team 1</td>
+                  <td><strong>Third Easiest Opponent:</strong></td>
+                  <td>{dominant.b3}</td>
+                  <td><strong>Third Worst Rival:</strong></td>
+                  <td>{dominant.w3}</td>
                 </tr>
                 <tr className="tab">
-                  <td><strong>Fourth Best Team:</strong></td>
-                  <td>Team 1</td>
-                  <td><strong>Fourth Worst Team:</strong></td>
-                  <td>Team 1</td>
+                  <td><strong>Fourth Easiest Opponent:</strong></td>
+                  <td>{dominant.b4}</td>
+                  <td><strong>Fourth Worst Rival:</strong></td>
+                  <td>{dominant.w4}</td>
                 </tr>
               </tbody>
             </Table>
