@@ -19,31 +19,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /* ------------------- Route handler registration ----------------- */
 /* ---------------------------------------------------------------- */
 
-/* ---- (Dashboard) ---- */
-// The route localhost:8081/keywords is registered to the function
-// routes.getTop20Keywords, specified in routes.js.
-// app.get('/keywords', routes.getTop20Keywords);
-
-
-// /* ---- Q1b (Dashboard) ---- */
-// app.get('/keywords/:keyword', routes.getTopMoviesWithKeyword);
-
-
-// /* ---- Q2 (Recommendations) ---- */
-// app.get('/recs/:movieName', routes.getRecs);
-
-// /* ---- (Best Movies) ---- */
-// app.get('/decades', routes.getDecades);
-// app.get('/genres', routes.getGenres);
-
-
-// /* ---- Q3b (Best Movies) ---- */
-// app.get('/best-movies/:selectedDecade/:selectedGenre', routes.bestMoviesPerDecadeGenre);
-
-/* ---------------------------------------------------------------- */
-/* ------------------- Route handler registration ----------------- */
-/* ---------------------------------------------------------------- */
-
 /* ---- (Player Page) ---- */
 app.get('/players', playerRoutes.getAllPlayers);
 
@@ -53,6 +28,8 @@ app.get('/players/profile/:playerId', playerRoutes.getPlayerProfile);
 // app.get('/teams/:team_name', teamRoutes.getTeamLeague);
 
 app.get('/teams', teamRoutes.getAllTeams);
+
+app.post('/teams/profile/', teamRoutes.getTeamProfile);
 
 app.get('/leagues', leagueRoutes.getAllLeagues)
 
