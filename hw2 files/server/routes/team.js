@@ -1,4 +1,5 @@
 // Fix this Path so that it's local to your computer
+const TeamController = require("../controllers/teamController");
 const config = require('../db-config');
 const mysql = require('mysql');
 
@@ -11,18 +12,13 @@ const connection = mysql.createPool(config);
 /* -------------------------------------------------- */
 
 const getAllTeams = (req, res) => {
-    var query = `
-    SELECT *
-    FROM team;`;
-    connection.query(query, function (err, rows, fields) {
-        if (err) {
-            console.log(err);
-            res.status(400).json({ 'message': 'generic error message' });
-        }
-        else {
-            res.status(200).send(rows);
-        }
-    });
+    TeamController.getAllTeams()
+    .then((teamList) => {
+        res.status(200).json(teamList);
+    })
+    .catch((err) => {
+        res.status(400).json({message: err});
+    })
 };
 
 const getTeamLeagues = (req, res) => {

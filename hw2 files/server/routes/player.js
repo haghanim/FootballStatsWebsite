@@ -15,11 +15,15 @@ const getPlayerProfile = (req, res) => {
     playerId = req.params.playerId;
     return PlayerProfileController.getPlayerInfo(playerId)
         .then((playerInfo) => {
+            console.log("***", playerInfo.secondary_position);
             const position = playerInfo.Position;
             const secondary_position = playerInfo.secondary_position;
             return PlayerProfileController.getRadarStats(playerId, position, secondary_position)
                 .then((radarStats) => {
-                    res.status(200).json({ playerInfo, radarStats });
+                    return PlayerProfileController.getStats(playerId, position, secondary_position)
+                        .then((playerStats) => {
+                            res.status(200).json({ playerInfo, radarStats, playerStats });
+                        })
                 })
         })
         //     return PlayerProfileController.getRadarStats(playerId, playerInfo.Position)

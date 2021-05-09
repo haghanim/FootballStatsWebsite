@@ -22,6 +22,7 @@ async function getPlayerInfo(playerId) {
 }
 
 async function getRadarStats(playerId, position, secondary_position) {
+    console.log("inRadarStats", secondary_position);
     // List 6 stats for each positional radar
     const defenderStats = ['pct_of_dribblers_tackled', 'succ_pressure_pct',
         'interceptions', 'aerials_won_pct', 'prog_passes',
@@ -151,7 +152,7 @@ function makeQueryGetPercentileForSelectedStatAndYear_Outfield(playerId, inputSt
     })
 }
 
-async function getStats(playerId, position) {
+async function getStats(playerId, position, secondary_position) {
     const defenderStats = ['pct_of_dribblers_tackled/90s_played', 'succ_pressure_pct/90s_played',
         'interceptions/90s_played', 'aerials_won_pct/90s_played', 'prog_passes/90s_played',
         'long_pass_comp_pct/90s_played'];
@@ -163,10 +164,10 @@ async function getStats(playerId, position) {
         'npxG_per_Shot/90s_played', 'Shots/90s_played'];
 
     const goalkeeperStats = ['penalty_save_percentage/90s_played', 'PSxG_difference/90s_played',
-    'AvgDist/90s_played', 'stop_percentage/90s_played', 'long_pass_completion_pct/90s_played', 'defensive_actions/90s_played'];
+        'AvgDist/90s_played', 'stop_percentage/90s_played', 'long_pass_completion_pct/90s_played', 'defensive_actions/90s_played'];
 
     const defensiveMidfielderStats = ['players_tackled_plus_interceptions/90s_played', 'succ_pressure_pct/90s_played',
-    'comp_passes_leading_to_final_third/90s_played', 'tot_dist_traveled_by_comp_passes/90s_played', 'aerials_won/90s_played', 'loose_balls_recovered/90s_played'];
+        'comp_passes_leading_to_final_third/90s_played', 'tot_dist_traveled_by_comp_passes/90s_played', 'aerials_won/90s_played', 'loose_balls_recovered/90s_played'];
 
     const wingerStats = ['succ_dribbles/90s_played', 'xA/90s_played',
         'npxG/90s_played', 'prog_receptions/90s_played', 'fouls_drawn/90s_played', 'comp_passes_into_18_yd_box/90s_played'];
@@ -181,25 +182,20 @@ async function getStats(playerId, position) {
     } else if (position == 'FW' && secondary_position == '') {
         positionStats = forwardStats;
     } else if ((position == 'DF' && secondary_position == 'MF') ||
-                (position == 'MF' && secondary_position == 'DF')) {
+        (position == 'MF' && secondary_position == 'DF')) {
         positionStats = defensiveMidfielderStats;
     } else if ((position == 'FW' && secondary_position == 'MF') ||
-                (position == 'MF' && secondary_position == 'FW')) {
+        (position == 'MF' && secondary_position == 'FW')) {
         positionStats = wingerStats;
     } else { //else is a GK
         return Promise.all(goalkeeperStats.map((inputStat) => {
-            return makeQueryGetPercentileForSelectedStatAndYear_GK(playerId, inputStat);
-        }))
+            return makeQueryGetStat_GK(playerId, inputStat);
+        }));
     }
 
-    connection.query(query, function (err, rows, fields) {
-        if (err) {
-            console.log(position, inputStat, idx);
-            throw new Error(err.message);
-        } else {
-            return rows;
-        }
-    });
+    return Promise.all(positionStats.map((inputStat) => {
+        return makeQueryGetStat_Outfield(playerId, inputStat);
+    }));
 }
 
 function makeQueryGetStat_Outfield(playerId, inputStat) {
@@ -221,7 +217,7 @@ function makeQueryGetStat_Outfield(playerId, inputStat) {
                 reject(err);
             }
             else {
-                resolve(rows[0]);
+                resolve(rows);
             }
         })
     })
@@ -241,7 +237,7 @@ function makeQueryGetStat_GK(playerId, inputStat) {
                 reject(err);
             }
             else {
-                resolve(rows[0]);
+                resolve(rows);
             }
         })
     })
