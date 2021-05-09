@@ -177,7 +177,6 @@ export default function TeamProfile() {
     api.teams.getTeamProfile(teamId, year)
       .then((apiTeamInfo) => {
         setTeamInfo(apiTeamInfo)
-
       });
   }, [])
 
@@ -189,7 +188,7 @@ export default function TeamProfile() {
       <div className={classes.root}>
         <Grid container spacing={4} align="center" justify="center" alignItems="center">
           <Grid item xs={8} >
-            <Paper className={classes.paper}><h3><strong>{teamInfo && teamInfo.teamInfo && teamInfo.teamInfo.leaguesList[0].name} Team Profile </strong></h3>
+            <Paper className={classes.paper}><h3><strong>{teamInfo && teamInfo.leaguesList && teamInfo.leaguesList[0] && teamInfo.leaguesList[0].name} Team Profile </strong></h3>
               <p class="font-weight-light">Stats for <select name="selectList" id="selectList" onChange={(e) => onYearChanged(e.target.value)}>
                 <option value="option 1">2021</option>
                 <option value="option 2">2020</option>
@@ -203,21 +202,21 @@ export default function TeamProfile() {
               <tbody>
                 <tr>
                   <td><strong>League:</strong></td>
-                  <td>Premier League</td>
+                  <td>{teamInfo && teamInfo.leaguesList && teamInfo.leaguesList[0] && teamInfo.leaguesList[0].league}</td>
                   <td><strong>Home Win %:</strong></td>
-                  <td>77%</td>
+                  <td>{teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].home_win_pct + "%"}</td>
                 </tr>
                 <tr>
                   <td><strong>Away Win %:</strong></td>
-                  <td>44%</td>
+                  <td>{teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].away_win_pct + "%"}</td>
                   <td><strong>Total Win %:</strong></td>
-                  <td>59%</td>
+                  <td>{teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].total_win_pct + "%"}</td>
                 </tr>
                 <tr>
                   <td><strong>Total Draw %:</strong></td>
-                  <td>22%</td>
-                  <td><strong>Average Age:</strong></td>
-                  <td>29</td>
+                  <td>{teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].total_draw_pct + "%"}</td>
+                  <td><strong>Weighted Average Age:</strong></td>
+                  <td>{teamInfo && teamInfo.avgAge && teamInfo.avgAge.weighted_team_age}</td>
                 </tr>
               </tbody>
             </Table>

@@ -36,7 +36,10 @@ const getTeamProfile = (req, res) => {
                                         .then((avgAge) => {
                                             return TeamController.get30RecentGames(teamId)
                                                 .then((recentGames) => {
-                                                    res.status(200).json({ leaguesList, mostXgXaContributor, mostProgressivePlayer, mostDominantAgainst, avgAge, recentGames });
+                                                    return TeamController.getWinPcts(teamId, season)
+                                                        .then((winPcts) => {
+                                                            res.status(200).json({ leaguesList, mostXgXaContributor, mostProgressivePlayer, mostDominantAgainst, avgAge, recentGames, winPcts });
+                                                        })
                                                 })
                                         })
                                 })

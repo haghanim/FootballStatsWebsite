@@ -237,7 +237,7 @@ async function getAvgAge(teamId, season) {
     		FROM mod_team_squad mts
     		JOIN Player_GK pgk ON mts.player_id = pgk.player_id)
     )
-    SELECT SUM(weighted_age) AS weighted_team_age
+    SELECT ROUND(SUM(weighted_age), 2) AS weighted_team_age
     FROM with_birthyear;
   `;
     return new Promise((resolve, reject) => {
@@ -252,7 +252,7 @@ async function getAvgAge(teamId, season) {
     })
 }
 
-async function getWinPcts(teamId) {
+async function getWinPcts(teamId, season) {
     console.log('getWinPcts');
 
     var query = `
@@ -261,7 +261,7 @@ async function getWinPcts(teamId) {
     	FROM Fixtures
     	JOIN team t1 ON home = t1.name
     	JOIN team t2 ON away = t2.name
-    	WHERE t1.team_id = ${teamId} OR t2.team_id = ${teamId}
+    	WHERE (t1.team_id = ${teamId} OR t2.team_id = ${teamId}) AND season = ${season}
     ), home_wins AS(
     	SELECT COUNT(*) AS home_wins
     	FROM goals_diff_table
@@ -283,10 +283,10 @@ async function getWinPcts(teamId) {
         FROM goals_diff_table
         WHERE goals_diff = 0 AND (home_id = ${teamId} OR away_id = ${teamId} )
     )
-    SELECT home_wins.home_wins / home_games.num_home_games AS home_win_pct,
-            away_wins.away_wins / away_games.num_away_games AS away_win_pct,
-            (home_wins.home_wins+away_wins.away_wins)/(home_games.num_home_games+away_games.num_away_games) AS total_win_pct,
-            (draws)/(home_games.num_home_games+away_games.num_away_games) AS total_draw_pct
+    SELECT ROUND(home_wins.home_wins / home_games.num_home_games * 100, 2) AS home_win_pct,
+            ROUND(away_wins.away_wins / away_games.num_away_games * 100, 2) AS away_win_pct,
+            ROUND((home_wins.home_wins+away_wins.away_wins)/(home_games.num_home_games+away_games.num_away_games) * 100, 2) AS total_win_pct,
+            ROUND((draws)/(home_games.num_home_games+away_games.num_away_games) * 100, 2) AS total_draw_pct
     FROM home_wins, home_games, away_wins, away_games, draws;
   `;
     return new Promise((resolve, reject) => {
