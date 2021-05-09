@@ -15,3 +15,15 @@
     min-height: 25px;
     height: 77px;
  }
+
+ .jsonOdd {
+    background: #eee;
+    border: 1px solid black;
+    column-width: 100px;
+    text-align: center;
+    
+    border-collapse: collapse;
+  }
+
+ .jsonOdd tr:nth-child(odd) {background: #CCC}
+ .jsonOdd tr:nth-child(even) {background: #FFF}

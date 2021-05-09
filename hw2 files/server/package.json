@@ -22,6 +22,7 @@
     "react-bootstrap": "^1.5.2",
     "react-data-grid": "^7.0.0-canary.46",
     "react-data-grid-addons": "^7.0.0-alpha.24",
-    "react-table-6": "^6.11.0"
+    "react-table-6": "^6.11.0",
+    "ts-react-json-table": "^0.1.2"
   }
 }

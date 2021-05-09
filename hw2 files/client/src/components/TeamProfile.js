@@ -218,7 +218,7 @@ export default function TeamProfile() {
           
         }
 
-        if(apiTeamInfo.mostProgressivePlayer.length = 5){
+        if(apiTeamInfo.mostProgressivePlayer[0]!= null && apiTeamInfo.mostProgressivePlayer.length == 5){
 
           setBp({
             options: {

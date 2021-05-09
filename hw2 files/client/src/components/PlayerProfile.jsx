@@ -7,8 +7,9 @@ import Grid from '@material-ui/core/Grid';
 import PageNavbar from './PageNavbar';
 import Table from 'react-bootstrap/Table';
 import ReactApexChart from "react-apexcharts";
+import '../style/Player.css';
 
-        
+const JsonTable = require('ts-react-json-table');   
 const dict = {
     'tackles': 'Tackles', 
     'succ_pressures' : 'Successful Pressures',
@@ -21,14 +22,14 @@ const dict = {
     'prog_receptions' : 'Progressive Receptions', 
     'npxG' : 'Non Penalty Expected Goals',
     'Shots': 'Shots',
-    'long_passes_completed': 'Long Passes Completed GK',
+    'long_passes_completed': 'Long Passes Comp. GK',
     'penalties_allowed': 'Penalties Allowed',
-    'PSxG_difference': 'Post Shot Expected Goals - Actual Goals',
+    'PSxG_difference': 'Post Shot xG - Actual',
     'SoTA' : 'Shots on Target Against',
     'crosses_stopped' : 'Crosses Stopped', 
     'defensive_actions' : 'Defensive Actions',
     'players_tackled_plus_interceptions' : 'Tackles + Interceptions', 
-    'comp_passes_leading_to_final_third' : 'Completed Passes into Final 3rd', 
+    'comp_passes_leading_to_final_third' : 'Comp. Passes into Final 3rd', 
     'tot_dist_traveled_by_comp_passes' : 'Dist. Traveled by Comp. Passes', 
     'aerials_won' : 'Aerials Won', 
     'loose_balls_recovered' : 'Loose Balls Recovered', 
@@ -61,22 +62,23 @@ function PlayerProfile() {
     let { playerId } = useParams();
     const classes = useStyles();
     const [PlayerInfo, setPlayerInfo] = useState([]);
+    const [items, setItems] = useState([{"Season": "n/a", "Team":  "n/a","League":  "n/a"}]);
     const [radar, setRadar] = useState({
 
         series: [{
             name: '',
-            data: [0, 0, 0, 0, 0, 0,]
+            data: [0]
         }],
         options: {
             chart: {
-                height: 350,
+                height: 450,
                 type: 'radar',
             },
             title: {
-                text: 'Player Stats'
+                text: 'Player Stat Percentiles'
             },
             xaxis: {
-                categories: ['', '', '', '', '', '']
+                categories: ['n/a']
             }
         },
     
@@ -88,6 +90,18 @@ function PlayerProfile() {
             .then((apiPlayerInfo) => {
                 apiPlayerInfo.playerInfo.nationality = apiPlayerInfo.playerInfo.nationality.slice(-3);
                 setPlayerInfo(apiPlayerInfo);
+
+                if(apiPlayerInfo.playerStats.length > 0){
+
+
+                    var js = JSON.stringify(apiPlayerInfo.playerStats);
+                    var jsf = JSON.parse(js.replaceAll("/90s_played", "").replaceAll("succ_dribbles", "Successful Dribbles").replaceAll("prog_receptions", "Progressive Receptions  ").replaceAll("npxG_per_Shot", "npxG Per Shot").replaceAll("season", "Season").replaceAll("team", "Team").replaceAll("league", "League"));
+
+                    setItems(jsf);
+
+                }
+
+                if(apiPlayerInfo.radarStats[0] != null){
                 setRadar({
 
                     series: [{
@@ -97,7 +111,7 @@ function PlayerProfile() {
                     }],
                     options: {
                         chart: {
-                            height: 500,
+                            height: 450,
                             type: 'radar',
                         },
                         title: {
@@ -118,13 +132,9 @@ function PlayerProfile() {
                     },
                 
                 
-                });
+                });}
             })
     }, []);
-
-    
-
-    
 
     return (
         <div className="Dashboard">
@@ -132,9 +142,9 @@ function PlayerProfile() {
             <PageNavbar active="dashboard" />
             <span>  .</span>
             <div className={classes.root}>
-                <Grid container spacing={2} align="center" justify="center" alignItems="center">
+                <Grid container spacing={3} align="center" justify="center" alignItems="center">
                     <Grid item xs={7}>
-                        <Paper className={classes.paper}><h3><strong>{PlayerInfo && PlayerInfo.playerInfo && PlayerInfo.playerInfo.name} Profile</strong></h3></Paper>
+                        <Paper className={classes.paper}><h3><strong>{PlayerInfo && PlayerInfo.playerInfo && PlayerInfo.playerInfo.name}</strong></h3></Paper>
                         <Table striped bordered variant="light">
 
                             <tbody>
@@ -153,42 +163,16 @@ function PlayerProfile() {
                             </tbody>
                         </Table>
                     </Grid>
-                    <Grid item xs={6} className={classes.color}>
+                    
+                    <Grid item xs={7}>
+                        <Paper className={classes.paper}><h5><strong>Player Stats</strong></h5></Paper>
+                        <JsonTable rows = {items} className = "jsonOdd" header = {false} />
+                        
+                    </Grid>
+                    <Grid item xs={4} className={classes.color}>
                         <div id="chart">
                             <ReactApexChart options={radar.options} series={radar.series} type="radar" height={450} />
                         </div>
-                    </Grid>
-                    <Grid item xs={5}>
-                        <Paper className={classes.paper}><h5><strong>Player Stats</strong></h5></Paper>
-                        <Table striped bordered variant="light">
-
-                            <tbody>
-                                <tr>
-                                    <td><strong>Shooting:</strong></td>
-                                    <td>99</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Passing:</strong></td>
-                                    <td>49</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Field goal:</strong></td>
-                                    <td>78</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Saves:</strong></td>
-                                    <td>84</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Fouls:</strong></td>
-                                    <td>23</td>
-                                </tr>
-                                <tr>
-                                    <td><strong></strong></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </Table>
                     </Grid>
                 </Grid>
             </div></div>

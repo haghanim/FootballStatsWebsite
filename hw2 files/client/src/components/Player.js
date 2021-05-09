@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 import '../style/Player.css';
 import { useHistory } from 'react-router-dom';
 import { Route, Link, BrowserRouter, withRouter } from "react-router-dom";
