@@ -16,16 +16,19 @@ const dict = {
     'aerials_won' : 'Aerials Won',
     'prog_passes' : 'Progressive Passes',
     'long_passes_comp': 'Long Passes Completed',
+    'long_passes_completed': 'Long Passes Completed GK',
     'succ_dribbles' : 'Successful Dribbles', 
-    'xA': 'Expected Assists',
+    'xA' : 'Expected Assists',
     'prog_receptions' : 'Progressive Receptions', 
     'npxG' : 'Non Penalty Expected Goals',
+    'npxG_per_Shot' : 'Non Penalty Expected Goals / Shot', 
     'Shots': 'Shots',
-    'long_passes_completed': 'Long Passes Completed GK',
-    'penalties_allowed': 'Penalties Allowed',
-    'PSxG_difference': 'Post Shot Expected Goals - Actual Goals',
     'SoTA' : 'Shots on Target Against',
+    'penalty_save_percentage' : '% of Penalties Saved', 
+    'PSxG_difference' : 'Post Shot Expected Goals - Actual Goals',
+    'AvgDist' : 'Average Defensive Action Distance', 
     'crosses_stopped' : 'Crosses Stopped', 
+    'long_pass_completion_pct' : 'Long Pass Completion Rate',
     'defensive_actions' : 'Defensive Actions',
     'players_tackled_plus_interceptions' : 'Tackles + Interceptions', 
     'comp_passes_leading_to_final_third' : 'Completed Passes into Final 3rd', 
@@ -145,7 +148,7 @@ function PlayerProfile() {
             <PageNavbar active="dashboard" />
             <span>  .</span>
             <div className={classes.root}>
-                <Grid container spacing={2} align="center" justify="center" alignItems="center">
+                <Grid container spacing={3} align="center" justify="center" alignItems="center">
                     <Grid item xs={7}>
                         <Paper className={classes.paper}><h3><strong>{PlayerInfo && PlayerInfo.playerInfo && PlayerInfo.playerInfo.name} Profile</strong></h3></Paper>
                         <Table striped bordered variant="light">
@@ -168,7 +171,7 @@ function PlayerProfile() {
                     </Grid>
                     <Grid item xs={6} className={classes.color}>
                         <div id="chart">
-                            <ReactApexChart options={radar.options} series={radar.series} type="radar" height={450} />
+                            <ReactApexChart options={radar.options} series={radar.series} type="radar" height={350} />
                         </div>
                     </Grid>
                     <Grid item xs={5}>
