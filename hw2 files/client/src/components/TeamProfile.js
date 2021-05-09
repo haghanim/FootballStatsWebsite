@@ -162,14 +162,17 @@ export default function TeamProfile() {
   const classes = useStyles();
 
   const [teamInfo, setTeamInfo] = useState([]);
-  const [year, setYear] = useState(2021);
+  const [year, setYear] = useState("2021");
 
   const onYearChanged = (newYear) => {
+    // console.log("newYear input", newYear);
     setYear(newYear);
-    api.teams.getTeamProfile(teamId, year)
+    // console.log("current year state", year);
+    api.teams.getTeamProfile(teamId, newYear)
       .then((apiTeamInfo) => {
-        console.log(apiTeamInfo);
+        // console.log(teamInfo);
         setTeamInfo(apiTeamInfo)
+        // console.log(teamInfo);
       });
   }
 
@@ -189,12 +192,12 @@ export default function TeamProfile() {
         <Grid container spacing={4} align="center" justify="center" alignItems="center">
           <Grid item xs={8} >
             <Paper className={classes.paper}><h3><strong>{teamInfo && teamInfo.leaguesList && teamInfo.leaguesList[0] && teamInfo.leaguesList[0].name} Team Profile </strong></h3>
-              <p class="font-weight-light">Stats for <select name="selectList" id="selectList" onChange={(e) => onYearChanged(e.target.value)}>
-                <option value="option 1">2021</option>
-                <option value="option 2">2020</option>
-                <option value="option 2">2019</option>
-                <option value="option 2">2018</option>
-                <option value="option 2">2017</option>
+              <p class="font-weight-light">Stats for <select name="selectList" id="selectList" onChange={(e) => { onYearChanged(e.target.value) }}>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
               </select> season</p></Paper>
 
             <Table striped bordered variant="light">

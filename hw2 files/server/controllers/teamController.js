@@ -253,7 +253,7 @@ async function getAvgAge(teamId, season) {
 }
 
 async function getWinPcts(teamId, season) {
-    console.log('getWinPcts');
+    console.log(season);
 
     var query = `
     WITH goals_diff_table AS(
