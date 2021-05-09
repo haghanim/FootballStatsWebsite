@@ -258,7 +258,7 @@ const getWinPcts = (req, res) => {
     	FROM Fixtures
     	JOIN team t1 ON home = t1.name
     	JOIN team t2 ON away = t2.name
-    	WHERE t1.team_id = ${input_teamID} OR t2.team_id = ${input_teamID}
+    	WHERE (t1.team_id = ${input_teamID} OR t2.team_id = ${input_teamID}) AND season = ${input_season}
     ), home_wins AS(
     	SELECT COUNT(*) AS home_wins
     	FROM goals_diff_table
