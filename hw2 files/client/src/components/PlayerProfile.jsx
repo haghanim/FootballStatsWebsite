@@ -48,19 +48,19 @@ const radar = {
 
 };
 
-export default function PlayerProfile() {
+function PlayerProfile() {
     let { playerId } = useParams();
     const classes = useStyles();
     const [PlayerInfo, setPlayerInfo] = useState([]);
 
     useEffect(() => {
-
-        api.players.getPlayerProfile({ playerId })
+        console.log(playerId);
+        api.players.getPlayerProfile(playerId)
             .then((apiPlayerInfo) => {
                 setPlayerInfo(apiPlayerInfo)
             });
     }, [])
-    console.log(PlayerInfo);
+
     return (
         <div className="Dashboard">
 
@@ -69,7 +69,7 @@ export default function PlayerProfile() {
             <div className={classes.root}>
                 <Grid container spacing={3} align="center" justify="center" alignItems="center">
                     <Grid item xs={7}>
-                        <Paper className={classes.paper}><h3><strong>{Player} Profile</strong></h3></Paper>
+                        <Paper className={classes.paper}><h3><strong>{PlayerInfo.playerInfo.name} Profile</strong></h3></Paper>
                         <Table striped bordered variant="light">
 
                             <tbody>
@@ -135,3 +135,5 @@ export default function PlayerProfile() {
             </div></div>
     );
 }
+
+export default PlayerProfile;

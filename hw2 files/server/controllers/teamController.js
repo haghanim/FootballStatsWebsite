@@ -340,4 +340,13 @@ async function get30RecentGames(teamId) {
     })
 }
 
-module.exports = { getAllTeams, getTeamLeagues, getMostXgXaContributor, getMostProgressivePlayer, getMostDominantAgainst, getAvgAge, getWinPcts, get30RecentGames };
+module.exports = {
+    getAllTeams,
+    getTeamLeagues,
+    getMostXgXaContributor,
+    getMostProgressivePlayer,
+    getMostDominantAgainst,
+    getAvgAge,
+    getWinPcts,
+    get30RecentGames
+};
