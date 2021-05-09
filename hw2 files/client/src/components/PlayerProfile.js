@@ -1,6 +1,6 @@
 import { useParams } from 'react-router';
+import React, {Component, useEffect, useState } from 'react';
 import api from '../api';
-import React, { Component } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -51,6 +51,19 @@ const radar = {
 export default function PlayerProfile() {
     let { playerId } = useParams();
     const classes = useStyles();
+    const [PlayerInfo, setPlayerInfo] = useState([]);
+
+    useEffect(() => {
+        
+        api.players.getPlayerProfile({ playerId })
+            .then((apiPlayerInfo) => {
+                console.log({ playerId });
+                console.log(apiPlayerInfo);
+                console.log("bye");
+                setPlayerInfo(apiPlayerInfo)
+            });
+    }, [])
+    console.log("bye2");
 
   return (
     <div className="Dashboard">
@@ -85,7 +98,7 @@ export default function PlayerProfile() {
   </tbody>
 </Table>
       </Grid>
-      <Grid item xs={6} className={classes.color} borderRadius={16} borderColor="primary.main">
+      <Grid item xs={6} className={classes.color}>
       <div id="chart">
   <ReactApexChart options={radar.options} series={radar.series} type="radar" height={350} />
 </div>
