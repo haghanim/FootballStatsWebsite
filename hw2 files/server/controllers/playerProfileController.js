@@ -102,7 +102,7 @@ function makeQueryGetPercentileForSelectedStatAndYear_GK(playerId, inputStat) {
     	ORDER BY ROWNUMBER ASC
     	LIMIT 1
     )
-    SELECT spr.ROWNUMBER / nops.total AS ${inputStat}_Percentile
+    SELECT ROUND(spr.ROWNUMBER / nops.total, 2)*100 AS ${inputStat}
     FROM number_of_player_stats nops, selected_players_ranking spr
     `;
     return new Promise((resolve, reject) => {
@@ -152,7 +152,7 @@ function makeQueryGetPercentileForSelectedStatAndYear_Outfield(playerId, inputSt
 	     ORDER BY ROWNUMBER ASC
 	     LIMIT 1
     )
-    SELECT spr.ROWNUMBER / nops.total AS ${inputStat}_Percentile
+    SELECT ROUND(spr.ROWNUMBER / nops.total, 2)*100 AS ${inputStat}
     FROM number_of_player_stats nops, selected_players_ranking spr
     `;
     return new Promise((resolve, reject) => {

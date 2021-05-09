@@ -8,6 +8,35 @@ import PageNavbar from './PageNavbar';
 import Table from 'react-bootstrap/Table';
 import ReactApexChart from "react-apexcharts";
 
+const dict = {
+    'pct_of_dribblers_tackled': '% of Dribblers Tackled', 
+    'succ_pressure_pct' : 'Successful Pressures % Rate',
+    'interceptions' : 'Interceptions',
+    'aerials_won_pct' : '% of Aerial Won',
+    'prog_passes' : 'Progressive Passes',
+    'long_pass_comp_pct' : 'Long Pass Completion Rate',
+    'succ_dribbles' : 'Successful Dribbles', 
+    'xA' : 'Expected Assists',
+    'prog_receptions' : 'Progressive Receptions', 
+    'npxG' : 'Non Penalty Expected Goals',
+    'npxG_per_Shot' : 'Non Penalty Expected Goals / Shot', 
+    'Shots' : 'Shots',
+    'penalty_save_percentage' : '% of Penalties Saved', 
+    'PSxG_difference' : 'Post Shot Expected Goals - Actual Goals',
+    'AvgDist' : 'Average Defensive Action Distance', 
+    'stop_percentage' : 'Stoppage Rate', 
+    'long_pass_completion_pct' : 'Long Pass Completion Rate',
+    'defensive_actions' : 'Defensive Actions',
+    'players_tackled_plus_interceptions' : 'Tackles + Interceptions', 
+    'comp_passes_leading_to_final_third' : 'Completed Passes into Final 3rd', 
+    'tot_dist_traveled_by_comp_passes' : 'Dist. Traveled by Comp. Passes', 
+    'aerials_won' : 'Aerials Won', 
+    'loose_balls_recovered' : 'Loose Balls Recovered', 
+    'fouls_drawn' : 'Fouls Drawn', 
+    'comp_passes_into_18_yd_box' : 'Completed Passes into Penalty Box', 
+};
+
+
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -26,40 +55,89 @@ const useStyles = makeStyles((theme) => ({
 
 const Player = "Joe Soccer";
 
-const radar = {
 
-    series: [{
-        name: 'dsdfsdf 1',
-        data: [80, 50, 30, 40, 100, 20],
-    }],
-    options: {
-        chart: {
-            height: 350,
-            type: 'radar',
-        },
-        title: {
-            text: 'Player Stats'
-        },
-        xaxis: {
-            categories: ['Shooting', 'Passing', 'Scoring', 'Defence', 'Offense', 'Saves']
-        }
-    },
-
-
-};
 
 function PlayerProfile() {
     let { playerId } = useParams();
     const classes = useStyles();
     const [PlayerInfo, setPlayerInfo] = useState([]);
+    const [radar, setRadar] = useState({
 
-    useEffect(() => {
-        console.log(playerId);
-        api.players.getPlayerProfile(playerId)
+        series: [{
+            name: '',
+            data: [0, 0, 0, 0, 0, 0,]
+        }],
+        options: {
+            chart: {
+                height: 350,
+                type: 'radar',
+            },
+            title: {
+                text: 'Player Stats'
+            },
+            xaxis: {
+                categories: ['', '', '', '', '', '']
+            }
+        },
+    
+    
+    })
+
+    useEffect( async () => {
+        await api.players.getPlayerProfile({ playerId })
             .then((apiPlayerInfo) => {
-                setPlayerInfo(apiPlayerInfo)
-            });
-    }, [])
+                apiPlayerInfo.playerInfo.nationality = apiPlayerInfo.playerInfo.nationality.slice(-3);
+                setPlayerInfo(apiPlayerInfo);
+                setRadar({
+
+                    series: [{
+                        name: '',
+                        data: [Object.values(apiPlayerInfo.radarStats[0])[0], Object.values(apiPlayerInfo.radarStats[1])[0], Object.values(apiPlayerInfo.radarStats[2])[0],
+                        Object.values(apiPlayerInfo.radarStats[3])[0], Object.values(apiPlayerInfo.radarStats[4])[0], Object.values(apiPlayerInfo.radarStats[5])[0]]
+                    }],
+                    options: {
+                        chart: {
+                            height: 500,
+                            type: 'radar',
+                        },
+                        title: {
+                            text: 'Player Stats'
+                        },
+                        xaxis: {
+                            categories: [dict[Object.keys(apiPlayerInfo.radarStats[0])[0]], dict[Object.keys(apiPlayerInfo.radarStats[1])[0]], dict[Object.keys(apiPlayerInfo.radarStats[2])[0]], 
+                            dict[Object.keys(apiPlayerInfo.radarStats[3])[0]], dict[Object.keys(apiPlayerInfo.radarStats[4])[0]], dict[Object.keys(apiPlayerInfo.radarStats[5])[0]]]
+                        }
+                    },
+                
+                
+                });
+            })
+    }, []);
+
+    
+    // const radar = {
+
+    //     series: [{
+    //         name: 'dsdfsdf 1',
+    //         data: [30, 50, 30, 40, 100, 20],
+    //     }],
+    //     options: {
+    //         chart: {
+    //             height: 350,
+    //             type: 'radar',
+    //         },
+    //         title: {
+    //             text: 'Player Stats'
+    //         },
+    //         xaxis: {
+    //             categories: ['Shooting', 'Passing', 'Scoring', 'Defence', 'Offense', 'Saves']
+    //         }
+    //     },
+    
+    
+    // };
+
+    
 
     return (
         <div className="Dashboard">
@@ -69,27 +147,21 @@ function PlayerProfile() {
             <div className={classes.root}>
                 <Grid container spacing={3} align="center" justify="center" alignItems="center">
                     <Grid item xs={7}>
-                        <Paper className={classes.paper}><h3><strong>{PlayerInfo.playerInfo.name} Profile</strong></h3></Paper>
+                        <Paper className={classes.paper}><h3><strong>{PlayerInfo && PlayerInfo.playerInfo && PlayerInfo.playerInfo.name} Profile</strong></h3></Paper>
                         <Table striped bordered variant="light">
 
                             <tbody>
                                 <tr>
                                     <td><strong>Club:</strong></td>
-                                    <td>Mark</td>
+                                    <td>{PlayerInfo && PlayerInfo.playerInfo && PlayerInfo.playerInfo.Club}</td>
                                     <td><strong>Birth Year:</strong></td>
-                                    <td>@mdo</td>
+                                    <td>{PlayerInfo && PlayerInfo.playerInfo && PlayerInfo.playerInfo.year_born}</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Nationality:</strong></td>
-                                    <td>Jacob</td>
+                                    <td>{PlayerInfo && PlayerInfo.playerInfo && PlayerInfo.playerInfo.nationality}</td>
                                     <td><strong>Primary Position:</strong></td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Nationality:</strong></td>
-                                    <td>Larry the Bird</td>
-                                    <td><strong>Nationality:</strong></td>
-                                    <td>Larry the Bird</td>
+                                    <td>{PlayerInfo && PlayerInfo.playerInfo && PlayerInfo.playerInfo.Position}</td>
                                 </tr>
                             </tbody>
                         </Table>
