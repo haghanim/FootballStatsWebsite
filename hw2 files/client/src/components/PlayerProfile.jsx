@@ -95,7 +95,7 @@ function PlayerProfile() {
 
 
                     var js = JSON.stringify(apiPlayerInfo.playerStats);
-                    var jsf = JSON.parse(js.replaceAll("/90s_played", "").replaceAll("succ_dribbles", "Successful Dribbles").replaceAll("prog_receptions", "Progressive Receptions  ").replaceAll("npxG_per_Shot", "npxG Per Shot").replaceAll("season", "Season").replaceAll("team", "Team").replaceAll("league", "League"));
+                    var jsf = JSON.parse(js.replaceAll("/90s_played", "").replaceAll("succ_dribbles", "Successful Dribbles").replaceAll("prog_receptions", "Progressive Receptions  ").replaceAll("npxG_per_Shot", "npxG Per Shot").replaceAll("season", "Season").replaceAll("team", "Team").replaceAll("league", "League").replaceAll("comp_passes_into_18_yd_box", "Passes Into 18yd Box").replaceAll("fouls_drawn", "Fouls Drawn"));
 
                     setItems(jsf);
 
@@ -165,7 +165,7 @@ function PlayerProfile() {
                     </Grid>
                     
                     <Grid item xs={7}>
-                        <Paper className={classes.paper}><h5><strong>Player Stats</strong></h5></Paper>
+                        <Paper className={classes.paper}><h5><strong>Player Stats, per 90s played</strong></h5></Paper>
                         <JsonTable rows = {items} className = "jsonOdd" header = {false} />
                         
                     </Grid>
