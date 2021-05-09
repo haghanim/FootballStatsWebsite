@@ -10,15 +10,15 @@ import ReactApexChart from "react-apexcharts";
 
 const dict = {
     'tackles': 'Tackles', 
-    'succ_pressures' : 'Successful Pressures',
+    'succ_pressures' : 'Pressures',
     'interceptions' : 'Interceptions',
-    'aerials_won' : 'Aerials Won',
+    'aerials_won' : 'Aerials',
     'prog_passes' : 'Progressive Passes',
-    'long_passes_comp' : 'Long Passes Completed',
-    'succ_dribbles' : 'Successful Dribbles', 
+    'long_passes_comp' : 'Long Passes',
+    'succ_dribbles' : 'Dribbling', 
     'xA' : 'Expected Assists',
-    'prog_receptions' : 'Progressive Receptions', 
-    'npxG' : 'Non Penalty Expected Goals',
+    'prog_receptions' : 'Prog Receptions', 
+    'npxG' : 'Non Penalty xG',
     'npxG_per_Shot' : 'Non Penalty Expected Goals / Shot', 
     'Shots' : 'Shots',
     'penalty_save_percentage' : '% of Penalties Saved', 
@@ -33,7 +33,7 @@ const dict = {
     'aerials_won' : 'Aerials Won', 
     'loose_balls_recovered' : 'Loose Balls Recovered', 
     'fouls_drawn' : 'Fouls Drawn', 
-    'comp_passes_into_18_yd_box' : 'Completed Passes into Penalty Box', 
+    'comp_passes_into_18_yd_box' : 'Passes into Box', 
 };
 
 
@@ -83,8 +83,8 @@ function PlayerProfile() {
     
     })
 
-    useEffect( async () => {
-        await api.players.getPlayerProfile({ playerId })
+    useEffect( () => {
+         api.players.getPlayerProfile({ playerId })
             .then((apiPlayerInfo) => {
                 apiPlayerInfo.playerInfo.nationality = apiPlayerInfo.playerInfo.nationality.slice(-3);
                 setPlayerInfo(apiPlayerInfo);
@@ -106,7 +106,15 @@ function PlayerProfile() {
                         xaxis: {
                             categories: [dict[Object.keys(apiPlayerInfo.radarStats[0])[0]], dict[Object.keys(apiPlayerInfo.radarStats[1])[0]], dict[Object.keys(apiPlayerInfo.radarStats[2])[0]], 
                             dict[Object.keys(apiPlayerInfo.radarStats[3])[0]], dict[Object.keys(apiPlayerInfo.radarStats[4])[0]], dict[Object.keys(apiPlayerInfo.radarStats[5])[0]]]
-                        }
+                        },
+                        yaxis: {show: false, min: 0, max: 100,}, 
+                        dataLabels: {
+                            enabled: false,
+                            background: {
+                              enabled: true,
+                              borderRadius:2,
+                            }
+                          }
                     },
                 
                 
@@ -115,27 +123,6 @@ function PlayerProfile() {
     }, []);
 
     
-    // const radar = {
-
-    //     series: [{
-    //         name: 'dsdfsdf 1',
-    //         data: [30, 50, 30, 40, 100, 20],
-    //     }],
-    //     options: {
-    //         chart: {
-    //             height: 350,
-    //             type: 'radar',
-    //         },
-    //         title: {
-    //             text: 'Player Stats'
-    //         },
-    //         xaxis: {
-    //             categories: ['Shooting', 'Passing', 'Scoring', 'Defence', 'Offense', 'Saves']
-    //         }
-    //     },
-    
-    
-    // };
 
     
 
@@ -145,7 +132,7 @@ function PlayerProfile() {
             <PageNavbar active="dashboard" />
             <span>  .</span>
             <div className={classes.root}>
-                <Grid container spacing={3} align="center" justify="center" alignItems="center">
+                <Grid container spacing={2} align="center" justify="center" alignItems="center">
                     <Grid item xs={7}>
                         <Paper className={classes.paper}><h3><strong>{PlayerInfo && PlayerInfo.playerInfo && PlayerInfo.playerInfo.name} Profile</strong></h3></Paper>
                         <Table striped bordered variant="light">
@@ -168,7 +155,7 @@ function PlayerProfile() {
                     </Grid>
                     <Grid item xs={6} className={classes.color}>
                         <div id="chart">
-                            <ReactApexChart options={radar.options} series={radar.series} type="radar" height={350} />
+                            <ReactApexChart options={radar.options} series={radar.series} type="radar" height={450} />
                         </div>
                     </Grid>
                     <Grid item xs={5}>
