@@ -12,13 +12,13 @@ const connection = mysql.createPool(config);
 /* -------------------------------------------------- */
 
 const getAllTeams = (req, res) => {
-    TeamController.getAllTeams()
-    .then((teamList) => {
-        res.status(200).json(teamList);
-    })
-    .catch((err) => {
-        res.status(400).json({message: err});
-    })
+    return TeamController.getAllTeams()
+        .then((teamList) => {
+            res.status(200).json(teamList);
+        })
+        .catch((err) => {
+            res.status(400).json({ message: err });
+        })
 };
 
 const getTeamLeagues = (req, res) => {
@@ -326,7 +326,7 @@ const get30RecentGames = (req, res) => {
         FROM teamAwayXG)
         ORDER BY date DESC
   `;
-    connection.query(query, function(err, rows, fields) {
+    connection.query(query, function (err, rows, fields) {
         console.log('hello')
 
         if (err) console.log(err);
