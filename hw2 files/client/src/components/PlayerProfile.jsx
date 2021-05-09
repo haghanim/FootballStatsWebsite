@@ -9,12 +9,12 @@ import Table from 'react-bootstrap/Table';
 import ReactApexChart from "react-apexcharts";
 
 const dict = {
-    'pct_of_dribblers_tackled': '% of Dribblers Tackled', 
-    'succ_pressure_pct' : 'Successful Pressures % Rate',
+    'tackles': 'Tackles', 
+    'succ_pressures' : 'Successful Pressures',
     'interceptions' : 'Interceptions',
-    'aerials_won_pct' : '% of Aerial Won',
+    'aerials_won' : 'Aerials Won',
     'prog_passes' : 'Progressive Passes',
-    'long_pass_comp_pct' : 'Long Pass Completion Rate',
+    'long_passes_comp' : 'Long Passes Completed',
     'succ_dribbles' : 'Successful Dribbles', 
     'xA' : 'Expected Assists',
     'prog_receptions' : 'Progressive Receptions', 
