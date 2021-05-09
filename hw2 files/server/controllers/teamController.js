@@ -3,7 +3,7 @@ const mysql = require('mysql');
 config.connectionLimit = 10;
 const connection = mysql.createPool(config);
 
-async function getAllteams() {
+async function getAllTeams() {
     var query = `
     SELECT *
     FROM team;`;
@@ -19,4 +19,4 @@ async function getAllteams() {
     })
 }
 
-module.exports = {getAllteams};
+module.exports = { getAllTeams };
