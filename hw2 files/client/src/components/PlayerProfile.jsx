@@ -57,7 +57,7 @@ const Player = "Joe Soccer";
 
 
 
-export default function PlayerProfile() {
+function PlayerProfile() {
     let { playerId } = useParams();
     const classes = useStyles();
     const [PlayerInfo, setPlayerInfo] = useState([]);
@@ -207,3 +207,5 @@ export default function PlayerProfile() {
             </div></div>
     );
 }
+
+export default PlayerProfile;

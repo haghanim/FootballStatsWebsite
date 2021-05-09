@@ -26,24 +26,21 @@ const getPlayerProfile = (req, res) => {
                 })
         }).catch((err) => {
             console.log(err.message);
-            res.status(400).send('error');
+            res.status(400).send(err);
         })
 }
 
 
 const getAllPlayers = (req, res) => {
-    var query = `
-    SELECT *
-    FROM getAllPlayers`;
 
-    connection.query(query, function (err, rows, fields) {
-        if (err) {
-            // console.log(err);
-            res.status(400).json({ 'message': 'generic error message' });
-        } else {
-            res.status(200).json(rows);
-        }
-    });
+
+    return PlayerProfileController.getAllPlayers()
+        .then((playersList) => {
+            res.status(200).json(playersList);
+        })
+        .catch((err) => {
+            res.status(400).json(err);
+        })
 }
 
 // Keep this

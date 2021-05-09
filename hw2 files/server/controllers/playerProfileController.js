@@ -3,6 +3,23 @@ const mysql = require('mysql');
 config.connectionLimit = 10;
 const connection = mysql.createPool(config);
 
+async function getAllPlayers() {
+    var query = `
+    SELECT *
+    FROM getAllPlayers`;
+
+    return new Promise((resolve, reject) => {
+        connection.query(query, function (err, rows, fields) {
+            if (err) {
+                // console.log(err);
+                reject(new Error(err));
+            } else {
+                resolve(rows);
+            }
+        });
+    })
+}
+
 async function getPlayerInfo(playerId) {
     const query = `
     SELECT *
@@ -241,4 +258,4 @@ function makeQueryGetStat_GK(playerId, inputStat) {
     })
 }
 
-module.exports = { getPlayerInfo, getRadarStats, getStats }
+module.exports = { getPlayerInfo, getRadarStats, getStats, getAllPlayers, }
