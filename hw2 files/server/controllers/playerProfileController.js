@@ -50,7 +50,7 @@ async function getRadarStats(playerId, position, secondary_position) {
         'comp_passes_into_18_yd_box', 'Shots'];
 
     const goalkeeperStats = ['penalties_allowed', 'PSxG_difference',
-        'SoTA', 'stop_percentage', 'long_passes_completed', 'defensive_actions'];
+        'SoTA', 'crosses_stopped', 'long_passes_completed', 'defensive_actions'];
 
     const defensiveMidfielderStats = ['players_tackled_plus_interceptions', 'succ_pressures',
         'comp_passes_leading_to_final_third', 'tot_dist_traveled_by_comp_passes', 'aerials_won', 'loose_balls_recovered'];

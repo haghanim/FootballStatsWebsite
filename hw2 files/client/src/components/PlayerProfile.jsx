@@ -8,7 +8,7 @@ import PageNavbar from './PageNavbar';
 import Table from 'react-bootstrap/Table';
 import ReactApexChart from "react-apexcharts";
 
-
+        
 const dict = {
     'tackles': 'Tackles', 
     'succ_pressures' : 'Successful Pressures',
