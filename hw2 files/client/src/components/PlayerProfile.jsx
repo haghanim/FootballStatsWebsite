@@ -8,24 +8,24 @@ import PageNavbar from './PageNavbar';
 import Table from 'react-bootstrap/Table';
 import ReactApexChart from "react-apexcharts";
 
+        
 const dict = {
     'tackles': 'Tackles', 
     'succ_pressures' : 'Pressures',
     'interceptions' : 'Interceptions',
     'aerials_won' : 'Aerials',
     'prog_passes' : 'Progressive Passes',
-    'long_passes_comp' : 'Long Passes',
-    'succ_dribbles' : 'Dribbling', 
-    'xA' : 'Expected Assists',
+    'long_passes_comp': 'Long Passes Completed',
+    'succ_dribbles' : 'Successful Dribbles', 
+    'xA': 'Expected Assists',
     'prog_receptions' : 'Progressive Receptions', 
-    'npxG' : 'Non Penalty xG',
-    'npxG_per_Shot' : 'Non Penalty Expected Goals / Shot', 
-    'Shots' : 'Shots',
-    'penalty_save_percentage' : '% of Penalties Saved', 
-    'PSxG_difference' : 'Post Shot Expected Goals - Actual Goals',
-    'AvgDist' : 'Average Defensive Action Distance', 
-    'stop_percentage' : 'Stoppage Rate', 
-    'long_pass_completion_pct' : 'Long Pass Completion Rate',
+    'npxG' : 'Non Penalty Expected Goals',
+    'Shots': 'Shots',
+    'long_passes_completed': 'Long Passes Completed GK',
+    'penalties_allowed': 'Penalties Allowed',
+    'PSxG_difference': 'Post Shot Expected Goals - Actual Goals',
+    'SoTA' : 'Shots on Target Against',
+    'crosses_stopped' : 'Crosses Stopped', 
     'defensive_actions' : 'Defensive Actions',
     'players_tackled_plus_interceptions' : 'Tackles + Interceptions', 
     'comp_passes_leading_to_final_third' : 'Completed Passes into Final 3rd', 
@@ -132,7 +132,7 @@ function PlayerProfile() {
             <PageNavbar active="dashboard" />
             <span>  .</span>
             <div className={classes.root}>
-                <Grid container spacing={3} align="center" justify="center" alignItems="center">
+                <Grid container spacing={2} align="center" justify="center" alignItems="center">
                     <Grid item xs={7}>
                         <Paper className={classes.paper}><h3><strong>{PlayerInfo && PlayerInfo.playerInfo && PlayerInfo.playerInfo.name} Profile</strong></h3></Paper>
                         <Table striped bordered variant="light">
@@ -155,7 +155,7 @@ function PlayerProfile() {
                     </Grid>
                     <Grid item xs={6} className={classes.color}>
                         <div id="chart">
-                            <ReactApexChart options={radar.options} series={radar.series} type="radar" height={460} />
+                            <ReactApexChart options={radar.options} series={radar.series} type="radar" height={450} />
                         </div>
                     </Grid>
                     <Grid item xs={5}>
