@@ -1,5 +1,4 @@
 import React from 'react';
-import '../style/Dashboard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
 import '../style/Player.css';
@@ -63,7 +62,7 @@ export default class League extends React.Component {
     this.onClickLi = this.onClickLi.bind(this);
     this.onClickB = this.onClickB.bind(this);
     this.onClickS = this.onClickS.bind(this);
-    
+
   };
 
   onClickP() {
@@ -185,7 +184,7 @@ export default class League extends React.Component {
     <button type="button" class="btn btn-primary pad" onClick = {this.onClickB}>Bundesliga</button>,
     <button type="button" class="btn btn-primary pad" onClick = {this.onClickS}>Serie A</button>];
 
-    
+
 
     api.leagues.getLeagueProfile('ucl')
       .then((apiLeagueInfo) => {
@@ -199,7 +198,7 @@ export default class League extends React.Component {
       })
 
   };
-  
+
 
   render() {
     return (
@@ -208,7 +207,7 @@ export default class League extends React.Component {
         <PageNavbar active="dashboard" />
 
         <br />
-        <div className="container movies-container">
+        <div className="container league-container">
           <div className="j3">
             <div className="let" ><h4>SELECT LEAGUE:</h4></div>
             <div className="keywords-container">
@@ -218,7 +217,7 @@ export default class League extends React.Component {
 
           <br />
 
-          <div className="movies-container">
+          <div className="league-info-container">
             <div className="results-container" id="results">
               <Grid container spacing={4} align="center" justify="center" alignItems="center">
                 <Grid item xs={6} >
@@ -273,7 +272,7 @@ export default class League extends React.Component {
                             title=""
                         />
                 </Grid>
-                
+
                 <Grid item xs={13} borderRadius={16} borderColor="primary.main">
 
                   <Paper class="ted" ><h3 class="led"><strong> Offensive Stats </strong></h3></Paper>
@@ -291,7 +290,7 @@ export default class League extends React.Component {
                                 { title: "Goal Creating Actions per Game", field: "Goal_Creating_Actions_per_Game" },
                                 { title: "Shot Creating Actions per Game", field: "Shot_Creating_Actions_per_Game" },
                                 { title: "Non Penalty xG per Shot per Game", field: "npxG_per_Shot_per_Game" },
-                                
+
                             ]}
                             data={this.state.stats.teamOffensiveStats
                             }
@@ -315,7 +314,7 @@ export default class League extends React.Component {
                                 { title: "Successful Pressures", field: "Successful Pressures" },
                                 { title: "Tackles + Interceptions", field: "Tackles + Int" },
                                 { title: "Tackles Won", field: "Tackles Won" },
-                                
+
                             ]}
                             data={this.state.stats.teamDefensiveStats
                             }
