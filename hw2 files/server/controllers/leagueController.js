@@ -91,15 +91,10 @@ async function getHistoricalLeagueTable(leagueName) {
         FROM draws
         GROUP BY draws.away)
         ORDER BY points DESC
-    ),
-    orderedTemp AS (
-		SELECT team_name, SUM(points) AS points
-        FROM temp 
-        GROUP BY team_name
-        ORDER BY points DESC
     )
-    SELECT RANK() OVER(ORDER BY points desc) AS 'rank', team_name, points
-    FROM orderedTemp
+    SELECT team_name, SUM(points)
+    FROM temp
+    GROUP BY team_name;
     `;
     return new Promise((resolve, reject) => {
         connection.query(query, function (err, rows, fields) {
@@ -192,7 +187,7 @@ async function getTeamDefensiveStats(leagueName) {
             pdas.tackles_won,
             pdas.tackles_in_att_3rd,
             pdas.pressures_attempted,
-            pdas.succ_pressure_pct,
+            pdas.succ_pressures,
             pdas.pressures_in_att_3rd,
             pdas.players_tackled_plus_interceptions,
             pdas.errors_leading_to_shot_attempts,
@@ -210,7 +205,7 @@ async function getTeamDefensiveStats(leagueName) {
         SUM(tackles_won) AS tackles_won,
         SUM(tackles_in_att_3rd) AS tackles_in_att_3rd,
         SUM(pressures_attempted) AS pressures_attempted,
-        SUM(succ_pressure_pct) AS succ_pressure_pct,
+        SUM(succ_pressures) AS succ_pressures,
         SUM(players_tackled_plus_interceptions) AS players_tackled_plus_interceptions,
         SUM(errors_leading_to_shot_attempts) AS errors_leading_to_shot_attempts,
         SUM(fouls_committed) AS fouls_committed,
@@ -240,8 +235,8 @@ async function getTeamDefensiveStats(leagueName) {
     SELECT a.team, a.season,
     ROUND(a.tackles_won/(t.tot/10)*90, 2) AS 'Tackles Won',
     ROUND(a.tackles_in_att_3rd/(t.tot/10)*90, 2) AS 'Att 3rd Tackles',
-    ROUND(a.pressures_attempted/(t.tot/10)*90, 2) AS 'Att 3rd Tackles %',
-    ROUND(a.succ_pressure_pct/(t.tot/10)*90, 2) AS 'Successful Pressures',
+    ROUND(a.tackles_in_att_3rd/a.tackles_won*100, 2) AS 'Att 3rd Tackles %',
+    ROUND(a.succ_pressures/(t.tot/10)*90, 2) AS 'Successful Pressures',
     ROUND(a.players_tackled_plus_interceptions/(t.tot/10)*90, 2) AS 'Tackles + Int',
     ROUND(a.errors_leading_to_shot_attempts/(t.tot/10)*90, 2) AS 'Errors to shots',
     ROUND(a.fouls_committed/(t.tot/10)*90, 2) AS 'Fouls'
