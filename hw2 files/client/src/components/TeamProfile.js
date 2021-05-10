@@ -10,7 +10,7 @@ import PageNavbar from './PageNavbar';
 import '../style/Player.css';
 import Table from 'react-bootstrap/Table';
 import api from '../api';
-
+import { useHistory } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 export default function TeamProfile() {
   let { teamId } = useParams();
   const classes = useStyles();
+  let history = useHistory();
   const [dominant, setDominant] = useState({b1: "Not Enough Data", b2: "Not Enough Data", b3: "Not Enough Data", b4: "Not Enough Data"
                                             ,w1: "Not Enough Data", w2: "Not Enough Data", w3: "Not Enough Data", w4: "Not Enough Data"});
   const [teamInfo, setTeamInfo] = useState([]);
@@ -356,7 +357,8 @@ export default function TeamProfile() {
     <div className="Dashboard">
 
       <PageNavbar active="dashboard" />
-      <span>  .</span>
+      
+      <button type="button" class="btn btn-secondary pad" onClick={() => history.goBack() } >Go Back</button>
       <div className={classes.root}>
         <Grid container spacing={4} align="center" justify="center" alignItems="center">
           <Grid item xs={8} >

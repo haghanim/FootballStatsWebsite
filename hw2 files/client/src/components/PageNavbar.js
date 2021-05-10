@@ -1,5 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../style/Player.css';
+import pic from './ball.png'
 
 export default class PageNavbar extends React.Component {
 	constructor(props) {
@@ -28,12 +30,16 @@ export default class PageNavbar extends React.Component {
 
 	render() {
 		return (
-			<div className="PageNavbar">
-				<nav className="navbar navbar-expand-lg navbar-light bg-light">
-			      <span className="navbar-brand center">YAMN Football Stats</span>
-			      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div >
+				
+				<nav className="navbar ml-auto navbar-expand-lg navbar-light bg-light">
+				<img src = {pic} className="ball"/>
+			      <span className="bar" >Y </span>
+			      <div className="ball" id="navbarNavAltMarkup">
 			        <div className="navbar-nav">
 			        	{this.state.navDivs}
+						<div className="bar" >YAMNFootballStatsYAMNFootballStatsYAMNFootballStatsYAMNFootballStatsYAMNFootballStatsYAMNFootballStatsYAMNFootballStats</div>
+						<div className="navbar-brand bar" >YAMN Football Stats</div>
 			        </div>
 			      </div>
 			    </nav>

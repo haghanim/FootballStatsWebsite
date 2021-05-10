@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import PageNavbar from './PageNavbar';
 import Table from 'react-bootstrap/Table';
 import ReactApexChart from "react-apexcharts";
+import { useHistory } from "react-router-dom";
 import '../style/Player.css';
 
 const JsonTable = require('ts-react-json-table');   
@@ -60,6 +61,7 @@ const Player = "Joe Soccer";
 
 function PlayerProfile() {
     let { playerId } = useParams();
+    let history = useHistory();
     const classes = useStyles();
     const [PlayerInfo, setPlayerInfo] = useState([]);
     const [items, setItems] = useState([{"Season": "n/a", "Team":  "n/a","League":  "n/a"}]);
@@ -95,7 +97,7 @@ function PlayerProfile() {
 
 
                     var js = JSON.stringify(apiPlayerInfo.playerStats);
-                    var jsf = JSON.parse(js.replaceAll("/90s_played", "").replaceAll("succ_dribbles", "Successful Dribbles").replaceAll("prog_receptions", "Progressive Receptions  ").replaceAll("npxG_per_Shot", "npxG Per Shot").replaceAll("season", "Season").replaceAll("team", "Team").replaceAll("league", "League").replaceAll("comp_passes_into_18_yd_box", "Passes Into 18yd Box").replaceAll("fouls_drawn", "Fouls Drawn"));
+                    var jsf = JSON.parse(js.replaceAll("/90s_played", "").replaceAll("succ_dribbles", "Successful Dribbles").replaceAll("prog_receptions", "Progressive Receptions  ").replaceAll("npxG_per_Shot", "npxG Per Shot").replaceAll("season", "Season").replaceAll("team", "Team").replaceAll("league", "League").replaceAll("comp_passes_into_18_yd_box", "Passes Into 18yd Box").replaceAll("fouls_drawn", "Fouls Drawn").replaceAll("eng", "").replaceAll("pct_of_dribblers_tackled", "Dribblers Tackled %").replaceAll("succ_pressure_pct", "Successful Pressure %").replaceAll("prog_passes", "Progressive Passes").replaceAll("aerials_won_pct", "Aerials Won %").replaceAll("long_pass_comp_pct", "Long Pass Completion %"));
 
                     setItems(jsf);
 
@@ -140,8 +142,8 @@ function PlayerProfile() {
         <div className="Dashboard">
 
             <PageNavbar active="dashboard" />
-            <span>  .</span>
             <div className={classes.root}>
+            <button type="button" class="btn btn-secondary pad" onClick={() => history.goBack() } >Go Back</button>
                 <Grid container spacing={3} align="center" justify="center" alignItems="center">
                     <Grid item xs={7}>
                         <Paper className={classes.paper}><h3><strong>{PlayerInfo && PlayerInfo.playerInfo && PlayerInfo.playerInfo.name}</strong></h3></Paper>
