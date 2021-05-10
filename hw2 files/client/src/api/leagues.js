@@ -18,7 +18,7 @@ export function getAllLeagues() {
 }
 export function getLeagueProfile(leagueName) {
     return fetchWithErrors(
-        `http://localhost:8081/leagues/${leagueName}`,
+        `http://localhost:8081/leagues/profile/${leagueName}`,
         {
             method: "GET",
             headers: { 'Content-Type': 'application/json' },

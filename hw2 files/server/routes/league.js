@@ -18,21 +18,18 @@ const getAllLeagues = (req, res) => {
 
 const getLeagueProfile = (req, res) => {
     leagueName = req.params.leagueName;
-    return LeagueController.getAllLeagues(leagueName)
-        .then((leaguesList) => {
-            return LeagueController.getHomeVsAwayGoalDifferential(leagueName)
-                .then((homeVsAwayGoalDifferential) => {
-                    return LeagueController.getHistoricalLeagueTable(leagueName)
-                        .then((historicalLeagueTable) => {
-                            return LeagueController.getTeamOffensiveStats(leagueName)
-                                .then((teamOffensiveStats) => {
-                                    return LeagueController.getTeamDefensiveStats(leagueName)
-                                        .then((teamDefensiveStats) => {
-                                            res.status(200).json({
-                                                leaguesList, homeVsAwayGoalDifferential, historicalLeagueTable, teamOffensiveStats,
-                                                teamDefensiveStats
-                                            });
-                                        })
+    return LeagueController.getHomeVsAwayGoalDifferential(leagueName)
+        .then((homeVsAwayGoalDifferential) => {
+            return LeagueController.getHistoricalLeagueTable(leagueName)
+                .then((historicalLeagueTable) => {
+                    return LeagueController.getTeamOffensiveStats(leagueName)
+                        .then((teamOffensiveStats) => {
+                            return LeagueController.getTeamDefensiveStats(leagueName)
+                                .then((teamDefensiveStats) => {
+                                    res.status(200).json({
+                                        homeVsAwayGoalDifferential, historicalLeagueTable, teamOffensiveStats,
+                                        teamDefensiveStats
+                                    });
                                 })
                         })
                 })

@@ -15,52 +15,35 @@ export default class League extends React.Component {
     super(props);
     this.state = {
       keywords: [],
-      stats: {Country: "Select a League", Age: "Select a League"}
+      stats: { Country: "Select a League", Age: "Select a League" }
     };
 
     this.showStats = this.showStats.bind(this);
   };
 
-  
-  componentDidMount() {
-    
-    var keywordsList = [{kwd_name: "Premier League"}, {kwd_name: "Ligue 1"}, {kwd_name: "La Liga"}, {kwd_name: "Serie A"}, {kwd_name: "Bundesliga"}, {kwd_name: "Champions League"}, {kwd_name: "Europa League"}];
 
-      
-      const keywordsDivs = keywordsList.map((keywordObj, i) =>
-      <button type="button"  class="btn btn-primary pad">{keywordObj.kwd_name}</button>
-       
-      );
-      
-      this.setState({
-        keywords: keywordsDivs
-      });
-    
+  componentDidMount() {
+
+    var keywordsList = [{ kwd_name: "Premier League" }, { kwd_name: "Ligue 1" }, { kwd_name: "La Liga" }, { kwd_name: "Serie A" }, { kwd_name: "Bundesliga" }, { kwd_name: "Champions League" }, { kwd_name: "Europa League" }];
+
+
+    const keywordsDivs = keywordsList.map((keywordObj, i) =>
+      <button type="button" class="btn btn-primary pad">{keywordObj.kwd_name}</button>
+
+    );
+
+    this.setState({
+      keywords: keywordsDivs
+    });
+
+    api.leagues.getLeagueProfile('ucl')
+      .then((apiLeagueInfo) => {
+        console.log(apiLeagueInfo);
+      })
+
   };
-  showStats(keyword) {
-    fetch("http://localhost:8081/keywords/" + keyword,
-    {
-      method: 'GET' 
-    })
-      .then(res => res.json())
-      .then(statsList => {
-        console.log(statsList) 
-        let statsDivs = statsList.map((statsObj, i) =>
-          <DashboardMovieRow
-            title={statsObj.title}
-            rating={statsObj.rating}
-            num_ratings={statsObj.num_ratings}
-          />
-        );
-        
-        
-        this.setState({
-          stats: statsDivs
-        });
-      }, err => {
-        
-        console.log(err);
-      });
+  showStats() {
+
   };
 
   render() {
@@ -72,132 +55,132 @@ export default class League extends React.Component {
         <br />
         <div className="container movies-container">
           <div className="j2 ">
-          <div className="leg" ><h4>LEAGUES</h4></div>
+            <div className="leg" ><h4>LEAGUES</h4></div>
             <div className="keywords-container">
               {this.state.keywords}
             </div>
           </div>
 
           <br />
-          
-            <div className="movies-container">
-              <div className="results-container" id="results">
+
+          <div className="movies-container">
+            <div className="results-container" id="results">
               <Grid container spacing={4} align="center" justify="center" alignItems="center">
-          <Grid item xs={6} >
-            <Paper class= "ted" ><h3 class = "hed"><strong> League Info </strong></h3></Paper>
+                <Grid item xs={6} >
+                  <Paper class="ted" ><h3 class="hed"><strong> League Info </strong></h3></Paper>
 
-            <Table striped bordered variant="light">
+                  <Table striped bordered variant="light">
 
-              <tbody>
-                <tr>
-                  <td><strong>Country:</strong></td>
-                  <td>{this.state.stats.Country}</td>
-                  <td><strong>Average Age:</strong></td>
-                  <td>{this.state.stats.Age}</td>
-                </tr>
-              </tbody>
-            </Table>
-          </Grid>
-          </Grid>
+                    <tbody>
+                      <tr>
+                        <td><strong>Country:</strong></td>
+                        <td>{this.state.stats.Country}</td>
+                        <td><strong>Average Age:</strong></td>
+                        <td>{this.state.stats.Age}</td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </Grid>
+              </Grid>
           .
 
           <Grid container spacing={4} align="center" justify="center" alignItems="center">
-          <Grid item xs={6}  borderRadius={16} borderColor="primary.main">
+                <Grid item xs={6} borderRadius={16} borderColor="primary.main">
 
-          <Paper class= "ted" ><h3 class = "led"><strong> Home/Away Performance </strong></h3></Paper>
-            <Table striped bordered variant="light">
+                  <Paper class="ted" ><h3 class="led"><strong> Home/Away Performance </strong></h3></Paper>
+                  <Table striped bordered variant="light">
 
-              <thead>
-                <tr className="tab">
-                  <td><strong>Val1</strong></td>
-                  <td><strong>Val1</strong></td>
-                  <td><strong>Val1</strong></td>
-                  <td><strong>Val1</strong></td>
-                </tr>
-                </thead><tbody>
-                  <tr className="tab">
-                  <td>Val1</td>
-                  <td>Val2</td>
-                  <td>Val3</td>
-                  <td>Val4</td>
-                </tr>
-              </tbody>
-            </Table>
+                    <thead>
+                      <tr className="tab">
+                        <td><strong>Val1</strong></td>
+                        <td><strong>Val1</strong></td>
+                        <td><strong>Val1</strong></td>
+                        <td><strong>Val1</strong></td>
+                      </tr>
+                    </thead><tbody>
+                      <tr className="tab">
+                        <td>Val1</td>
+                        <td>Val2</td>
+                        <td>Val3</td>
+                        <td>Val4</td>
+                      </tr>
+                    </tbody>
+                  </Table>
 
-          </Grid>
-          <Grid item xs={6} borderRadius={16} borderColor="primary.main">
-          <Paper class= "ted" ><h3 class = "led"><strong> Defensive Stats </strong></h3></Paper>
-            <Table striped bordered variant="light">
+                </Grid>
+                <Grid item xs={6} borderRadius={16} borderColor="primary.main">
+                  <Paper class="ted" ><h3 class="led"><strong> Defensive Stats </strong></h3></Paper>
+                  <Table striped bordered variant="light">
 
-              <thead>
-                <tr className="tab">
-                  <td><strong>Val1</strong></td>
-                  <td><strong>Val1</strong></td>
-                  <td><strong>Val1</strong></td>
-                  <td><strong>Val1</strong></td>
-                </tr>
-                </thead><tbody>
-                  <tr className="tab">
-                  <td>Val1</td>
-                  <td>Val2</td>
-                  <td>Val3</td>
-                  <td>Val4</td>
-                </tr>
-              </tbody>
-            </Table>
-          </Grid>
-          <Grid item xs={6}  borderRadius={16} borderColor="primary.main">
+                    <thead>
+                      <tr className="tab">
+                        <td><strong>Val1</strong></td>
+                        <td><strong>Val1</strong></td>
+                        <td><strong>Val1</strong></td>
+                        <td><strong>Val1</strong></td>
+                      </tr>
+                    </thead><tbody>
+                      <tr className="tab">
+                        <td>Val1</td>
+                        <td>Val2</td>
+                        <td>Val3</td>
+                        <td>Val4</td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </Grid>
+                <Grid item xs={6} borderRadius={16} borderColor="primary.main">
 
-          <Paper class= "ted" ><h3 class = "led"><strong> Attacking Stats </strong></h3></Paper>
-            <Table striped bordered variant="light">
+                  <Paper class="ted" ><h3 class="led"><strong> Attacking Stats </strong></h3></Paper>
+                  <Table striped bordered variant="light">
 
-              <thead>
-                <tr className="tab">
-                  <td><strong>Val1</strong></td>
-                  <td><strong>Val1</strong></td>
-                  <td><strong>Val1</strong></td>
-                  <td><strong>Val1</strong></td>
-                </tr>
-                </thead><tbody>
-                  <tr className="tab">
-                  <td>Val1</td>
-                  <td>Val2</td>
-                  <td>Val3</td>
-                  <td>Val4</td>
-                </tr>
-              </tbody>
-            </Table>
+                    <thead>
+                      <tr className="tab">
+                        <td><strong>Val1</strong></td>
+                        <td><strong>Val1</strong></td>
+                        <td><strong>Val1</strong></td>
+                        <td><strong>Val1</strong></td>
+                      </tr>
+                    </thead><tbody>
+                      <tr className="tab">
+                        <td>Val1</td>
+                        <td>Val2</td>
+                        <td>Val3</td>
+                        <td>Val4</td>
+                      </tr>
+                    </tbody>
+                  </Table>
 
-          </Grid>
-          <Grid item xs={6}  borderRadius={16} borderColor="primary.main">
+                </Grid>
+                <Grid item xs={6} borderRadius={16} borderColor="primary.main">
 
-          <Paper class= "ted" ><h3 class = "led"><strong> Historical League Table </strong></h3></Paper>
-            <Table striped bordered variant="light">
+                  <Paper class="ted" ><h3 class="led"><strong> Historical League Table </strong></h3></Paper>
+                  <Table striped bordered variant="light">
 
-              <thead>
-                <tr className="tab">
-                  <td><strong>Val1</strong></td>
-                  <td><strong>Val1</strong></td>
-                  <td><strong>Val1</strong></td>
-                  <td><strong>Val1</strong></td>
-                </tr>
-                </thead><tbody>
-                  <tr className="tab">
-                  <td>Val1</td>
-                  <td>Val2</td>
-                  <td>Val3</td>
-                  <td>Val4</td>
-                </tr>
-              </tbody>
-            </Table>
+                    <thead>
+                      <tr className="tab">
+                        <td><strong>Val1</strong></td>
+                        <td><strong>Val1</strong></td>
+                        <td><strong>Val1</strong></td>
+                        <td><strong>Val1</strong></td>
+                      </tr>
+                    </thead><tbody>
+                      <tr className="tab">
+                        <td>Val1</td>
+                        <td>Val2</td>
+                        <td>Val3</td>
+                        <td>Val4</td>
+                      </tr>
+                    </tbody>
+                  </Table>
 
-          </Grid>
-        </Grid>
-              </div>
+                </Grid>
+              </Grid>
             </div>
           </div>
         </div>
-      
+      </div>
+
     );
   };
 };
