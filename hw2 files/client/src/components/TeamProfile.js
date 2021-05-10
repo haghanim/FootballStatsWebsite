@@ -33,8 +33,8 @@ export default function TeamProfile() {
   let { teamId } = useParams();
   const classes = useStyles();
   let history = useHistory();
-  const [dominant, setDominant] = useState({b1: "Not Enough Data", b2: "Not Enough Data", b3: "Not Enough Data", b4: "Not Enough Data"
-                                            ,w1: "Not Enough Data", w2: "Not Enough Data", w3: "Not Enough Data", w4: "Not Enough Data"});
+  const [dominant, setDominant] = useState({b1: "Not Enough Games Played", b2: "Not Enough Games Played", b3: "Not Enough Games Played", b4: "Not Enough Games Played"
+                                            ,w1: "Not Enough Games Played", w2: "Not Enough Games Played", w3: "Not Enough Games Played", w4: "Not Enough Games Played"});
   const [teamInfo, setTeamInfo] = useState([]);
   const [year, setYear] = useState("2021");
 

@@ -38,7 +38,7 @@ export default class PageNavbar extends React.Component {
 			      <div className="ball" id="navbarNavAltMarkup">
 			        <div className="navbar-nav">
 			        	{this.state.navDivs}
-						<div className="bar" >YAMNFootballStatsYAMNFootballStatsYAMNFootballStatsYAMNFootballStatsYAMNFootballStatsYAMNFootballStatsYAMNFootballStats</div>
+						<div className="bar" >AMNootballStatsYAMNFootballStatYamFootballSt</div>
 						<div className="navbar-brand bar" >YAMN Football Stats</div>
 			        </div>
 			      </div>
