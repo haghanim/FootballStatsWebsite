@@ -1,4 +1,4 @@
-# 550FinalProject - Instructions for how to set our project up locally 
+# YAMN Soccer Analytics Project - Instructions for how to set up our project locally 
 Take the following steps to set up web application:
 
 1. Cd into both the client and server folders, and run 'npm install'. This will download any dependencies we need for our application
