@@ -29,6 +29,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+let dict = {
+  'UCL' : 'Champions League',
+  'eng Premier League' : 'Premier League',
+  'es La Liga' : 'La Liga',
+  'it Serie A' : 'Serie A',
+  'de Bundesliga' : 'Bundesliga',
+  'fr Ligue 1': 'Ligue 1'
+  }
+
 export default function TeamProfile() {
   let { teamId } = useParams();
   const classes = useStyles();
@@ -376,21 +385,21 @@ export default function TeamProfile() {
               <tbody>
                 <tr>
                   <td><strong>League:</strong></td>
-                  <td>{teamInfo && teamInfo.leaguesList && teamInfo.leaguesList[0] && teamInfo.leaguesList[0].league}</td>
+                  <td>{(teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].home_win_pct) == null ? <p>No data this year</p>: <p>{dict[teamInfo && teamInfo.leaguesList && teamInfo.leaguesList[0] && teamInfo.leaguesList[0].league]}</p>}</td>
                   <td><strong>Home Win %:</strong></td>
-                  <td>{teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].home_win_pct + "%"}</td>
+                  <td>{(teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].home_win_pct) == null ? <p>No data this year</p>: <p>{teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].home_win_pct + "%"}</p>}</td>
                 </tr>
                 <tr>
                   <td><strong>Away Win %:</strong></td>
-                  <td>{teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].away_win_pct + "%"}</td>
+                  <td>{(teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].home_win_pct) == null ? <p>No data this year</p>: <p>{teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].away_win_pct + "%"}</p>}</td>
                   <td><strong>Total Win %:</strong></td>
-                  <td>{teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].total_win_pct + "%"}</td>
+                  <td>{(teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].home_win_pct) == null ? <p>No data this year</p>: <p>{teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].total_win_pct + "%"}</p>}</td>
                 </tr>
                 <tr>
                   <td><strong>Total Draw %:</strong></td>
-                  <td>{teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].total_draw_pct + "%"}</td>
+                  <td>{(teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].home_win_pct) == null ? <p>No data this year</p>: <p>{teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].total_draw_pct + "%"}</p>}</td>
                   <td><strong>Weighted Average Age:</strong></td>
-                  <td>{teamInfo && teamInfo.avgAge && teamInfo.avgAge.weighted_team_age}</td>
+                  <td>{(teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].home_win_pct) == null ? <p>No data this year</p>: <p>{teamInfo && teamInfo.avgAge && teamInfo.avgAge.weighted_team_age}</p>}</td>
                 </tr>
               </tbody>
             </Table>

@@ -210,7 +210,7 @@ export default class League extends React.Component {
 
         <br />
         <div className="container movies-container">
-          <div className="j2 ">
+          <div className="j3">
             <div className="let" ><h4>SELECT LEAGUE:</h4></div>
             <div className="keywords-container">
               {this.state.keywords}
@@ -262,7 +262,7 @@ export default class League extends React.Component {
                   <Paper class="ted" ><h3 class="led"><strong> Home/Away Goal Differentials </strong></h3></Paper>
                   <MaterialTable
                             icons={tableIcons}
-                            style={{ width: 700 }}
+                            style={{ width: 630 }}
                             columns={[
                                 { title: "Team Name", field: "team_name" },
                                 { title: "Home Goal Differential", field: "home_goal_diff" },
@@ -275,7 +275,7 @@ export default class League extends React.Component {
                         />
                 </Grid>
                 
-                <Grid item xs={12} borderRadius={16} borderColor="primary.main">
+                <Grid item xs={13} borderRadius={16} borderColor="primary.main">
 
                   <Paper class="ted" ><h3 class="led"><strong> Offensive Stats </strong></h3></Paper>
                   <MaterialTable
@@ -300,7 +300,7 @@ export default class League extends React.Component {
                         />
 
                 </Grid>
-                <Grid item xs={12} borderRadius={16} borderColor="primary.main">
+                <Grid item xs={13} borderRadius={16} borderColor="primary.main">
 
                   <Paper class="ted" ><h3 class="led"><strong> Defensive Stats </strong></h3></Paper>
                   <MaterialTable

@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
 import MaterialTable from "material-table";
 import { forwardRef } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import Check from '@material-ui/icons/Check';
@@ -21,6 +23,7 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import api from '../api';
+import Grid from '@material-ui/core/Grid';
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -42,9 +45,23 @@ const tableIcons = {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.primary,
+      justify: 'center',
+      container: true
+    },
+  }));
+
 function Teams() {
     const [teamsList, setTeamsList] = useState([]);
     const history = useHistory();
+    const classes = useStyles();
 
     useEffect(() => {
         api.teams.getAllTeams()
@@ -60,13 +77,14 @@ function Teams() {
 
 
 
-            <br />
-            <div className="container movies-container">
-                <div className="jumbotron">
-                    <div className="h3 text-center mb-5">Teams Database</div>
+            <br /><div className="container movies-container">
+            <div className={classes.root}>
+            <Grid  spacing={5} align = "center" justify = "center" alignItems = "center">
+      <Grid item xs={4}>
+                    <Paper className={classes.paper}><h3><strong>Teams Database</strong></h3></Paper>
                     <div style={{ maxWidth: "100%" }}>
 
-                        <MaterialTable
+                    <MaterialTable
                         actions={[
                             {
                                 icon: forwardRef((props, ref) => <Search {...props} ref={ref} />),
@@ -78,7 +96,7 @@ function Teams() {
                             }
                         ]}
                             icons={tableIcons}
-                            style={{ width: 400 }}
+                            style={{ width: 370 }}
                             columns={[
                                 { title: "Team Name", field: "name" },
                                 { title: "id", field: "team_id", hidden: true },
@@ -87,9 +105,7 @@ function Teams() {
                             }
                             title=""
                         />
-                    </div>
-
-                </div>
+                    </div></Grid></Grid></div>
 
                 <br />
 

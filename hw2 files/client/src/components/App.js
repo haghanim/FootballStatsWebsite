@@ -5,12 +5,6 @@ import {
 	Switch
 } from 'react-router-dom';
 
-// Delete
-import Dashboard from './Dashboard';
-import Recommendations from './Recommendations';
-import BestMovies from './BestMovies';
-
-// Import components 
 import Player from './Player';
 import Team from './Teams';
 import League from './League';

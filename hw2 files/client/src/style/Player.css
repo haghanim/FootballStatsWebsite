@@ -16,6 +16,16 @@
     background-color: #f0ececd7;
 }
 
+.j3 {
+  padding:10px 20px 30px 20px;
+  margin:0px auto;
+  color:black;
+  margin-left: 5%;
+  border-radius: 40px 40px;
+  width: 90%;
+  background-color: #f0ececd7;
+}
+
 /*.apexcharts-canvas{
     background: #fff
 }*/
@@ -70,6 +80,14 @@
     align-items: center;
   }
 
+  .rentered {
+    width:30%;
+  margin-left: 800%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .ser {
     font-family: Tahoma, sans-serif;
   }
@@ -111,6 +129,16 @@
 
   .led {
     width:90%;
+    margin-left: 4%;
+    padding-top:10px;
+    padding-bottom:10px;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .container {
+    width:50%;
     margin-left: 4%;
     padding-top:10px;
     padding-bottom:10px;
