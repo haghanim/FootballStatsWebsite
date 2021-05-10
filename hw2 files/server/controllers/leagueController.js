@@ -91,10 +91,16 @@ async function getHistoricalLeagueTable(leagueName) {
         FROM draws
         GROUP BY draws.away)
         ORDER BY points DESC
+    ),
+    orderedTemp AS (
+		SELECT team_name, SUM(points) AS points
+        FROM temp 
+        GROUP BY team_name
+        ORDER BY points DESC
     )
-    SELECT team_name, SUM(points)
-    FROM temp
-    GROUP BY team_name;
+
+    SELECT RANK() OVER(ORDER BY points desc) AS 'rank', team_name, points
+    FROM orderedTemp
     `;
     return new Promise((resolve, reject) => {
         connection.query(query, function (err, rows, fields) {
