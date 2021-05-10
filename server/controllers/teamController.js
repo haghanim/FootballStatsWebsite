@@ -20,7 +20,6 @@ async function getAllTeams() {
 }
 
 async function getTeamLeagues(teamId) {
-    console.log('getTeamLeagues');
     var query = `
     SELECT DISTINCT t.name, league
     FROM player_passing_stats pps
@@ -39,7 +38,6 @@ async function getTeamLeagues(teamId) {
 }
 
 async function getMostXgXaContributor(teamId) {
-    console.log('getMostXgXaContributer');
     var query = `
     WITH teamHomeXG AS(
         SELECT season, home AS team, sum(xG_Home) AS team_xG
@@ -111,7 +109,6 @@ async function getMostXgXaContributor(teamId) {
 }
 
 async function getMostProgressivePlayer(teamId, season) {
-    console.log('getMostProgressivePlayer');
     var query = `
     WITH team_outfielders AS(
         SELECT ppts.player_id,
@@ -167,8 +164,6 @@ async function getMostProgressivePlayer(teamId, season) {
 }
 
 async function getMostDominantAgainst(teamId) {
-    console.log('getMostDominantAgainst');
-
     var query = `
     WITH goals_diff AS(
         (SELECT t2.team_id AS against_id, (goals_scored_by_home - goals_scored_by_away) AS goals_diff
@@ -205,8 +200,6 @@ async function getMostDominantAgainst(teamId) {
 }
 
 async function getAvgAge(teamId, season) {
-    console.log('getAvgAge');
-
     var query = `
     WITH team_outfielders AS(
         SELECT ppts.player_id, ppts.league, ppts.minutes_played
@@ -255,8 +248,6 @@ async function getAvgAge(teamId, season) {
 }
 
 async function getWinPcts(teamId, season) {
-    console.log(season);
-
     var query = `
     WITH goals_diff_table AS(
     	SELECT t1.team_id AS home_id, t2.team_id AS away_id, (goals_scored_by_home - goals_scored_by_away) AS goals_diff
@@ -304,8 +295,6 @@ async function getWinPcts(teamId, season) {
 }
 
 async function get30RecentGames(teamId) {
-    console.log('get30RecentGames');
-
     var query = `
     WITH teamHomeXG AS(
         SELECT date, xG_Home AS team_xG, xG_Away AS team_xGA
