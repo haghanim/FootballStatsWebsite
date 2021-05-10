@@ -2,6 +2,28 @@ const config = require('../db-config');
 const mysql = require('mysql');
 config.connectionLimit = 10;
 const connection = mysql.createPool(config);
+const MongoClient = require('mongodb').MongoClient;
+
+function getLeagueLogo(leagueName) {
+    const uri = "mongodb+srv://admin:admin@football-db.vnhhi.mongodb.net/football_db?retryWrites=true&w=majority";
+    const client = new MongoClient(uri, { useUnifiedTopology: true });
+
+    return client.connect().then(() => {
+        return new Promise(async (resolve, reject) => {
+            const database = client.db("football_db");
+            database.collection("league_logos").find({name: leagueName}).toArray(
+                function(err, documents) {
+                    if(err) {
+                        return reject(err);
+                    } else {
+                        return resolve(documents);
+                    }
+                }
+            );
+        })
+    });
+
+}
 
 async function getAllLeagues() {
     var query = `
@@ -94,7 +116,7 @@ async function getHistoricalLeagueTable(leagueName) {
     ),
     orderedTemp AS (
 		SELECT team_name, SUM(points) AS points
-        FROM temp 
+        FROM temp
         GROUP BY team_name
         ORDER BY points DESC
     )
@@ -246,7 +268,7 @@ async function getTeamDefensiveStats(leagueName) {
     ROUND(a.players_tackled_plus_interceptions/(t.tot/10)*90, 2) AS 'Tackles + Int',
     ROUND(a.errors_leading_to_shot_attempts/(t.tot/10)*90, 2) AS 'Errors to shots',
     ROUND(a.fouls_committed/(t.tot/10)*90, 2) AS 'Fouls'
-    
+
     FROM aggregated_by_team a
     NATURAL JOIN norm_total_minutes_played t
     ORDER BY team, season;
@@ -265,9 +287,9 @@ async function getTeamDefensiveStats(leagueName) {
 
 module.exports = {
     getAllLeagues,
+    getLeagueLogo,
     getHomeVsAwayGoalDifferential,
     getHistoricalLeagueTable,
     getTeamOffensiveStats,
     getTeamDefensiveStats
 };
-

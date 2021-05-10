@@ -31,10 +31,9 @@ app.get('/teams', teamRoutes.getAllTeams);
 
 app.post('/teams/profile/', teamRoutes.getTeamProfile);
 
-app.get('/leagues', leagueRoutes.getAllLeagues)
+app.get('/leagues', leagueRoutes.getAllLeagues);
 
-app.get('/leagues/profile/:leagueName', leagueRoutes.getLeagueProfile)
-
+app.get('/leagues/profile/:leagueName', leagueRoutes.getLeagueProfile);
 
 app.listen(8081, () => {
     console.log(`Server listening on PORT 8081`);

@@ -26,10 +26,13 @@ const getLeagueProfile = (req, res) => {
                         .then((teamOffensiveStats) => {
                             return LeagueController.getTeamDefensiveStats(leagueName)
                                 .then((teamDefensiveStats) => {
-                                    res.status(200).json({
-                                        homeVsAwayGoalDifferential, historicalLeagueTable, teamOffensiveStats,
-                                        teamDefensiveStats
-                                    });
+                                    return LeagueController.getLeagueLogo(leagueName)
+                                        .then((leagueLogo) => {
+                                            res.status(200).json({
+                                                homeVsAwayGoalDifferential, historicalLeagueTable, teamOffensiveStats,
+                                                teamDefensiveStats, leagueLogo
+                                            });
+                                        })
                                 })
                         })
                 })
@@ -39,6 +42,23 @@ const getLeagueProfile = (req, res) => {
             res.status(400).send(err);
         })
 }
+//
+//
+//
+//
+// const getLeagueLogo = (req, res) => {
+//     leagueName = req.params.leagueName;
+//     return LeagueController.getLeagueLogo(leagueName)
+//         .then((leagueLogo) => {
+//             res.status(200).json({
+//                     leagueLogo
+//                 });
+//             })
+//         .catch((err) => {
+//             console.log(err.message);
+//             res.status(400).send(err);
+//         })
+// }
 
 
 module.exports = {
