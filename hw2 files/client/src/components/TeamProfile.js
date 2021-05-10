@@ -35,13 +35,15 @@ let dict = {
   'es La Liga' : 'La Liga',
   'it Serie A' : 'Serie A',
   'de Bundesliga' : 'Bundesliga',
-  'fr Ligue 1': 'Ligue 1'
+  'fr Ligue 1': 'Ligue 1',
+  'Europa League': 'Europa League'
   }
 
 export default function TeamProfile() {
   let { teamId } = useParams();
   const classes = useStyles();
   let history = useHistory();
+  const [leg, setLeg] = useState("No data this year");
   const [dominant, setDominant] = useState({b1: "Not Enough Games Played", b2: "Not Enough Games Played", b3: "Not Enough Games Played", b4: "Not Enough Games Played"
                                             ,w1: "Not Enough Games Played", w2: "Not Enough Games Played", w3: "Not Enough Games Played", w4: "Not Enough Games Played"});
   const [teamInfo, setTeamInfo] = useState([]);
@@ -188,6 +190,10 @@ export default function TeamProfile() {
       .then((apiTeamInfo) => {
         console.log(apiTeamInfo);
         setTeamInfo(apiTeamInfo);
+
+        if(apiTeamInfo.leaguesList.length > 0){
+        setLeg(dict[apiTeamInfo.leaguesList[0].league]);
+        }
 
         const x = apiTeamInfo.mostDominantAgainst;
         if(x.length > 3){
@@ -385,7 +391,7 @@ export default function TeamProfile() {
               <tbody>
                 <tr>
                   <td><strong>League:</strong></td>
-                  <td>{(teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].home_win_pct) == null ? <p>No data this year</p>: <p>{dict[teamInfo && teamInfo.leaguesList && teamInfo.leaguesList[0] && teamInfo.leaguesList[0].league]}</p>}</td>
+                  <td>{leg}</td>
                   <td><strong>Home Win %:</strong></td>
                   <td>{(teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].home_win_pct) == null ? <p>No data this year</p>: <p>{teamInfo && teamInfo.winPcts && teamInfo.winPcts[0] && teamInfo.winPcts[0].home_win_pct + "%"}</p>}</td>
                 </tr>

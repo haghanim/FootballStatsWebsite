@@ -2,7 +2,6 @@ import React from 'react';
 import '../style/Dashboard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
-import DashboardMovieRow from './DashboardMovieRow';
 import '../style/Player.css';
 import Paper from '@material-ui/core/Paper';
 import Table from 'react-bootstrap/Table';
