@@ -59,20 +59,7 @@ export default class App extends React.Component {
 							render={() => <League />}
 						/>
 
-						{/* Delete later */}
-						<Route
-							exact
-							path="/dashboard"
-							render={() => <Dashboard />}
-						/>
-						<Route
-							path="/recommendations"
-							render={() => <Recommendations />}
-						/>
-						<Route
-							path="/bestmovies"
-							render={() => <BestMovies />}
-						/>
+						
 					</Switch>
 				</Router>
 			</div>
