@@ -10,7 +10,9 @@
     padding:10px 20px 30px 20px;
     margin:0px auto;
     color:black;
+    margin-right: 13%;
     border-radius: 40px 40px;
+    width: 90%;
     background-color: #f0ececd7;
 }
 
@@ -84,8 +86,16 @@
     align-items: center;
   }
 
+  .let {
+    width:50%;
+    display: flex;
+    margin-left: 25%;
+    justify-content: center;
+    align-items: center;
+  }
+
   .hed {
-    width:35%;
+    width:90%;
     margin-left: 4%;
     padding-top:10px;
     padding-bottom:10px;
@@ -100,7 +110,7 @@
   }
 
   .led {
-    width:70%;
+    width:90%;
     margin-left: 4%;
     padding-top:10px;
     padding-bottom:10px;
