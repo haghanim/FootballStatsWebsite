@@ -21,6 +21,13 @@ import { useHistory } from "react-router-dom";
 import '../style/main.css';
 
 const JsonTable = require('ts-react-json-table');
+
+/**
+ * For display purposes, we map the position stats strings from the database 
+ * to a prettier formatted position stats string. This is the standard format for
+ * a position stat name and it makes it clearer for the client to understand the 
+ * player stat.
+ */
 const dict = {
     'tackles': 'Tackles',
     'succ_pressures' : 'Successful Pressures',
@@ -68,6 +75,16 @@ const useStyles = makeStyles((theme) => ({
 const Player = "Joe Soccer";
 
 
+/**
+   * Input: Data Object. 
+   * Function that takes in data from the API fetch and displays the data by assigning it 
+   * to components. This function displays these components. 
+   * 
+   * We call multiple subcomponents for visualization purposes. Furthermore we assign data to
+   * these components by using useState(). 
+   * 
+   * Outputs: Visuals and general HTML. 
+   */
 
 function PlayerProfile() {
     let { playerId } = useParams();
@@ -106,6 +123,11 @@ function PlayerProfile() {
                 if(apiPlayerInfo.playerStats.length > 0){
 
 
+                    /**
+                     * This reformats all column names and returns a json. This is similar to a dictionary,
+                     * but since we had to do a replaceAll, so we had to use JSON.parse() to clean/rename the  
+                     * columns. 
+                     */
                     var js = JSON.stringify(apiPlayerInfo.playerStats);
                     var jsf = JSON.parse(js.replaceAll("/90s_played", "").replaceAll("succ_dribbles", "Successful Dribbles").replaceAll("prog_receptions", "Progressive Receptions  ").replaceAll("npxG_per_Shot", "npxG Per Shot").replaceAll("season", "Season").replaceAll("team", "Team").replaceAll("league", "League").replaceAll("comp_passes_into_18_yd_box", "Passes Into 18yd Box").replaceAll("fouls_drawn", "Fouls Drawn").replaceAll("eng", "").replaceAll("pct_of_dribblers_tackled", "Dribblers Tackled %").replaceAll("succ_pressure_pct", "Successful Pressure %").replaceAll("prog_passes", "Progressive Passes").replaceAll("aerials_won_pct", "Aerials Won %").replaceAll("penalty_save_percentage", "Penalty Save %").replaceAll("stop_percentage", "Stop %").replaceAll("long_pass_completion_pct", "Long Pass Comp %").replaceAll("PSxG_difference", "PS xG Diff").replaceAll("defensive_actions", "Defensive Actions"));
 
@@ -148,6 +170,11 @@ function PlayerProfile() {
             })
     }, []);
 
+    /**
+   * HTML section of the file. This will utilize the local data object to display HTML sections specific
+   * to the player. Essentially this file dynamically displays the player profile info that we have access
+   * to after organization from the function above. 
+   */
     return (
         <div className="Dashboard">
 

@@ -39,6 +39,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+/**
+ * For display purposes, we map the league strings from the database 
+ * to a prettier formatted league string. This is the standard format for
+ * a league name.
+ */
 let dict = {
   'UCL' : 'Champions League',
   'eng Premier League' : 'Premier League',
@@ -49,6 +54,17 @@ let dict = {
   'Europa League': 'Europa League'
   }
 
+
+  /**
+   * Input: Data Object. 
+   * Function that takes in data from the API fetch and displays the data by assigning it 
+   * to components. This function displays these components. 
+   * 
+   * We call multiple subcomponents for visualization purposes. Furthermore we assign data to
+   * these components by using useState(). 
+   * 
+   * Outputs: Visuals and general HTML. 
+   */
 export default function TeamProfile() {
   let { teamId } = useParams();
   const classes = useStyles();
@@ -275,6 +291,9 @@ export default function TeamProfile() {
 
         if (apiTeamInfo.mostXgXaContributor.length >9){
 
+          /**
+           * Organizes the data object passed through.
+           */
         const names = [apiTeamInfo.mostXgXaContributor[0].name, apiTeamInfo.mostXgXaContributor[1].name, apiTeamInfo.mostXgXaContributor[2].name, apiTeamInfo.mostXgXaContributor[3].name, apiTeamInfo.mostXgXaContributor[4].name
                       , apiTeamInfo.mostXgXaContributor[5].name, apiTeamInfo.mostXgXaContributor[6].name, apiTeamInfo.mostXgXaContributor[7].name, apiTeamInfo.mostXgXaContributor[8].name, apiTeamInfo.mostXgXaContributor[9].name];
 
@@ -289,6 +308,9 @@ export default function TeamProfile() {
         , apiTeamInfo.mostXgXaContributor[5].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[6].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[7].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[8].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[9].percentXgXAContribution];
 
 
+          /**
+           * Sets the chart data to the data object for the chart visuals
+           */
                       setXg({
                         options: {
                           chart: {
@@ -378,6 +400,12 @@ export default function TeamProfile() {
       });
   }, [])
 
+
+  /**
+   * HTML section of the file. This will utilize the local data object to display HTML sections specific
+   * to the team. Essentially this file dynamically displays the team profile info that we have access
+   * to after organization from the function above. 
+   */
   return (
     <div className="Dashboard">
 

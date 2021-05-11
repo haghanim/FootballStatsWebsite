@@ -55,6 +55,10 @@ const tableIcons = {
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
+/** 
+ * States all of the on click actions. A click will display the data for the league
+ * that has been clicked
+ */ 
 export default class League extends React.Component {
   constructor(props) {
     super(props);
@@ -189,6 +193,9 @@ export default class League extends React.Component {
   };
 
 
+  /**
+	 * Creates a list of the buttons for all of the leagues  
+	 */
   componentDidMount() {
 
     var keywordsList = [{ kwd_name: "Champions League" }, { kwd_name: "Europa League" }, { kwd_name: "Premier League" }, { kwd_name: "Ligue 1" }, { kwd_name: "La Liga" }, { kwd_name: "Serie A" }, { kwd_name: "Bundesliga" }, ];
@@ -218,7 +225,11 @@ export default class League extends React.Component {
 
   };
 
-
+  /**
+   * HTML section of the file. This will utilize the local data object to display HTML sections specific
+   * to the league. Essentially this file dynamically displays the league profile info that we have access
+   * to after organization from the function above. 
+   */
   render() {
     return (
       <div className="Dashboard">
@@ -226,6 +237,8 @@ export default class League extends React.Component {
         <PageNavbar active="dashboard" />
 
         <br />
+
+        {/* Displays the select league dropdown */}
         <div className="container main-container">
           <div className="j3">
             <div className="let" ><h4>SELECT LEAGUE:</h4></div>
@@ -255,6 +268,7 @@ export default class League extends React.Component {
               </Grid>
           .
 
+             {/* Displays the historical league table */}
           <Grid container spacing={4} align="center" justify="right" alignItems="center">
                 <Grid item xs={5} borderRadius={16} borderColor="primary.main">
 
@@ -273,6 +287,8 @@ export default class League extends React.Component {
                         />
 
                 </Grid>
+
+                {/* Displays the home and away goals difference amongst teams table */}
                 <Grid item xs={7} borderRadius={16} borderColor="primary.main">
                   <Paper class="ted" ><h3 class="led"><strong> Home/Away Goal Differentials </strong></h3></Paper>
                   <MaterialTable
@@ -290,6 +306,8 @@ export default class League extends React.Component {
                         />
                 </Grid>
 
+                
+                {/* Displays the offensive stats for all teams in the league */}
                 <Grid item xs={13} borderRadius={16} borderColor="primary.main">
 
                   <Paper class="ted" ><h3 class="led"><strong> Offensive Stats </strong></h3></Paper>
@@ -315,8 +333,9 @@ export default class League extends React.Component {
                         />
 
                 </Grid>
-                <Grid item xs={13} borderRadius={16} borderColor="primary.main">
 
+                {/* Displays the defensive stats for all teams in the league */}
+                <Grid item xs={13} borderRadius={16} borderColor="primary.main">
                   <Paper class="ted" ><h3 class="led"><strong> Defensive Stats </strong></h3></Paper>
                   <MaterialTable
                             icons={tableIcons}

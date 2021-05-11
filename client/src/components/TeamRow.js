@@ -1,5 +1,5 @@
 /**
- * Frontend component that 
+ * Frontend component that displays a row of stats of a given team
  */
 
 import React from 'react';

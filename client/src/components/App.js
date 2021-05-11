@@ -21,6 +21,11 @@ import TeamProfile from './TeamProfile';
 
 export default class App extends React.Component {
 
+	/**
+	 * HTML section of the file. This will utilize the local data object to display HTML sections specific
+	 * to the App. Essentially this file dynamically displays the App profile info that we have access
+	 * to after organization from the function above. 
+	 */
 	render() {
 		return (
 			<div className="App">

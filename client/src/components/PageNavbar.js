@@ -1,3 +1,7 @@
+/**
+ * Displays the navbar for our webpage.
+ */
+
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/main.css';
@@ -12,6 +16,9 @@ export default class PageNavbar extends React.Component {
 		};
 	};
 
+	/**
+	 * Creates a list of the buttons for the navbar
+	 */
 	componentDidMount() {
 		const pageList = ['players', 'teams', 'leagues'];
 
@@ -28,6 +35,10 @@ export default class PageNavbar extends React.Component {
 		});
 	};
 
+	/**
+	 * HTML section of the file. This will display the navBar HTML that will be displayed
+	 * at the top of the website.
+	 */
 	render() {
 		return (
 			<div >

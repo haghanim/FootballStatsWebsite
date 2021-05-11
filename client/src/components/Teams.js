@@ -54,6 +54,8 @@ const tableIcons = {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
+/* Specifies the formating style
+*/
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -67,6 +69,12 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+
+  /**
+   * HTML section of the file. This will utilize the local data object to display HTML sections specific
+   * to the team. Essentially this file dynamically displays the team profile info that we have access
+   * to after organization from the function above. 
+   */
 function Teams() {
     const [teamsList, setTeamsList] = useState([]);
     const history = useHistory();
