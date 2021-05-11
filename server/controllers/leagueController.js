@@ -4,6 +4,7 @@ config.connectionLimit = 10;
 const connection = mysql.createPool(config);
 const MongoClient = require('mongodb').MongoClient;
 
+//Mogo query to return a given league's logo
 function getLeagueLogo(leagueName) {
     const uri = "mongodb+srv://admin:admin@football-db.vnhhi.mongodb.net/football_db?retryWrites=true&w=majority";
     const client = new MongoClient(uri, { useUnifiedTopology: true });
@@ -11,6 +12,7 @@ function getLeagueLogo(leagueName) {
     return client.connect().then(() => {
         return new Promise(async (resolve, reject) => {
             const database = client.db("football_db");
+            //query returns a cursor, so need to turn that into an array and return the result
             database.collection("league_logos").find({name: leagueName}).toArray(
                 function(err, documents) {
                     if(err) {
@@ -25,23 +27,10 @@ function getLeagueLogo(leagueName) {
 
 }
 
-async function getAllLeagues() {
-    var query = `
-    SELECT DISTINCT league
-    FROM Fixtures;
-    `;
-    return new Promise((resolve, reject) => {
-        connection.query(query, function (err, rows, fields) {
-            if (err) {
-                reject(new Error(err));
-            }
-            else {
-                resolve(rows);
-            }
-        });
-    })
-}
-
+/* SQL query to return, for every team in the selected league and for every season in our db,
+   (Goals scored at home - Goals scored against them at home)
+   (Goals scored away - Goals scored against them away)
+   and the difference in this */
 async function getHomeVsAwayGoalDifferential(leagueName) {
     var query = `
     WITH home_goal_diff AS (
@@ -78,6 +67,9 @@ async function getHomeVsAwayGoalDifferential(leagueName) {
     })
 }
 
+/* SQL query to return the cumulative league table for all teams in a given
+   league over all the seasons in our database. Specifically, a win gives 3
+   points, a draw gives 1, and a loss is 0 points */
 async function getHistoricalLeagueTable(leagueName) {
     var query = `
     WITH goals_diff_table AS (
@@ -136,6 +128,13 @@ async function getHistoricalLeagueTable(leagueName) {
     })
 }
 
+/* SQL query to return that computes team level offensive stats for a few
+   selected offensive stats within a given league over all seasons in our DB.
+   Specifically, we aggregate the offensive stats at the player level to
+   calculate them at the team level(i.e. we find the players on each team
+   in every season, find their offensive stat, then sum it all up, but in
+   such a way that accounts for their minutes players as a % of minutes played
+   of all outfield players). */
 async function getTeamOffensiveStats(leagueName) {
     var query = `
     WITH relevant_stats AS(
@@ -208,6 +207,13 @@ async function getTeamOffensiveStats(leagueName) {
     })
 }
 
+/* SQL query to return that computes team level defensive stats for a few
+   selected defensive stats within a given league over all seasons in our DB.
+   Specifically, we aggregate the defensive stats at the player level to
+   calculate them at the team level(i.e. we find the players on each team
+   in every season, find their defensive stat, then sum it all up, but in
+   such a way that accounts for their minutes players as a % of minutes played
+   of all outfield players). */
 async function getTeamDefensiveStats(leagueName) {
     var query = `
     WITH relevant_stats AS(
@@ -286,7 +292,6 @@ async function getTeamDefensiveStats(leagueName) {
 }
 
 module.exports = {
-    getAllLeagues,
     getLeagueLogo,
     getHomeVsAwayGoalDifferential,
     getHistoricalLeagueTable,

@@ -25,14 +25,11 @@ app.get('/players', playerRoutes.getAllPlayers);
 app.get('/players/profile/:playerId', playerRoutes.getPlayerProfile);
 
 /* ---- (Team Page) ---- */
-// app.get('/teams/:team_name', teamRoutes.getTeamLeague);
-
 app.get('/teams', teamRoutes.getAllTeams);
 
 app.post('/teams/profile/', teamRoutes.getTeamProfile);
 
-app.get('/leagues', leagueRoutes.getAllLeagues);
-
+/* ---- (League Page) ---- */
 app.get('/leagues/profile/:leagueName', leagueRoutes.getLeagueProfile);
 
 app.listen(8081, () => {

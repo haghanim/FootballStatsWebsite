@@ -3,6 +3,9 @@ const mysql = require('mysql');
 config.connectionLimit = 10;
 const connection = mysql.createPool(config);
 
+/* SQL query to get basic player info for every player in the DB. We get their
+   name, year born, nationality, and primary position, as well as the latest
+   team they have played on */
 async function getAllPlayers() {
     var query = `
     SELECT *
@@ -20,6 +23,9 @@ async function getAllPlayers() {
     })
 }
 
+/* SQL query to get basic player info for a given player in the DB. We get their
+   name, year born, nationality, and primary position, as well as the latest
+   team they have played on */
 async function getPlayerInfo(playerId) {
     const query = `
     SELECT *
@@ -37,6 +43,9 @@ async function getPlayerInfo(playerId) {
     })
 }
 
+/* SQL query to get basic player info for every player in the DB. We get their
+   name, year born, nationality, and primary position, as well as the latest
+   team they have played on */
 async function getRadarStats(playerId, position, secondary_position) {
     // List 6 stats for each positional radar
     const defenderStats = ['tackles', 'succ_pressures',
@@ -58,32 +67,34 @@ async function getRadarStats(playerId, position, secondary_position) {
     const wingerStats = ['succ_dribbles', 'xA',
         'npxG', 'prog_receptions', 'fouls_drawn', 'comp_passes_into_18_yd_box'];
 
-    // if player's position is midfielder, assign him midfieldersRadarStats... do this for all positions
+    // if player's position is midfielder, assign him midfielderStats... do this for all positions
     if ((position == 'DF' && secondary_position == 'FW') ||
         (position == 'FW' && secondary_position == 'DF') ||
-        (position == 'DF' && secondary_position == '')) {
+        (position == 'DF' && secondary_position == '')) { //defender
         positionRadarStats = defenderStats;
-    } else if (position == 'MF' && secondary_position == '') {
+    } else if (position == 'MF' && secondary_position == '') { //midfielder
         positionRadarStats = midfieldersRadarStats;
-    } else if (position == 'FW' && secondary_position == '') {
+    } else if (position == 'FW' && secondary_position == '') { //forward
         positionRadarStats = forwardStats;
     } else if ((position == 'DF' && secondary_position == 'MF') ||
-        (position == 'MF' && secondary_position == 'DF')) {
+        (position == 'MF' && secondary_position == 'DF')) {  //defensive midfielder
         positionRadarStats = defensiveMidfielderStats;
     } else if ((position == 'FW' && secondary_position == 'MF') ||
-        (position == 'MF' && secondary_position == 'FW')) {
+        (position == 'MF' && secondary_position == 'FW')) { //winger
         positionRadarStats = wingerStats;
-    } else { //else is a GK
+    } else { //else is a GK, so run GK specific query to return an array of all percentiles for each stat in the stat array above
         return Promise.all(goalkeeperStats.map((inputStat) => {
             return makeQueryGetPercentileForSelectedStatAndYear_GK(playerId, inputStat);
         }))
     }
 
+    // since not a goalkeeer, return an array of all percentiles for each stat in the stat array above
     return Promise.all(positionRadarStats.map((inputStat) => {
         return makeQueryGetPercentileForSelectedStatAndYear_Outfield(playerId, inputStat);
     }));
 }
 
+/* For a selected stat, return the given outfield player's percentile. */
 function makeQueryGetPercentileForSelectedStatAndYear_GK(playerId, inputStat) {
     const query = `WITH latest_season AS(
 		SELECT season
@@ -122,6 +133,7 @@ function makeQueryGetPercentileForSelectedStatAndYear_GK(playerId, inputStat) {
     })
 }
 
+/* For a selected stat, return the given goalkeeper's percentile. */
 function makeQueryGetPercentileForSelectedStatAndYear_Outfield(playerId, inputStat) {
     const query = `WITH selected_player_position AS(
         SELECT pp.primary_position, pp.secondary_position, pp.season
@@ -195,29 +207,31 @@ async function getStats(playerId, position, secondary_position) {
     // if player's position is midfielder, assign him midfieldersRadarStats... do this for all positions
     if ((position == 'DF' && secondary_position == 'FW') ||
         (position == 'FW' && secondary_position == 'DF') ||
-        (position == 'DF' && secondary_position == '')) {
+        (position == 'DF' && secondary_position == '')) { //defender
         positionStats = defenderStats;
-    } else if (position == 'MF' && secondary_position == '') {
+    } else if (position == 'MF' && secondary_position == '') { //midfielder
         positionStats = midfielderStats;
-    } else if (position == 'FW' && secondary_position == '') {
+    } else if (position == 'FW' && secondary_position == '') { //forward
         positionStats = forwardStats;
     } else if ((position == 'DF' && secondary_position == 'MF') ||
-        (position == 'MF' && secondary_position == 'DF')) {
+        (position == 'MF' && secondary_position == 'DF')) { //defensive midfielder
         positionStats = defensiveMidfielderStats;
     } else if ((position == 'FW' && secondary_position == 'MF') ||
-        (position == 'MF' && secondary_position == 'FW')) {
+        (position == 'MF' && secondary_position == 'FW')) { //winger
         positionStats = wingerStats;
-    } else { //else is a GK
+    } else {  //else is a GK, so run GK specific query to return an array of all the stats in the stat array above
         return Promise.all(goalkeeperStats.map((inputStat) => {
             return makeQueryGetStat_GK(playerId, inputStat);
         }));
     }
 
+    // since not a goalkeeer, return an array of all the stats in the stat array above
     return Promise.all(positionStats.map((inputStat) => {
         return makeQueryGetStat_Outfield(playerId, inputStat);
     }));
 }
 
+/* For a selected stat, return the given player's stat. */
 function makeQueryGetStat_Outfield(playerId, inputStat) {
     const query = `
     SELECT ppts.season, ppts.team, ppts.league, ${inputStat}
@@ -243,6 +257,7 @@ function makeQueryGetStat_Outfield(playerId, inputStat) {
     })
 }
 
+/* For a selected stat, return the given goalkeeper's stat. */
 function makeQueryGetStat_GK(playerId, inputStat) {
     const query = `
     SELECT ppts.season, ppts.team, ppts.league, ${inputStat}

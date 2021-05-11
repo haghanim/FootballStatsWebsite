@@ -11,6 +11,7 @@ const connection = mysql.createPool(config);
 /* ------------------- Route Handlers --------------- */
 /* -------------------------------------------------- */
 
+// route handler that runs query to get all teams, where user can select a given team
 const getAllTeams = (req, res) => {
     return TeamController.getAllTeams()
         .then((teamList) => {
@@ -21,9 +22,12 @@ const getAllTeams = (req, res) => {
         })
 };
 
+// route handler that runs queries once a given team is selected
 const getTeamProfile = (req, res) => {
     teamId = req.body.teamId;
     season = req.body.season;
+
+    //sequentially run all these queries then return all of their results
     return TeamController.getTeamLeagues(teamId)
         .then((leaguesList) => {
             return TeamController.getMostXgXaContributor(teamId)
@@ -38,6 +42,8 @@ const getTeamProfile = (req, res) => {
                                                 .then((recentGames) => {
                                                     return TeamController.getWinPcts(teamId, season)
                                                         .then((winPcts) => {
+
+                                                            // finally, return results from the queries run above
                                                             res.status(200).json({ leaguesList, mostXgXaContributor, mostProgressivePlayer, mostDominantAgainst, avgAge, recentGames, winPcts });
                                                         })
                                                 })

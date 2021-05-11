@@ -6,18 +6,11 @@ const mysql = require('mysql');
 config.connectionLimit = 10;
 const connection = mysql.createPool(config);
 
-const getAllLeagues = (req, res) => {
-    return LeagueController.getAllLeagues()
-        .then((leagueList) => {
-            res.status(200).json(leagueList);
-        })
-        .catch((err) => {
-            res.status(400).json({ message: err });
-        })
-}
-
+// route handler that runs queries once a given team is selected
 const getLeagueProfile = (req, res) => {
     leagueName = req.params.leagueName;
+
+    //sequentially run all these queries then return all of their results
     return LeagueController.getHomeVsAwayGoalDifferential(leagueName)
         .then((homeVsAwayGoalDifferential) => {
             return LeagueController.getHistoricalLeagueTable(leagueName)
@@ -28,6 +21,8 @@ const getLeagueProfile = (req, res) => {
                                 .then((teamDefensiveStats) => {
                                     return LeagueController.getLeagueLogo(leagueName)
                                         .then((leagueLogo) => {
+
+                                            // finally, return results from the queries run above
                                             res.status(200).json({
                                                 homeVsAwayGoalDifferential, historicalLeagueTable, teamOffensiveStats,
                                                 teamDefensiveStats, leagueLogo
@@ -42,26 +37,7 @@ const getLeagueProfile = (req, res) => {
             res.status(400).send(err);
         })
 }
-//
-//
-//
-//
-// const getLeagueLogo = (req, res) => {
-//     leagueName = req.params.leagueName;
-//     return LeagueController.getLeagueLogo(leagueName)
-//         .then((leagueLogo) => {
-//             res.status(200).json({
-//                     leagueLogo
-//                 });
-//             })
-//         .catch((err) => {
-//             console.log(err.message);
-//             res.status(400).send(err);
-//         })
-// }
-
 
 module.exports = {
-    getAllLeagues: getAllLeagues,
     getLeagueProfile: getLeagueProfile,
 };

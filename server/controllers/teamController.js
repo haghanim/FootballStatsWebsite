@@ -3,6 +3,7 @@ const mysql = require('mysql');
 config.connectionLimit = 10;
 const connection = mysql.createPool(config);
 
+/* SQL query to return all the teams in our DB */
 async function getAllTeams() {
     var query = `
     SELECT *
@@ -19,6 +20,8 @@ async function getAllTeams() {
     })
 }
 
+/* SQL query to return all the leagues a given team has been a part of
+   in our DB */
 async function getTeamLeagues(teamId) {
     var query = `
     SELECT DISTINCT t.name, league
@@ -37,6 +40,9 @@ async function getTeamLeagues(teamId) {
     })
 }
 
+/* SQL query to find, for a selected team's expected goals stat (xG),
+    which player contributes to that stat the most. We also do this
+    with their expected assists (xA) stat. */
 async function getMostXgXaContributor(teamId) {
     var query = `
     WITH teamHomeXG AS(
@@ -108,6 +114,10 @@ async function getMostXgXaContributor(teamId) {
     })
 }
 
+/* SQL query to find, in a given season and for a given team, which player
+   contributes most to "progressing" the ball upfield towards the opponent's
+   goal. Specifically, we look at their stats progressing the ball upfield
+   usinig both passes and also by dribbles. */
 async function getMostProgressivePlayer(teamId, season) {
     var query = `
     WITH team_outfielders AS(
@@ -163,6 +173,11 @@ async function getMostProgressivePlayer(teamId, season) {
     })
 }
 
+/* SQL query to find, for a given team, which other teams they are most and
+   least dominant against. We calculate this by which teams they score the most
+   goals against and which teams they concede the most goals against. We
+   calculate this over all the seasons in our database and over all games
+   in every league they have played in. */
 async function getMostDominantAgainst(teamId) {
     var query = `
     WITH goals_diff AS(
@@ -199,6 +214,9 @@ async function getMostDominantAgainst(teamId) {
     })
 }
 
+/* SQL query to find, for a given team and in a given season, what the average
+   age of the team's players is. We weight each player's age by their minutes
+   played for the team. */
 async function getAvgAge(teamId, season) {
     var query = `
     WITH team_outfielders AS(
@@ -247,6 +265,8 @@ async function getAvgAge(teamId, season) {
     })
 }
 
+/* SQL query to find, for a given team and in a given season, what their win
+   and draw rate is over all their games at home and away. */
 async function getWinPcts(teamId, season) {
     var query = `
     WITH goals_diff_table AS(
@@ -294,6 +314,8 @@ async function getWinPcts(teamId, season) {
     })
 }
 
+/* SQL query to find, for a given team, what their xG stat is in each of their
+   recent games so that we can take this data to plot on a graph. */
 async function get30RecentGames(teamId) {
     var query = `
     WITH teamHomeXG AS(
