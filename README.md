@@ -1,4 +1,7 @@
 # YAMN Soccer Analytics Project - Instructions for how to set up our project locally 
+
+We are Yuan, Alan, Mark, and Niko, and welcome to our app. YAMN allows you to analyze a variety of football statistics of the big 5 European Leagues + Champions and Europa league, and view analytics of players, teams, and each league as a whole.
+
 Take the following steps to set up web application:
 
 1. Cd into both the client and server folders, and run 'npm install'. This will download any dependencies we need for our application.
