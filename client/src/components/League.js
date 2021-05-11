@@ -75,7 +75,8 @@ export default class League extends React.Component {
       this.setState({
         name: "Premier League",
         country: "England",
-        stats: apiLeagueInfo
+        stats: apiLeagueInfo,
+        im: apiLeagueInfo.leagueLogo[0].img_src
       });
     })
 
@@ -90,7 +91,8 @@ export default class League extends React.Component {
       this.setState({
         name: "Europa League",
         country: "International",
-        stats: apiLeagueInfo
+        stats: apiLeagueInfo,
+        im: apiLeagueInfo.leagueLogo[0].img_src
       });
     })
 
@@ -105,7 +107,8 @@ export default class League extends React.Component {
       this.setState({
         name: "Champions League",
         country: "International",
-        stats: apiLeagueInfo
+        stats: apiLeagueInfo,
+        im: apiLeagueInfo.leagueLogo[0].img_src
       });
     })
 
@@ -120,7 +123,8 @@ export default class League extends React.Component {
       this.setState({
         name: "La Liga",
         country: "Spain",
-        stats: apiLeagueInfo
+        stats: apiLeagueInfo,
+        im: apiLeagueInfo.leagueLogo[0].img_src
       });
     })
 
@@ -135,7 +139,8 @@ export default class League extends React.Component {
       this.setState({
         name: "Ligue 1",
         country: "France",
-        stats: apiLeagueInfo
+        stats: apiLeagueInfo,
+        im: apiLeagueInfo.leagueLogo[0].img_src
       });
     })
 
@@ -150,7 +155,8 @@ export default class League extends React.Component {
       this.setState({
         name: "Bundesliga",
         country: "Germany",
-        stats: apiLeagueInfo
+        stats: apiLeagueInfo,
+        im: apiLeagueInfo.leagueLogo[0].img_src
       });
     })
 
@@ -165,7 +171,8 @@ export default class League extends React.Component {
       this.setState({
         name: "Serie A",
         country: "Italy",
-        stats: apiLeagueInfo
+        stats: apiLeagueInfo,
+        im: apiLeagueInfo.leagueLogo[0].img_src
       });
     })
 
@@ -195,7 +202,8 @@ export default class League extends React.Component {
           name: "Champions League",
           country: "International",
           stats: apiLeagueInfo,
-          keywords: keywordsDivs
+          keywords: keywordsDivs,
+          im: apiLeagueInfo.leagueLogo[0].img_src
         });
       })
 
@@ -222,15 +230,15 @@ export default class League extends React.Component {
           <div className="league-info-container">
             <div className="results-container" id="results">
               <Grid container spacing={4} align="center" justify="center" alignItems="center">
-                <Grid item xs={3} >
-                  <Paper class="ted" ><h4 class="hed"><strong>{this.state.name} Info </strong></h4></Paper>
+                <Grid item xs={4} >
+                  <Paper class="ted" ><h3 class="hed"><strong>{this.state.name} Info </strong></h3></Paper>
 
                   <Table striped bordered variant="light">
 
                     <tbody>
                       <tr>
                       <td colSpan= "3"> <img src= {this.state.im} className="photo" alt="new"/></td>
-                      <td><strong>Country:</strong><p>{this.state.country}</p></td>
+                      <td><p class = "vert"><strong>Country:</strong>  {this.state.country} </p> </td>
                         </tr>
                     </tbody>
                   </Table>

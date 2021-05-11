@@ -150,3 +150,8 @@
   .photo {
     height: 75px;
 }
+
+.vert {
+  margin-top: 20px;
+  top: 50%;
+}
