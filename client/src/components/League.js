@@ -1,11 +1,11 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
-import '../style/Player.css';
+import '../style/main.css';
 import Paper from '@material-ui/core/Paper';
 import Table from 'react-bootstrap/Table';
 import Grid from '@material-ui/core/Grid';
-import '../style/Player.css';
+import '../style/main.css';
 import api from '../api';
 import MaterialTable from "material-table";
 import { forwardRef } from 'react';
@@ -207,7 +207,7 @@ export default class League extends React.Component {
         <PageNavbar active="dashboard" />
 
         <br />
-        <div className="container league-container">
+        <div className="container main-container">
           <div className="j3">
             <div className="let" ><h4>SELECT LEAGUE:</h4></div>
             <div className="keywords-container">

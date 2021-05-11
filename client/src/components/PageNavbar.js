@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../style/Player.css';
+import '../style/main.css';
 import pic from './ball.png'
 
 export default class PageNavbar extends React.Component {
@@ -31,7 +31,7 @@ export default class PageNavbar extends React.Component {
 	render() {
 		return (
 			<div >
-				
+
 				<nav className="navbar ml-auto navbar-expand-lg navbar-light bg-light">
 				<img src = {pic} className="ball"/>
 			      <span className="bar" >Y </span>

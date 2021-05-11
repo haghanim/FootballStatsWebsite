@@ -8,34 +8,34 @@ import PageNavbar from './PageNavbar';
 import Table from 'react-bootstrap/Table';
 import ReactApexChart from "react-apexcharts";
 import { useHistory } from "react-router-dom";
-import '../style/Player.css';
+import '../style/main.css';
 
-const JsonTable = require('ts-react-json-table');   
+const JsonTable = require('ts-react-json-table');
 const dict = {
-    'tackles': 'Tackles', 
+    'tackles': 'Tackles',
     'succ_pressures' : 'Successful Pressures',
     'interceptions' : 'Interceptions',
     'aerials_won' : 'Aerials',
     'prog_passes' : 'Progressive Passes',
     'long_passes_comp': 'Long Passes Completed',
-    'succ_dribbles' : 'Successful Dribbles', 
+    'succ_dribbles' : 'Successful Dribbles',
     'xA': 'Expected Assists',
-    'prog_receptions' : 'Progressive Receptions', 
+    'prog_receptions' : 'Progressive Receptions',
     'npxG' : 'Non Penalty Expected Goals',
     'Shots': 'Shots',
     'long_passes_completed': 'Long Passes Comp. GK',
     'penalties_allowed': 'Penalties Allowed',
     'PSxG_difference': 'Post Shot xG - Actual',
     'SoTA' : 'Shots on Target Against',
-    'crosses_stopped' : 'Crosses Stopped', 
+    'crosses_stopped' : 'Crosses Stopped',
     'defensive_actions' : 'Defensive Actions',
-    'players_tackled_plus_interceptions' : 'Tackles + Interceptions', 
-    'comp_passes_leading_to_final_third' : 'Comp. Passes into Final 3rd', 
-    'tot_dist_traveled_by_comp_passes' : 'Dist. Traveled by Comp. Passes', 
-    'aerials_won' : 'Aerials Won', 
-    'loose_balls_recovered' : 'Loose Balls Recovered', 
-    'fouls_drawn' : 'Fouls Drawn', 
-    'comp_passes_into_18_yd_box' : 'Passes into Box', 
+    'players_tackled_plus_interceptions' : 'Tackles + Interceptions',
+    'comp_passes_leading_to_final_third' : 'Comp. Passes into Final 3rd',
+    'tot_dist_traveled_by_comp_passes' : 'Dist. Traveled by Comp. Passes',
+    'aerials_won' : 'Aerials Won',
+    'loose_balls_recovered' : 'Loose Balls Recovered',
+    'fouls_drawn' : 'Fouls Drawn',
+    'comp_passes_into_18_yd_box' : 'Passes into Box',
 };
 
 
@@ -83,8 +83,8 @@ function PlayerProfile() {
                 categories: ['n/a', 'n/a', 'n/a']
             }
         },
-    
-    
+
+
     })
 
     useEffect( () => {
@@ -120,10 +120,10 @@ function PlayerProfile() {
                             text: 'Player Stat Percentiles'
                         },
                         xaxis: {
-                            categories: [dict[Object.keys(apiPlayerInfo.radarStats[0])[0]], dict[Object.keys(apiPlayerInfo.radarStats[1])[0]], dict[Object.keys(apiPlayerInfo.radarStats[2])[0]], 
+                            categories: [dict[Object.keys(apiPlayerInfo.radarStats[0])[0]], dict[Object.keys(apiPlayerInfo.radarStats[1])[0]], dict[Object.keys(apiPlayerInfo.radarStats[2])[0]],
                             dict[Object.keys(apiPlayerInfo.radarStats[3])[0]], dict[Object.keys(apiPlayerInfo.radarStats[4])[0]], dict[Object.keys(apiPlayerInfo.radarStats[5])[0]]]
                         },
-                        yaxis: {show: false, min: 0, max: 100,}, 
+                        yaxis: {show: false, min: 0, max: 100,},
                         dataLabels: {
                             enabled: false,
                             background: {
@@ -132,8 +132,8 @@ function PlayerProfile() {
                             }
                           }
                     },
-                
-                
+
+
                 });}
             })
     }, []);
@@ -165,11 +165,11 @@ function PlayerProfile() {
                             </tbody>
                         </Table>
                     </Grid>
-                    
+
                     <Grid item xs={7}>
                         <Paper className={classes.paper}><h5><strong>Player Stats, per 90s played</strong></h5></Paper>
                         <JsonTable rows = {items} className = "jsonOdd" header = {false} />
-                        
+
                     </Grid>
                     <Grid item xs={4} className={classes.color}>
                         <div id="chart">

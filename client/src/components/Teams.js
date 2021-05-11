@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import '../style/Player.css';
+import '../style/main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
 import MaterialTable from "material-table";
@@ -77,7 +77,7 @@ function Teams() {
 
 
 
-            <br /><div className="container movies-container">
+            <br /><div className="container main-container">
             <div className={classes.root}>
             <Grid  spacing={5} align = "center" justify = "center" alignItems = "center">
       <Grid item xs={4}>

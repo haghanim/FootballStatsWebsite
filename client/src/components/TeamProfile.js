@@ -4,10 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Chart from "react-apexcharts";
-import '../style/Player.css';
+import '../style/main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
-import '../style/Player.css';
+import '../style/main.css';
 import Table from 'react-bootstrap/Table';
 import api from '../api';
 import { useHistory } from "react-router-dom";
@@ -231,7 +231,7 @@ export default function TeamProfile() {
                 }
               ]
             });
-          
+
         }
 
         if(apiTeamInfo.mostProgressivePlayer[0]!= null && apiTeamInfo.mostProgressivePlayer.length == 5){
@@ -262,22 +262,22 @@ export default function TeamProfile() {
           });
 
         }
-        
+
         if (apiTeamInfo.mostXgXaContributor.length >9){
 
         const names = [apiTeamInfo.mostXgXaContributor[0].name, apiTeamInfo.mostXgXaContributor[1].name, apiTeamInfo.mostXgXaContributor[2].name, apiTeamInfo.mostXgXaContributor[3].name, apiTeamInfo.mostXgXaContributor[4].name
                       , apiTeamInfo.mostXgXaContributor[5].name, apiTeamInfo.mostXgXaContributor[6].name, apiTeamInfo.mostXgXaContributor[7].name, apiTeamInfo.mostXgXaContributor[8].name, apiTeamInfo.mostXgXaContributor[9].name];
-        
+
         const xgvals = [apiTeamInfo.mostXgXaContributor[0].percentXgContribution, apiTeamInfo.mostXgXaContributor[1].percentXgContribution, apiTeamInfo.mostXgXaContributor[2].percentXgContribution, apiTeamInfo.mostXgXaContributor[3].percentXgContribution, apiTeamInfo.mostXgXaContributor[4].percentXgContribution
                       , apiTeamInfo.mostXgXaContributor[5].percentXgContribution, apiTeamInfo.mostXgXaContributor[6].percentXgContribution, apiTeamInfo.mostXgXaContributor[7].percentXgContribution, apiTeamInfo.mostXgXaContributor[8].percentXgContribution, apiTeamInfo.mostXgXaContributor[9].percentXgContribution];
 
         const xavals = [apiTeamInfo.mostXgXaContributor[0].percentXaContribution, apiTeamInfo.mostXgXaContributor[1].percentXaContribution, apiTeamInfo.mostXgXaContributor[2].percentXaContribution, apiTeamInfo.mostXgXaContributor[3].percentXaContribution, apiTeamInfo.mostXgXaContributor[4].percentXaContribution
                       , apiTeamInfo.mostXgXaContributor[5].percentXaContribution, apiTeamInfo.mostXgXaContributor[6].percentXaContribution, apiTeamInfo.mostXgXaContributor[7].percentXaContribution, apiTeamInfo.mostXgXaContributor[8].percentXaContribution, apiTeamInfo.mostXgXaContributor[9].percentXaContribution];
-                       
+
 
         const xgavals = [apiTeamInfo.mostXgXaContributor[0].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[1].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[2].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[3].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[4].percentXgXAContribution
         , apiTeamInfo.mostXgXaContributor[5].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[6].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[7].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[8].percentXgXAContribution, apiTeamInfo.mostXgXaContributor[9].percentXgXAContribution];
-         
+
 
                       setXg({
                         options: {
@@ -361,10 +361,10 @@ export default function TeamProfile() {
                       });
 
                     }
-                    
-                    
 
-        
+
+
+
       });
   }, [])
 
@@ -372,7 +372,7 @@ export default function TeamProfile() {
     <div className="Dashboard">
 
       <PageNavbar active="dashboard" />
-      
+
       <button type="button" class="btn btn-secondary pad" onClick={() => history.goBack() } >Go Back</button>
       <div className={classes.root}>
         <Grid container spacing={4} align="center" justify="center" alignItems="center">

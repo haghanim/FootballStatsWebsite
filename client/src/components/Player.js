@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../style/Player.css';
+import '../style/main.css';
 import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
@@ -65,7 +65,7 @@ function Players() {
     const classes = useStyles();
 
     useEffect(() => {
-        
+
         api.players.getAllPlayers()
             .then((apiPlayersList) => {
 
@@ -89,7 +89,7 @@ function Players() {
 
 
             <br />
-            <div className="container movies-container">
+            <div className="container main-container">
             <div className={classes.root}>
             <Grid  spacing={5} align = "center" justify = "center" alignItems = "center">
       <Grid item xs={8}>
@@ -134,4 +134,3 @@ function Players() {
 }
 
 export default Players;
-
