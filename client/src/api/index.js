@@ -1,3 +1,7 @@
+/**
+ * Registers the api pages and ensures errors are caught
+ */
+
 import * as players from './players';
 import * as teams from './teams';
 import * as leagues from './leagues'

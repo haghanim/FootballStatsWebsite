@@ -1,3 +1,12 @@
+/**
+ * Frontend component that handles the Teams page. This is where all the subcomponents
+ * are dealt with. This helps organize the high end HTML organization as well as organize 
+ * how the subcomponents are displayed on the page. 
+ * 
+ * This page is called from ../App.js given a certain URL and it returns an HTML page after 
+ * referencing subcomponents. 
+ */
+
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../style/main.css';

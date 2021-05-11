@@ -1,3 +1,10 @@
+/**
+ * Central app component which handles the first line of client interaction. 
+ * This app component reads in the URL and refers the client to a specific frontend 
+ * component based on the URL. App.js will organize the frontend components and 
+ * provide the connection between URL's and what is displayed on the frontend.
+ */
+
 import React from 'react';
 import {
 	BrowserRouter as Router,

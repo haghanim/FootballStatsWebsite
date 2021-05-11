@@ -1,3 +1,13 @@
+/**
+ * Frontend component that handles the Player Profile page. This is where all the subcomponents
+ * are dealt with. This helps organize the high end HTML organization as well as organize 
+ * how the subcomponents are displayed on the page. 
+ * 
+ * This page is called from ../App.js given a certain URL and it returns an HTML page after 
+ * referencing subcomponents. This paged is linked from the Players page after the client
+ * clicks on a specific Player. 
+ */
+
 import { useParams } from 'react-router';
 import React, { Component, useEffect, useState } from 'react';
 import api from '../api';
