@@ -80,6 +80,7 @@ export default class League extends React.Component {
 
   };
 
+  //Onclicks for each button which will render the leagues
   onClickP() {
 
     api.leagues.getLeagueProfile('eng Premier League')
@@ -210,7 +211,7 @@ export default class League extends React.Component {
     <button type="button" class="btn btn-primary pad" onClick = {this.onClickS}>Serie A</button>];
 
 
-
+    //Initializes the page with a call for the Champions League data
     api.leagues.getLeagueProfile('ucl')
       .then((apiLeagueInfo) => {
         console.log(apiLeagueInfo);

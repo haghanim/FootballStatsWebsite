@@ -114,6 +114,7 @@ function PlayerProfile() {
 
     })
 
+    //Calls the backend for player info
     useEffect( () => {
          api.players.getPlayerProfile({ playerId })
             .then((apiPlayerInfo) => {
@@ -129,12 +130,13 @@ function PlayerProfile() {
                      * columns. 
                      */
                     var js = JSON.stringify(apiPlayerInfo.playerStats);
-                    var jsf = JSON.parse(js.replaceAll("/90s_played", "").replaceAll("succ_dribbles", "Successful Dribbles").replaceAll("prog_receptions", "Progressive Receptions  ").replaceAll("npxG_per_Shot", "npxG Per Shot").replaceAll("season", "Season").replaceAll("team", "Team").replaceAll("league", "League").replaceAll("comp_passes_into_18_yd_box", "Passes Into 18yd Box").replaceAll("fouls_drawn", "Fouls Drawn").replaceAll("eng", "").replaceAll("pct_of_dribblers_tackled", "Dribblers Tackled %").replaceAll("succ_pressure_pct", "Successful Pressure %").replaceAll("prog_passes", "Progressive Passes").replaceAll("aerials_won_pct", "Aerials Won %").replaceAll("penalty_save_percentage", "Penalty Save %").replaceAll("stop_percentage", "Stop %").replaceAll("long_pass_completion_pct", "Long Pass Comp %").replaceAll("PSxG_difference", "PS xG Diff").replaceAll("defensive_actions", "Defensive Actions"));
+                    var jsf = JSON.parse(js.replaceAll("/90s_played", "").replaceAll("succ_dribbles", "Successful Dribbles").replaceAll("prog_receptions", "Progressive Receptions  ").replaceAll("npxG_per_Shot", "npxG Per Shot").replaceAll("season", "Season").replaceAll("team", "Team").replaceAll("league", "League").replaceAll("comp_passes_into_18_yd_box", "Passes Into 18yd Box").replaceAll("fouls_drawn", "Fouls Drawn").replaceAll("eng", "").replaceAll("pct_of_dribblers_tackled", "Dribblers Tackled %").replaceAll("succ_pressure_pct", "Successful Pressure %").replaceAll("prog_passes", "Progressive Passes").replaceAll("aerials_won_pct", "Aerials Won %").replaceAll("penalty_save_percentage", "Penalty Save %").replaceAll("stop_percentage", "Stop %").replaceAll("long_pass_completion_pct", "Long Pass Comp %").replaceAll("PSxG_difference", "PS xG Diff").replaceAll("long_pass_comp_pct", "Long Pass Comp %").replaceAll("defensive_actions", "Defensive Actions"));
 
                     setItems(jsf);
 
                 }
 
+                //sets the radar whenever the player info is called
                 if(apiPlayerInfo.radarStats[0] != null){
                 setRadar({
 

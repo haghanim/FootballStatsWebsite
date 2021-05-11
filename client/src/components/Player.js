@@ -81,6 +81,8 @@ function Players() {
     const [playersList, setPlayersList] = useState([]);
     const classes = useStyles();
 
+
+    //Calls the backend to return all player data
     useEffect(() => {
 
         api.players.getAllPlayers()
