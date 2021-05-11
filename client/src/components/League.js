@@ -24,6 +24,7 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
+import ReactDOM from "react-dom";
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -52,7 +53,8 @@ export default class League extends React.Component {
       keywords: [],
       name: "",
       country: "",
-      stats: {}
+      stats: {},
+      im: "https://yamn.s3.amazonaws.com/ucl.png"
     };
 
     this.onClickP = this.onClickP.bind(this);
@@ -220,18 +222,16 @@ export default class League extends React.Component {
           <div className="league-info-container">
             <div className="results-container" id="results">
               <Grid container spacing={4} align="center" justify="center" alignItems="center">
-                <Grid item xs={6} >
-                  <Paper class="ted" ><h3 class="hed"><strong>{this.state.name} Info </strong></h3></Paper>
+                <Grid item xs={3} >
+                  <Paper class="ted" ><h4 class="hed"><strong>{this.state.name} Info </strong></h4></Paper>
 
                   <Table striped bordered variant="light">
 
                     <tbody>
                       <tr>
-                        <td><strong>Country:</strong></td>
-                        <td>{this.state.country}</td>
-                        <td><strong>Average Age:</strong></td>
-                        <td>n/a</td>
-                      </tr>
+                      <td colSpan= "3"> <img src= {this.state.im} className="photo" alt="new"/></td>
+                      <td><strong>Country:</strong><p>{this.state.country}</p></td>
+                        </tr>
                     </tbody>
                   </Table>
                 </Grid>
